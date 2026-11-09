@@ -1,0 +1,236 @@
+{
+  "complete": true,
+  "all_checks_passed": true,
+  "checked_at_utc": "2026-11-09T13:52:23.969343+00:00",
+  "driver": "Individual actual invocations, including the completed profiled kernel run; scripts/check_stage3.py reproduces the full sequence from scratch.",
+  "checks": [
+    {
+      "name": "lean_version",
+      "passed": true,
+      "seconds": 0.06133069994393736,
+      "exit_code": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-w64-windows-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "--version"
+      ]
+    },
+    {
+      "name": "pinned_parser_runtime",
+      "passed": true,
+      "seconds": 0.07385289994999766,
+      "exit_code": 0,
+      "stdout": "{\"status\": \"verified\", \"commit\": \"27cec857a08a0ee0e1b41f5eb18c07467a0ce093\", \"files\": 14, \"bytes\": 244585, \"ply_version\": \"3.11\"}\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/vendor_mojom_parser.py",
+        "--check"
+      ]
+    },
+    {
+      "name": "original_six_kernel",
+      "passed": true,
+      "seconds": 0.8269389000488445,
+      "exit_code": 0,
+      "stdout": "'RepoProof.complete' does not depend on any axioms\n'RepoProof.exact_reachability' does not depend on any axioms\n'RepoProof.soundness_from_ranked_witnesses' does not depend on any axioms\n'RepoProof.ranked_exact_reachability' does not depend on any axioms\n'RepoProof.reachability_has_certificate' does not depend on any axioms\n'RepoProof.exact_dependents' does not depend on any axioms\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "formal/Reachability.lean"
+      ]
+    },
+    {
+      "name": "checker_kernel",
+      "passed": true,
+      "seconds": 0.8128133000573143,
+      "exit_code": 0,
+      "stdout": "'RepoProof.check_exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.member' does not depend on any axioms\n'RepoProof.rank' does not depend on any axioms\n'RepoProof.localCheck' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.check' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.all_split' depends on axioms: [propext]\n'RepoProof.indexCheck' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "formal/Checker.lean"
+      ]
+    },
+    {
+      "name": "chromium_kernel",
+      "passed": true,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "--profile",
+        "-o",
+        "formal/Chromium.olean",
+        "formal/Chromium.lean"
+      ],
+      "evidence": "verification/stage3-kernel.txt",
+      "scope": "Completed direct compiler invocation; process exit 0 observed in tool. Kernel timing below covers leaf checks, not a separate total process wall timer."
+    },
+    {
+      "name": "export",
+      "passed": true,
+      "seconds": 0.06802779994904995,
+      "exit_code": 0,
+      "stdout": "{'export_seconds': 0.020615699933841825}\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/export_stage3.py"
+      ]
+    },
+    {
+      "name": "export_repeat",
+      "passed": true,
+      "seconds": 0.06346600002143532,
+      "exit_code": 0,
+      "stdout": "{'export_seconds': 0.023242500028572977}\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/export_stage3.py"
+      ]
+    },
+    {
+      "name": "independent_full_binding",
+      "passed": true,
+      "seconds": 0.35157359996810555,
+      "exit_code": 0,
+      "stdout": "{\n  \"passed\": true,\n  \"nodes_compared\": 1864,\n  \"edges_compared\": 4419,\n  \"witnesses_compared\": 477,\n  \"root\": \"mojo/public/mojom/base/time.mojom\",\n  \"boundary\": \"External full-content comparison; not a formal exporter proof.\"\n}\n",
+      "stderr": "",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/review_stage3_binding.py"
+      ]
+    },
+    {
+      "name": "checker_execution",
+      "passed": true,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "--run",
+        "formal/RunChecker.lean"
+      ],
+      "seconds": 3.2785724,
+      "stdout": "true\nchecker_and_output_ms=1501\n",
+      "scope": "Observed direct invocation; VM execution and printing 1501ms; entire process 3.279s. Not kernel proof evidence."
+    },
+    {
+      "name": "python_and_lean_differential_tests",
+      "passed": true,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "tests": 67,
+      "seconds": 167.637,
+      "differential_cases": 1547,
+      "scope": "Unittest internal suite timer; final source representation, REPO_PROOF_LEAN set. Tool process exited 0. Agreement is testing, not refinement proof."
+    },
+    {
+      "name": "source_binding_and_edge_deletion_demo",
+      "passed": true,
+      "evidence": "verification/stage3-tampering.json",
+      "scope": "Completed separate invocation; modified graph accepted by Python graph checker and rejected by source binding."
+    }
+  ],
+  "axioms": {
+    "RepoProof.complete": [],
+    "RepoProof.exact_reachability": [],
+    "RepoProof.soundness_from_ranked_witnesses": [],
+    "RepoProof.ranked_exact_reachability": [],
+    "RepoProof.reachability_has_certificate": [],
+    "RepoProof.exact_dependents": [],
+    "RepoProof.check_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.member": [],
+    "RepoProof.rank": [],
+    "RepoProof.localCheck": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.check": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.all_split": [
+      "propext"
+    ],
+    "RepoProof.indexCheck": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Chromium.accepted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Chromium.exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "proof_leaf_timing": {
+    "leaves": 161,
+    "construction_ms_sum": 81,
+    "kernel_check_and_insert_ms_sum": 749257,
+    "resolution_ms": 1,
+    "scope": "Acceptance proof leaves only. Excludes finite-ID data proofs, final all_split assembly, parsing/imports, VM checker execution, and interrupted exploratory runs."
+  },
+  "trusted_boundary": [
+    "Lean kernel and listed standard logical axioms",
+    "Mojom parser and extraction",
+    "Git, manifest, hash assumptions and file IO",
+    "Python serialization and independent path mapping audit",
+    "Displayed answer binding; Python refinement is not proved"
+  ],
+  "source_sha256": {
+    "formal/Checker.lean": "da6fd997ea6bb00d8da509f0554b0d85e9e83de0a8c3ae20ddd709ecc64887f5",
+    "formal/Chromium.lean": "e9d138b432caab7138f95f53cffb5ecc2004006b7e89c8b9221338095c447191",
+    "formal/ProofTiming.lean": "d155a4676b8e7a6629e9fa829a61f036c71fcef2552e9acc701cc7c80bb11210",
+    "formal/Reachability.lean": "6e6e2d01edf9d6f3679213fafcb92934e5844e799f565c820d902d185f1e26dc",
+    "formal/RunChecker.lean": "d2fae905bfa64c2974ae6207965043bebcbfc193443c11614cb73add6a7132dd",
+    "scripts/check.py": "1eb1fd506d9ca625ebbf4c044e1c3c2bd4ad24ccc4c498e52b4f93d832a4336b",
+    "scripts/check_stage3.py": "3f683b8a61ee9d46e11691b9a8870475e91adad0e7879bb426da9058a7af7b8b",
+    "scripts/export_stage3.py": "35b36f9db0d3f93b3ba77764c9e6e323589adcd6acdd7b76515281d6650c3ac9",
+    "scripts/mojom_experiment.py": "8634a5e251381db57b0d6df87a6277467a8277a545db0d4d2849a4d0c8ab2641",
+    "scripts/prepare_corpus.py": "ecf4eee4a4431ba87073ba9758db5be5c66a32ef1625ca211a3c677a029339be",
+    "scripts/review_stage3_binding.py": "e92445810466fb9c4a112c25ebbacef30060a844df12cf9a2bc2d68ee866f97f",
+    "scripts/vendor_mojom_parser.py": "af66dbcbe1e42d55fb785d271feb8fcf149de6fc2daa79ff52bbf1ff4089c031",
+    "src/repo_proof/__init__.py": "9c6bb356a112e399534e1429dfb62b73fe9b6265b0b6d715a5a6a79ee9e52f75",
+    "src/repo_proof/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/repo_proof/checker.py": "c116f143d2e9a947940065aa31f09d5c1464523878a62c5ed4fa1f718c3b306e",
+    "src/repo_proof/cli.py": "92ed45ecb33ecc2ddfd08f67e88b12b4eaddfa471af672a52a822c73a6d43d50",
+    "src/repo_proof/corpus.py": "a11bdcfc2fc9da79a25677f584339b3046f3577914e0f1fe2fd5d476af717d5b",
+    "src/repo_proof/experiment.py": "8a99b135d8f65dd39a43342f9d8184426361ceda15fd64b4d4284c7ec5bca607",
+    "src/repo_proof/extraction.py": "a47bf20988015f052d75f7f37bfa9db6cdcf970029a46a9f8515835b621a681b",
+    "src/repo_proof/generator.py": "b52eb3fbed04a6b1b2c28b768dc3d877d233edd29f9fa58550d056b1309c7b9b",
+    "src/repo_proof/graph.py": "86bd0505071417ec3e651694f3bdc12ead453bf9821f2ab37ec7667312c99b18",
+    "src/repo_proof/instance.py": "f703b03effbc578dc22b6d1da18c3e9a17b51c11e8759aa0843dd509bf1db88c",
+    "src/repo_proof/lean_export.py": "85c369748f325d0b75dd7bfedda32aaea09a980516c7829e5e7912f45e6b84cd",
+    "src/repo_proof/mojom_parser.py": "ae6ba07ba79f07c3b63638ded845bbaffd0e073ffb627a3ddf7f0a30b9a38c54",
+    "tests/test_cli.py": "0cf52131e0a057f2ccb08172698f854967c3b1f0a41887e9882fbb3ae64a7321",
+    "tests/test_corpus.py": "ff68ced5c8ab4aa4dd47e0ecdc0d25687ac965746ca62f41259d6449cc3e31c2",
+    "tests/test_experiment.py": "af6ad8ff43175624ad9502f26364f0c5d170c81f5bf9cb98856467ec3be9adde",
+    "tests/test_extraction.py": "999a0319ba6ee0d2f785a88d9147d74928404b2e16393206701cc270ff96bfb0",
+    "tests/test_graph.py": "ebda8ee789dd6574d563d3c57f151b688098d9152a2b4c9c341c44b6f6670078",
+    "tests/test_instance.py": "29a91452c26e41b8dc70883f32e3a6688fb5e7a2dabb900a835dc76adc15200c",
+    "tests/test_lean_export.py": "0714b60000a864dd2c665248ea8b7f91ce13ff789abf3dd3d0b3e8228a18e52a",
+    "tests/test_mojom_parser.py": "f29a311ee065424ca6551c357682949cf83e7b8d113789a5ccb96795bb48f999",
+    "tests/test_stage3_binding.py": "d9f9ad11563fabae84ac37fc526473654fcff4421041e02a5a85754c0a3a2865"
+  }
+}

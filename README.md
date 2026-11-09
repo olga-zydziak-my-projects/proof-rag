@@ -1,4 +1,4 @@
-# Repo Proof Lab — etap 2
+# Repo Proof Lab — etap 3
 
 Prototyp wyszukiwania zależności w grafie, certyfikatu wyniku i niezależnego
 checkera. Zamrożony korpus Chromium ma deterministyczny manifest,
@@ -10,8 +10,13 @@ składniową i pierwsze zapytanie o `mojo/public/mojom/base/time.mojom`.
 - Generator zwraca korzeń oraz wszystkie węzły mające ścieżkę importów do niego.
 - Osobny checker nie wywołuje wyszukiwania generatora. Kontroluje rodziców,
   malejące rangi oraz domknięcie po wszystkich krawędziach grafu.
-- Sześć twierdzeń Lean dowodzi dokładności wyniku **względem dostarczonego grafu**.
-  Audyt nie wykazuje zależności od aksjomatów; znaczenie twierdzeń zachowano.
+- Wykonywalny, czysty checker Lean ma dowód `RepoProof.check_exact`:
+  akceptacja implikuje dokładność **względem dostarczonego grafu**.
+  Kernel sprawdził także `Chromium.accepted` i `Chromium.exact` dla pełnej
+  instancji 1 864 / 4 419 / 477, po niezależnym porównaniu wszystkich danych.
+  Sześć pierwotnych twierdzeń zachowano bez aksjomatów. Nowe dowody używają
+  wyłącznie standardowych `propext`, `Classical.choice`, `Quot.sound`;
+  nie dodano własnych aksjomatów ani `sorry`/`native_decide`.
 - Korpus zawiera kompletne metadane drzewa wskazanego commitu oraz oryginalne
   bajty 1 864 zwykłych plików `.mojom` i trzech plików referencyjnych parsera.
   To nie jest pełna lokalna kopia Chromium. DEPS, gitlinki i dowiązania nie są
@@ -30,7 +35,8 @@ składniową i pierwsze zapytanie o `mojo/public/mojom/base/time.mojom`.
   lecz nie jest niezależnym dowodem poprawności parsera. Przyjęcie certyfikatu
   przez Python nie uruchamia Lean dla tej instancji.
 
-Szczegóły: [wyniki etapu 2](docs/stage2-results.md),
+Szczegóły: [wyniki i pomiary etapu 3](docs/stage3-results.md),
+[wyniki etapu 2](docs/stage2-results.md),
 [granica formalnej gwarancji](docs/stage2-formal-boundary.md),
 [wyniki etapu 1](docs/stage1-results.md) i [formalny rdzeń](formal/README.md).
 
@@ -44,12 +50,18 @@ dystrybucja wheel nie jest częścią tego etapu. PowerShell w katalogu projektu
 ```powershell
 $py = 'C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
 $lean = 'C:\Users\User\Documents\Codex\2026-11-08\nie\work\toolchains\lean-4.35.0-windows\bin\lean.exe'
-& $py scripts/check.py --lean $lean
+& $py scripts/check_stage3.py --lean $lean
 ```
 
-Raport `verification/latest.json` zawiera wyniki testów, wersję Lean, audyt
-sześciu twierdzeń, demo manipulacji i skróty kodu. Testy obejmują wszystkie
-512 grafów skierowanych o trzech węzłach, po trzy korzenie: 1 536 przypadków.
+Raport `verification/stage3-checks.json` zawiera audyty twierdzeń, pełne
+porównanie danych, testy, pomiary i skróty kodu. Pełna kontrola instancji
+przez kernel może trwać kilkanaście minut; sprawdzone rozbicie obejmuje
+wszystkie węzły i krawędzie. Osobne wykonanie `lean --run` nie jest dowodem.
+Końcowy zestaw ma 67 testów; 1 547 porównań Python–Lean obejmuje wszystkie
+512 grafów o trzech węzłach dla trzech korzeni oraz uszkodzone świadki,
+rangi z przerwami i podmiany danych. To testy różnicowe, nie dowód zgodności
+implementacji Python z Lean. Dawne podstawowe sprawdzenia nadal wykonuje
+`scripts/check.py --lean $lean`, z raportem `verification/latest.json`.
 
 ## Zapytanie Mojom i weryfikacja od źródeł
 
@@ -171,7 +183,9 @@ wznowienie, porzucony `.part`, uszkodzone skróty i pominięte wpisy.
 
 ## Następny krok
 
-Rozwinąć dowód związku oryginalnych bajtów, parsowania, relacji importów i
-implementacji checkera z twierdzeniem Lean. Powtarzalne pomiary z etapu 2
+Rozwinąć dowód związku oryginalnych bajtów, parsowania, relacji importów,
+serializacji i wyświetlanego wyniku z danymi Lean. Checker Lean i konkretna
+instancja są sprawdzone; ekstrakcja oraz zgodność Pythona pozostają poza
+dowodem. Powtarzalne pomiary z etapu 2
 stanowią punkt odniesienia dla późniejszych eksperymentów; Soufflé, Magic Sets
 i LLM nie zostały dodane.

@@ -1,0 +1,322 @@
+proof_construction_ms=1; kernel_check_and_insert_ms=3
+proof_construction_ms=0; kernel_check_and_insert_ms=310
+proof_construction_ms=1; kernel_check_and_insert_ms=634
+proof_construction_ms=1; kernel_check_and_insert_ms=729
+proof_construction_ms=1; kernel_check_and_insert_ms=1105
+proof_construction_ms=1; kernel_check_and_insert_ms=1712
+proof_construction_ms=1; kernel_check_and_insert_ms=1508
+proof_construction_ms=1; kernel_check_and_insert_ms=2262
+proof_construction_ms=0; kernel_check_and_insert_ms=2174
+proof_construction_ms=1; kernel_check_and_insert_ms=3264
+proof_construction_ms=1; kernel_check_and_insert_ms=5629
+proof_construction_ms=0; kernel_check_and_insert_ms=4808
+proof_construction_ms=0; kernel_check_and_insert_ms=4617
+proof_construction_ms=1; kernel_check_and_insert_ms=6694
+proof_construction_ms=1; kernel_check_and_insert_ms=5342
+proof_construction_ms=1; kernel_check_and_insert_ms=5036
+proof_construction_ms=0; kernel_check_and_insert_ms=8709
+proof_construction_ms=0; kernel_check_and_insert_ms=8314
+proof_construction_ms=1; kernel_check_and_insert_ms=7726
+proof_construction_ms=1; kernel_check_and_insert_ms=7375
+proof_construction_ms=1; kernel_check_and_insert_ms=8716
+proof_construction_ms=0; kernel_check_and_insert_ms=13045
+proof_construction_ms=1; kernel_check_and_insert_ms=11406
+proof_construction_ms=0; kernel_check_and_insert_ms=11730
+proof_construction_ms=1; kernel_check_and_insert_ms=8791
+proof_construction_ms=0; kernel_check_and_insert_ms=11583
+proof_construction_ms=0; kernel_check_and_insert_ms=12871
+proof_construction_ms=0; kernel_check_and_insert_ms=12582
+proof_construction_ms=0; kernel_check_and_insert_ms=13619
+proof_construction_ms=0; kernel_check_and_insert_ms=12828
+proof_construction_ms=1; kernel_check_and_insert_ms=14776
+proof_construction_ms=0; kernel_check_and_insert_ms=9665
+proof_construction_ms=0; kernel_check_and_insert_ms=12336
+proof_construction_ms=0; kernel_check_and_insert_ms=62
+proof_construction_ms=0; kernel_check_and_insert_ms=219
+proof_construction_ms=0; kernel_check_and_insert_ms=270
+proof_construction_ms=1; kernel_check_and_insert_ms=608
+proof_construction_ms=0; kernel_check_and_insert_ms=371
+proof_construction_ms=1; kernel_check_and_insert_ms=443
+proof_construction_ms=1; kernel_check_and_insert_ms=575
+proof_construction_ms=1; kernel_check_and_insert_ms=750
+proof_construction_ms=0; kernel_check_and_insert_ms=743
+proof_construction_ms=0; kernel_check_and_insert_ms=859
+proof_construction_ms=1; kernel_check_and_insert_ms=1050
+proof_construction_ms=0; kernel_check_and_insert_ms=1025
+proof_construction_ms=0; kernel_check_and_insert_ms=1012
+proof_construction_ms=0; kernel_check_and_insert_ms=1127
+proof_construction_ms=0; kernel_check_and_insert_ms=1254
+proof_construction_ms=1; kernel_check_and_insert_ms=1252
+proof_construction_ms=1; kernel_check_and_insert_ms=1489
+proof_construction_ms=1; kernel_check_and_insert_ms=1554
+proof_construction_ms=1; kernel_check_and_insert_ms=1554
+proof_construction_ms=1; kernel_check_and_insert_ms=1455
+proof_construction_ms=1; kernel_check_and_insert_ms=1811
+proof_construction_ms=0; kernel_check_and_insert_ms=1844
+proof_construction_ms=1; kernel_check_and_insert_ms=1965
+proof_construction_ms=1; kernel_check_and_insert_ms=1826
+proof_construction_ms=1; kernel_check_and_insert_ms=2057
+proof_construction_ms=1; kernel_check_and_insert_ms=2055
+proof_construction_ms=1; kernel_check_and_insert_ms=2114
+proof_construction_ms=1; kernel_check_and_insert_ms=2145
+proof_construction_ms=0; kernel_check_and_insert_ms=2053
+proof_construction_ms=0; kernel_check_and_insert_ms=2603
+proof_construction_ms=1; kernel_check_and_insert_ms=2731
+proof_construction_ms=1; kernel_check_and_insert_ms=3120
+proof_construction_ms=0; kernel_check_and_insert_ms=2774
+proof_construction_ms=0; kernel_check_and_insert_ms=3139
+proof_construction_ms=0; kernel_check_and_insert_ms=2866
+proof_construction_ms=1; kernel_check_and_insert_ms=3234
+proof_construction_ms=0; kernel_check_and_insert_ms=2959
+proof_construction_ms=1; kernel_check_and_insert_ms=3079
+proof_construction_ms=0; kernel_check_and_insert_ms=3771
+proof_construction_ms=1; kernel_check_and_insert_ms=3398
+proof_construction_ms=0; kernel_check_and_insert_ms=3307
+proof_construction_ms=1; kernel_check_and_insert_ms=3417
+proof_construction_ms=1; kernel_check_and_insert_ms=3594
+proof_construction_ms=1; kernel_check_and_insert_ms=3506
+proof_construction_ms=0; kernel_check_and_insert_ms=3712
+proof_construction_ms=0; kernel_check_and_insert_ms=3484
+proof_construction_ms=1; kernel_check_and_insert_ms=3715
+proof_construction_ms=0; kernel_check_and_insert_ms=3760
+proof_construction_ms=0; kernel_check_and_insert_ms=3603
+proof_construction_ms=1; kernel_check_and_insert_ms=3915
+proof_construction_ms=1; kernel_check_and_insert_ms=3838
+proof_construction_ms=1; kernel_check_and_insert_ms=3840
+proof_construction_ms=0; kernel_check_and_insert_ms=3852
+proof_construction_ms=1; kernel_check_and_insert_ms=4132
+proof_construction_ms=0; kernel_check_and_insert_ms=4213
+proof_construction_ms=0; kernel_check_and_insert_ms=4403
+proof_construction_ms=1; kernel_check_and_insert_ms=4195
+proof_construction_ms=0; kernel_check_and_insert_ms=4600
+proof_construction_ms=0; kernel_check_and_insert_ms=4368
+proof_construction_ms=0; kernel_check_and_insert_ms=4412
+proof_construction_ms=0; kernel_check_and_insert_ms=4662
+proof_construction_ms=0; kernel_check_and_insert_ms=4315
+proof_construction_ms=0; kernel_check_and_insert_ms=4486
+proof_construction_ms=0; kernel_check_and_insert_ms=4260
+proof_construction_ms=0; kernel_check_and_insert_ms=4167
+proof_construction_ms=1; kernel_check_and_insert_ms=4501
+proof_construction_ms=1; kernel_check_and_insert_ms=4601
+proof_construction_ms=1; kernel_check_and_insert_ms=5087
+proof_construction_ms=1; kernel_check_and_insert_ms=4787
+proof_construction_ms=1; kernel_check_and_insert_ms=4900
+proof_construction_ms=1; kernel_check_and_insert_ms=4795
+proof_construction_ms=0; kernel_check_and_insert_ms=5199
+proof_construction_ms=1; kernel_check_and_insert_ms=5275
+proof_construction_ms=1; kernel_check_and_insert_ms=5061
+proof_construction_ms=0; kernel_check_and_insert_ms=5145
+proof_construction_ms=0; kernel_check_and_insert_ms=5234
+proof_construction_ms=0; kernel_check_and_insert_ms=5075
+proof_construction_ms=1; kernel_check_and_insert_ms=5279
+proof_construction_ms=0; kernel_check_and_insert_ms=5736
+proof_construction_ms=0; kernel_check_and_insert_ms=4970
+proof_construction_ms=0; kernel_check_and_insert_ms=5177
+proof_construction_ms=0; kernel_check_and_insert_ms=5820
+proof_construction_ms=1; kernel_check_and_insert_ms=5899
+proof_construction_ms=1; kernel_check_and_insert_ms=5606
+proof_construction_ms=1; kernel_check_and_insert_ms=5427
+proof_construction_ms=1; kernel_check_and_insert_ms=5680
+proof_construction_ms=0; kernel_check_and_insert_ms=5883
+proof_construction_ms=1; kernel_check_and_insert_ms=5692
+proof_construction_ms=1; kernel_check_and_insert_ms=6186
+proof_construction_ms=1; kernel_check_and_insert_ms=5693
+proof_construction_ms=1; kernel_check_and_insert_ms=5805
+proof_construction_ms=0; kernel_check_and_insert_ms=5764
+proof_construction_ms=0; kernel_check_and_insert_ms=5982
+proof_construction_ms=1; kernel_check_and_insert_ms=6273
+proof_construction_ms=0; kernel_check_and_insert_ms=5804
+proof_construction_ms=1; kernel_check_and_insert_ms=6203
+proof_construction_ms=0; kernel_check_and_insert_ms=6615
+proof_construction_ms=1; kernel_check_and_insert_ms=6654
+proof_construction_ms=1; kernel_check_and_insert_ms=6285
+proof_construction_ms=0; kernel_check_and_insert_ms=5990
+proof_construction_ms=1; kernel_check_and_insert_ms=6048
+proof_construction_ms=0; kernel_check_and_insert_ms=6158
+proof_construction_ms=1; kernel_check_and_insert_ms=6763
+proof_construction_ms=1; kernel_check_and_insert_ms=6130
+proof_construction_ms=0; kernel_check_and_insert_ms=6337
+proof_construction_ms=0; kernel_check_and_insert_ms=6764
+proof_construction_ms=1; kernel_check_and_insert_ms=7018
+proof_construction_ms=1; kernel_check_and_insert_ms=6970
+proof_construction_ms=1; kernel_check_and_insert_ms=6468
+proof_construction_ms=1; kernel_check_and_insert_ms=6102
+proof_construction_ms=0; kernel_check_and_insert_ms=5575
+proof_construction_ms=0; kernel_check_and_insert_ms=4822
+proof_construction_ms=1; kernel_check_and_insert_ms=5183
+proof_construction_ms=0; kernel_check_and_insert_ms=5618
+proof_construction_ms=1; kernel_check_and_insert_ms=5340
+proof_construction_ms=0; kernel_check_and_insert_ms=5552
+proof_construction_ms=0; kernel_check_and_insert_ms=4797
+proof_construction_ms=0; kernel_check_and_insert_ms=4808
+proof_construction_ms=0; kernel_check_and_insert_ms=4811
+proof_construction_ms=1; kernel_check_and_insert_ms=4687
+proof_construction_ms=0; kernel_check_and_insert_ms=4709
+proof_construction_ms=0; kernel_check_and_insert_ms=4807
+proof_construction_ms=1; kernel_check_and_insert_ms=4943
+proof_construction_ms=0; kernel_check_and_insert_ms=4785
+proof_construction_ms=0; kernel_check_and_insert_ms=4909
+proof_construction_ms=0; kernel_check_and_insert_ms=4773
+proof_construction_ms=0; kernel_check_and_insert_ms=4793
+proof_construction_ms=0; kernel_check_and_insert_ms=4633
+type checking took 310ms
+type checking took 634ms
+type checking took 730ms
+type checking took 1.11s
+type checking took 1.71s
+type checking took 1.51s
+type checking took 2.26s
+type checking took 2.17s
+type checking took 3.26s
+type checking took 5.63s
+type checking took 4.81s
+type checking took 4.62s
+type checking took 6.69s
+type checking took 5.34s
+type checking took 5.04s
+type checking took 8.71s
+type checking took 8.31s
+type checking took 7.73s
+type checking took 7.38s
+type checking took 8.72s
+type checking took 13s
+type checking took 11.4s
+type checking took 11.7s
+type checking took 8.79s
+type checking took 11.6s
+type checking took 12.9s
+type checking took 12.6s
+type checking took 13.6s
+type checking took 12.8s
+type checking took 14.8s
+type checking took 9.66s
+type checking took 12.3s
+type checking took 218ms
+type checking took 269ms
+type checking took 608ms
+type checking took 371ms
+type checking took 442ms
+type checking took 575ms
+type checking took 750ms
+type checking took 742ms
+type checking took 858ms
+type checking took 1.05s
+type checking took 1.02s
+type checking took 1.01s
+type checking took 1.13s
+type checking took 1.25s
+type checking took 1.25s
+type checking took 1.49s
+type checking took 1.55s
+type checking took 1.55s
+type checking took 1.46s
+type checking took 1.81s
+type checking took 1.84s
+type checking took 1.96s
+type checking took 1.83s
+type checking took 2.06s
+type checking took 2.05s
+type checking took 2.11s
+type checking took 2.15s
+type checking took 2.05s
+type checking took 2.6s
+type checking took 2.73s
+type checking took 3.12s
+type checking took 2.77s
+type checking took 3.14s
+type checking took 2.87s
+type checking took 3.23s
+type checking took 2.96s
+type checking took 3.08s
+type checking took 3.77s
+type checking took 3.4s
+type checking took 3.31s
+type checking took 3.42s
+type checking took 3.59s
+type checking took 3.51s
+type checking took 3.71s
+type checking took 3.48s
+type checking took 3.72s
+type checking took 3.76s
+type checking took 3.6s
+type checking took 3.91s
+type checking took 3.84s
+type checking took 3.84s
+type checking took 3.85s
+type checking took 4.13s
+type checking took 4.21s
+type checking took 4.4s
+type checking took 4.2s
+type checking took 4.6s
+type checking took 4.37s
+type checking took 4.41s
+type checking took 4.66s
+type checking took 4.31s
+type checking took 4.49s
+type checking took 4.26s
+type checking took 4.17s
+type checking took 4.5s
+type checking took 4.6s
+type checking took 5.09s
+type checking took 4.79s
+type checking took 4.9s
+type checking took 4.79s
+type checking took 5.2s
+type checking took 5.28s
+type checking took 5.06s
+type checking took 5.14s
+type checking took 5.23s
+type checking took 5.08s
+type checking took 5.28s
+type checking took 5.74s
+type checking took 4.97s
+type checking took 5.18s
+type checking took 5.82s
+type checking took 5.9s
+type checking took 5.61s
+type checking took 5.43s
+type checking took 5.68s
+type checking took 5.88s
+type checking took 5.69s
+type checking took 6.19s
+type checking took 5.69s
+type checking took 5.81s
+type checking took 5.76s
+type checking took 5.98s
+type checking took 6.27s
+type checking took 5.8s
+type checking took 6.2s
+type checking took 6.61s
+type checking took 6.65s
+type checking took 6.28s
+type checking took 5.99s
+type checking took 6.05s
+type checking took 6.16s
+type checking took 6.76s
+type checking took 6.13s
+type checking took 6.34s
+type checking took 6.76s
+type checking took 7.02s
+type checking took 6.97s
+type checking took 6.47s
+type checking took 6.1s
+type checking took 5.57s
+type checking took 4.82s
+type checking took 5.18s
+type checking took 5.62s
+type checking took 5.34s
+type checking took 5.55s
+type checking took 4.8s
+type checking took 4.81s
+type checking took 4.81s
+type checking took 4.69s
+type checking took 4.71s
+type checking took 4.81s
+type checking took 4.94s
+type checking took 4.78s
+type checking took 4.91s
+type checking took 4.77s
+type checking took 4.79s
+type checking took 4.63s
+'Chromium.accepted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Chromium.exact' depends on axioms: [propext, Classical.choice, Quot.sound]

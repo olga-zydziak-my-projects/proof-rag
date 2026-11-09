@@ -1,87 +1,60 @@
-# Formalny rdzeń osiągalności
+# Formalny rdzeń i wykonywalny checker
 
-`Reachability.lean` definiuje skierowany graf `Edge`, wierzchołek początkowy
-`root`, osiągalność przez skończoną ścieżkę `Reach` i kandydacki zbiór `R`.
-Ścieżka długości zero jest dozwolona, więc wynik obejmuje sam `root`.
+Lean 4.35.0, `Std`, bez Mathlib.
 
-Twierdzenie `RepoProof.exact_reachability` ma postać:
+- `Reachability.lean`: sześć pierwotnych twierdzeń, w tym `exact_dependents`.
+- `Checker.lean`: skończony graf `Fin n`, certyfikat jako skończona funkcja, czysty Boolean
+  `check`, dowód `check_exact` oraz udowodnione rozbicie `all_split`.
+- `ProofTiming.lean`: konstrukcja termu przez `mkDecideProof` i synchroniczne
+  `mkAuxLemma`, jak w `decide +kernel`; osobne pomiary konstrukcji i kontroli
+  kernela wraz z dodaniem pomocniczego lematu.
+- `Chromium.lean`: pełna deterministyczna tabela ścieżek, graf i certyfikat
+  etapu 2 oraz cele `Chromium.accepted` i `Chromium.exact`.
+- `RunChecker.lean`: osobne wykonanie checkera w VM Lean. Wynik programu
+  nie zastępuje dowodu sprawdzanego przez kernel.
 
-```text
-Certificate Edge root R → ∀ v, (R v ↔ Reach Edge root v)
+Z katalogu projektu:
+
+```powershell
+$env:LEAN_PATH = (Resolve-Path formal).Path
+& $lean -o formal/Reachability.olean formal/Reachability.lean
+& $lean -o formal/Checker.olean formal/Checker.lean
+& $lean -o formal/ProofTiming.olean formal/ProofTiming.lean
+& $py scripts/export_stage3.py
+& $py scripts/review_stage3_binding.py
+& $lean -o formal/Chromium.olean formal/Chromium.lean
+& $lean --run formal/RunChecker.lean
 ```
 
-Certyfikat wymaga trzech osobnych obowiązków:
+Pełne sprawdzenia, testy, demonstrację źródłową i raport wykonuje
+`& $py scripts/check_stage3.py --lean $lean`. `$lean` i `$py` ustaw jak w
+[głównym README](../README.md). Stan faktycznego uruchomienia, audyty i pomiary
+są opisane w [wynikach etapu 3](../docs/stage3-results.md).
 
-1. `root_mem`: `root` należy do `R`.
-2. `sound`: każdy element `R` ma dowód osiągalności w podanym grafie.
-3. `closed`: dla każdej krawędzi grafu wychodzącej z elementu `R`, jej koniec
-   również należy do `R`.
+Akceptacja implikuje dokładność względem dostarczonego grafu. Korzeń jest
+niezależnym argumentem, krawędź biegnie importer → importowany, a wynik
+zawiera korzeń. Rodzice muszą należeć do wyniku, mieć rzeczywistą krawędź
+i ściśle mniejszą naturalną rangę. Kontrola domknięcia obejmuje całą listę
+krawędzi; kontrola świadków obejmuje wszystkie `Fin n` przez `List.range n`
+i sprawdzany warunek `i < n`. Nie wymagamy
+najkrótszych ścieżek ani kolejnych rang. Poprawny zbiór z niepoprawnymi
+świadkami jest odrzucany.
 
-Dowód kompletności jest indukcją po ścieżce. Nie wymaga skończoności grafu;
-skończoność będzie potrzebna implementacji, która wylicza i sprawdza certyfikat.
-`reachability_has_certificate` pokazuje, że warunki spełnia rzeczywisty zbiór
-osiągalnych wierzchołków.
+Certyfikat `Fin n → Option Witness` ma dokładnie jedną pozycję na węzeł. `none` oznacza brak
+w wyniku. Korzeń ma świadka `(root, 0)`, co koduje Pythonowe `(null, 0)`.
+Lista krawędzi w modelu może powtarzać krawędź; matematyczna relacja jest
+przynależnością do listy i dowód nie wymaga jej unikalności. Zewnętrzny
+format JSON jest ściślejszy: walidator eksportu odrzuca duplikaty krawędzi,
+węzłów i świadków, błędne rekordy i identyfikatory oraz ujemne/bool rangi.
+Twierdzenie o danych Lean nie jest dowodem poprawności tego walidatora.
 
-## Świadkowie rodziców i rangi
+Dowód instancji rozbija listy wierzchołków i krawędzi na części do 64 elementów
+przez `all_split`. Kontrole nie są pomijane. Nie ma `native_decide`, własnych
+aksjomatów ani nieukończonych dowodów. Sześć pierwotnych twierdzeń ma pusty
+audyt aksjomatów. Nowe deklaracje mogą używać standardowych `propext`,
+`Classical.choice`, `Quot.sound`; dokładne listy wypisuje Lean.
 
-`soundness_from_ranked_witnesses` udowadnia obowiązek `sound` z warunków
-lokalnych, odpowiadających certyfikatowi z rodzicami i rangami. Każdy element
-`v` zbioru `R` musi być korzeniem albo posiadać rodzica `p`, dla którego:
-
-- `p` należy do `R`;
-- istnieje krawędź `Edge p v`;
-- `rank p < rank v`, gdzie rangi są liczbami naturalnymi.
-
-Silna indukcja po randze daje rzeczywistą ścieżkę od korzenia. Ścisły spadek
-rangi wyklucza cykl wzajemnie uzasadniających się rodziców. Nie jest potrzebny
-aksjomat wyboru: świadków dostarcza jawna alternatywa i kwantyfikator istnienia.
-Ranga korzenia nie musi wynosić zero; twierdzenie tego nie wymaga.
-
-`ranked_exact_reachability` łączy ten dowód z przynależnością korzenia i
-domknięciem po wszystkich krawędziach. Otrzymujemy poprawność i kompletność
-wyniku bez zakładania `sound` jako osobnego wejścia.
-
-Jeżeli zapytanie dotyczy zależnych plików, `Edge` może oznaczać odwróconą
-relację importów. Orientacja relacji musi być ustalona konsekwentnie przy
-ekstrakcji, generowaniu świadków i sprawdzaniu certyfikatu.
-
-## Co dokładnie jest objęte dowodem
-
-Twierdzenie dowodzi poprawności i kompletności zbioru **względem podanego grafu**,
-jeżeli wszystkie obowiązki certyfikatu zostaną udowodnione. Sam plik nie generuje
-certyfikatów dla konkretnych danych. Pole `sound` jest obowiązkiem do sprawdzenia,
-a nie zaufaną odpowiedzią silnika wyszukiwania.
-
-Nie udowodniono tutaj:
-
-- poprawności ani kompletności ekstrakcji grafu z kodu źródłowego;
-- zgodności implementacji Python z definicjami Lean;
-- poprawności parsera plików certyfikatu, hashy lub manifestu korpusu;
-- własności semantycznych dowolnego programu ani osiągalności podczas wykonania;
-- czasu działania, zużycia pamięci lub kompletności przerwanego wyszukiwania.
-
-Weryfikacja `closed` musi obejmować wszystkie krawędzie wejściowego grafu.
-Sprawdzenie tylko krawędzi odwiedzonych przez wyszukiwarkę nie spełnia tego
-obowiązku. Weryfikacja `sound` wymaga rzeczywistych świadków lub dowodów; sama
-lista wyników nie wystarcza.
-
-## Założenia i kontrola pustych przypadków
-
-`root_mem` wyklucza pusty zbiór wyników. `sound` wyklucza dodawanie wierzchołków
-nieosiągalnych, a `closed` wyklucza pomijanie osiągalnych następców. Założenia
-mogą być spełnione: dowodzi tego `reachability_has_certificate`.
-
-Plik używa `Std`, bez Mathlib, `sorry`, własnych aksjomatów i `native_decide`.
-Na końcu wypisuje zależności aksjomatyczne wszystkich sześciu twierdzeń.
-
-## Uruchomienie
-
-Z katalogu `formal`, po zainstalowaniu ustalonej wersji Lean 4:
-
-```text
-lean Reachability.lean
-```
-
-Docelowa wersja narzędzia dla tego projektu: Lean 4.35.0. Wynik kompilatora
-i audytu aksjomatów należy sprawdzić w faktycznym uruchomieniu; sam ten opis
-nie stanowi potwierdzenia, że uruchomienie się powiodło.
+Nadal nie dowiedziono parsera Mojom, ekstrakcji, serializacji, eksportera,
+mapowania ścieżek, Git/manifestu/hashy, zgodności checkera Python z Lean ani
+związania wyświetlanej odpowiedzi z twierdzeniem. Niezależne pełne porównanie
+literalnych danych Lean z artefaktami pozostaje zewnętrzną kontrolą.
