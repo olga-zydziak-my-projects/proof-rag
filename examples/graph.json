@@ -1,0 +1,4 @@
+{
+  "nodes": ["app", "controller", "service", "core", "isolated", "cycle_a", "cycle_b"],
+  "edges": [["app", "controller"], ["controller", "service"], ["service", "core"], ["controller", "core"], ["cycle_a", "cycle_b"], ["cycle_b", "cycle_a"]]
+}

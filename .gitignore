@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+build/
+dist/
+.lake/
+*.olean
+*.ilean
+local/
+data/
+corpora/
+indexes/
+*.part
+*.tmp
+*.pack
+*.idx

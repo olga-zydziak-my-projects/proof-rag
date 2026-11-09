@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-11-09T00:27:22.042808+00:00",
+  "all_checks_passed": true,
+  "scope": "Mathematical graph-certificate theorem checked in Lean; Python tested separately.",
+  "not_proven": [
+    "Python refinement to Lean theorem",
+    "Mojom extraction correctness",
+    "Chromium corpus completeness",
+    "large-corpus performance"
+  ],
+  "source_sha256": {
+    "formal/Reachability.lean": "6e6e2d01edf9d6f3679213fafcb92934e5844e799f565c820d902d185f1e26dc",
+    "src/repo_proof/__init__.py": "9c6bb356a112e399534e1429dfb62b73fe9b6265b0b6d715a5a6a79ee9e52f75",
+    "src/repo_proof/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/repo_proof/checker.py": "c116f143d2e9a947940065aa31f09d5c1464523878a62c5ed4fa1f718c3b306e",
+    "src/repo_proof/cli.py": "92ed45ecb33ecc2ddfd08f67e88b12b4eaddfa471af672a52a822c73a6d43d50",
+    "src/repo_proof/generator.py": "b52eb3fbed04a6b1b2c28b768dc3d877d233edd29f9fa58550d056b1309c7b9b",
+    "src/repo_proof/graph.py": "86bd0505071417ec3e651694f3bdc12ead453bf9821f2ab37ec7667312c99b18",
+    "tests/test_cli.py": "0cf52131e0a057f2ccb08172698f854967c3b1f0a41887e9882fbb3ae64a7321",
+    "tests/test_graph.py": "ebda8ee789dd6574d563d3c57f151b688098d9152a2b4c9c341c44b6f6670078"
+  },
+  "checks": [
+    {
+      "name": "python_tests",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_duplicate_json_keys_rejected (test_cli.CLITests.test_duplicate_json_keys_rejected) ... ok\ntest_query_verify_and_both_tampering_cases (test_cli.CLITests.test_query_verify_and_both_tampering_cases) ... ok\ntest_all_three_node_directed_graphs_match_independent_reference (test_graph.CertificateTests.test_all_three_node_directed_graphs_match_independent_reference) ... ok\ntest_bad_parent_types_duplicates_unknown_nodes_fail_closed (test_graph.CertificateTests.test_bad_parent_types_duplicates_unknown_nodes_fail_closed) ... ok\ntest_direction_is_reverse_and_root_is_included (test_graph.CertificateTests.test_direction_is_reverse_and_root_is_included) ... ok\ntest_disconnected_cycle_cannot_prove_itself (test_graph.CertificateTests.test_disconnected_cycle_cannot_prove_itself) ... ok\ntest_extra_disconnected_node_is_rejected (test_graph.CertificateTests.test_extra_disconnected_node_is_rejected) ... ok\ntest_graph_order_does_not_change_hash (test_graph.CertificateTests.test_graph_order_does_not_change_hash) ... ok\ntest_malformed_graphs_and_certificates (test_graph.CertificateTests.test_malformed_graphs_and_certificates) ... ok\ntest_malformed_ranks_fail_closed (test_graph.CertificateTests.test_malformed_ranks_fail_closed) ... ok\ntest_missing_root_is_rejected (test_graph.CertificateTests.test_missing_root_is_rejected) ... ok\ntest_multiple_independent_errors_are_reported (test_graph.CertificateTests.test_multiple_independent_errors_are_reported) ... ok\ntest_nonstring_root_is_validation_error (test_graph.CertificateTests.test_nonstring_root_is_validation_error) ... ok\ntest_omitted_reachable_leaf_is_rejected_by_closure (test_graph.CertificateTests.test_omitted_reachable_leaf_is_rejected_by_closure) ... ok\ntest_reachable_cycle_and_rank_gaps_are_valid (test_graph.CertificateTests.test_reachable_cycle_and_rank_gaps_are_valid) ... ok\ntest_wrong_expected_root_and_modified_query_rejected (test_graph.CertificateTests.test_wrong_expected_root_and_modified_query_rejected) ... ok\ntest_wrong_graph_hash_rejected_even_if_reachability_unchanged (test_graph.CertificateTests.test_wrong_graph_hash_rejected_even_if_reachability_unchanged) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.046s\n\nOK\n"
+    },
+    {
+      "name": "lean_version",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "Lean (version 4.35.0, x86_64-w64-windows-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": ""
+    },
+    {
+      "name": "lean_theorems",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "'RepoProof.complete' does not depend on any axioms\n'RepoProof.exact_reachability' does not depend on any axioms\n'RepoProof.soundness_from_ranked_witnesses' does not depend on any axioms\n'RepoProof.ranked_exact_reachability' does not depend on any axioms\n'RepoProof.reachability_has_certificate' does not depend on any axioms\n'RepoProof.exact_dependents' does not depend on any axioms\n",
+      "stderr": ""
+    },
+    {
+      "name": "tampering_demo",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\n  \"scope\": \"supplied_graph_only\",\n  \"query\": {\n    \"kind\": \"reverse_reachability_including_root\",\n    \"root\": \"core\"\n  },\n  \"graph_sha256\": \"1667f3b4c21b9add11b329a8e21b384d8feffdd6eae88c841b24028636f6a805\",\n  \"result\": [\n    \"app\",\n    \"controller\",\n    \"core\",\n    \"service\"\n  ],\n  \"original_certificate_accepted\": true,\n  \"tampering\": [\n    {\n      \"case\": \"omitted_result\",\n      \"rejected\": true,\n      \"errors\": [\n        \"reverse closure missing importer: 'app' -> 'controller'\"\n      ]\n    },\n    {\n      \"case\": \"spurious_result\",\n      \"rejected\": true,\n      \"errors\": [\n        \"missing original parent edge: 'cycle_a' -> 'core'\",\n        \"reverse closure missing importer: 'cycle_b' -> 'cycle_a'\"\n      ]\n    }\n  ],\n  \"timings_ms\": {\n    \"generate\": 0.0817000400274992,\n    \"verify\": 0.03160000778734684\n  },\n  \"limitations\": [\n    \"Python checker is tested, not formally verified.\",\n    \"No claim about Chromium source extraction or corpus completeness.\"\n  ]\n}\n",
+      "stderr": ""
+    }
+  ]
+}

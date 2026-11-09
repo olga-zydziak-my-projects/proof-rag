@@ -1,0 +1,73 @@
+{
+  "aborted_attempt_elapsed_seconds": null,
+  "checks": {
+    "baseline_passed": true,
+    "count_matches_lock": true,
+    "final_tests_lean_and_tampering_passed": true,
+    "formal_theorems_unchanged": true,
+    "manifest_byte_deterministic": true,
+    "metadata_and_selected_content_verified": true,
+    "no_full_copy_claim": true,
+    "offline_verification": true,
+    "repeat_no_blob_fetch_or_materialization": true,
+    "same_pinned_commit": true,
+    "source_hashes_current": true
+  },
+  "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+  "historical_orphan_pack_removed_bytes": 848306187,
+  "instructions": "README.md",
+  "lean_theorems_audited_without_axioms": 6,
+  "manifest_sha256": "1e6fe63490e2007c56b088194f0c2acb61abc834aeefb4edb2bbfe6399bc2e4a",
+  "metrics": {
+    "allocation_method": "GetFileInformationByHandleEx.FileStandardInfo.AllocationSize",
+    "checked_at_utc": "2026-11-09T00:36:37.753841+00:00",
+    "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+    "corpus_allocated_file_bytes": 232452160,
+    "corpus_logical_bytes": 228659214,
+    "data_dir": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\chromium-corpus-27cec857a08a",
+    "elapsed_seconds": 6.6025949999457225,
+    "entry_categories": {
+      "gitlink": 273,
+      "regular": 517527,
+      "symlink": 21,
+      "tree": 46792
+    },
+    "free_bytes_after": 363023056896,
+    "free_bytes_before": 363023036416,
+    "full_chromium_content_complete": false,
+    "git_store_logical_bytes": 21972209,
+    "manifest_bytes": 126445600,
+    "manifest_sha256": "1e6fe63490e2007c56b088194f0c2acb61abc834aeefb4edb2bbfe6399bc2e4a",
+    "materialized_bytes_by_path": 6996906,
+    "measurement_notes": [
+      "File sizes are logical lengths, not filesystem allocation.",
+      "Allocated file bytes exclude directory entries and filesystem metadata.",
+      "Git pack transfer bytes not measured; blob bytes are uncompressed original content.",
+      "DEPS and submodules excluded; full Chromium source size not measured."
+    ],
+    "metadata_complete": true,
+    "mojom_bytes_by_path": 6946142,
+    "mojom_files": 1864,
+    "offline_verification": true,
+    "repository": "https://github.com/chromium/chromium",
+    "selected_content_complete": true,
+    "tree_entries": 564613,
+    "tree_listing_bytes": 73244425,
+    "unique_materialized_blob_bytes": 6996906
+  },
+  "network_transfer_bytes": null,
+  "python_tests": 30,
+  "query_contract": "docs/query-contract.md",
+  "query_extraction_implemented": false,
+  "repeat_elapsed_seconds": 13.312614000053145,
+  "report_sha256": {
+    "baseline.json": "20ffaf44b72398b1cc4fe5ea4a578f3977bf1e94fdebd3f71ca6c20cbbe8d3c8",
+    "corpus-first.json": "331eb3e44433a01545d7293fccb8d1e530f327ccaab0e42960b8f6c514a5ffa8",
+    "corpus-offline.json": "06a1b305624234fa37bcb6cd8c8d9d6c8871cef9e404d89e9335bebb94146a01",
+    "corpus-repeat.json": "61638b92df7122b9ef48caba1c1dff34cc32857348fbac92dee0e6c9ba7d77ce",
+    "latest.json": "2a7581dbe207ce1f0b01e3ab21dffa2b72d918a77b0cb9f9f1b1785b427a2d29"
+  },
+  "stage": 1,
+  "status": "complete_for_declared_corpus_preparation_scope",
+  "successful_prepare_elapsed_seconds": 21.257091099978425
+}

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repo-proof-lab"
+version = "0.1.0"
+description = "Graph-relative dependency search with independent certificate checking"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+repo-proof = "repo_proof.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,23 @@
+{
+  "repository": "https://github.com/chromium/chromium",
+  "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+  "commit_time_utc": "2026-11-08T23:16:26Z",
+  "selection_date": "2026-11-09",
+  "planned_scope": "Tracked .mojom files in the main Chromium repository at the pinned commit",
+  "status": "metadata_and_selected_content_verified",
+  "manifest_format": "repo-proof-corpus-v1",
+  "manifest_sha256": "1e6fe63490e2007c56b088194f0c2acb61abc834aeefb4edb2bbfe6399bc2e4a",
+  "root_tree_object_id": "25131300fa459906dedb84bf592a8537b7848771",
+  "metadata_entries_including_trees": 564613,
+  "file_count": 1864,
+  "source_bytes": 6946142,
+  "reference_files": 3,
+  "reference_bytes": 50764,
+  "full_chromium_content_complete": false,
+  "limitations": [
+    "This lock records verification results; the complete manifest is in the externally configured corpus directory.",
+    "External DEPS repositories are not included.",
+    "Mojom graph extraction and source-to-graph correctness are not established.",
+    "Git enumeration and Python manifest/checker implementations are tested, not formally verified."
+  ]
+}
