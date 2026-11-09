@@ -1,4 +1,4 @@
-# Repo Proof Lab — etap 3
+# Repo Proof Lab — etap 4
 
 Prototyp wyszukiwania zależności w grafie, certyfikatu wyniku i niezależnego
 checkera. Zamrożony korpus Chromium ma deterministyczny manifest,
@@ -17,6 +17,12 @@ składniową i pierwsze zapytanie o `mojo/public/mojom/base/time.mojom`.
   Sześć pierwotnych twierdzeń zachowano bez aksjomatów. Nowe dowody używają
   wyłącznie standardowych `propext`, `Classical.choice`, `Quot.sound`;
   nie dodano własnych aksjomatów ani `sorry`/`native_decide`.
+- Etap 4 dodaje `fastCheck` ze sprawdzanymi wskazaniami rzeczywistych
+  krawędzi i formalnym mostem do starego checkera. Nowa pełna instancja
+  ma kernelowo sprawdzone `accepted`, `erased_accepted` oraz `exact`.
+  Suma kontroli liści spadła z 749,257 s do 1,550 s; nowy cały proces
+  trwał 9,992 s. Nie znamy pełnego czasu bazowego, więc nie wyliczamy
+  przyspieszenia całego procesu. Są to pojedyncze pełne pomiary.
 - Korpus zawiera kompletne metadane drzewa wskazanego commitu oraz oryginalne
   bajty 1 864 zwykłych plików `.mojom` i trzech plików referencyjnych parsera.
   To nie jest pełna lokalna kopia Chromium. DEPS, gitlinki i dowiązania nie są
@@ -35,7 +41,8 @@ składniową i pierwsze zapytanie o `mojo/public/mojom/base/time.mojom`.
   lecz nie jest niezależnym dowodem poprawności parsera. Przyjęcie certyfikatu
   przez Python nie uruchamia Lean dla tej instancji.
 
-Szczegóły: [wyniki i pomiary etapu 3](docs/stage3-results.md),
+Szczegóły: [wyniki, powtórzenia i ograniczenia etapu 4](docs/stage4-results.md),
+[wyniki i pomiary etapu 3](docs/stage3-results.md),
 [wyniki etapu 2](docs/stage2-results.md),
 [granica formalnej gwarancji](docs/stage2-formal-boundary.md),
 [wyniki etapu 1](docs/stage1-results.md) i [formalny rdzeń](formal/README.md).
@@ -50,14 +57,24 @@ dystrybucja wheel nie jest częścią tego etapu. PowerShell w katalogu projektu
 ```powershell
 $py = 'C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
 $lean = 'C:\Users\User\Documents\Codex\2026-11-08\nie\work\toolchains\lean-4.35.0-windows\bin\lean.exe'
-& $py scripts/check_stage3.py --lean $lean
+& $py scripts/stage4_microbench.py --lean $lean --repeats 3 `
+  --report local/stage4/microbench-recheck-01.json
+& $py scripts/check_stage4.py --lean $lean `
+  --report local/stage4/recheck-01.json
 ```
 
-Raport `verification/stage3-checks.json` zawiera audyty twierdzeń, pełne
-porównanie danych, testy, pomiary i skróty kodu. Pełna kontrola instancji
+Raport `verification/stage4-checks.json` zawiera świeży przebieg nowego
+dowodu, szczytowe liczniki pamięci Windows, audyty, porównanie wszystkich
+danych, rozmiary artefaktów oraz wyniki 71 testów. Driver wymaga Windows,
+nie nadpisuje istniejącego raportu i zachowuje wersję bazową. W poleceniach
+wyżej wybierz nowe nazwy raportów przy kolejnych powtórzeniach.
+Nowe testy odrzucają uszkodzone wskazania, bloki i tabele świadków.
+
+Historyczny `verification/stage3-checks.json` zawiera audyty twierdzeń, pełne
+porównanie danych, testy, pomiary i skróty kodu. Pełna kontrola bazowej instancji etapu 3
 przez kernel może trwać kilkanaście minut; sprawdzone rozbicie obejmuje
 wszystkie węzły i krawędzie. Osobne wykonanie `lean --run` nie jest dowodem.
-Końcowy zestaw ma 67 testów; 1 547 porównań Python–Lean obejmuje wszystkie
+Zestaw etapu 3 miał 67 testów; 1 547 porównań Python–Lean obejmuje wszystkie
 512 grafów o trzech węzłach dla trzech korzeni oraz uszkodzone świadki,
 rangi z przerwami i podmiany danych. To testy różnicowe, nie dowód zgodności
 implementacji Python z Lean. Dawne podstawowe sprawdzenia nadal wykonuje

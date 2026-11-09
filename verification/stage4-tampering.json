@@ -1,0 +1,40 @@
+{
+  "all_tampering_rejected": true,
+  "cases": [
+    {
+      "case": "omitted_result",
+      "errors": [
+        "reverse closure missing importer: 'android_webview/common/mojom/frame.mojom' -> 'mojo/public/mojom/base/time.mojom'"
+      ],
+      "layer": "graph_checker",
+      "rejected": true
+    },
+    {
+      "case": "spurious_result",
+      "errors": [
+        "missing original parent edge: 'android_webview/common/mojom/render_message_filter.mojom' -> 'mojo/public/mojom/base/time.mojom'"
+      ],
+      "layer": "graph_checker",
+      "rejected": true
+    },
+    {
+      "case": "edge_deleted_before_certificate_generation",
+      "error": "supplied graph differs from graph reconstructed from verified source bytes",
+      "graph_checker_accepted_modified_graph": true,
+      "layer": "source_reconstruction",
+      "modified_graph_sha256": "7715c3dbc310714a66316a54cf78681b5e18e347db3a7f54f82d5841f2c48e95",
+      "modified_result_count": 473,
+      "rejected": true,
+      "removed_edge": [
+        "mojo/public/mojom/base/file_info.mojom",
+        "mojo/public/mojom/base/time.mojom"
+      ],
+      "source_binding_rejected": true
+    }
+  ],
+  "checked_at_utc": "2026-11-09T14:18:14.943745+00:00",
+  "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+  "expected_root": "mojo/public/mojom/base/time.mojom",
+  "original_graph_sha256": "0b47a4e7333b12e42dc7571b1ab2720530868fa299a1f7ca75e3d9a6a08a440a",
+  "original_result_count": 477
+}

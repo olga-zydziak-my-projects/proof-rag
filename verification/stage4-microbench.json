@@ -1,0 +1,521 @@
+{
+  "nodes": 256,
+  "edges": 256,
+  "edge_block_size": 32,
+  "witness_block_size": 8,
+  "repetitions": 3,
+  "data_build": {
+    "seconds": 2.3922218000516295,
+    "stdout": "'MicroData.table_agreement' does not depend on any axioms\n'MicroData.blockLast_mem' depends on axioms: [propext]\n",
+    "stderr": ""
+  },
+  "measurements": [
+    {
+      "name": "edge_begin_contains",
+      "claim": "edgeBegin.contains target = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.7464321999577805,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 1,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=1\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6844820000696927,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 1,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=1\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.6536262999288738,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 1,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=1\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6844820000696927,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 1
+    },
+    {
+      "name": "edge_end_contains",
+      "claim": "edgeEnd.contains target = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.6673533000284806,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 24,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=24\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6722928000381216,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 25,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=25\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.690588099998422,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 24,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=24\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6722928000381216,
+      "median_construction_ms": 0,
+      "median_kernel_and_insert_ms": 24
+    },
+    {
+      "name": "edge_end_checked_block_position",
+      "claim": "edgeEnd.contains target = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.6593498999718577,
+          "construction_ms": 2,
+          "kernel_and_insert_ms": 2,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=2; kernel_check_and_insert_ms=2\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6801366999279708,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 2,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=2\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.6753778000129387,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 2,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=2\n'measured' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6753778000129387,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 2
+    },
+    {
+      "name": "read_early_linear",
+      "claim": "(List.range 32).all (repeatedRead linear) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.650883900001645,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 6,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=6\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6621465999633074,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 6,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=6\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.6646661000559106,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 5,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=5\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6621465999633074,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 6
+    },
+    {
+      "name": "read_late_linear",
+      "claim": "((List.range 32).map (\u00b7 + 224)).all (repeatedRead linear) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.672712399973534,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 12,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=12\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6660378000233322,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 12,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=12\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.7173594000050798,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 11,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=11\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.672712399973534,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 12
+    },
+    {
+      "name": "read_late_cached_linear",
+      "claim": "((List.range 32).map (\u00b7 + 224)).all (cachedRead linear) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.639046399970539,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 12,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=12\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.652979200007394,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 12,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=12\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.63376120000612,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 13,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=13\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.639046399970539,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 12
+    },
+    {
+      "name": "read_late_balanced",
+      "claim": "((List.range 32).map (\u00b7 + 224)).all (repeatedRead balanced) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.6559419999830425,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 6,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=6\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6509878999786451,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 7,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=7\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.6379119000630453,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 7,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=7\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6509878999786451,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 7
+    },
+    {
+      "name": "closure_global_slice",
+      "claim": "((edgeEnd.drop 224).take 32).all (closure linear) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.6934716999530792,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 31,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=31\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6707099000923336,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 31,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=31\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.6697591999545693,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 31,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=31\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6707099000923336,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 31
+    },
+    {
+      "name": "closure_direct_block",
+      "claim": "b7.all (closure linear) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.6464521000161767,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 13,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=13\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6662559999385849,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 12,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=12\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.6587090999819338,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 11,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=11\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6587090999819338,
+      "median_construction_ms": 1,
+      "median_kernel_and_insert_ms": 12
+    },
+    {
+      "name": "closure_direct_block_balanced",
+      "claim": "b7.all (closure balanced) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.6587949999375269,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 8,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=8\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6768257999792695,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 7,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=7\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.6448229999514297,
+          "construction_ms": 0,
+          "kernel_and_insert_ms": 8,
+          "leaves": 1,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=8\n'measured' does not depend on any axioms\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.6587949999375269,
+      "median_construction_ms": 0,
+      "median_kernel_and_insert_ms": 8
+    },
+    {
+      "name": "combine_global_take_drop",
+      "claim": "edgeEnd.all (closure linear) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.831738599925302,
+          "construction_ms": 2,
+          "kernel_and_insert_ms": 191,
+          "leaves": 8,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=13\nproof_construction_ms=0; kernel_check_and_insert_ms=19\nproof_construction_ms=0; kernel_check_and_insert_ms=21\nproof_construction_ms=0; kernel_check_and_insert_ms=24\nproof_construction_ms=0; kernel_check_and_insert_ms=25\nproof_construction_ms=1; kernel_check_and_insert_ms=30\nproof_construction_ms=0; kernel_check_and_insert_ms=29\nproof_construction_ms=0; kernel_check_and_insert_ms=30\n'measured' depends on axioms: [propext]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.823168099974282,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 170,
+          "leaves": 8,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=15\nproof_construction_ms=0; kernel_check_and_insert_ms=18\nproof_construction_ms=1; kernel_check_and_insert_ms=23\nproof_construction_ms=0; kernel_check_and_insert_ms=22\nproof_construction_ms=0; kernel_check_and_insert_ms=25\nproof_construction_ms=0; kernel_check_and_insert_ms=26\nproof_construction_ms=0; kernel_check_and_insert_ms=29\n'measured' depends on axioms: [propext]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.8296695000026375,
+          "construction_ms": 2,
+          "kernel_and_insert_ms": 165,
+          "leaves": 8,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=17\nproof_construction_ms=0; kernel_check_and_insert_ms=22\nproof_construction_ms=0; kernel_check_and_insert_ms=20\nproof_construction_ms=1; kernel_check_and_insert_ms=21\nproof_construction_ms=0; kernel_check_and_insert_ms=24\nproof_construction_ms=1; kernel_check_and_insert_ms=25\nproof_construction_ms=0; kernel_check_and_insert_ms=24\n'measured' depends on axioms: [propext]\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.8296695000026375,
+      "median_construction_ms": 2,
+      "median_kernel_and_insert_ms": 170
+    },
+    {
+      "name": "combine_direct_blocks",
+      "claim": "edgeEnd.all (closure linear) = true",
+      "runs": [
+        {
+          "repetition": 1,
+          "process_seconds": 1.7193819999229163,
+          "construction_ms": 3,
+          "kernel_and_insert_ms": 62,
+          "leaves": 8,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=6\nproof_construction_ms=0; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=6\nproof_construction_ms=1; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=1; kernel_check_and_insert_ms=9\n'measured' depends on axioms: [propext]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 2,
+          "process_seconds": 1.6950110000325367,
+          "construction_ms": 1,
+          "kernel_and_insert_ms": 59,
+          "leaves": 8,
+          "stdout": "proof_construction_ms=1; kernel_check_and_insert_ms=6\nproof_construction_ms=0; kernel_check_and_insert_ms=6\nproof_construction_ms=0; kernel_check_and_insert_ms=6\nproof_construction_ms=0; kernel_check_and_insert_ms=7\nproof_construction_ms=0; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=9\n'measured' depends on axioms: [propext]\n",
+          "stderr": ""
+        },
+        {
+          "repetition": 3,
+          "process_seconds": 1.7360802999464795,
+          "construction_ms": 2,
+          "kernel_and_insert_ms": 62,
+          "leaves": 8,
+          "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=7\nproof_construction_ms=0; kernel_check_and_insert_ms=6\nproof_construction_ms=1; kernel_check_and_insert_ms=6\nproof_construction_ms=0; kernel_check_and_insert_ms=8\nproof_construction_ms=1; kernel_check_and_insert_ms=7\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=10\n'measured' depends on axioms: [propext]\n",
+          "stderr": ""
+        }
+      ],
+      "median_process_seconds": 1.7193819999229163,
+      "median_construction_ms": 2,
+      "median_kernel_and_insert_ms": 62
+    }
+  ],
+  "scope": "Fresh proof compiler process per repetition; imported precompiled MicroData.olean plus existing Reachability/Checker/ProofTiming. Whole process includes import/startup; internal millisecond timers measure proof term construction and synchronous kernel check+lemma insertion only. No Chromium proof imported or rerun.",
+  "equivalence": "Beginning/end orderings contain identical edge sets. Indexed-edge variant proves exactly edgeEnd.contains target=true via checked block element and block-to-global membership lemma. Linear/balanced tables have kernel-checked full observational agreement. Global slice/direct block contain exactly same final block; combining variants prove identical entire edgeEnd closure.",
+  "limitations": "Small deterministic inputs; three repeats; integer millisecond internal timing. Development processes may run concurrently; CPU isolation is not claimed. No full-instance or total-process speedup inferred from these micro results.",
+  "sources": {
+    "closure_direct_block.lean": {
+      "bytes": 207,
+      "sha256": "5e5b031c0246c4e7767bc2fc09c8c3aa2fb9b654bc606ed2575b9320a69e75b3"
+    },
+    "closure_direct_block_balanced.lean": {
+      "bytes": 209,
+      "sha256": "8848c50639a61334226b01a2f3bb2603f8c426505a447ca2b1e2c0255400684f"
+    },
+    "closure_global_slice.lean": {
+      "bytes": 233,
+      "sha256": "d3c0a7d8936318710b85a4f719092c99bc0f013cfa2e3175ee3606f678ae7cca"
+    },
+    "combine_direct_blocks.lean": {
+      "bytes": 1189,
+      "sha256": "a68bf87a300e7db12d947e4ffd488f89fee51786a1cc6441966b1c7f173ddad6"
+    },
+    "combine_global_take_drop.lean": {
+      "bytes": 818,
+      "sha256": "053940a0471ef0fd0d2fb0c7a44dc30c5ed8e2016b703fd0c94fa67002b22406"
+    },
+    "edge_begin_contains.lean": {
+      "bytes": 209,
+      "sha256": "a60a01851eecc8125a74b7184f75b3024089843fe3d9007a369739f370a82077"
+    },
+    "edge_end_checked_block_position.lean": {
+      "bytes": 320,
+      "sha256": "fb7a8afad4f75d50a570b1a8f8f755df6f560e3a97e273b6ac48b86386b12861"
+    },
+    "edge_end_contains.lean": {
+      "bytes": 207,
+      "sha256": "e4ba0b27e4ca92bb5c3f1b4c554b835ceb741abb908fec44245cc6d3698bec42"
+    },
+    "MicroData.lean": {
+      "bytes": 40799,
+      "sha256": "e1fa258825cb2511a62df81250d522aee35a717b9a1e36203885f427dd6d3ce7"
+    },
+    "read_early_linear.lean": {
+      "bytes": 225,
+      "sha256": "2644e92021e0ee6cb236afa6368be014ad38d2d2ca97d56408c1a4eddd61d1d0"
+    },
+    "read_late_balanced.lean": {
+      "bytes": 244,
+      "sha256": "fa22682e36318ef526a284cfcf942fb8b0067a6ed4e8148acc0adbed874aeef9"
+    },
+    "read_late_cached_linear.lean": {
+      "bytes": 240,
+      "sha256": "aae3e8fc7f96f092c91dab833b62a92f93cbc310177e303504ecb8e3033e7436"
+    },
+    "read_late_linear.lean": {
+      "bytes": 242,
+      "sha256": "bfb987cacdbc58ffd00d3d30caabb84398388e6c3ed8965fb216f841d97eb322"
+    }
+  },
+  "precompiled_imports": {
+    "formal/Reachability.olean": {
+      "bytes": 74088,
+      "sha256": "a4b9f5dcce9cca2dd570185474a202bba0f0c61d2573e0966e30f8c87db9c83e"
+    },
+    "formal/Checker.olean": {
+      "bytes": 222144,
+      "sha256": "15a2cd0206effa319f8d094060ab890ac2f3bfbd703a2084bbea96be70130b42"
+    },
+    "formal/ProofTiming.olean": {
+      "bytes": 165904,
+      "sha256": "b82241f345e458578c5196a570193550dbb0699af6134dde588eb699b70fcbfc"
+    },
+    "local/stage4/micro/MicroData.olean": {
+      "bytes": 1633848,
+      "sha256": "3b992ea3d2fdaf22eb5bf89d66ebb78d789c3a4272a695061de887b161914aa2"
+    }
+  }
+}

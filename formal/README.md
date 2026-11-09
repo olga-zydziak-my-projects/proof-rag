@@ -2,6 +2,14 @@
 
 Lean 4.35.0, `Std`, bez Mathlib.
 
+Etap 4: `FastChecker.lean` dowodzi mostu `fastCheck_refines` do tego samego
+`check` po wymazaniu wskazań krawędzi. `ChromiumFast.lean` ma osobne pełne
+dane i kernelowo sprawdzone `accepted`, `erased_accepted`, `exact`.
+`RunFastChecker.lean` służy wyłącznie do osobnego wykonania w VM.
+Kod i dane bazowe etapu 3 poniżej zachowano bez zmian. Pomiary, szczegóły
+kompilowanych wcześniej modułów i nowe odtwarzalne polecenia:
+[wyniki etapu 4](../docs/stage4-results.md).
+
 - `Reachability.lean`: sześć pierwotnych twierdzeń, w tym `exact_dependents`.
 - `Checker.lean`: skończony graf `Fin n`, certyfikat jako skończona funkcja, czysty Boolean
   `check`, dowód `check_exact` oraz udowodnione rozbicie `all_split`.

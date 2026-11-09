@@ -1,0 +1,60 @@
+{
+  "complete": true,
+  "raw_report_sha256": "4bb0feef20c3a98f5a72bccf7c4547c697a95e09e3e2a2669ccf3cf6cf0ac113",
+  "baseline_report_sha256": "0a40ac9bb136976b8a1995051f40130f489d342734a8ae37fbde27dabe22d7e9",
+  "comparison": {
+    "metric": "Sum of synchronous acceptance-leaf kernel checks plus lemma insertion, 1ms clock. Complete acceptance obligations in each representation, different leaf counts. Not full process time.",
+    "baseline_ms": 749257,
+    "new_ms": 1550,
+    "observed_leaf_cost_factor": 483.3916129032258,
+    "baseline_process_seconds": null,
+    "new_fresh_process_seconds": 9.992150399950333,
+    "whole_process_speedup": null,
+    "reason": "Baseline whole-process time is unknown; 749.257s is only the historical leaf sum."
+  },
+  "memory": {
+    "peak_working_set_bytes": 1509036032,
+    "peak_process_commit_bytes": 2869403648,
+    "successful_queries": 317,
+    "post_exit_query_succeeded": true,
+    "scope": "Windows GetProcessMemoryInfo native high-water counters for this process only; queries at <=20ms plus post-exit. PeakWorkingSetSize resident bytes; PeakPagefileUsage process commit bytes."
+  },
+  "memory_scope_clarification": "The raw report scope phrase <=20ms describes the requested wait timeout, not a scheduler upper bound. Queries occurred around requested 20ms waits; OS scheduling may lengthen intervals. Native PeakWorkingSetSize and PeakPagefileUsage are lifetime high-water counters. The post-exit query succeeded, so peaks cover the full process lifetime; these are not sampled maxima of current working set. No child processes included. PeakPagefileUsage is process commit, not disk IO.",
+  "wall_scope": "Clock starts before opening output logs and Popen, stops after wait reports exit; log decoding/reading follows outside clock. Generic module builds are separate steps. No own .olean or baseline Chromium.olean is imported by the fresh instance source.",
+  "negative_results": [
+    "Single-read micro median unchanged:12ms versus12ms.",
+    "VM checker+printing observed1.730s versus historical1.501s; no VM improvement claimed.",
+    "Source instance size increased11.3%, .olean increased6.6%; no artifact shrinkage claimed."
+  ],
+  "limitations": [
+    "Only one new full-instance observation; no stable performance guarantee.",
+    "Three small-case repeats;1ms quantization; no CPU isolation claimed.",
+    "Baseline peak memory not measured; no memory improvement factor."
+  ],
+  "artifact_sizes": {
+    "formal/ChromiumFast.lean": {
+      "bytes": 579802,
+      "sha256": "1a839a8ffe10e371f9c818440314c8431a6081122df8ff56f7df774488bbee93"
+    },
+    "formal/ChromiumFast.olean": {
+      "bytes": 17399344,
+      "sha256": "8dafbb9ac987b8b0650d030b1bea02ab804433406f638ffd185bccce6984ef4d"
+    },
+    "formal/FastChecker.lean": {
+      "bytes": 7470,
+      "sha256": "3bfe468699ca05b2bc961f6a54269123bb6a85c010abe4d0d19c0218d56c2df7"
+    },
+    "formal/FastChecker.olean": {
+      "bytes": 348408,
+      "sha256": "37cc92cc380d9c80b4a69fc7c2b633819416e05d242114adf646d04926286d67"
+    },
+    "formal/Chromium.lean": {
+      "bytes": 520972,
+      "sha256": "e9d138b432caab7138f95f53cffb5ecc2004006b7e89c8b9221338095c447191"
+    },
+    "formal/Chromium.olean": {
+      "bytes": 16318760,
+      "sha256": "eeb6c17651bb96fdcba57e51b9644fff51be8673e59a4f990e56853e345939d1"
+    }
+  }
+}
