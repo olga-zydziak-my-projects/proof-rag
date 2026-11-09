@@ -1,0 +1,158 @@
+{
+  "artifact_files": {
+    "certificate.json": {
+      "path": "local/stage2/certificate.json",
+      "sha256": "904f2e2ebf0d31bb87cf52dc1f342fb29251a7fa84dee4d7f4b44aca5d146142",
+      "size_bytes": 63734
+    },
+    "extraction.json": {
+      "path": "local/stage2/extraction.json",
+      "sha256": "af0889b0de2902b2534804318a857a7d231be4b2b04d27e9e7184fe4c75e8814",
+      "size_bytes": 4385919
+    },
+    "graph.json": {
+      "path": "local/stage2/graph.json",
+      "sha256": "764381a202a439cd743018f2efa089fc4f7929680dc294a8aa69bd6e56dbeef0",
+      "size_bytes": 592988
+    },
+    "query.json": {
+      "path": "local/stage2/query.json",
+      "sha256": "e5a8101512114d21656f568eb9a376c4ae56781da668bf01f760bf986cf0a6a1",
+      "size_bytes": 31711
+    }
+  },
+  "attributed_imports": 69,
+  "baseline_git_commit": "376fe37f5872fad1f30896813b6b53e6b71e599a",
+  "checked_at_utc": "2026-11-09T01:10:36.426717+00:00",
+  "checks": {
+    "all_64_tests_passed": true,
+    "all_S_terminal_fully_parsed_and_resolved": true,
+    "all_byte_locations_validated": true,
+    "all_real_corpus_tampering_rejected": true,
+    "all_source_hashes_current": true,
+    "baseline_checks_passed": true,
+    "complete_expected_query": true,
+    "contract_example_paths_checked": true,
+    "deleted_edge_accepted_by_graph_checker_and_rejected_by_source_binding": true,
+    "deterministic_artifact_bytes": true,
+    "final_python_vendor_lean_and_demo_passed": true,
+    "independent_reference_fixed_point_matches": true,
+    "independent_reference_graph_matches": true,
+    "original_contract_theorems_generator_checker_and_corpus_lock_unchanged": true,
+    "query_verifier_hashes_current": true
+  },
+  "contract_version": "mojom-import-dependents-v1",
+  "coverage": {
+    "all_S_have_terminal_status": true,
+    "declaration_statuses": {
+      "internal": 4424,
+      "outside_scope": 4,
+      "unresolved": 0
+    },
+    "declarations": 4428,
+    "diagnostics": 0,
+    "duplicate_internal_declarations": 5,
+    "file_statuses": {
+      "resolved": 1864,
+      "unresolved": 0
+    },
+    "fully_parsed_files": 1864,
+    "source_complete": true,
+    "source_files": 1864,
+    "unique_edges": 4419,
+    "verified_source_files": 1864
+  },
+  "expected_commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+  "expected_manifest_sha256": "1e6fe63490e2007c56b088194f0c2acb61abc834aeefb4edb2bbfe6399bc2e4a",
+  "expected_root": "mojo/public/mojom/base/time.mojom",
+  "extractor": {
+    "source_sha256": {
+      "corpus.py": "a11bdcfc2fc9da79a25677f584339b3046f3577914e0f1fe2fd5d476af717d5b",
+      "extraction.py": "a47bf20988015f052d75f7f37bfa9db6cdcf970029a46a9f8515835b621a681b",
+      "graph.py": "86bd0505071417ec3e651694f3bdc12ead453bf9821f2ab37ec7667312c99b18"
+    },
+    "version": "repo-proof-mojom-extractor-v1"
+  },
+  "graph_sha256": "0b47a4e7333b12e42dc7571b1ab2720530868fa299a1f7ca75e3d9a6a08a440a",
+  "lean_theorems_without_axioms": 6,
+  "not_proven": [
+    "Correctness and completeness of source extraction/parser",
+    "Python refinement to Lean",
+    "Correctness of Git/manifest/serialization implementation"
+  ],
+  "parser": {
+    "adapter_sha256": "ae6ba07ba79f07c3b63638ded845bbaffd0e073ffb627a3ddf7f0a30b9a38c54",
+    "adapter_version": "repo-proof-mojom-adapter-v1",
+    "name": "Chromium Mojom Parse",
+    "ply_version": "3.11",
+    "upstream_commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+    "upstream_files": 14,
+    "vendor_lock_sha256": "fa01aa9d679d877088dc66865c02ff45eea62fcaf940aa254949cd3e3cee8e54"
+  },
+  "python_tests": 64,
+  "python_version": "3.12.14",
+  "report_sha256": {
+    "stage2-baseline.json": "015478a518ce07a99c3491f490acaea7f04817ce16b2d32301060eab6ac09337",
+    "stage2-checks.json": "8f08a7698991c4b0414ff3ec86e6df97547a3e64be29f3bb77dee22f33b5cf81",
+    "stage2-corpus-baseline.json": "91601e8ac705629c942efb3c14ac44bd9642cb7b72dbdb0b5e3afc041c862307",
+    "stage2-determinism.json": "bfaedabc4bf0d088582417da131ad347b1b95c0d06f8e22c99060d4aa6226530",
+    "stage2-repeat.json": "aaa92dd9513716e940e6921ecee29db98cbba5c2a0ba5dde827701d36055bf05",
+    "stage2-run.json": "abf32531730c29f62b8b268db274a1889ff18e44940ea3edcf63c77f65379940",
+    "stage2-tampering.json": "1d0db08150435888c4a6936b10d8b5a6ec201a4c0bb77ec80dc143b6ce45bf34",
+    "stage2-verify.json": "90785b4f5dbf9ab0330640987a67d753c824aff0243163e2ab002ae160fbc63f"
+  },
+  "result_count": 477,
+  "result_list_sha256": "2c7c4b00616d57c55164365481e0eeef5d2eaad1c296b55f149763adfe1399b4",
+  "saved_bundle_replay_seconds": 15.56618880003225,
+  "stage": 2,
+  "status": "complete_for_declared_scope",
+  "tampering": [
+    {
+      "case": "omitted_result",
+      "errors": [
+        "reverse closure missing importer: 'android_webview/common/mojom/frame.mojom' -> 'mojo/public/mojom/base/time.mojom'"
+      ],
+      "layer": "graph_checker",
+      "rejected": true
+    },
+    {
+      "case": "spurious_result",
+      "errors": [
+        "missing original parent edge: 'android_webview/common/mojom/render_message_filter.mojom' -> 'mojo/public/mojom/base/time.mojom'"
+      ],
+      "layer": "graph_checker",
+      "rejected": true
+    },
+    {
+      "case": "edge_deleted_before_certificate_generation",
+      "error": "supplied graph differs from graph reconstructed from verified source bytes",
+      "graph_checker_accepted_modified_graph": true,
+      "layer": "source_reconstruction",
+      "modified_graph_sha256": "7715c3dbc310714a66316a54cf78681b5e18e347db3a7f54f82d5841f2c48e95",
+      "modified_result_count": 473,
+      "rejected": true,
+      "removed_edge": [
+        "mojo/public/mojom/base/file_info.mojom",
+        "mojo/public/mojom/base/time.mojom"
+      ],
+      "source_binding_rejected": true
+    }
+  ],
+  "timings_seconds": {
+    "corpus_verification_seconds": 5.457239900017157,
+    "full_instance_verification_seconds": 17.12472510000225,
+    "graph_certificate_verification": 0.010613400023430586,
+    "parse_and_graph_seconds": 8.5133195000235,
+    "repeated_certificate_verification_seconds": 0.02650140004698187,
+    "repeated_corpus_verification_seconds": 5.583575799944811,
+    "repeated_parse_and_graph_seconds": 11.276808900060132,
+    "search_and_certificate": 0.011719199945218861
+  },
+  "unchanged_since_stage1": {
+    "corpus.lock.json": true,
+    "docs/query-contract.md": true,
+    "formal/Reachability.lean": true,
+    "src/repo_proof/checker.py": true,
+    "src/repo_proof/generator.py": true
+  }
+}

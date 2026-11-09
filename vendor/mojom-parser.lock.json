@@ -1,0 +1,112 @@
+{
+  "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+  "entries": [
+    {
+      "object_id": "2249a28657f86c645f8978b75babc1bd52aca318",
+      "path": "LICENSE",
+      "sha256": "368cca1106be99d39ecd32a38d8305585d802a475effb66380b91ffc9bcf709b",
+      "size_bytes": 1536,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/LICENSE"
+    },
+    {
+      "object_id": "513e8a6a0a1d9a42818b02fd46b31fe88c653400",
+      "path": "mojo/public/LICENSE",
+      "sha256": "ff11d445fb41a1087c7630e120ab15f1a2cb67c1b707173cb494141805fca35e",
+      "size_bytes": 1537,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/LICENSE"
+    },
+    {
+      "object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "mojo/public/tools/mojom/mojom/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/tools/mojom/mojom/__init__.py"
+    },
+    {
+      "object_id": "dd53b835a49eed299aac5ccec328066733675dfd",
+      "path": "mojo/public/tools/mojom/mojom/error.py",
+      "sha256": "611ec44a6cf00408aab82acef2a06d3618c7cbc9649f7edb4f76458c97ed663d",
+      "size_bytes": 1020,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/tools/mojom/mojom/error.py"
+    },
+    {
+      "object_id": "124f12c134b9d38391c1fb6dfc869924ff667ed0",
+      "path": "mojo/public/tools/mojom/mojom/fileutil.py",
+      "sha256": "d67e8a7de328126cd191e6cebe2b693f4198753513d9e452efd8f9d36c4d1488",
+      "size_bytes": 1534,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/tools/mojom/mojom/fileutil.py"
+    },
+    {
+      "object_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "mojo/public/tools/mojom/mojom/parse/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/tools/mojom/mojom/parse/__init__.py"
+    },
+    {
+      "object_id": "7c2ad4d41eff836b18c5198304b5739cd2d7dca1",
+      "path": "mojo/public/tools/mojom/mojom/parse/ast.py",
+      "sha256": "4435e750e70dc776fe701a7b1e77f14a1995b7b12f7aaf4534072d41ba787395",
+      "size_bytes": 22985,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/tools/mojom/mojom/parse/ast.py"
+    },
+    {
+      "object_id": "68f82af8d1471937758d64d183cd6e491ebef867",
+      "path": "mojo/public/tools/mojom/mojom/parse/lexer.py",
+      "sha256": "604018ed5dae2dded6d1b7c449b5cf17a887bef639acc65f46b45f6fb727ce2e",
+      "size_bytes": 7024,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/tools/mojom/mojom/parse/lexer.py"
+    },
+    {
+      "object_id": "3d5dd9f253c4f0c25edcf80ce9792dc3b55cdaf8",
+      "path": "mojo/public/tools/mojom/mojom/parse/parser.py",
+      "sha256": "fa6f22768c0d334e98571362b71c8d7f5f769a99d07ded681825e17c0814cccb",
+      "size_bytes": 24251,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/mojo/public/tools/mojom/mojom/parse/parser.py"
+    },
+    {
+      "object_id": "b2738663454bd3706663009068f1790b3a3de736",
+      "path": "third_party/ply/LICENSE",
+      "sha256": "dd4930c619afd8527591353c7d3d1c1d7f4bf62ed1cb411f4f507dbdee7738a2",
+      "size_bytes": 1544,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/third_party/ply/LICENSE"
+    },
+    {
+      "object_id": "3bb146b5a701bfaad17a9f4ce5e7c1a75a698d0f",
+      "path": "third_party/ply/README.chromium",
+      "sha256": "ce7ccb15f50bc5e276b3c8bfe50f9fc1a5ee40a53cb1e423082a255f651eec7d",
+      "size_bytes": 692,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/third_party/ply/README.chromium"
+    },
+    {
+      "object_id": "e48880f50fbc97c3230fa05070d5b4c5258e980f",
+      "path": "third_party/ply/__init__.py",
+      "sha256": "cd682304df7164a7e65050b5ff1c78eaa69d324c7c7053e73388a8b896134434",
+      "size_bytes": 1821,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/third_party/ply/__init__.py"
+    },
+    {
+      "object_id": "f95bcdbf1bb5e3a7d3eb1f87d48d9819b2248ffb",
+      "path": "third_party/ply/lex.py",
+      "sha256": "6da6d12129c801fcc7a3b5aa2d8176a86092687d1bb4cf1ddf3b601da2b7480d",
+      "size_bytes": 42905,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/third_party/ply/lex.py"
+    },
+    {
+      "object_id": "88188a1e8ead3d0219e6fcb89b414e220da1f63f",
+      "path": "third_party/ply/yacc.py",
+      "sha256": "105d38deb207ad72581ba8dc6f5e5323648bc1d0a834e4195c237fd4cdfe2389",
+      "size_bytes": 137736,
+      "source_url": "https://github.com/chromium/chromium/blob/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/third_party/ply/yacc.py"
+    }
+  ],
+  "format": "repo-proof-vendored-mojom-v1",
+  "license_files": [
+    "LICENSE",
+    "mojo/public/LICENSE",
+    "third_party/ply/LICENSE"
+  ],
+  "parser": "Chromium Mojom Parse (unmodified)",
+  "ply_version": "3.11",
+  "repository": "https://github.com/chromium/chromium"
+}

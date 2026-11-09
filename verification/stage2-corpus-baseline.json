@@ -1,0 +1,37 @@
+{
+  "allocation_method": "GetFileInformationByHandleEx.FileStandardInfo.AllocationSize",
+  "checked_at_utc": "2026-11-09T00:51:20.641078+00:00",
+  "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+  "corpus_allocated_file_bytes": 232452160,
+  "corpus_logical_bytes": 228659214,
+  "data_dir": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\chromium-corpus-27cec857a08a",
+  "elapsed_seconds": 6.597610800061375,
+  "entry_categories": {
+    "gitlink": 273,
+    "regular": 517527,
+    "symlink": 21,
+    "tree": 46792
+  },
+  "free_bytes_after": 363003768832,
+  "free_bytes_before": 363010236416,
+  "full_chromium_content_complete": false,
+  "git_store_logical_bytes": 21972209,
+  "manifest_bytes": 126445600,
+  "manifest_sha256": "1e6fe63490e2007c56b088194f0c2acb61abc834aeefb4edb2bbfe6399bc2e4a",
+  "materialized_bytes_by_path": 6996906,
+  "measurement_notes": [
+    "File sizes are logical lengths, not filesystem allocation.",
+    "Allocated file bytes exclude directory entries and filesystem metadata.",
+    "Git pack transfer bytes not measured; blob bytes are uncompressed original content.",
+    "DEPS and submodules excluded; full Chromium source size not measured."
+  ],
+  "metadata_complete": true,
+  "mojom_bytes_by_path": 6946142,
+  "mojom_files": 1864,
+  "offline_verification": true,
+  "repository": "https://github.com/chromium/chromium",
+  "selected_content_complete": true,
+  "tree_entries": 564613,
+  "tree_listing_bytes": 73244425,
+  "unique_materialized_blob_bytes": 6996906
+}

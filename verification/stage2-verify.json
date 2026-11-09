@@ -1,0 +1,64 @@
+{
+  "artifact_dir": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage2",
+  "artifact_file_sha256": {
+    "certificate.json": "904f2e2ebf0d31bb87cf52dc1f342fb29251a7fa84dee4d7f4b44aca5d146142",
+    "extraction.json": "af0889b0de2902b2534804318a857a7d231be4b2b04d27e9e7184fe4c75e8814",
+    "graph.json": "764381a202a439cd743018f2efa089fc4f7929680dc294a8aa69bd6e56dbeef0",
+    "query.json": "e5a8101512114d21656f568eb9a376c4ae56781da668bf01f760bf986cf0a6a1"
+  },
+  "checked_at_utc": "2026-11-09T01:08:59.818550+00:00",
+  "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+  "contract_examples": [
+    {
+      "all_edges_reconstructed": true,
+      "all_nodes_in_result": true,
+      "path": [
+        "mojo/public/mojom/base/file_info.mojom",
+        "mojo/public/mojom/base/time.mojom"
+      ]
+    },
+    {
+      "all_edges_reconstructed": true,
+      "all_nodes_in_result": true,
+      "path": [
+        "services/network/public/mojom/url_loader.mojom",
+        "services/network/public/mojom/url_response_head.mojom",
+        "mojo/public/mojom/base/time.mojom"
+      ]
+    }
+  ],
+  "coverage": {
+    "all_S_have_terminal_status": true,
+    "declaration_statuses": {
+      "internal": 4424,
+      "outside_scope": 4,
+      "unresolved": 0
+    },
+    "declarations": 4428,
+    "diagnostics": 0,
+    "duplicate_internal_declarations": 5,
+    "file_statuses": {
+      "resolved": 1864,
+      "unresolved": 0
+    },
+    "fully_parsed_files": 1864,
+    "source_complete": true,
+    "source_files": 1864,
+    "unique_edges": 4419,
+    "verified_source_files": 1864
+  },
+  "expected_contract_version": "mojom-import-dependents-v1",
+  "expected_manifest_sha256": "1e6fe63490e2007c56b088194f0c2acb61abc834aeefb4edb2bbfe6399bc2e4a",
+  "expected_root": "mojo/public/mojom/base/time.mojom",
+  "graph_certificate_status": "accepted_for_reconstructed_graph",
+  "graph_sha256": "0b47a4e7333b12e42dc7571b1ab2720530868fa299a1f7ca75e3d9a6a08a440a",
+  "result_count": 477,
+  "status": "complete_for_declared_scope",
+  "timing_note": "Single observed wall-clock runs; replay repeats corpus verification and the same parser, not an independent parser proof.",
+  "timings_seconds": {
+    "full_instance_verification_seconds": 15.56618880003225,
+    "repeated_certificate_verification_seconds": 0.012334999977611005,
+    "repeated_corpus_verification_seconds": 5.664357499917969,
+    "repeated_parse_and_graph_seconds": 9.665331800002605
+  }
+}

@@ -1,0 +1,7 @@
+*.py text eol=lf
+*.lean text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+# Upstream hashes identify original bytes; never rewrite vendored line endings.
+vendor/chromium/** -text
+vendor/mojom-parser.lock.json -text

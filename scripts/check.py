@@ -18,6 +18,7 @@ def main():
     env = dict(os.environ, PYTHONPATH=str(project / "src"))
     checks = []
     jobs = [
+        ("pinned_parser_runtime", [sys.executable, "scripts/vendor_mojom_parser.py", "--check"]),
         ("python_tests", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"]),
         ("lean_version", [args.lean, "--version"]),
         ("lean_theorems", [args.lean, "formal/Reachability.lean"]),

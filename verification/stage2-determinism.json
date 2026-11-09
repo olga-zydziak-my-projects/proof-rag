@@ -1,0 +1,11 @@
+{
+  "artifact_file_sha256": {
+    "certificate.json": "904f2e2ebf0d31bb87cf52dc1f342fb29251a7fa84dee4d7f4b44aca5d146142",
+    "extraction.json": "af0889b0de2902b2534804318a857a7d231be4b2b04d27e9e7184fe4c75e8814",
+    "graph.json": "764381a202a439cd743018f2efa089fc4f7929680dc294a8aa69bd6e56dbeef0",
+    "query.json": "e5a8101512114d21656f568eb9a376c4ae56781da668bf01f760bf986cf0a6a1"
+  },
+  "first": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage2",
+  "second": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage2-repeat",
+  "status": "byte_identical"
+}
