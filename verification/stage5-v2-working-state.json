@@ -1,0 +1,23 @@
+{
+  "head": "e4984110743131d04ad984eaaa48d33d72867336",
+  "status": "?? docs.zip\n?? docs/stage5-contract-v2.md\n?? docs/stage5-contract.md\n?? docs/stage5-pin-correction-v2.md\n?? docs/stage5-progress-v2-before-final.md\n?? docs/stage5-results-v2.md\n?? docs/stage5-results.md\n?? docs/stage5-review-v2.md\n?? docs/stage5-source-spec-v2.md\n?? docs/stage5-trust-boundary-v2.md\n?? docs/stage5-trust-boundary.md\n?? formal/AnswerBinding.lean\n?? formal/SourceByteScanner.lean\n?? formal/SourceGraphBinding.lean\n?? formal/SourceScanner.lean\n?? scripts.zip\n?? scripts/check_stage5.py\n?? scripts/check_stage5_v2.py\n?? scripts/stage5_byte_smoke.py\n?? scripts/stage5_preflight.py\n?? scripts/stage5_source_smoke.py\n?? scripts/stage5_support.py\n?? scripts/stage5_v2_attacks.py\n?? scripts/stage5_v2_audit_bytes.py\n?? scripts/stage5_v2_compile_groups.py\n?? scripts/stage5_v2_export.py\n?? scripts/stage5_v2_export_master.py\n?? scripts/stage5_v2_finish_instance.py\n?? scripts/stage5_v2_projection_cases.py\n?? scripts/stage5_v2_verify_inputs.py\n?? src.zip\n?? src/repo_proof/source_bytes_v2.py\n?? src/repo_proof/source_scanner_v2.py\n?? src/repo_proof/stage5_answer_v2.py\n?? src/repo_proof/stage5_preflight.py\n?? src/repo_proof/stage5_run_v2.py\n?? src/repo_proof/stage5_v2.py\n?? tests.zip\n?? tests/test_stage5_answer_v2.py\n?? tests/test_stage5_preflight.py\n?? tests/test_stage5_process_logs.py\n?? tests/test_stage5_run_v2.py\n?? verification/stage5-baseline.json\n?? verification/stage5-checks.json\n?? verification/stage5-evidence.json\n?? verification/stage5-final-checks.json\n?? verification/stage5-source-receipt.json\n?? verification/stage5-tampering.json\n?? verification/stage5-v2-baseline.json\n?? verification/stage5-v2-checks.json\n?? verification/stage5-v2-final-checks.json\n?? verification/stage5-v2-interrupted-02.json\n?? verification/stage5-v2-review-final.json\n?? verification/stage5-v2-review.json\n",
+  "unrelated_archives": {
+    "docs.zip": {
+      "bytes": 66569,
+      "sha256": "261d808372008eeeb0f109b01f10f05ed51d9091f96fca989da8cb64365d8eee"
+    },
+    "scripts.zip": {
+      "bytes": 81766,
+      "sha256": "b7be29e8b6eb9ff4e4685171475fa7e4e4c7d68439584c4dfe80785f3ae39baa"
+    },
+    "src.zip": {
+      "bytes": 135128,
+      "sha256": "4da1b739a7e2299935270876637ea3110db7a8ea6789fa0408897ad7e586b646"
+    },
+    "tests.zip": {
+      "bytes": 92333,
+      "sha256": "a093a50a2fa7a55de05716ac2df4f8d567423acf90299912afd0e558f6f42140"
+    }
+  },
+  "note": "Archives were never expanded or modified. Identity recorded during fresh final proof run for final comparison."
+}

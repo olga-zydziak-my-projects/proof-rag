@@ -1,0 +1,555 @@
+{
+  "status": "BLOCKED_PIN_CONFLICT",
+  "stage5_pass": false,
+  "contract_sha256": "5c323f4e9c2ae8d3bb498cd2b267e57ba8d4e76d09e2673c5d46979d3f44161d",
+  "stage4_commit": "e4984110743131d04ad984eaaa48d33d72867336",
+  "run_dir": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02",
+  "checks": [
+    {
+      "name": "stage5_preflight",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/stage5_preflight.py",
+        "--run-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\preflight"
+      ],
+      "passed": false,
+      "exit_code": 3,
+      "timed_out": false,
+      "seconds": 5.2337130000814795,
+      "stdout": "{\"status\": \"BLOCKED_PIN_CONFLICT\", \"success\": false, \"answer_released\": false, \"diagnostic\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\stage5\\\\run-02\\\\preflight\\\\diagnostic.json\"}\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_preflight.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_preflight.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 1363828736,
+        "peak_process_commit_bytes": 1358282752,
+        "successful_queries": 167,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 3,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_lean_version",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "--version"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.057997799944132566,
+      "stdout": "Lean (version 4.35.0, x86_64-w64-windows-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_lean_version.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_lean_version.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 44273664,
+        "peak_process_commit_bytes": 11710464,
+        "successful_queries": 3,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_Reachability",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "-o",
+        "formal/Reachability.olean",
+        "formal/Reachability.lean"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.7833164000185207,
+      "stdout": "'RepoProof.complete' does not depend on any axioms\n'RepoProof.exact_reachability' does not depend on any axioms\n'RepoProof.soundness_from_ranked_witnesses' does not depend on any axioms\n'RepoProof.ranked_exact_reachability' does not depend on any axioms\n'RepoProof.reachability_has_certificate' does not depend on any axioms\n'RepoProof.exact_dependents' does not depend on any axioms\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_Reachability.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_Reachability.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 441139200,
+        "peak_process_commit_bytes": 832700416,
+        "successful_queries": 26,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_Checker",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "-o",
+        "formal/Checker.olean",
+        "formal/Checker.lean"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.8098917999304831,
+      "stdout": "'RepoProof.check_exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.member' does not depend on any axioms\n'RepoProof.rank' does not depend on any axioms\n'RepoProof.localCheck' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.check' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.all_split' depends on axioms: [propext]\n'RepoProof.indexCheck' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_Checker.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_Checker.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 451051520,
+        "peak_process_commit_bytes": 839749632,
+        "successful_queries": 27,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_ProofTiming",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "-o",
+        "formal/ProofTiming.olean",
+        "formal/ProofTiming.lean"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.5475442999741063,
+      "stdout": "",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_ProofTiming.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_ProofTiming.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 882470912,
+        "peak_process_commit_bytes": 2221924352,
+        "successful_queries": 50,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_FastChecker",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "-o",
+        "formal/FastChecker.olean",
+        "formal/FastChecker.lean"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.8405095000052825,
+      "stdout": "'RepoProof.eraseGraph' does not depend on any axioms\n'RepoProof.eraseHints' does not depend on any axioms\n'RepoProof.fastMember' does not depend on any axioms\n'RepoProof.edgeHint' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.fastLocalCheck' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.fastIndexCheck' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.fastClosure' does not depend on any axioms\n'RepoProof.fastCheck' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.erase_member' depends on axioms: [propext]\n'RepoProof.edgeHint_sound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.fastLocalCheck_refines' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.fastCheck_refines' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.fastCheck_exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RepoProof.all_range'_split' depends on axioms: [propext]\n'RepoProof.all_cons_true' depends on axioms: [propext]\n'RepoProof.fastCheck_of_parts' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_FastChecker.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_FastChecker.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 458272768,
+        "peak_process_commit_bytes": 854503424,
+        "successful_queries": 28,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_existing_graph_fresh_instance",
+      "command": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "-o",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\baseline-graph.olean",
+        "formal/ChromiumFast.lean"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 10.07640200003516,
+      "stdout": "proof_construction_ms=0; kernel_check_and_insert_ms=2\nproof_construction_ms=1; kernel_check_and_insert_ms=20\nproof_construction_ms=0; kernel_check_and_insert_ms=22\nproof_construction_ms=0; kernel_check_and_insert_ms=18\nproof_construction_ms=0; kernel_check_and_insert_ms=25\nproof_construction_ms=1; kernel_check_and_insert_ms=22\nproof_construction_ms=0; kernel_check_and_insert_ms=14\nproof_construction_ms=0; kernel_check_and_insert_ms=20\nproof_construction_ms=1; kernel_check_and_insert_ms=16\nproof_construction_ms=0; kernel_check_and_insert_ms=24\nproof_construction_ms=0; kernel_check_and_insert_ms=36\nproof_construction_ms=0; kernel_check_and_insert_ms=33\nproof_construction_ms=0; kernel_check_and_insert_ms=22\nproof_construction_ms=0; kernel_check_and_insert_ms=31\nproof_construction_ms=0; kernel_check_and_insert_ms=20\nproof_construction_ms=0; kernel_check_and_insert_ms=19\nproof_construction_ms=0; kernel_check_and_insert_ms=33\nproof_construction_ms=1; kernel_check_and_insert_ms=25\nproof_construction_ms=0; kernel_check_and_insert_ms=23\nproof_construction_ms=0; kernel_check_and_insert_ms=23\nproof_construction_ms=1; kernel_check_and_insert_ms=25\nproof_construction_ms=0; kernel_check_and_insert_ms=32\nproof_construction_ms=0; kernel_check_and_insert_ms=29\nproof_construction_ms=1; kernel_check_and_insert_ms=29\nproof_construction_ms=1; kernel_check_and_insert_ms=19\nproof_construction_ms=0; kernel_check_and_insert_ms=25\nproof_construction_ms=0; kernel_check_and_insert_ms=30\nproof_construction_ms=0; kernel_check_and_insert_ms=27\nproof_construction_ms=1; kernel_check_and_insert_ms=32\nproof_construction_ms=0; kernel_check_and_insert_ms=27\nproof_construction_ms=0; kernel_check_and_insert_ms=27\nproof_construction_ms=1; kernel_check_and_insert_ms=17\nproof_construction_ms=0; kernel_check_and_insert_ms=24\nproof_construction_ms=1; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=1; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=13\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=8\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=13\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=13\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=1; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=13\nproof_construction_ms=1; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=9\nproof_construction_ms=0; kernel_check_and_insert_ms=13\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=1; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=14\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=1; kernel_check_and_insert_ms=11\nproof_construction_ms=1; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=11\nproof_construction_ms=0; kernel_check_and_insert_ms=12\nproof_construction_ms=0; kernel_check_and_insert_ms=10\nproof_construction_ms=0; kernel_check_and_insert_ms=1\n'ChromiumFast.accepted' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ChromiumFast.erased_accepted' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ChromiumFast.exact' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_existing_graph_fresh_instance.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_existing_graph_fresh_instance.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 1510305792,
+        "peak_process_commit_bytes": 2867310592,
+        "successful_queries": 320,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_existing_binding_audit",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/review_stage4_binding.py"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.8246470999438316,
+      "stdout": "{\n  \"passed\": true,\n  \"nodes_compared\": 1864,\n  \"edges_compared\": 4419,\n  \"witnesses_compared\": 477,\n  \"actual_edge_hints_checked\": 476,\n  \"root\": \"mojo/public/mojom/base/time.mojom\",\n  \"baseline_full_content_audit\": {\n    \"passed\": true,\n    \"nodes_compared\": 1864,\n    \"edges_compared\": 4419,\n    \"witnesses_compared\": 477,\n    \"root\": \"mojo/public/mojom/base/time.mojom\",\n    \"boundary\": \"External full-content comparison; not a formal exporter proof.\"\n  },\n  \"boundary\": \"External full-content equality against stage 3 via the same complete artifacts; not a formal exporter proof.\"\n}\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_existing_binding_audit.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_existing_binding_audit.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 35307520,
+        "peak_process_commit_bytes": 29896704,
+        "successful_queries": 28,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_all_tests",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 124.46842980000656,
+      "stdout": "",
+      "stderr": "test_duplicate_json_keys_rejected (test_cli.CLITests.test_duplicate_json_keys_rejected) ... ok\ntest_query_verify_and_both_tampering_cases (test_cli.CLITests.test_query_verify_and_both_tampering_cases) ... ok\ntest_failed_blob_fetch_leaves_recoverable_metadata_without_manifest (test_corpus.CorpusTests.test_failed_blob_fetch_leaves_recoverable_metadata_without_manifest) ... Fetching 1 selected/reference blob objects\nok\ntest_interruption_retains_verified_blobs_and_resume_ignores_partial_write (test_corpus.CorpusTests.test_interruption_retains_verified_blobs_and_resume_ignores_partial_write) ... ok\ntest_modified_blob_is_rejected_offline_then_repaired_from_git (test_corpus.CorpusTests.test_modified_blob_is_rejected_offline_then_repaired_from_git) ... ok\ntest_nested_nonexistent_root_reaches_fetch_without_disk_usage_failure (test_corpus.CorpusTests.test_nested_nonexistent_root_reaches_fetch_without_disk_usage_failure) ... Fetching pinned commit and complete tree metadata (blob:none)\nok\ntest_offline_git_command_disables_lazy_fetch (test_corpus.CorpusTests.test_offline_git_command_disables_lazy_fetch) ... ok\ntest_omitted_manifest_row_and_altered_hash_are_rejected (test_corpus.CorpusTests.test_omitted_manifest_row_and_altered_hash_are_rejected) ... ok\ntest_prepare_then_offline_verify_and_rerun_are_byte_deterministic (test_corpus.CorpusTests.test_prepare_then_offline_verify_and_rerun_are_byte_deterministic) ... ok\ntest_presence_probe_uses_offline_git_wrapper (test_corpus.CorpusTests.test_presence_probe_uses_offline_git_wrapper) ... ok\ntest_real_git_tree_has_all_categories_and_preserves_special_paths (test_corpus.CorpusTests.test_real_git_tree_has_all_categories_and_preserves_special_paths) ... ok\ntest_saved_tree_omission_is_rejected (test_corpus.CorpusTests.test_saved_tree_omission_is_rejected) ... ok\ntest_wrong_pinned_commit_is_rejected_offline (test_corpus.CorpusTests.test_wrong_pinned_commit_is_rejected_offline) ... ok\ntest_non_utf8_git_name_is_representable_without_losing_bytes (test_corpus.TreeParserTests.test_non_utf8_git_name_is_representable_without_losing_bytes) ... ok\ntest_truncated_duplicate_or_unknown_mode_fail_closed (test_corpus.TreeParserTests.test_truncated_duplicate_or_unknown_mode_fail_closed) ... ok\ntest_displayed_result_mutation_is_rejected_by_cli_replay (test_experiment.ExperimentTests.test_displayed_result_mutation_is_rejected_by_cli_replay) ... ok\ntest_explicit_json_null_in_required_bundle_files_is_rejected (test_experiment.ExperimentTests.test_explicit_json_null_in_required_bundle_files_is_rejected) ... ok\ntest_run_replay_repeat_compare_and_tampering_are_offline (test_experiment.ExperimentTests.test_run_replay_repeat_compare_and_tampering_are_offline) ... ok\ntest_unresolved_source_has_distinct_exit_code_and_terminal_file_record (test_experiment.ExperimentTests.test_unresolved_source_has_distinct_exit_code_and_terminal_file_record) ... ok\ntest_byte_coordinate_validation_rejects_character_offsets_and_bool_coordinates (test_extraction.ExtractionTests.test_byte_coordinate_validation_rejects_character_offsets_and_bool_coordinates) ... ok\ntest_comments_strings_conditions_duplicates_and_source_byte_locations (test_extraction.ExtractionTests.test_comments_strings_conditions_duplicates_and_source_byte_locations) ... ok\ntest_external_wrong_case_symlink_gitlink_and_regular_boundaries_are_resolved (test_extraction.ExtractionTests.test_external_wrong_case_symlink_gitlink_and_regular_boundaries_are_resolved) ... ok\ntest_independent_pin_manifest_contract_and_tree_expectations (test_extraction.ExtractionTests.test_independent_pin_manifest_contract_and_tree_expectations) ... ok\ntest_invalid_suffix_and_lexical_failures_keep_terminal_status_for_every_file (test_extraction.ExtractionTests.test_invalid_suffix_and_lexical_failures_keep_terminal_status_for_every_file) ... ok\ntest_keyword_and_attribute_locations_are_verified_against_original_unicode_bytes (test_extraction.ExtractionTests.test_keyword_and_attribute_locations_are_verified_against_original_unicode_bytes) ... ok\ntest_missing_and_corrupt_unrelated_source_both_block_global_completeness (test_extraction.ExtractionTests.test_missing_and_corrupt_unrelated_source_both_block_global_completeness) ... ok\ntest_missing_materialized_parser_reference_is_not_silently_ignored (test_extraction.ExtractionTests.test_missing_materialized_parser_reference_is_not_silently_ignored) ... ok\ntest_noncanonical_imports_are_unresolved_without_normalization (test_extraction.ExtractionTests.test_noncanonical_imports_are_unresolved_without_normalization) ... ok\ntest_repeated_offline_extraction_is_byte_deterministic (test_extraction.ExtractionTests.test_repeated_offline_extraction_is_byte_deterministic) ... ok\ntest_checked_hints_and_witness_faults_in_lean (test_fast_export.FastExportTests.test_checked_hints_and_witness_faults_in_lean) ... ok\ntest_hint_schema_rejects_malformed_without_coercion (test_fast_export.FastExportTests.test_hint_schema_rejects_malformed_without_coercion) ... ok\ntest_all_three_node_directed_graphs_match_independent_reference (test_graph.CertificateTests.test_all_three_node_directed_graphs_match_independent_reference) ... ok\ntest_bad_parent_types_duplicates_unknown_nodes_fail_closed (test_graph.CertificateTests.test_bad_parent_types_duplicates_unknown_nodes_fail_closed) ... ok\ntest_direction_is_reverse_and_root_is_included (test_graph.CertificateTests.test_direction_is_reverse_and_root_is_included) ... ok\ntest_disconnected_cycle_cannot_prove_itself (test_graph.CertificateTests.test_disconnected_cycle_cannot_prove_itself) ... ok\ntest_extra_disconnected_node_is_rejected (test_graph.CertificateTests.test_extra_disconnected_node_is_rejected) ... ok\ntest_graph_order_does_not_change_hash (test_graph.CertificateTests.test_graph_order_does_not_change_hash) ... ok\ntest_malformed_graphs_and_certificates (test_graph.CertificateTests.test_malformed_graphs_and_certificates) ... ok\ntest_malformed_ranks_fail_closed (test_graph.CertificateTests.test_malformed_ranks_fail_closed) ... ok\ntest_missing_root_is_rejected (test_graph.CertificateTests.test_missing_root_is_rejected) ... ok\ntest_multiple_independent_errors_are_reported (test_graph.CertificateTests.test_multiple_independent_errors_are_reported) ... ok\ntest_nonstring_root_is_validation_error (test_graph.CertificateTests.test_nonstring_root_is_validation_error) ... ok\ntest_omitted_reachable_leaf_is_rejected_by_closure (test_graph.CertificateTests.test_omitted_reachable_leaf_is_rejected_by_closure) ... ok\ntest_reachable_cycle_and_rank_gaps_are_valid (test_graph.CertificateTests.test_reachable_cycle_and_rank_gaps_are_valid) ... ok\ntest_wrong_expected_root_and_modified_query_rejected (test_graph.CertificateTests.test_wrong_expected_root_and_modified_query_rejected) ... ok\ntest_wrong_graph_hash_rejected_even_if_reachability_unchanged (test_graph.CertificateTests.test_wrong_graph_hash_rejected_even_if_reachability_unchanged) ... ok\ntest_displayed_result_substitution_is_checked_against_certificate_and_sources (test_instance.InstanceTests.test_displayed_result_substitution_is_checked_against_certificate_and_sources) ... ok\ntest_edge_deleted_before_generation_passes_graph_checker_but_fails_source_binding (test_instance.InstanceTests.test_edge_deleted_before_generation_passes_graph_checker_but_fails_source_binding) ... ok\ntest_expected_root_and_certificate_result_omission_or_addition_are_rejected (test_instance.InstanceTests.test_expected_root_and_certificate_result_omission_or_addition_are_rejected) ... ok\ntest_explicit_null_graph_or_result_is_not_an_omitted_optional_input (test_instance.InstanceTests.test_explicit_null_graph_or_result_is_not_an_omitted_optional_input) ... ok\ntest_full_verification_rechecks_source_bytes_and_refuses_stale_complete_artifact (test_instance.InstanceTests.test_full_verification_rechecks_source_bytes_and_refuses_stale_complete_artifact) ... ok\ntest_full_verifier_reconstructs_sources_without_calling_generator (test_instance.InstanceTests.test_full_verifier_reconstructs_sources_without_calling_generator) ... ok\ntest_standalone_graph_provenance_and_bool_type_substitution_are_rejected (test_instance.InstanceTests.test_standalone_graph_provenance_and_bool_type_substitution_are_rejected) ... ok\ntest_unresolved_unrelated_file_never_becomes_complete_source_answer (test_instance.InstanceTests.test_unresolved_unrelated_file_never_becomes_complete_source_answer) ... ok\ntest_differential (test_lean_export.LeanExportTests.test_differential) ... ok\ntest_serialization_rejects_malformed (test_lean_export.LeanExportTests.test_serialization_rejects_malformed) ... ok\ntest_attributes_and_duplicate_imports_keep_every_source_location (test_mojom_parser.MojomParserTests.test_attributes_and_duplicate_imports_keep_every_source_location) ... ok\ntest_changed_vendor_lock_identity_is_rejected (test_mojom_parser.MojomParserTests.test_changed_vendor_lock_identity_is_rejected) ... ok\ntest_comments_and_other_string_literals_do_not_form_imports (test_mojom_parser.MojomParserTests.test_comments_and_other_string_literals_do_not_form_imports) ... ok\ntest_crlf_unicode_coordinates_are_original_utf8_byte_offsets (test_mojom_parser.MojomParserTests.test_crlf_unicode_coordinates_are_original_utf8_byte_offsets) ... ok\ntest_empty_attribute_section_and_unicode_before_import_keep_spans (test_mojom_parser.MojomParserTests.test_empty_attribute_section_and_unicode_before_import_keep_spans) ... ok\ntest_foreign_preloaded_module_fails_closed (test_mojom_parser.MojomParserTests.test_foreign_preloaded_module_fails_closed) ... ok\ntest_full_file_guard_and_state_reset_after_each_error (test_mojom_parser.MojomParserTests.test_full_file_guard_and_state_reset_after_each_error) ... ok\ntest_noncanonical_paths_are_preserved_without_windows_normalization (test_mojom_parser.MojomParserTests.test_noncanonical_paths_are_preserved_without_windows_normalization) ... ok\ntest_official_runtime_identity_is_pinned_and_checked (test_mojom_parser.MojomParserTests.test_official_runtime_identity_is_pinned_and_checked) ... ok\ntest_prefix_imports_on_invalid_suffix_are_explicitly_partial (test_mojom_parser.MojomParserTests.test_prefix_imports_on_invalid_suffix_are_explicitly_partial) ... ok\ntest_utf8_and_bom_errors_fail_closed (test_mojom_parser.MojomParserTests.test_utf8_and_bom_errors_fail_closed) ... ok\ntest_vendor_tool_rejects_rewritten_lock_before_check_or_download (test_mojom_parser.MojomParserTests.test_vendor_tool_rejects_rewritten_lock_before_check_or_download) ... ok\ntest_actual_full_content_and_mutations (test_stage3_binding.BindingReviewTests.test_actual_full_content_and_mutations) ... ok\ntest_full_actual_data (test_stage4_binding.Stage4BindingTests.test_full_actual_data) ... ok\ntest_mutations_reject_incomplete_or_substituted_data (test_stage4_binding.Stage4BindingTests.test_mutations_reject_incomplete_or_substituted_data) ... ok\ntest_existing_run_is_not_overwritten (test_stage5_preflight.Stage5PreflightTests.test_existing_run_is_not_overwritten) ... ok\ntest_frozen_contract_and_preservation (test_stage5_preflight.Stage5PreflightTests.test_frozen_contract_and_preservation) ... ok\ntest_malformed_config_is_diagnostic_failure_not_empty_success (test_stage5_preflight.Stage5PreflightTests.test_malformed_config_is_diagnostic_failure_not_empty_success) ... ok\ntest_pin_conflict_is_not_reconciled_by_matching_counts (test_stage5_preflight.Stage5PreflightTests.test_pin_conflict_is_not_reconciled_by_matching_counts) ... ok\ntest_public_boundary_rejects_self_consistent_producer_claim (test_stage5_preflight.Stage5PreflightTests.test_public_boundary_rejects_self_consistent_producer_claim) ... ok\ntest_logs_are_exclusive_and_existing_bytes_preserved (test_stage5_process_logs.Stage5ProcessLogsTests.test_logs_are_exclusive_and_existing_bytes_preserved) ... ok\ntest_two_runs_keep_separate_log_paths (test_stage5_process_logs.Stage5ProcessLogsTests.test_two_runs_keep_separate_log_paths) ... ok\n\n----------------------------------------------------------------------\nRan 78 tests in 124.287s\n\nOK\n",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_all_tests.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_all_tests.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 75427840,
+        "peak_process_commit_bytes": 64937984,
+        "successful_queries": 3942,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    },
+    {
+      "name": "stage5_baseline_tampering",
+      "command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/mojom_experiment.py",
+        "tamper",
+        "--root",
+        "mojo/public/mojom/base/time.mojom",
+        "--artifact-dir",
+        "local/stage2",
+        "--report",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\baseline-tampering.json"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 22.49788899999112,
+      "stdout": "{\n  \"all_tampering_rejected\": true,\n  \"cases\": [\n    {\n      \"case\": \"omitted_result\",\n      \"errors\": [\n        \"reverse closure missing importer: 'android_webview/common/mojom/frame.mojom' -> 'mojo/public/mojom/base/time.mojom'\"\n      ],\n      \"layer\": \"graph_checker\",\n      \"rejected\": true\n    },\n    {\n      \"case\": \"spurious_result\",\n      \"errors\": [\n        \"missing original parent edge: 'android_webview/common/mojom/render_message_filter.mojom' -> 'mojo/public/mojom/base/time.mojom'\"\n      ],\n      \"layer\": \"graph_checker\",\n      \"rejected\": true\n    },\n    {\n      \"case\": \"edge_deleted_before_certificate_generation\",\n      \"error\": \"supplied graph differs from graph reconstructed from verified source bytes\",\n      \"graph_checker_accepted_modified_graph\": true,\n      \"layer\": \"source_reconstruction\",\n      \"modified_graph_sha256\": \"7715c3dbc310714a66316a54cf78681b5e18e347db3a7f54f82d5841f2c48e95\",\n      \"modified_result_count\": 473,\n      \"rejected\": true,\n      \"removed_edge\": [\n        \"mojo/public/mojom/base/file_info.mojom\",\n        \"mojo/public/mojom/base/time.mojom\"\n      ],\n      \"source_binding_rejected\": true\n    }\n  ],\n  \"checked_at_utc\": \"2026-11-09T16:34:33.720805+00:00\",\n  \"commit\": \"27cec857a08a0ee0e1b41f5eb18c07467a0ce093\",\n  \"expected_root\": \"mojo/public/mojom/base/time.mojom\",\n  \"original_graph_sha256\": \"0b47a4e7333b12e42dc7571b1ab2720530868fa299a1f7ca75e3d9a6a08a440a\",\n  \"original_result_count\": 477\n}\n",
+      "stderr": "",
+      "log_paths": [
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_baseline_tampering.stdout",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage5\\run-02\\process-logs\\stage5_baseline_tampering.stderr"
+      ],
+      "memory": {
+        "peak_working_set_bytes": 1388859392,
+        "peak_process_commit_bytes": 1383796736,
+        "successful_queries": 712,
+        "post_exit_query_succeeded": true,
+        "scope": "Windows native PeakWorkingSetSize (resident) and PeakPagefileUsage (process commit), this process only. Requested20ms waits; scheduling can lengthen them. Successful post-exit query covers lifetime. Wall clock includes opening exclusive logs, Popen, execution and wait; log decoding excluded."
+      },
+      "expected_exit_code": 0,
+      "exit_matched_expectation": true
+    }
+  ],
+  "checked_at_utc": "2026-11-09T16:31:46.575451+00:00",
+  "timings_seconds": {
+    "source_semantics_validation": null,
+    "generation": null,
+    "stage5_fresh_instance": null,
+    "answer_validation": null,
+    "successful_whole_pipeline": null,
+    "blocked_preflight_process": 5.2337130000814795,
+    "accepted_baseline_provenance_diagnostic": 5.059925200068392,
+    "generic_module_processes_sum": 3.9812619999283925,
+    "diagnostic_baseline_graph_fresh_instance": 10.07640200003516,
+    "whole_blocked_diagnostic_driver": 167.17503729998134
+  },
+  "preservation_before": {
+    "preserved": true,
+    "changed_baseline_files": [],
+    "tracked_files_checked": 96,
+    "initial_status_porcelain": "",
+    "baseline_stage4": "e4984110743131d04ad984eaaa48d33d72867336",
+    "stage3_ancestor": "3184813"
+  },
+  "preflight": {
+    "schema": "stage5-preflight-v1",
+    "success": false,
+    "answer_released": false,
+    "baseline_stage4": "e4984110743131d04ad984eaaa48d33d72867336",
+    "contract_sha256": "5c323f4e9c2ae8d3bb498cd2b267e57ba8d4e76d09e2673c5d46979d3f44161d",
+    "inventory_claim": {
+      "repository": "https://github.com/chromium/chromium",
+      "commit": "1ab171af2976555a2b12b9bca8b984c204962ba8",
+      "tree": "9e5b002b0ce384a82f6cb836fd3abaebab8a7da6"
+    },
+    "stage5_source_theorem": null,
+    "stage5_fresh_instance_seconds": null,
+    "whole_successful_pipeline_seconds": null,
+    "accepted_anchor": {
+      "repository": "https://github.com/chromium/chromium",
+      "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+      "tree": "25131300fa459906dedb84bf592a8537b7848771"
+    },
+    "pin_conflicts": {
+      "commit": {
+        "claim": "1ab171af2976555a2b12b9bca8b984c204962ba8",
+        "accepted_anchor": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093"
+      },
+      "tree": {
+        "claim": "9e5b002b0ce384a82f6cb836fd3abaebab8a7da6",
+        "accepted_anchor": "25131300fa459906dedb84bf592a8537b7848771"
+      }
+    },
+    "preservation_before": {
+      "preserved": true,
+      "changed_baseline_files": [],
+      "tracked_files_checked": 96,
+      "initial_status_porcelain": "",
+      "baseline_stage4": "e4984110743131d04ad984eaaa48d33d72867336",
+      "stage3_ancestor": "3184813"
+    },
+    "status": "BLOCKED_PIN_CONFLICT",
+    "baseline_byte_audit": {
+      "succeeded": true,
+      "receipt_sha256": "096b2de871352c703e9faa6180f89152840f601368554a55f201ec2eedba4d41",
+      "selected_file_count": 1864,
+      "captured_source_bytes": 6946142,
+      "non_ascii_selected_paths": 0
+    },
+    "baseline_provenance_seconds": 5.059925200068392,
+    "preservation_after": {
+      "preserved": true,
+      "changed_baseline_files": [],
+      "tracked_files_checked": 96,
+      "initial_status_porcelain": "",
+      "baseline_stage4": "e4984110743131d04ad984eaaa48d33d72867336",
+      "stage3_ancestor": "3184813"
+    },
+    "blocked_preflight_seconds": 5.162461999920197
+  },
+  "precompiled_for_baseline_diagnostic": {
+    "formal/Reachability.olean": {
+      "bytes": 74088,
+      "sha256": "a4b9f5dcce9cca2dd570185474a202bba0f0c61d2573e0966e30f8c87db9c83e"
+    },
+    "formal/Checker.olean": {
+      "bytes": 222144,
+      "sha256": "15a2cd0206effa319f8d094060ab890ac2f3bfbd703a2084bbea96be70130b42"
+    },
+    "formal/ProofTiming.olean": {
+      "bytes": 165904,
+      "sha256": "b82241f345e458578c5196a570193550dbb0699af6134dde588eb699b70fcbfc"
+    },
+    "formal/FastChecker.olean": {
+      "bytes": 348408,
+      "sha256": "37cc92cc380d9c80b4a69fc7c2b633819416e05d242114adf646d04926286d67"
+    }
+  },
+  "existing_generic_axioms": {
+    "RepoProof.eraseGraph": [],
+    "RepoProof.eraseHints": [],
+    "RepoProof.fastMember": [],
+    "RepoProof.edgeHint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.fastLocalCheck": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.fastIndexCheck": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.fastClosure": [],
+    "RepoProof.fastCheck": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.erase_member": [
+      "propext"
+    ],
+    "RepoProof.edgeHint_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.fastLocalCheck_refines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.fastCheck_refines": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.fastCheck_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RepoProof.all_range'_split": [
+      "propext"
+    ],
+    "RepoProof.all_cons_true": [
+      "propext"
+    ],
+    "RepoProof.fastCheck_of_parts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "existing_instance_axioms": {
+    "ChromiumFast.accepted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChromiumFast.erased_accepted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ChromiumFast.exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "baseline_instance_scope": "Fresh Stage4 graph theorem only, relative to existing supplied graph; not a Stage5 source theorem. Standard SDK plus listed generics precompiled.",
+  "test_count": 78,
+  "preservation_after": {
+    "preserved": true,
+    "changed_baseline_files": [],
+    "tracked_files_checked": 96,
+    "initial_status_porcelain": "",
+    "baseline_stage4": "e4984110743131d04ad984eaaa48d33d72867336",
+    "stage3_ancestor": "3184813"
+  },
+  "additional_blocker": "STAGE5_BLOCKED__SOURCE_PROOF (not implemented: pin prerequisite unresolved)",
+  "gates": {
+    "G1": {
+      "status": "PASS",
+      "reason": "Checkpoint and observed baseline files preserved; existing regressions pass."
+    },
+    "G2": {
+      "status": "BLOCKED",
+      "reason": "BLOCKED_PIN_CONFLICT; accepted baseline bytes corroborated only under different pin."
+    },
+    "G3": {
+      "status": "BLOCKED",
+      "reason": "No Stage5 source theorem; essential pin unresolved."
+    },
+    "G4": {
+      "status": "BLOCKED",
+      "reason": "Existing graph exactness checked, but source composition and full answer decoding not proved."
+    },
+    "G5": {
+      "status": "BLOCKED",
+      "reason": "No newly successful canonical or human-readable answer released."
+    },
+    "G6": {
+      "status": "BLOCKED",
+      "reason": "Existing regressions and preflight faults pass; full Stage5 A-L boundaries not reached."
+    },
+    "G7": {
+      "status": "BLOCKED",
+      "reason": "Reproduced blocked preflight, not a clean successful source-to-answer run or canonical answer regeneration."
+    },
+    "G8": {
+      "status": "PASS",
+      "reason": "No source proof, new speedup, or successful release claimed; assumptions and blocks explicit."
+    }
+  },
+  "new_stage5_theorems": [],
+  "source_sha256": {
+    "src\\repo_proof\\__init__.py": "9c6bb356a112e399534e1429dfb62b73fe9b6265b0b6d715a5a6a79ee9e52f75",
+    "src\\repo_proof\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src\\repo_proof\\checker.py": "c116f143d2e9a947940065aa31f09d5c1464523878a62c5ed4fa1f718c3b306e",
+    "src\\repo_proof\\cli.py": "92ed45ecb33ecc2ddfd08f67e88b12b4eaddfa471af672a52a822c73a6d43d50",
+    "src\\repo_proof\\corpus.py": "a11bdcfc2fc9da79a25677f584339b3046f3577914e0f1fe2fd5d476af717d5b",
+    "src\\repo_proof\\experiment.py": "8a99b135d8f65dd39a43342f9d8184426361ceda15fd64b4d4284c7ec5bca607",
+    "src\\repo_proof\\extraction.py": "a47bf20988015f052d75f7f37bfa9db6cdcf970029a46a9f8515835b621a681b",
+    "src\\repo_proof\\fast_export.py": "e97db189588118220d883e0f8755e9bed034f4f8ce31553e7ba9f73398813d67",
+    "src\\repo_proof\\generator.py": "b52eb3fbed04a6b1b2c28b768dc3d877d233edd29f9fa58550d056b1309c7b9b",
+    "src\\repo_proof\\graph.py": "86bd0505071417ec3e651694f3bdc12ead453bf9821f2ab37ec7667312c99b18",
+    "src\\repo_proof\\instance.py": "f703b03effbc578dc22b6d1da18c3e9a17b51c11e8759aa0843dd509bf1db88c",
+    "src\\repo_proof\\lean_export.py": "85c369748f325d0b75dd7bfedda32aaea09a980516c7829e5e7912f45e6b84cd",
+    "src\\repo_proof\\mojom_parser.py": "ae6ba07ba79f07c3b63638ded845bbaffd0e073ffb627a3ddf7f0a30b9a38c54",
+    "src\\repo_proof\\stage5_preflight.py": "d0f59b74d53b43b7fd4592d34513ab1965bb897f26cf9c94db15b4ccb8f8d329",
+    "scripts\\check.py": "1eb1fd506d9ca625ebbf4c044e1c3c2bd4ad24ccc4c498e52b4f93d832a4336b",
+    "scripts\\check_stage3.py": "3f683b8a61ee9d46e11691b9a8870475e91adad0e7879bb426da9058a7af7b8b",
+    "scripts\\check_stage4.py": "217e3dc8e35ffe6b1e65bc5135d5110e8132725b303ddabcb3401e31e6a3c0f2",
+    "scripts\\check_stage5.py": "66ba6fb8cd51aac6694430ba693c3f5c40e21bc4d71058acb48b68351986f8ac",
+    "scripts\\export_stage3.py": "35b36f9db0d3f93b3ba77764c9e6e323589adcd6acdd7b76515281d6650c3ac9",
+    "scripts\\export_stage4.py": "6368bca62732301783a5425639c12c81a9ff45559eace25df0b34e8805c05165",
+    "scripts\\mojom_experiment.py": "8634a5e251381db57b0d6df87a6277467a8277a545db0d4d2849a4d0c8ab2641",
+    "scripts\\prepare_corpus.py": "ecf4eee4a4431ba87073ba9758db5be5c66a32ef1625ca211a3c677a029339be",
+    "scripts\\review_stage3_binding.py": "e92445810466fb9c4a112c25ebbacef30060a844df12cf9a2bc2d68ee866f97f",
+    "scripts\\review_stage4_binding.py": "838d63a250c542b0f1c20ee3b7ab95e3f0d0271817b5e8783f8d4c6bab537b47",
+    "scripts\\stage4_microbench.py": "6b246eaa156b7c795fe90424fd4bb63ff02685a9c4792d253d7654dfe0191709",
+    "scripts\\stage4_support.py": "eda1856aa546287607b34390696992ee9dca583a81ac9fea8e709d2be1ca8a60",
+    "scripts\\stage5_preflight.py": "1765ce39c80c53f009eeb57fe215d53ee0dc2a56a0c1629c847939182e88df09",
+    "scripts\\stage5_support.py": "1914dff07f15690cca16e853b97ee82165986a0c1b93a132a34dfe8c06aadd77",
+    "scripts\\vendor_mojom_parser.py": "af66dbcbe1e42d55fb785d271feb8fcf149de6fc2daa79ff52bbf1ff4089c031",
+    "tests\\test_cli.py": "0cf52131e0a057f2ccb08172698f854967c3b1f0a41887e9882fbb3ae64a7321",
+    "tests\\test_corpus.py": "ff68ced5c8ab4aa4dd47e0ecdc0d25687ac965746ca62f41259d6449cc3e31c2",
+    "tests\\test_experiment.py": "af6ad8ff43175624ad9502f26364f0c5d170c81f5bf9cb98856467ec3be9adde",
+    "tests\\test_extraction.py": "999a0319ba6ee0d2f785a88d9147d74928404b2e16393206701cc270ff96bfb0",
+    "tests\\test_fast_export.py": "4a75e95692c1a7605a91a4cac345c7b4477b21e9f780ba2925017f2696ff61ce",
+    "tests\\test_graph.py": "ebda8ee789dd6574d563d3c57f151b688098d9152a2b4c9c341c44b6f6670078",
+    "tests\\test_instance.py": "29a91452c26e41b8dc70883f32e3a6688fb5e7a2dabb900a835dc76adc15200c",
+    "tests\\test_lean_export.py": "0714b60000a864dd2c665248ea8b7f91ce13ff789abf3dd3d0b3e8228a18e52a",
+    "tests\\test_mojom_parser.py": "f29a311ee065424ca6551c357682949cf83e7b8d113789a5ccb96795bb48f999",
+    "tests\\test_stage3_binding.py": "d9f9ad11563fabae84ac37fc526473654fcff4421041e02a5a85754c0a3a2865",
+    "tests\\test_stage4_binding.py": "e686fdba609ca4d82111ac290d36b282ebd4388d54311d3e8a7151094e8b7778",
+    "tests\\test_stage5_preflight.py": "67795f9c635bf137df3b4322f8e56c4b3b17762462849e5fd1138cc4f38120e1",
+    "tests\\test_stage5_process_logs.py": "d4e74a8339ef814b497b04837abce2ab1a11bab8107157cf31918c28c010aeee"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "schema": "stage5-independent-review-v2",
+  "status": "PASS",
+  "scope": [
+    "formal source-byte composition",
+    "complete selected corpus and full byte audit",
+    "path-ID mapping and source-to-answer composition",
+    "canonical and human answer binding",
+    "fresh operational runner and persisted run identity checks"
+  ],
+  "reviewed_files": {
+    "formal/SourceByteScanner.lean": {
+      "bytes": 11331,
+      "sha256": "0893586d0e2fd09ca27eea7b070693e67cb9bcef003f3da6fba34d7c2a5281a8"
+    },
+    "formal/SourceGraphBinding.lean": {
+      "bytes": 8871,
+      "sha256": "6438c674d02d4aed85229bd5c5fbcfe11dc64812ab0ab33318c2e2c4c33c59e2"
+    },
+    "formal/AnswerBinding.lean": {
+      "bytes": 3141,
+      "sha256": "5974c1504d8561f1f5997cda80f95e22487eccded38c4ee01b27c43bb4d8beda"
+    },
+    "formal/FastChecker.lean": {
+      "bytes": 7470,
+      "sha256": "3bfe468699ca05b2bc961f6a54269123bb6a85c010abe4d0d19c0218d56c2df7"
+    },
+    "scripts/check_stage5_v2.py": {
+      "bytes": 12950,
+      "sha256": "e0c35c70927407993be9ed84ea69b96563d074929072d46c1efb6ddafeb24e4f"
+    },
+    "scripts/stage5_v2_audit_bytes.py": {
+      "bytes": 6593,
+      "sha256": "e12b3c06a153381c2f05aeb3a4c9d3d93385f919e68a10ca7f272209ee46cc9c"
+    },
+    "scripts/stage5_v2_export_master.py": {
+      "bytes": 4103,
+      "sha256": "5b5c25ef50eff7db2d48f390a1f1e47621387b1085289d945e98f864d7a1c80c"
+    },
+    "scripts/stage5_v2_projection_cases.py": {
+      "bytes": 2269,
+      "sha256": "a11120d7e2e62a4a7b371d29783f466e988cb49cb41ed393233c656c2badf313"
+    },
+    "scripts/stage5_v2_verify_inputs.py": {
+      "bytes": 1502,
+      "sha256": "f4eb414b33ac40c4827920178ce91582346f2b2eb65b6d51accc718ef0bb2227"
+    },
+    "scripts/stage5_v2_attacks.py": {
+      "bytes": 12369,
+      "sha256": "e51f2a4018f5dbb7796d68e769d728a5f9ec50b7c83c75c607bbd433f6b84716"
+    },
+    "scripts/stage5_support.py": {
+      "bytes": 2587,
+      "sha256": "1914dff07f15690cca16e853b97ee82165986a0c1b93a132a34dfe8c06aadd77"
+    },
+    "scripts/stage4_support.py": {
+      "bytes": 4049,
+      "sha256": "eda1856aa546287607b34390696992ee9dca583a81ac9fea8e709d2be1ca8a60"
+    },
+    "src/repo_proof/stage5_v2.py": {
+      "bytes": 8768,
+      "sha256": "25cbfb50e985630559104506446f3777aabd82ee32f8edf23f3db6ae425fd34e"
+    },
+    "src/repo_proof/stage5_answer_v2.py": {
+      "bytes": 4247,
+      "sha256": "91cf852a8bd3368afe8bd342e9e1c9b563af7426a675ca16103e7d848d5e5986"
+    },
+    "src/repo_proof/stage5_run_v2.py": {
+      "bytes": 1446,
+      "sha256": "5e92ac33f91e8ac79772c6fb33537b545c33f98562175ff2198d22a658b75ac9"
+    },
+    "src/repo_proof/source_bytes_v2.py": {
+      "bytes": 2135,
+      "sha256": "afcac489327ed6b76a012d4d60f0982783970ee9bd1ed0ac25d1059502d7e69d"
+    },
+    "src/repo_proof/source_scanner_v2.py": {
+      "bytes": 4698,
+      "sha256": "1348b443923ac5015190ff6814a8dd57749028d84b8c13f6009aa5719f6c64be"
+    },
+    "tests/test_stage5_answer_v2.py": {
+      "bytes": 2997,
+      "sha256": "dd5de6c39bdca0d9b955e21df802c2ea76f38c0279fcaea38b38c3496ed38f43"
+    },
+    "tests/test_stage5_run_v2.py": {
+      "bytes": 1986,
+      "sha256": "6c19543948b626c5b0ee46f8369bfd5c517ef14c1b6229bfd80028a3ac5e98dd"
+    },
+    "docs/stage5-contract-v2.md": {
+      "bytes": 34720,
+      "sha256": "fcd136117c0a699a5b31b2553f5940ac95c2b4ffaecf187b7fa5d05ae93e8690"
+    },
+    "docs/stage5-source-spec-v2.md": {
+      "bytes": 3478,
+      "sha256": "08fc78f1da8f1e57b7df2e5fa18c0d0b905023b8d2febb01da73193b9deb5fff"
+    }
+  },
+  "findings_resolved": [
+    "strict bool/integer metadata comparison",
+    "duplicate human binding key rejection",
+    "fresh run-only compilation and dependency identity checks",
+    "required master and actual persisted answer rereads",
+    "physical cross-run seal substitution",
+    "correct main-proof versus regression-cache disclosure",
+    "attack status integration"
+  ],
+  "independent_evidence": {
+    "byte_audit": "local/stage5-v2/full-01/independent-review-byte-audit.json",
+    "all_file_proofs_once": 1864,
+    "source_modules": 30,
+    "source_bytes": 6946142,
+    "packed_blocks": 28070,
+    "preserved_files_without_mismatch": 111
+  },
+  "remaining_review_blockers": [],
+  "limits": [
+    "This is independent code/specification review, not STAGE5_PASS or final execution evidence.",
+    "The formal relation is the explicitly declared byte import projection, not the full Mojom grammar.",
+    "Final G1-G8 acceptance requires the clean runner to succeed and reviewed source identities to remain unchanged."
+  ],
+  "report": "docs/stage5-review-v2.md"
+}

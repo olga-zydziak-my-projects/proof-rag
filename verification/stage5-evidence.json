@@ -1,0 +1,132 @@
+{
+  "status": "BLOCKED_PIN_CONFLICT",
+  "stage5_pass": false,
+  "contract_sha256": "5c323f4e9c2ae8d3bb498cd2b267e57ba8d4e76d09e2673c5d46979d3f44161d",
+  "gates": {
+    "G1": {
+      "status": "PASS",
+      "reason": "Checkpoint and observed baseline files preserved; existing regressions pass."
+    },
+    "G2": {
+      "status": "BLOCKED",
+      "reason": "BLOCKED_PIN_CONFLICT; accepted baseline bytes corroborated only under different pin."
+    },
+    "G3": {
+      "status": "BLOCKED",
+      "reason": "No Stage5 source theorem; essential pin unresolved."
+    },
+    "G4": {
+      "status": "BLOCKED",
+      "reason": "Existing graph exactness checked, but source composition and full answer decoding not proved."
+    },
+    "G5": {
+      "status": "BLOCKED",
+      "reason": "No newly successful canonical or human-readable answer released."
+    },
+    "G6": {
+      "status": "BLOCKED",
+      "reason": "Existing regressions and preflight faults pass; full Stage5 A-L boundaries not reached."
+    },
+    "G7": {
+      "status": "BLOCKED",
+      "reason": "Reproduced blocked preflight, not a clean successful source-to-answer run or canonical answer regeneration."
+    },
+    "G8": {
+      "status": "PASS",
+      "reason": "No source proof, new speedup, or successful release claimed; assumptions and blocks explicit."
+    }
+  },
+  "final_report": {
+    "path": "verification\\stage5-final-checks.json",
+    "bytes": 48122,
+    "sha256": "ad86ba5af4b3862fa3311122b1235c17b1e2122f64cce2c413363e205ec20a58"
+  },
+  "initial_diagnostic_report": {
+    "path": "verification/stage5-checks.json",
+    "bytes": 44570,
+    "sha256": "f01ce832a05c7711c0e49e636f67277da54e409572c9729bd47f9abbde1a4d14"
+  },
+  "source_receipt": {
+    "path": "verification\\stage5-source-receipt.json",
+    "bytes": 468948,
+    "sha256": "096b2de871352c703e9faa6180f89152840f601368554a55f201ec2eedba4d41"
+  },
+  "source_receipt_scope": "Accepted baseline pin ONLY, not an accepted Stage5 snapshot.",
+  "receipt_regeneration_full_bytes_equal": true,
+  "canonical_answer_regeneration": null,
+  "canonical_answer_not_generated_reason": "BLOCKED_PIN_CONFLICT and source proof unavailable; G7 remains BLOCKED.",
+  "accepted_pin": {
+    "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+    "repository": "https://github.com/chromium/chromium",
+    "tree": "25131300fa459906dedb84bf592a8537b7848771"
+  },
+  "inventory_claim": {
+    "repository": "https://github.com/chromium/chromium",
+    "commit": "1ab171af2976555a2b12b9bca8b984c204962ba8",
+    "tree": "9e5b002b0ce384a82f6cb836fd3abaebab8a7da6"
+  },
+  "baseline_counts": {
+    "selected_paths": 1864,
+    "source_bytes": 6946142,
+    "graph_edges": 4419,
+    "result_paths": 477,
+    "isolated_vertices": 213
+  },
+  "timings_seconds": {
+    "source_semantics_validation": null,
+    "generation": null,
+    "stage5_fresh_instance": null,
+    "answer_validation": null,
+    "successful_whole_pipeline": null,
+    "blocked_preflight_process": 5.2337130000814795,
+    "accepted_baseline_provenance_diagnostic": 5.059925200068392,
+    "generic_module_processes_sum": 3.9812619999283925,
+    "diagnostic_baseline_graph_fresh_instance": 10.07640200003516,
+    "whole_blocked_diagnostic_driver": 167.17503729998134
+  },
+  "artifacts": [
+    {
+      "path": "docs/stage5-contract.md",
+      "bytes": 33353,
+      "sha256": "5c323f4e9c2ae8d3bb498cd2b267e57ba8d4e76d09e2673c5d46979d3f44161d"
+    },
+    {
+      "path": "verification/stage5-baseline.json",
+      "bytes": 14860,
+      "sha256": "3c0ecccc19d58ea9473b0ff4d468978cc8b123246401e1dbc94336b40b44af47"
+    },
+    {
+      "path": "local/stage5/run-02/baseline-graph.olean",
+      "bytes": 17399344,
+      "sha256": "8dafbb9ac987b8b0650d030b1bea02ab804433406f638ffd185bccce6984ef4d"
+    },
+    {
+      "path": "local/stage5/run-01/executor-original.py",
+      "bytes": 6965,
+      "sha256": "d74ca4eeed262f3a4e0d1d8ac12db959550fd8acc75be287b8e991aa6fb50397"
+    },
+    {
+      "path": "src/repo_proof/stage5_preflight.py",
+      "bytes": 8780,
+      "sha256": "d0f59b74d53b43b7fd4592d34513ab1965bb897f26cf9c94db15b4ccb8f8d329"
+    },
+    {
+      "path": "scripts/check_stage5.py",
+      "bytes": 7000,
+      "sha256": "66ba6fb8cd51aac6694430ba693c3f5c40e21bc4d71058acb48b68351986f8ac"
+    },
+    {
+      "path": "scripts/stage5_preflight.py",
+      "bytes": 970,
+      "sha256": "1765ce39c80c53f009eeb57fe215d53ee0dc2a56a0c1629c847939182e88df09"
+    },
+    {
+      "path": "scripts/stage5_support.py",
+      "bytes": 2587,
+      "sha256": "1914dff07f15690cca16e853b97ee82165986a0c1b93a132a34dfe8c06aadd77"
+    }
+  ],
+  "regression_scope": "The fresh Lean check is the existing Stage4 graph instance only. No Stage5 source theorem or answer payload exists.",
+  "external_data_dependency": "C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/chromium-corpus-27cec857a08a; object-verified selected content and complete metadata, not a full Chromium checkout.",
+  "self_contained": false
+}

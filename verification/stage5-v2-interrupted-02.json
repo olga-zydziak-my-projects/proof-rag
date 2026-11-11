@@ -1,0 +1,6 @@
+{
+  "status": "INTERRUPTED_BEFORE_GROUPS",
+  "stage5_pass": false,
+  "run_dir": "local/stage5-v2/full-02",
+  "reason": "Split provenance/extraction measurement and bind execution to code captured at run start. Prior logs and report preserved."
+}
