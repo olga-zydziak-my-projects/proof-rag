@@ -19,7 +19,8 @@ from repo_proof.stage6_answer import expected_answer, check_answer, render_answe
 from repo_proof.stage6_cache import anchored_capture, prepare_cache, validate_cache
 from repo_proof.stage6_export import render_query
 from review_stage6_binding import audit_query
-from stage4_support import audit, file_info
+from stage4_support import file_info
+from stage6_support import audit
 from stage5_support import run_process
 
 
@@ -163,8 +164,7 @@ def execute_query(project, cache_dir, root, folder, lean):
         proof = measure('fresh_query_kernel_process', lambda:
             process('QueryProof', [str(lean), '-o', str(source.with_suffix('.olean')),
                                    '--root='+str(folder / 'lean'), str(source)]))
-        proof['axioms'] = audit(proof['stdout'], ['QueryProof.accepted',
-            'QueryProof.paths_unique', 'QueryProof.source_to_answer'])
+        proof['axioms'] = audit(proof['stdout'])
         proof['compiled'] = file_info(source.with_suffix('.olean'))
         report['query_proof'] = proof['compiled']
         # Validate all imported bytes again after compiler use. A hash-only manifest

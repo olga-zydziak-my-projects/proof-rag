@@ -34,6 +34,28 @@ class Stage6QueryExportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             audit_query(source, self.graph, "b", second)
 
+    def test_complete_proof_and_declaration_grammar(self):
+        # Cross both independent proof-splitting thresholds and witness blocks.
+        for size in (1, 17, 65, 129):
+            graph = {"nodes": [f"n{i:03}" for i in range(size)], "edges": []}
+            cert = generate_certificate(graph, "n000")
+            source = render_query(graph, "n000", cert)
+            self.assertTrue(audit_query(source, graph, "n000", cert)["passed"])
+            mutations = [
+                source.replace("  apply fastCheck_of_parts", "  run_tac pure ()\n  apply fastCheck_of_parts"),
+                source.replace("  fastCheck_refines graph root certificate accepted",
+                               "  by exact fastCheck_refines graph root certificate accepted"),
+                source.replace("  · timed_kernel_decide", "  · decide +kernel", 1),
+                source.replace("def root :", "-- injected comment\ndef root :", 1),
+                source + "-- trailing content\n",
+                source.replace("#print axioms QueryProof.accepted", "#check QueryProof.accepted"),
+            ]
+            for changed in mutations:
+                with self.subTest(size=size, changed=changed[-100:]):
+                    self.assertNotEqual(source, changed)
+                    with self.assertRaises(ValueError):
+                        audit_query(changed, graph, "n000", cert)
+
     def test_independent_audit_detects_query_data_substitutions(self):
         cert = generate_certificate(self.graph, "a")
         source = render_query(self.graph, "a", cert)

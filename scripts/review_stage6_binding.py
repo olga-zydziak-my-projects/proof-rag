@@ -12,6 +12,85 @@ import re
 from review_stage4_binding import TreeParser, block_names, require, section, typed
 
 
+def audit_export_form(text, n, edge_count, witnesses):
+    """Closed, auditor-owned grammar covering the entire module.
+
+    Each data body was independently parsed and compared before this call.
+    Exact framing binds those bodies to their types and declaration order.
+    Proof commands are consumed individually, including indentation and EOF.
+    No exporter implementation is imported or called.
+    """
+    position = 0
+
+    def consume(line):
+        nonlocal position
+        token = line + '\n'
+        require(text.startswith(token, position),
+                'export outside complete reviewed grammar at offset ' + str(position))
+        position += len(token)
+
+    def definition(name, declaration, multiline=False):
+        body = section(text, name)
+        prefix = 'def ' + name + declaration + ' :='
+        if multiline:
+            consume(prefix)
+            consume('  ' + body)
+        else:
+            consume(prefix + ' ' + body)
+
+    def interval(start, length, limit, indent):
+        if length <= limit:
+            consume(indent + 'timed_kernel_decide')
+            return
+        half = length // 2
+        consume(indent + f"apply all_range'_split {start} {half} {length - half}")
+        consume(indent + '·')
+        interval(start, half, limit, indent + '  ')
+        consume(indent + '·')
+        interval(start + half, length - half, limit, indent + '  ')
+
+    for line in ('import ChromiumSource', 'import ProofTiming',
+                 'set_option maxRecDepth 100000', 'set_option maxHeartbeats 0',
+                 'namespace QueryProof', 'open RepoProof RepoProof.SourceBinding RepoProof.AnswerBinding'):
+        consume(line)
+    definition('graph', f' : BlockedGraph {n}')
+    definition('root', f' : Fin {n}')
+    for name in witnesses:
+        definition(name, f' (v : Fin {n}) : Option (EnhancedWitness {n})', True)
+    definition('certificate', f' : EnhancedCertificate {n}')
+    consume('theorem accepted : fastCheck graph root certificate = true := by')
+    consume('  apply fastCheck_of_parts')
+    consume('  · timed_kernel_decide')
+    consume('  ·')
+    interval(0, n, 64, '    ')
+    blocks = [f'ChromiumFast.edgeBlock{i}' for i in range((edge_count + 63) // 64)]
+    consume('  · change ([' + ', '.join(blocks) + ']).all (fun b => b.all (fastClosure certificate)) = true')
+    for _ in blocks:
+        consume('    apply all_cons_true')
+        consume('    · timed_kernel_decide')
+    consume('    rfl')
+    consume('theorem erased_accepted : check (eraseGraph graph) root (eraseHints certificate) = true :=')
+    consume('  fastCheck_refines graph root certificate accepted')
+    definition('resultIDs', f' : List (Fin {n})')
+    definition('payloadPaths', ' : List Path')
+    consume('theorem answer_checked : answerOK SourceNames.names certificate resultIDs payloadPaths = true := by')
+    consume('  apply answerOK_of_parts')
+    consume('  · apply allVertices_of_range')
+    interval(0, n, 16, '    ')
+    for line in ('  · timed_kernel_decide', '  · rfl',
+                 'theorem paths_unique : payloadPaths.Nodup :=',
+                 '  answer_nodup _ _ SourceNames.mapping_checked _ _ _ answer_checked',
+                 'theorem source_to_answer (p : Path) :',
+                 '    p ∈ payloadPaths ↔ ∃ v, SourceNames.names v = p ∧',
+                 '      Reach (ReverseEdge (Import SourceNames.names ChromiumSource.files)) root v :=',
+                 '  RepoProof.AnswerBinding.source_to_answer _ _ _ _ _ _ _ _',
+                 '    ChromiumSource.source_bound accepted answer_checked p', 'end QueryProof'):
+        consume(line)
+    for name in ('accepted', 'erased_accepted', 'paths_unique', 'source_to_answer'):
+        consume('#print axioms QueryProof.' + name)
+    require(position == len(text), 'unparsed export suffix')
+
+
 def audit_query(source_text, graph, root, certificate):
     text = source_text
     preamble = ["import ChromiumSource", "import ProofTiming",
@@ -146,6 +225,7 @@ def audit_query(source_text, graph, root, certificate):
     require(re.findall(r"^#print axioms (\S+)$", text, re.M) ==
             ["QueryProof.accepted", "QueryProof.erased_accepted", "QueryProof.paths_unique", "QueryProof.source_to_answer"],
             "incomplete query axiom audit")
+    audit_export_form(text, n, len(edges), witnesses)
     return {"passed": True, "root": root, "root_id": ids[root], "nodes_compared": n,
             "edges_reused": len(edges), "witnesses_compared": len(expected),
             "actual_edge_hints_checked": edge_hints, "output_paths_compared": len(result_ids),

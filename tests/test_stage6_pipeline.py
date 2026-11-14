@@ -19,6 +19,37 @@ from stage4_support import file_info
 
 
 class Stage6PipelineTests(unittest.TestCase):
+    def test_axiom_audit_failure_cannot_release_answer(self):
+        # The process is mocked to isolate the post-kernel output boundary.
+        from test_stage6_axioms import valid_output
+        complete = valid_output()
+        bad_outputs = [
+            '\n'.join(complete.splitlines()[1:]),
+            complete + '\n' + complete.splitlines()[0],
+            complete + "\n'QueryProof.accepted' does not depend on any axioms",
+            complete.replace('[propext, Classical.choice, Quot.sound]', '[sorryAx]', 1),
+        ]
+        for output in bad_outputs:
+            with self.subTest(output=output), tempfile.TemporaryDirectory() as d:
+                c = fixture(); c.timings = {}
+                cache = {'identity': 'cache', 'source_proof': {'reused': True}}
+                project = Path(d); lean = project/'lean.exe'; lean.write_bytes(b'fixture')
+                def process(name, command, env, folder, timeout):
+                    if name == 'lean_version':
+                        return dict(passed=True, stdout='Lean (version 4.35.0, fixture)', stderr='')
+                    Path(command[2]).write_bytes(b'fixture output, not a real proof')
+                    return dict(passed=True, stdout=output, stderr='')
+                with patch.object(stage6, 'anchored_capture', return_value=c), \
+                     patch.object(stage6, 'validate_cache', return_value=cache), \
+                     patch.object(stage6, 'run_process', side_effect=process):
+                    report = stage6.execute_query(project, project/'cache', 'a.mojom',
+                                                 project/'run', lean)
+                self.assertEqual(report['status'], 'QUERY_REJECTED')
+                self.assertFalse(report['answer_released'])
+                self.assertIn('axiom', report['error'])
+                self.assertFalse((project/'run/answer.json').exists())
+                self.assertFalse((project/'run/answer.txt').exists())
+
     def test_final_report_write_failure_revokes_promoted_answers(self):
         # This is failure-path injection, not evidence of a kernel proof.
         c = fixture(); c.timings = {}
@@ -34,7 +65,7 @@ class Stage6PipelineTests(unittest.TestCase):
                 if name == 'lean_version':
                     return dict(passed=True, stdout='Lean (version 4.35.0, fixture)', stderr='')
                 Path(command[2]).write_bytes(b'fixture output, not a real proof')
-                names = ('accepted', 'paths_unique', 'source_to_answer')
+                names = ('accepted', 'erased_accepted', 'paths_unique', 'source_to_answer')
                 return dict(passed=True, stdout='\n'.join(
                     f"'QueryProof.{n}' does not depend on any axioms" for n in names), stderr='')
             with patch.object(stage6, 'anchored_capture', return_value=c), \

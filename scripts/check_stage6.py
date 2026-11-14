@@ -21,7 +21,8 @@ from repo_proof.stage6_cache import BASELINE, anchored_capture, prepare_cache, v
 from review_stage6_binding import audit_query
 from stage4_support import file_info
 from stage5_support import run_process
-from stage6 import execute_query, new_directory, project_code
+from stage6 import execute_query, new_directory, project_code, working_directory
+from stage6_regressions import prepare_regression_view, verify_regression_view
 from stage6_select_queries import build_selection
 
 
@@ -50,14 +51,22 @@ def regression_summary(tests):
 
 def preservation():
     baseline = read_json(PROJECT/'verification/stage6-baseline.json')
+    # The final Stage 6 audit explicitly updates the main usage document.
+    # Keep the historical baseline intact and expose both identities.
+    documentation_update = {'README.md': {
+        'historical': baseline['preserved_files']['README.md'],
+        'current': file_info(PROJECT/'README.md'),
+        'reason': 'User-requested Stage 6 README update'}}
     changed = [rel for rel, expected in baseline['preserved_files'].items()
-               if not (PROJECT/rel).is_file() or file_info(PROJECT/rel) != expected]
+               if rel not in documentation_update
+               and (not (PROJECT/rel).is_file() or file_info(PROJECT/rel) != expected)]
     if changed:
         raise ValueError('preserved baseline files changed: ' + str(changed))
     command = ['git', '-c', 'safe.directory='+PROJECT.as_posix()]
     head = subprocess.check_output(command+['rev-parse', 'HEAD'], cwd=PROJECT, text=True).strip()
     subprocess.run(command+['merge-base', '--is-ancestor', BASELINE, 'HEAD'], cwd=PROJECT, check=True)
-    return {'passed': True, 'files': len(baseline['preserved_files']), 'head': head,
+    return {'passed': True, 'files': len(baseline['preserved_files']) - len(documentation_update),
+            'documentation_update': documentation_update, 'head': head,
             'stage5_checkpoint_is_ancestor': True}
 
 
@@ -211,8 +220,14 @@ def main():
         if invalid['exit_code'] != 2 or (folder/'invalid-root/answer.json').exists():
             raise ValueError('public invalid-root rejection failed')
         report['public_cli_invalid_root'] = invalid
-        tests = measure('all_regressions', lambda: run_process('all_tests',
-            [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'], env, folder, timeout=1800))
+        view = prepare_regression_view(PROJECT, folder/'regression-view')
+        report['regression_view'] = view
+        regression_env = dict(env, PYTHONPATH=str(Path(view['directory'])/'src'))
+        with working_directory(view['directory']):
+            tests = measure('all_regressions', lambda: run_process('all_tests',
+                [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'],
+                regression_env, folder, timeout=1800))
+        report['regression_view_unchanged'] = verify_regression_view(PROJECT, view)
         report['tests'] = tests
         report.update(regression_summary(tests))
         report['preservation_after'] = preservation()

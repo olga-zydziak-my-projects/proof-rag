@@ -1,208 +1,106 @@
-# Repo Proof Lab — etap 4
+# Repo Proof Lab — etap 6
 
-Prototyp wyszukiwania zależności w grafie, certyfikatu wyniku i niezależnego
-checkera. Zamrożony korpus Chromium ma deterministyczny manifest,
-[kontrakt zapytania o importy Mojom](docs/query-contract.md), pełną ekstrakcję
-składniową i pierwsze zapytanie o `mojo/public/mojom/base/time.mojom`.
+Projekt odpowiada na pytanie, które pliki importują dokładnie wskazany plik
+Mojom bezpośrednio lub przez łańcuch importów. Pełna odpowiedź obejmuje także
+sam korzeń. Obsługiwane są wszystkie 1864 pliki wybranego korpusu Chromium,
+zawierającego 4419 krawędzi importów. Integracja LLM pozostaje osobnym etapem.
 
-## Stan i granica gwarancji
+## Gwarancja
 
-- Generator zwraca korzeń oraz wszystkie węzły mające ścieżkę importów do niego.
-- Osobny checker nie wywołuje wyszukiwania generatora. Kontroluje rodziców,
-  malejące rangi oraz domknięcie po wszystkich krawędziach grafu.
-- Wykonywalny, czysty checker Lean ma dowód `RepoProof.check_exact`:
-  akceptacja implikuje dokładność **względem dostarczonego grafu**.
-  Kernel sprawdził także `Chromium.accepted` i `Chromium.exact` dla pełnej
-  instancji 1 864 / 4 419 / 477, po niezależnym porównaniu wszystkich danych.
-  Sześć pierwotnych twierdzeń zachowano bez aksjomatów. Nowe dowody używają
-  wyłącznie standardowych `propext`, `Classical.choice`, `Quot.sound`;
-  nie dodano własnych aksjomatów ani `sorry`/`native_decide`.
-- Etap 4 dodaje `fastCheck` ze sprawdzanymi wskazaniami rzeczywistych
-  krawędzi i formalnym mostem do starego checkera. Nowa pełna instancja
-  ma kernelowo sprawdzone `accepted`, `erased_accepted` oraz `exact`.
-  Suma kontroli liści spadła z 749,257 s do 1,550 s; nowy cały proces
-  trwał 9,992 s. Nie znamy pełnego czasu bazowego, więc nie wyliczamy
-  przyspieszenia całego procesu. Są to pojedyncze pełne pomiary.
-- Korpus zawiera kompletne metadane drzewa wskazanego commitu oraz oryginalne
-  bajty 1 864 zwykłych plików `.mojom` i trzech plików referencyjnych parsera.
-  To nie jest pełna lokalna kopia Chromium. DEPS, gitlinki i dowiązania nie są
-  rozwijane. Nie uruchamiano budowania ani hooków Chromium.
-- Przypięty, niezmodyfikowany parser Chromium i PLY 3.11 sprawdzają całe pliki.
-  Ekstrakcja zachowuje oryginalne literały, lokalizacje bajtowe UTF-8,
-  atrybuty, duplikaty i jawne statusy wszystkich plików oraz deklaracji.
-- Graf ma 1 864 węzły i 4 419 krawędzi. Dla `time.mojom` zaakceptowano wynik
-  477 plików, włącznie z korzeniem. Cztery deklaracje poza zakresem nie
-  tworzą krawędzi; nie ma przypadków `unresolved` w przypiętym korpusie.
-- Weryfikacja instancji ponownie sprawdza źródła, odtwarza graf i porównuje
-  także pochodzenie oraz wyświetlany wynik. Oczekiwany commit i manifest
-  pochodzą z niezależnego locka, a korzeń z jawnego argumentu wywołania.
-- Python, Git, parser manifestu i ekstrakcja Mojom nie mają dowodu zgodności
-  z Lean. Ponowne uruchomienie tego samego parsera wykrywa podmianę danych,
-  lecz nie jest niezależnym dowodem poprawności parsera. Przyjęcie certyfikatu
-  przez Python nie uruchamia Lean dla tej instancji.
+Dla każdego zapytania powstaje nowy certyfikat i dowód Lean. Kernel sprawdza
+akceptację certyfikatu, pełną listę wyników i jej powiązanie ze źródłami.
+Warstwa źródło–graf korzysta z wcześniej przyjętego dowodu etapu 5 v2,
+zakotwiczonego w commicie `7cbad10af87dc97bae4b23603921441aa899f7b0`.
+Każde użycie ponownie kontroluje jego zależności i rzeczywiste bajty źródeł.
 
-Szczegóły: [wyniki, powtórzenia i ograniczenia etapu 4](docs/stage4-results.md),
-[wyniki i pomiary etapu 3](docs/stage3-results.md),
-[wyniki etapu 2](docs/stage2-results.md),
-[granica formalnej gwarancji](docs/stage2-formal-boundary.md),
-[wyniki etapu 1](docs/stage1-results.md) i [formalny rdzeń](formal/README.md).
+Gwarancja dotyczy `SourceBytes byte import projection v2` dla Chromium
+`27cec857a08a0ee0e1b41f5eb18c07467a0ce093`, tree
+`25131300fa459906dedb84bf592a8537b7848771`. Atrybuty warunkowe importów
+pozostają niewartościowane. Formalny zakres obejmuje tekstowe importy w tym
+snapshotcie. Ocena wpływu zmiany na działanie programu wymaga dalszej analizy.
 
-## Testy i demonstracja
+Niezależny audyt odczytuje wszystkie dane eksportu i dopuszcza wyłącznie
+zamkniętą postać deklaracji oraz kompletnych dowodów. Raporty aksjomatów muszą
+być kompletne i jednoznaczne. Dopuszczone aksjomaty to `propext`,
+`Classical.choice`, `Quot.sound`. Awaria kontroli blokuje wydanie nowej
+zweryfikowanej odpowiedzi.
 
-Python 3.10+, Git (sprawdzono 2.55.0.windows.2), Lean 4.35.0.
-Nie trzeba instalować dodatkowych pakietów. Mały runtime parsera z licencjami
-jest w [vendor](vendor/README.md). Uruchamiaj z kopii repozytorium;
-dystrybucja wheel nie jest częścią tego etapu. PowerShell w katalogu projektu:
+Założenia obejmują kernel i SDK Lean, uczciwe API systemu i procesów,
+mechanizmy Git i odporność hashy na kolizje. Python, serializacja, wyświetlanie
+oraz identyfikacja źródeł są audytowanymi granicami IO. Przebieg wymaga
+zaufanego lokalnego katalogu wykonania, bez wrogiego współbieżnego zapisu.
+Pełny opis zawierają [granica zaufania](docs/stage5-trust-boundary-v2.md),
+[specyfikacja bajtowa](docs/stage5-source-spec-v2.md) i
+[kontrakt etapu 6](docs/stage6-contract.md).
 
-```powershell
-$py = 'C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
-$lean = 'C:\Users\User\Documents\Codex\2026-11-08\nie\work\toolchains\lean-4.35.0-windows\bin\lean.exe'
-& $py scripts/stage4_microbench.py --lean $lean --repeats 3 `
-  --report local/stage4/microbench-recheck-01.json
-& $py scripts/check_stage4.py --lean $lean `
-  --report local/stage4/recheck-01.json
-```
+## Wymagania i dane lokalne
 
-Raport `verification/stage4-checks.json` zawiera świeży przebieg nowego
-dowodu, szczytowe liczniki pamięci Windows, audyty, porównanie wszystkich
-danych, rozmiary artefaktów oraz wyniki 71 testów. Driver wymaga Windows,
-nie nadpisuje istniejącego raportu i zachowuje wersję bazową. W poleceniach
-wyżej wybierz nowe nazwy raportów przy kolejnych powtórzeniach.
-Nowe testy odrzucają uszkodzone wskazania, bloki i tabele świadków.
+Potrzebne są Python 3.10+, Git oraz Lean 4.35.0 zgodny z przygotowanymi
+modułami dowodu. Pomiary procesów w obecnym przebiegu wymagają Windows.
+Runtime przypiętego parsera jest w `vendor/`. Polecenia uruchamiaj z katalogu
+repozytorium, zachowując historię Git i commit kotwicy.
 
-Historyczny `verification/stage3-checks.json` zawiera audyty twierdzeń, pełne
-porównanie danych, testy, pomiary i skróty kodu. Pełna kontrola bazowej instancji etapu 3
-przez kernel może trwać kilkanaście minut; sprawdzone rozbicie obejmuje
-wszystkie węzły i krawędzie. Osobne wykonanie `lean --run` nie jest dowodem.
-Zestaw etapu 3 miał 67 testów; 1 547 porównań Python–Lean obejmuje wszystkie
-512 grafów o trzech węzłach dla trzech korzeni oraz uszkodzone świadki,
-rangi z przerwami i podmiany danych. To testy różnicowe, nie dowód zgodności
-implementacji Python z Lean. Dawne podstawowe sprawdzenia nadal wykonuje
-`scripts/check.py --lean $lean`, z raportem `verification/latest.json`.
+Zwykły klon zawiera kod, testy, dokumentację i raporty. Do uruchomienia etapu 6
+potrzebne są dodatkowo wyłączone z Git dane lokalne
 
-## Zapytanie Mojom i weryfikacja od źródeł
+- `local/corpus.json` wskazujący korpus i przypięty commit.
+- Oryginalne bajty korpusu, metadane Git i manifest zgodne z `corpus.lock.json`.
+- Artefakty ekstrakcji etapu 2 w `local/stage2`.
+- Przyjęty przebieg `local/stage5-v2/full-03`, wraz z pełnym zestawem źródeł
+  i skompilowanych modułów `.olean` odpowiadających zapisanej kotwicy.
 
-Po ustawieniu `$py` jak powyżej, z istniejącym `local/corpus.json` i zaufanym
-`corpus.lock.json` z tego repozytorium:
+Przeniesienie tych danych wymaga dostosowania konfiguracji korpusu i zachowania
+sprawdzanych tożsamości. Samowystarczalność nowego klonu pozostaje niewykazana.
+Sposób pozyskiwania korpusu opisują `scripts/prepare_corpus.py --help` oraz
+[historyczne wyniki etapu 2](docs/stage2-results.md).
+
+## Przygotowanie i zapytanie
+
+W PowerShell ustaw `$py` i `$lean` na dostępne lokalnie programy. Poniższy
+przykład zakłada, że są osiągalne przez `PATH` oraz że wymagane dane już istnieją.
+Każdy katalog wyjściowy musi mieć nową nazwę.
 
 ```powershell
-$root = 'mojo/public/mojom/base/time.mojom'
-& $py scripts/mojom_experiment.py run --root $root `
-  --artifact-dir local/stage2 --report verification/stage2-run.json
-& $py scripts/mojom_experiment.py verify --root $root `
-  --artifact-dir local/stage2 --report verification/stage2-verify.json
-& $py scripts/mojom_experiment.py tamper --root $root `
-  --artifact-dir local/stage2 --report verification/stage2-tampering.json
+$py = (Get-Command python).Source
+$lean = (Get-Command lean).Source
+$env:PYTHONPATH = (Join-Path (Get-Location) 'src')
 
-# Powtórzenie offline i porównanie rzeczywistych bajtów wszystkich artefaktów:
-& $py scripts/mojom_experiment.py run --root $root `
-  --artifact-dir local/stage2-repeat --report verification/stage2-repeat.json
-& $py scripts/mojom_experiment.py compare --first local/stage2 `
-  --second local/stage2-repeat --report verification/stage2-determinism.json
+& $py scripts/stage6.py prepare --cache-dir local/stage6/my-prepared-proof `
+  --source-run local/stage5-v2/full-03
+
+& $py scripts/stage6.py query --cache-dir local/stage6/my-prepared-proof `
+  --root 'mojo/public/mojom/base/values.mojom' `
+  --run-dir local/stage6/my-values-query --lean $lean
 ```
 
-W `local/stage2` zapisują się deterministyczne `extraction.json`, `graph.json`,
-`certificate.json` i `query.json`. Plik `query.json` zawiera wszystkie wyniki
-i przykładowe ścieżki. `extraction.json` zawiera każdy plik `S`, każdą znalezioną
-deklarację, jej pochodzenie, półotwarte zakresy `[byte_start, byte_end)` oraz
-wiersz i kolumnę **bajtową**, liczone od 1. Czasy i daty trafiają wyłącznie
-do oddzielnych raportów `verification/`.
+Korzeń musi być dokładną ścieżką z korpusu z `/` i prawidłową wielkością liter.
+Wynik znajduje się w `answer.json` i `answer.txt`. Sukces wymaga kodu 0
+oraz `STAGE6_QUERY_PASS` w `query-report.json`. Przygotowanie kopiuje i sprawdza
+wcześniejszy dowód źródłowy. Zapytanie wykonuje świeżą kontrolę swojego dowodu.
 
-`verify` nie uruchamia generatora ani jego wyszukiwania. Odtwarza graf z
-ponownie zweryfikowanego korpusu i porównuje całą zawartość grafu, pochodzenie,
-diagnostykę i wynik. Nie wystarcza skrót dostarczony przez generator. Jego
-oczekiwania pochodzą z `--config`, `--lock` i `--root`, nigdy z certyfikatu.
-Zachowuj te wejścia niezależnie od pakietu otrzymanego do sprawdzenia.
-
-Kod zakończenia: 0 oznacza zakończoną kontrolę / odpowiedź kompletną w
-zadeklarowanym zakresie; 3 oznacza uczciwe `unresolved`; 2 oznacza odrzucone
-wejście, podmianę albo niepoprawny certyfikat. Przy `unresolved` zachowywany
-jest wynik dla częściowego grafu z jawnym brakiem kompletności źródłowej.
-Wystarczy problem w dowolnym pliku `S`, także poza składową korzenia.
-Parser zgłasza pierwszą przeszkodę składniową w danym pliku; raport zachowuje
-wszystkie pliki z problemami oraz wszystkie wykryte diagnostyki rozstrzygnięć.
-
-Demo pokazuje usunięcie wyniku, dodanie fałszywego wyniku oraz usunięcie
-rzeczywistej krawędzi przed wygenerowaniem nowego certyfikatu. Ten ostatni
-certyfikat przechodzi checker dla zmienionego grafu, a warstwa źródłowa
-odrzuca podmieniony graf po jego ponownym odtworzeniu.
-
-## Mały przykład grafowy
+## Weryfikacja i aktualny przegląd
 
 ```powershell
-$env:PYTHONPATH = 'src'
-& $py -m repo_proof demo --graph examples/graph.json --root core
-& $py -m repo_proof query --graph examples/graph.json --root core --out local/certificate.json
-& $py -m repo_proof verify --graph examples/graph.json --root core --certificate local/certificate.json
+$env:REPO_PROOF_LEAN = $lean
+& $py scripts/check_stage6.py --lean $lean `
+  --run-dir local/stage6/reproduce-new `
+  --report verification/stage6-reproduce-new.json
 ```
 
-Oczekiwany wynik: `app`, `controller`, `core`, `service`. `isolated`, `cycle_a`
-i `cycle_b` pozostają poza wynikiem. `verify` zwraca kod 0 przy akceptacji i 2
-przy odrzuceniu. Graf ma dokładnie pola `nodes` i `edges`; `[A, B]` oznacza
-import z A do B. Duplikaty węzłów i krawędzi są odrzucane.
+Pełne regresje w tym poleceniu uruchamiają aktualny kod i testy w odizolowanej
+kopii z historycznym README. Zachowane testy preflight etapu 5 wymagają jego
+dawnych bajtów. Tożsamość kodu i testów jest sprawdzana przed i po wykonaniu,
+a wyjątek dokumentacyjny jest jawnie zapisany w raporcie. Bezpośrednie
+uruchomienie całej historycznej suity w bieżącym drzewie zgłasza dwa konflikty
+z aktualizacją README.
 
-## Przygotowanie i ponowne sprawdzenie korpusu
-
-Korpus jest poza repozytorium narzędzia. Pierwsze polecenie zapisuje jego
-lokalizację w ignorowanym pliku `local/corpus.json`:
-
-```powershell
-& $py scripts/prepare_corpus.py prepare `
-  --data-dir 'C:\Users\User\Documents\Codex\2026-11-08\nie\outputs\chromium-corpus-27cec857a08a' `
-  --report verification/corpus-first.json
-
-# Ponowne użycie konfiguracji, metadanych i sprawdzonych blobów:
-& $py scripts/prepare_corpus.py prepare --report verification/corpus-repeat.json
-
-# Wyłącznie lokalny odczyt; automatyczne pobieranie Git jest wyłączone:
-& $py scripts/prepare_corpus.py verify --report verification/corpus-offline.json
-```
-
-Na innym komputerze wybierz własny katalog poza repozytorium. Commit jest
-zapisany na stałe w kodzie i `corpus.lock.json`:
-`27cec857a08a0ee0e1b41f5eb18c07467a0ce093`. Nie ma zastępowania go gałęzią
-`main`. Błąd pobrania daje kod 2 i jawny status `unresolved`.
-
-Przygotowanie używa bare Git: `fetch --depth=1 --filter=blob:none`, następnie
-zbiorczego pobrania wyłącznie brakujących wybranych blobów. Bez checkoutu,
-zmiany końców linii, rekursji submodułów i zależności DEPS. Ponowne uruchomienie
-sprawdza bajty, zamiast ufać samej obecności plików. Uszkodzone kopie blobów
-może odbudować z lokalnego Git, a brakujące obiekty Git pobiera ponownie.
-
-W katalogu korpusu powstają:
-
-- `manifest.json`: kanoniczny JSON, bez czasu uruchomienia i ścieżki komputera;
-  każdy wpis zawiera ścieżkę, tryb, typ Git, kategorię, OID i status dostępności.
-  Treść opublikowana w korpusie ma dodatkowo długość i SHA-256.
-- `tree.entries.z`: pełne rekurencyjne wyjście `git ls-tree -r -t -z`.
-  Obejmuje katalogi; OID katalogu głównego zapisano osobno w manifeście.
-- `blobs/<pierwsze 2 znaki OID>/<pozostałe znaki>`: oryginalne bajty;
-  ścieżki Git pozostają w manifeście, bez odwzorowania ich na ścieżki Windows.
-- `git/`: częściowa baza obiektów; jej obecność nie oznacza pełnej kopii źródeł.
-- `state.json`: stan operacji, oddzielony od deterministycznego manifestu.
-
-Statusy `not_selected`, `link_not_materialized`, `external_not_fetched` i
-`metadata_only` opisują zadeklarowany zakres publikacji danych. Nie twierdzą,
-że dany OID na pewno nie znajduje się przypadkiem w wewnętrznym cache Git.
-
-Obsługiwany jest jeden proces zapisujący dany korpus. Zapisy są atomowe przez
-`.part`; przerwanie nie publikuje nowego kompletnego manifestu. Po przerwaniu
-uruchom ponownie `prepare`; gotowe, poprawne bloby zostaną wykorzystane.
-Niekompletnego transportowego packa Git nie uznaje się za zweryfikowane dane.
-Po twardym zabiciu procesu może zostać porzucony plik `git/objects/pack/tmp_pack_*`;
-nie jest używany przez weryfikację, a jego rozmiar wlicza się do pomiaru miejsca.
-Zapisany wcześniej manifest dla tego samego commitu zachowuje ważność tylko
-wtedy, gdy pełne `verify` nadal przechodzi; samo `state.json` nie jest dowodem.
-
-Testowe `--stop-after-blobs N` przerywa po N nowych zapisach; nie zmienia
-wyboru źródeł ani formatu manifestu. Testy sprawdzają także awarię transportu,
-wznowienie, porzucony `.part`, uszkodzone skróty i pominięte wpisy.
-
-## Następny krok
-
-Rozwinąć dowód związku oryginalnych bajtów, parsowania, relacji importów,
-serializacji i wyświetlanego wyniku z danymi Lean. Checker Lean i konkretna
-instancja są sprawdzone; ekstrakcja oraz zgodność Pythona pozostają poza
-dowodem. Powtarzalne pomiary z etapu 2
-stanowią punkt odniesienia dla późniejszych eksperymentów; Soufflé, Magic Sets
-i LLM nie zostały dodane.
+`STAGE6_CHECKS_PASS` oznacza zaliczenie automatycznych kontroli. Końcowe
+zatwierdzenie wymaga także przeglądu rzeczywiście sprawdzonego kodu.
+Wynik tego audytu zapisano w [przeglądzie VS](docs/stage6-vs-review.md)
+i [podsumowaniu maszynowym](verification/stage6-vs-review.json).
+Świeży przebieg ma [raport run-04](verification/stage6-vs-audit-run-04.json).
+Raporty historyczne zachowano, w tym
+[run-01](verification/stage6-vs-audit-run-01.json),
+[wyniki etapu 6](docs/stage6-results.md) i
+[wyniki etapu 5 v2](docs/stage5-results-v2.md).
+Szczegółowe użycie i ograniczenia opisuje [instrukcja etapu 6](docs/stage6-usage.md).
