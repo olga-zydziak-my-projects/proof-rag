@@ -1,0 +1,112 @@
+{
+  "status": "EVIDENCE_CHECKED",
+  "checkpoint": "7cbad10af87dc97bae4b23603921441aa899f7b0",
+  "parent": "e4984110743131d04ad984eaaa48d33d72867336",
+  "checkpoint_added_files": 53,
+  "preserved_files": 149,
+  "git_eol_normalized_files": [
+    "docs/stage3-results.md",
+    "formal/Checker.lean",
+    "formal/Chromium.lean",
+    "formal/ChromiumFast.lean",
+    "formal/ProofTiming.lean",
+    "formal/README.md",
+    "formal/RunChecker.lean",
+    "scripts/check_stage3.py",
+    "scripts/export_stage3.py",
+    "scripts/review_stage3_binding.py",
+    "src/repo_proof/lean_export.py",
+    "tests/test_stage3_binding.py",
+    "tests/test_stage5_answer_v2.py",
+    "verification/latest.json",
+    "verification/stage2-baseline.json",
+    "verification/stage2-checks.json",
+    "verification/stage3-checks.json",
+    "verification/stage3-kernel.txt",
+    "verification/stage4-analysis.json",
+    "verification/stage4-checks.json",
+    "verification/stage4-microbench.json",
+    "verification/stage5-v2-interrupted-02.json",
+    "verification/stage5-v2-review-final.json",
+    "verification/stage5-v2-review.json",
+    "verification/stage5-v2-working-state.json"
+  ],
+  "reviewed_files": 69,
+  "independent_all_root_counts": 1864,
+  "historical_queries": [
+    {
+      "root": "mojo/public/mojom/base/time.mojom",
+      "paths": 477,
+      "passed": true
+    },
+    {
+      "root": "android_webview/common/mojom/renderer.mojom",
+      "paths": 1,
+      "passed": true
+    },
+    {
+      "root": "android_webview/common/mojom/frame.mojom",
+      "paths": 1,
+      "passed": true
+    },
+    {
+      "root": "ash/public/mojom/accelerator_configuration.mojom",
+      "paths": 2,
+      "passed": true
+    },
+    {
+      "root": "ash/style/mojom/color_scheme.mojom",
+      "paths": 2,
+      "passed": true
+    },
+    {
+      "root": "ash/public/mojom/accelerator_actions.mojom",
+      "paths": 5,
+      "passed": true
+    },
+    {
+      "root": "cc/mojom/render_frame_metadata.mojom",
+      "paths": 10,
+      "passed": true
+    },
+    {
+      "root": "chromeos/ash/experiences/arc/mojom/gfx.mojom",
+      "paths": 20,
+      "passed": true
+    },
+    {
+      "root": "third_party/blink/public/mojom/blob/serialized_blob.mojom",
+      "paths": 50,
+      "passed": true
+    },
+    {
+      "root": "url/mojom/scheme_host_port.mojom",
+      "paths": 100,
+      "passed": true
+    },
+    {
+      "root": "mojo/public/mojom/base/values.mojom",
+      "paths": 240,
+      "passed": true
+    },
+    {
+      "root": "mojo/public/mojom/base/unguessable_token.mojom",
+      "paths": 423,
+      "passed": true
+    }
+  ],
+  "historical_skips": [
+    "test_symbolic_link_cache_is_not_followed (test_stage6_cache.PreparedCacheTests.test_symbolic_link_cache_is_not_followed) ... skipped 'OS denies symlink and junction creation; reparse metadata checked separately'"
+  ],
+  "archives": {
+    "docs.zip": false,
+    "scripts.zip": false,
+    "src.zip": false,
+    "tests.zip": false
+  },
+  "git_status": "?? docs/stage6-contract.md\n?? docs/stage6-results.md\n?? docs/stage6-review.md\n?? docs/stage6-usage.md\n?? scripts/check_stage6.py\n?? scripts/review_stage6_binding.py\n?? scripts/stage6.py\n?? scripts/stage6_select_queries.py\n?? src/repo_proof/stage6_answer.py\n?? src/repo_proof/stage6_cache.py\n?? src/repo_proof/stage6_export.py\n?? tests/test_stage6_answer.py\n?? tests/test_stage6_cache.py\n?? tests/test_stage6_checks.py\n?? tests/test_stage6_export.py\n?? tests/test_stage6_pipeline.py\n?? verification/stage6-baseline.json\n?? verification/stage6-checks-01.json\n?? verification/stage6-checks-02.json\n?? verification/stage6-checks-03.json\n?? verification/stage6-final.json\n?? verification/stage6-query-selection.json\n?? verification/stage6-review-final.json\n?? verification/stage6-vs-audit-run-01.json\n",
+  "historical_failed_runs": {
+    "1": "STAGE6_CHECKS_FAILED",
+    "2": "STAGE6_CHECKS_FAILED"
+  }
+}
