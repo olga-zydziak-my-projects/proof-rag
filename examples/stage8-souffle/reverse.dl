@@ -1,0 +1,11 @@
+.decl edge(a:number,b:number)
+.input edge
+.decl root(r:number)
+.input root
+.decl reach(a:number,b:number)
+reach(a,b) :- edge(a,b).
+reach(a,c) :- edge(a,b), reach(b,c).
+.decl answer(r:number,v:number)
+answer(r,r) :- root(r).
+answer(r,v) :- root(r), reach(v,r).
+.output answer

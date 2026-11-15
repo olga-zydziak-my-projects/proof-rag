@@ -1,0 +1,3 @@
+# Preserve the exact Datalog bytes used by the separately frozen experiment.
+.gitattributes text eol=lf
+reverse.dl -text

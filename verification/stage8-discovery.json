@@ -1,0 +1,433 @@
+{
+  "schema": "stage8-discovery-v1",
+  "candidates_not_a_selected_corpus": [
+    {
+      "repo_id": "platform2",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2",
+      "files": [
+        {
+          "path": "common-mk/mojom_bindings_generator.gni",
+          "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/common-mk/mojom_bindings_generator.gni?format=TEXT",
+          "bytes": 12609,
+          "sha256": "60d959894fe4ea5f01292d0cb7128b1d344be7d1e1b1d4f6c33bfc7c9a6a0f1b",
+          "imports": []
+        },
+        {
+          "path": "diagnostics/mojom/public/cros_healthd_probe.mojom",
+          "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd_probe.mojom?format=TEXT",
+          "bytes": 66144,
+          "sha256": "a5b9d5cd9d743370422ba9b56236027ed8c13fa8dd3d350d67825aa22b2e9177",
+          "imports": [
+            "import \"diagnostics/mojom/external/network_health_types.mojom\";",
+            "import \"diagnostics/mojom/public/nullable_primitives.mojom\";"
+          ]
+        },
+        {
+          "path": "camera/mojo/camera3.mojom",
+          "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/camera3.mojom?format=TEXT",
+          "bytes": 13411,
+          "sha256": "070ddf24abb99acdd48e87327ae8f5adfbdc41787809c8d3058f9153edfb903a",
+          "imports": [
+            "import \"camera/mojo/camera_features.mojom\";",
+            "import \"camera/mojo/camera_metadata.mojom\";"
+          ]
+        },
+        {
+          "path": "camera/common/BUILD.gn",
+          "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/common/BUILD.gn?format=TEXT",
+          "bytes": 18385,
+          "sha256": "5ed4b15a4c58a77e5520eea32985a02a309bd2dd402a31c6f097315c3368d92c",
+          "imports": []
+        },
+        {
+          "path": "federated/mojom/federated_service.mojom",
+          "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/federated/mojom/federated_service.mojom?format=TEXT",
+          "error": "HTTPError: HTTP Error 404: Not Found"
+        }
+      ],
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "tree": "4301c57517746c6a710241efcc09d125480fbdc4",
+      "metadata": {
+        "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+        "tree": "4301c57517746c6a710241efcc09d125480fbdc4",
+        "parents": [
+          "28ca4325cc9c6f774c73449e6077cd4039b69de5"
+        ],
+        "author": {
+          "name": "Rukun Mao",
+          "email": "rmao@google.com",
+          "time": "Fri Nov 06 00:07:09 2026"
+        },
+        "committer": {
+          "name": "CrOS LUCI",
+          "email": "chromeos-scoped@luci-project-accounts.iam.gserviceaccount.com",
+          "time": "Fri Nov 13 20:08:02 2026"
+        },
+        "message": "modemfwd: Suppress EX_USAGE error for unsupported power_on/power_off\n\nNot all modem helpers support the --power_on and --power_off flags (for\nexample, rolling-helper exits with EX_USAGE (64) during flag parsing).\nAdditionally, Daemon::ChangeModemPowerState unconditionally invoked\nhelper->PowerOn() whenever Shill's Powered property changed to true,\neven when the modem was already in PowerState::ON or PowerState::LOW.\n\n1. In RunHelperProcess, log at EVLOG(1) instead of LOG(ERROR) when\n   power_on or power_off exits with EX_USAGE (64).\n2. In Daemon::ChangeModemPowerState, only call helper->PowerOn() when\n   the current modem power state is OFF or UNKNOWN.\n3. Default-initialize state_ and power_state_ to UNKNOWN in ModemImpl\n   and StubModem.\n\nBUG=b:532221786\nTEST=cros_run_unit_tests --board=nissa --packages chromeos-base/modemfwd\n\nChange-Id: I7abf6f8a61f36f42363106a6664076e23ac6e8bf\nReviewed-on: https://chromium-review.googlesource.com/c/chromiumos/platform2/+/8750359\nCommit-Queue: Rukun Mao <rmao@google.com>\nTested-by: Rukun Mao <rmao@google.com>\nReviewed-by: Daniel Winkler <danielwinkler@google.com>\n",
+        "tree_diff": [
+          {
+            "type": "modify",
+            "old_id": "07460a61fee1fe191617490356f61da9a22a1de5",
+            "old_mode": 33188,
+            "old_path": "modemfwd/daemon.cc",
+            "new_id": "f6a0825d66c366ade755150a2f90278b5b2f5e7c",
+            "new_mode": 33188,
+            "new_path": "modemfwd/daemon.cc"
+          },
+          {
+            "type": "modify",
+            "old_id": "dfcae22d77b9f0a7714e56eb3506b57a5e35997f",
+            "old_mode": 33188,
+            "old_path": "modemfwd/modem.cc",
+            "new_id": "89a97fbfa1761affa796963e5b0f0fc3d2ea60b2",
+            "new_mode": 33188,
+            "new_path": "modemfwd/modem.cc"
+          },
+          {
+            "type": "modify",
+            "old_id": "0e785ccbc03b9016ae4a4fa42ac3bf8e10995579",
+            "old_mode": 33188,
+            "old_path": "modemfwd/modem_helper.cc",
+            "new_id": "93368cbc12673701a12e6d799e04c3caf3473188",
+            "new_mode": 33188,
+            "new_path": "modemfwd/modem_helper.cc"
+          }
+        ]
+      }
+    },
+    {
+      "repo_id": "libchrome",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome",
+      "files": [
+        {
+          "path": "README",
+          "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/README?format=TEXT",
+          "error": "HTTPError: HTTP Error 404: Not Found"
+        },
+        {
+          "path": "mojo/public/mojom/base/time.mojom",
+          "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/time.mojom?format=TEXT",
+          "bytes": 959,
+          "sha256": "2343f61f2a1793f0713c66f8339ad53c54a7ecf2270ce471d4edb4d912930ef7",
+          "imports": []
+        }
+      ],
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "tree": "4575a98371841f770f4710b2045be8f2616663fa",
+      "metadata": {
+        "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+        "tree": "4575a98371841f770f4710b2045be8f2616663fa",
+        "parents": [
+          "86dc45314402a49e9a84defdf83c293c882f2474"
+        ],
+        "author": {
+          "name": "Brett Brotherton",
+          "email": "bbrotherton@google.com",
+          "time": "Wed Nov 11 21:33:02 2026"
+        },
+        "committer": {
+          "name": "CrOS LUCI",
+          "email": "chromeos-scoped@luci-project-accounts.iam.gserviceaccount.com",
+          "time": "Sat Nov 14 02:41:25 2026"
+        },
+        "message": "libchrome: Remove backward-compatibility-2300 Mojo BrokerHost patch\n\nRemove the temporary Mojo BrokerHost bespoke protocol revert patch\n(backward-compatibility-2300) now that platform2 seccomp policies allow\nrecvfrom/recv (crrev.com/c/8787431 and crrev.com/c/8789560).\n\nBUG=b:583970032\nTEST=CQ\n\nCq-Depend: chromium:8787431\nChange-Id: I2689d94e07971420947b7cb61428269e1c019d9c\nReviewed-on: https://chromium-review.googlesource.com/c/chromiumos/platform/libchrome/+/8794753\nTested-by: Brett Brotherton <bbrotherton@google.com>\nReviewed-by: Di Wu <diwux@google.com>\nAuto-Submit: Brett Brotherton <bbrotherton@google.com>\nCommit-Queue: Di Wu <diwux@google.com>\n",
+        "tree_diff": [
+          {
+            "type": "delete",
+            "old_id": "3a83d75ea286c40449770550fe396ef9b8f38844",
+            "old_mode": 33188,
+            "old_path": "libchrome_tools/patches/backward-compatibility-2300-Revert-mojo-Use-a-bespoke-protocol-for-Broker-IPC.patch",
+            "new_id": "0000000000000000000000000000000000000000",
+            "new_mode": 0,
+            "new_path": "/dev/null"
+          }
+        ]
+      }
+    },
+    {
+      "repo_id": "crosvm",
+      "url": "https://chromium.googlesource.com/crosvm/crosvm",
+      "files": [
+        {
+          "path": "Cargo.toml",
+          "url": "https://chromium.googlesource.com/crosvm/crosvm/+/4f5fefd86b75017e6d79fb84bd91da58dad2e9a1/Cargo.toml?format=TEXT",
+          "bytes": 21745,
+          "sha256": "22e00509e8dc3db2dc3b20ce94b6f1900135eb052539e9155cb4101b6f303972",
+          "imports": []
+        },
+        {
+          "path": "devices/src/virtio/video/decoder/mod.rs",
+          "url": "https://chromium.googlesource.com/crosvm/crosvm/+/4f5fefd86b75017e6d79fb84bd91da58dad2e9a1/devices/src/virtio/video/decoder/mod.rs?format=TEXT",
+          "bytes": 45332,
+          "sha256": "4930516746b01fa900ed4ae05887fdd9845cae465ad966f68613fc4fa85823cd",
+          "imports": []
+        }
+      ],
+      "commit": "4f5fefd86b75017e6d79fb84bd91da58dad2e9a1",
+      "tree": "09d8a273617ccae04442ff41219cef9e366937a5",
+      "metadata": {
+        "commit": "4f5fefd86b75017e6d79fb84bd91da58dad2e9a1",
+        "tree": "09d8a273617ccae04442ff41219cef9e366937a5",
+        "parents": [
+          "1472e011d43008968e6bd02d3977c8b3d2c693bd"
+        ],
+        "author": {
+          "name": "recipe-roller",
+          "email": "recipe-mega-autoroller@chops-service-accounts.iam.gserviceaccount.com",
+          "time": "Sat Nov 14 13:13:35 2026"
+        },
+        "committer": {
+          "name": "crosvm-scoped@luci-project-accounts.iam.gserviceaccount.com",
+          "email": "crosvm-scoped@luci-project-accounts.iam.gserviceaccount.com",
+          "time": "Sat Nov 14 13:27:36 2026"
+        },
+        "message": "Roll recipe dependencies (trivial).\n\nThis is an automated CL created by the recipe roller. This CL rolls\nrecipe changes from upstream projects (recipe_engine) into this repository.\n\nThe build that created this CL was\nhttps://ci.chromium.org/b/8665154356532722689\n\nrecipe_engine:\nhttps://chromium.googlesource.com/infra/luci/recipes-py.git/+/d4faca7b2cda6a9f82e6649a43bae7de312eef59\n  d4faca7 (chromium-autoroll@skia-public.iam.gserviceaccount.com)\n      Roll CAS Client from 64bd8606515f to d84a4344b08a\n\nPlease check the following references for more information:\n- autoroller, https://chromium.googlesource.com/infra/luci/recipes-py/+/main/doc/workflow.md#autoroller\n- rollback, https://chromium.googlesource.com/infra/luci/recipes-py/+/main/doc/workflow.md#rollback\n- cross-repo dependencies, https://chromium.googlesource.com/infra/luci/recipes-py/+/main/doc/cross_repo.md\n\nUse https://goo.gl/noib3a to file a bug.\n\nRecipe-Tryjob-Bypass-Reason: Autoroller\nIgnore-Freeze: Autoroller\nBugdroid-Send-Email: False\nChange-Id: If80a6a23eecae2021d28081f660d6f8ce2f3da84\nReviewed-on: https://chromium-review.googlesource.com/c/crosvm/crosvm/+/8818141\nCommit-Queue: recipe-mega-autoroller@chops-service-accounts.iam.gserviceaccount.com <recipe-mega-autoroller@chops-service-accounts.iam.gserviceaccount.com>\nBot-Commit: recipe-mega-autoroller@chops-service-accounts.iam.gserviceaccount.com <recipe-mega-autoroller@chops-service-accounts.iam.gserviceaccount.com>\n",
+        "tree_diff": [
+          {
+            "type": "modify",
+            "old_id": "e7130628b48e6eb7591b95be63e0ca9ba1536ec7",
+            "old_mode": 33188,
+            "old_path": "infra/README.recipes.md",
+            "new_id": "6fcbec27b85ea3d870ede67bbf20fc8d366a2d6e",
+            "new_mode": 33188,
+            "new_path": "infra/README.recipes.md"
+          },
+          {
+            "type": "modify",
+            "old_id": "6a7d813ad0c21870a90c50c5c8c70599f32d6db0",
+            "old_mode": 33188,
+            "old_path": "infra/config/recipes.cfg",
+            "new_id": "adcaf9e31e62eb0182b6c7abbabfa2f9c200982b",
+            "new_mode": 33188,
+            "new_path": "infra/config/recipes.cfg"
+          }
+        ]
+      }
+    },
+    {
+      "repo_id": "system_api",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/system_api",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://chromium.googlesource.com/chromiumos/platform2/system_api/+/dfe5a85e26a50177f023b4d3a46f6e4ecae3a2a2/README.md?format=TEXT",
+          "bytes": 987,
+          "sha256": "ce7c932b58d17bb23d788c44adcdcc74f189c61a0f7782332b7879b9c56961cf",
+          "imports": []
+        }
+      ],
+      "commit": "dfe5a85e26a50177f023b4d3a46f6e4ecae3a2a2",
+      "tree": "d771b24f8974d5d904c7b41d9bb9c8a15c9c8133",
+      "metadata": {
+        "commit": "dfe5a85e26a50177f023b4d3a46f6e4ecae3a2a2",
+        "tree": "d771b24f8974d5d904c7b41d9bb9c8a15c9c8133",
+        "parents": [
+          "aa962de01192565b88c6ce17ad1e24cfba740109"
+        ],
+        "author": {
+          "name": "Aashay Shringarpure",
+          "email": "aashay@google.com",
+          "time": "Wed Nov 11 21:12:08 2026"
+        },
+        "committer": {
+          "name": "Copybara-Service",
+          "email": "copybara-worker@google.com",
+          "time": "Fri Nov 13 18:17:18 2026"
+        },
+        "message": "system_api: Remove debugd CUPS constants\n\ndebugd no longer exports the CupsAdd*, CupsRemovePrinter and\nCupsRetrievePpd D-Bus methods. Remove their method name constants and\nthe CupsResult enum, which have no remaining users. printscanmgr has\nits own constants and AddPrinterResult enum.\n\nBUG=b:400453316\nTEST=emerge-betty system_api debugd printscanmgr\n\nChange-Id: I632f5b646f37a46101710844f2b95313e0949d4c\nReviewed-on: https://chromium-review.googlesource.com/c/chromiumos/platform2/+/8798991\nTested-by: Aashay Shringarpure <aashay@google.com>\nReviewed-by: Benjamin Gordon <bmgordon@chromium.org>\nCommit-Queue: Aashay Shringarpure <aashay@google.com>\nNOKEYCHECK=True\nGitOrigin-RevId: 28ca4325cc9c6f774c73449e6077cd4039b69de5\n",
+        "tree_diff": [
+          {
+            "type": "modify",
+            "old_id": "a5349e5f13501a4441a018d3d89a10ce738e9ec0",
+            "old_mode": 33188,
+            "old_path": "dbus/debugd/dbus-constants.h",
+            "new_id": "cec12ac65e846b612156ab2fb0d37b9370a18584",
+            "new_mode": 33188,
+            "new_path": "dbus/debugd/dbus-constants.h"
+          }
+        ]
+      }
+    },
+    {
+      "repo_id": "camera",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/camera",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://chromium.googlesource.com/chromiumos/platform/camera/+/47fda3a408a8106e9bd2bbfce6edebae87c223a3/README.md?format=TEXT",
+          "bytes": 117,
+          "sha256": "49a342d773414beb5f2694ac8c508813cd3ae67363f8efb2415221855892f9dd",
+          "imports": []
+        }
+      ],
+      "commit": "47fda3a408a8106e9bd2bbfce6edebae87c223a3",
+      "tree": "0cce5df47348457e5ef833dc691ee6b128216607",
+      "metadata": {
+        "commit": "47fda3a408a8106e9bd2bbfce6edebae87c223a3",
+        "tree": "0cce5df47348457e5ef833dc691ee6b128216607",
+        "parents": [
+          "fd1e9f3182b677ab6845acfc11b32269cef1ec9b"
+        ],
+        "author": {
+          "name": "George Burgess IV",
+          "email": "gbiv@google.com",
+          "time": "Sun Nov 08 17:13:20 2026"
+        },
+        "committer": {
+          "name": "CrOS LUCI",
+          "email": "chromeos-scoped@luci-project-accounts.iam.gserviceaccount.com",
+          "time": "Thu Nov 12 03:49:49 2026"
+        },
+        "message": "mtkcam: add missing <atomic> include\n\nPluginInterceptor.h uses std::atomic<int> directly without including\n<atomic>, which is no longer transitively included by libc++ headers in\nLLVM 24.\n\nCode by Gemini, reviewed by me.\n\nTAG=agy\nCONV=3ac34e77-9674-4e3d-a256-c793e064ddc5\nBUG=b:583414228\nTEST=emerge-kukui media-libs/cros-camera-hal-mtk\n\nChange-Id: I67da61ea748b7aca71d474e826dc6e6480941f3d\nReviewed-on: https://chromium-review.googlesource.com/c/chromiumos/platform/camera/+/8770072\nTested-by: George Burgess <gbiv@chromium.org>\nReviewed-by: Hsu Wei-Cheng <mojahsu@chromium.org>\nAuto-Submit: George Burgess <gbiv@chromium.org>\nCommit-Queue: Hsu Wei-Cheng <mojahsu@chromium.org>\n",
+        "tree_diff": [
+          {
+            "type": "modify",
+            "old_id": "fd798263cb3e30160b1473b3a7701ba81090d0ad",
+            "old_mode": 33188,
+            "old_path": "hal/mediatek/mtkcam/include/mtkcam/3rdparty/plugin/PluginInterceptor.h",
+            "new_id": "f786def5f5dbe3e778ff409071ef3e8e2a668185",
+            "new_mode": 33188,
+            "new_path": "hal/mediatek/mtkcam/include/mtkcam/3rdparty/plugin/PluginInterceptor.h"
+          }
+        ]
+      }
+    },
+    {
+      "repo_id": "libcamera",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera",
+      "files": [
+        {
+          "path": "include/libcamera/ipa/core.mojom",
+          "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/include/libcamera/ipa/core.mojom?format=TEXT",
+          "bytes": 11302,
+          "sha256": "5c9e5aafe7c1a1256805f5bfad507ac2a5a0ae33bdaa6251cdd8946ed0db283f",
+          "imports": []
+        }
+      ],
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "tree": "05cfc35e4c82156ba10e5dabfb54a8ccf618517e",
+      "metadata": {
+        "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+        "tree": "05cfc35e4c82156ba10e5dabfb54a8ccf618517e",
+        "parents": [
+          "29e2b4071ea2caafdc62d11ccbe6053a8fb6a859"
+        ],
+        "author": {
+          "name": "George Burgess IV",
+          "email": "gbiv@google.com",
+          "time": "Tue Nov 10 02:42:03 2026"
+        },
+        "committer": {
+          "name": "CrOS LUCI",
+          "email": "chromeos-scoped@luci-project-accounts.iam.gserviceaccount.com",
+          "time": "Wed Nov 11 00:03:35 2026"
+        },
+        "message": "libcamera: add OWNERS\n\nInclude `media-libs/libcamera-upstream/OWNERS` from `chromiumos-overlay`\nso `Code-Owners` checks are satisfied now that `fallbackCodeOwners` is\n`NONE` (crrev.com/c/8006358).\n\nCL by Gemini, reviewed by me.\n\nTAG=agy\nCONV=83785446-5ab8-4511-90c5-60007b878d1d\nBUG=b:583414307\nTEST=None\n\nChange-Id: I62c1d317259653383a3f22f62a268aab84834bfa\nReviewed-on: https://chromium-review.googlesource.com/c/chromiumos/third_party/libcamera/+/8780052\nReviewed-by: Tomasz Figa <tfiga@chromium.org>\nTested-by: George Burgess <gbiv@chromium.org>\nCommit-Queue: George Burgess <gbiv@chromium.org>\nOwners-Override: Baili Deng <bailideng@google.com>\n",
+        "tree_diff": [
+          {
+            "type": "add",
+            "old_id": "0000000000000000000000000000000000000000",
+            "old_mode": 0,
+            "old_path": "/dev/null",
+            "new_id": "d37e3aed4dcd7cc61a1a80b835c58b9e82699b08",
+            "new_mode": 33188,
+            "new_path": "OWNERS"
+          }
+        ]
+      }
+    },
+    {
+      "repo_id": "chromium",
+      "url": "https://chromium.googlesource.com/chromium/src",
+      "files": [
+        {
+          "path": "DEPS",
+          "url": "https://chromium.googlesource.com/chromium/src/+/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/DEPS?format=TEXT",
+          "bytes": 190294,
+          "sha256": "e6088a3780da2d911f58f2409f70f0c75875136af6e169b654653358ba7cca8f",
+          "imports": []
+        },
+        {
+          "path": "chromeos/ash/services/federated/public/mojom/federated_service.mojom",
+          "url": "https://chromium.googlesource.com/chromium/src/+/27cec857a08a0ee0e1b41f5eb18c07467a0ce093/chromeos/ash/services/federated/public/mojom/federated_service.mojom?format=TEXT",
+          "error": "HTTPError: HTTP Error 404: Not Found"
+        }
+      ],
+      "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+      "tree": "25131300fa459906dedb84bf592a8537b7848771",
+      "metadata": {
+        "commit": "27cec857a08a0ee0e1b41f5eb18c07467a0ce093",
+        "tree": "25131300fa459906dedb84bf592a8537b7848771",
+        "parents": [
+          "0e8eddbaed72d622a021350ffd5f5737122640e5"
+        ],
+        "author": {
+          "name": "Keigo Oka",
+          "email": "oka@google.com",
+          "time": "Sun Nov 08 23:16:26 2026"
+        },
+        "committer": {
+          "name": "Chromium LUCI CQ",
+          "email": "chromium-scoped@luci-project-accounts.iam.gserviceaccount.com",
+          "time": "Sun Nov 08 23:16:26 2026"
+        },
+        "message": "Open download intermediate URIs with an explicit read/write mode\n\nDownloadDocumentUriBridge::OpenDocumentUri() opened the intermediate\ndocument with FLAG_OPEN_ALWAYS | FLAG_WRITE | FLAG_READ. The document\nalready exists because DownloadCollectionBridge created it, so the\ncreate-if-absent part of OPEN_ALWAYS was never needed; the Android\nadapter mapped the combination to \"rw\". A later CL in this series\nrejects OPEN_ALWAYS for content URIs, since Android providers cannot\nhonor create-or-open by name, which would make every download to a\ndocument URI fail at BaseFile initialization.\n\nOpen the URI with base::OpenAndroidDocument() and\nAndroidDocumentAccessMode::kReadWrite. This asks the provider for\nexactly the mode the download already used: read access so BaseFile can\nhash the bytes of a resumed download, and no truncation.\n\nBug: 543633476\nChange-Id: Id88f93c3168f6809c6bfdac96d5e00fa4ae7241f\nReviewed-on: https://chromium-review.googlesource.com/c/chromium/src/+/8461822\nReviewed-by: Shuhei Takahashi <nya@chromium.org>\nCommit-Queue: Keigo Oka <oka@chromium.org>\nReviewed-by: Min Qin <qinmin@chromium.org>\nCr-Commit-Position: refs/heads/main@{#1738696}\n",
+        "tree_diff": [
+          {
+            "type": "modify",
+            "old_id": "d91962134d951fbf21008cb3c4960866a242637d",
+            "old_mode": 33188,
+            "old_path": "components/download/internal/common/android/download_document_uri_bridge.cc",
+            "new_id": "499c3e08384bb85434da6a936740406856e6fc18",
+            "new_mode": 33188,
+            "new_path": "components/download/internal/common/android/download_document_uri_bridge.cc"
+          }
+        ]
+      }
+    },
+    {
+      "repo_id": "manifest",
+      "url": "https://chromium.googlesource.com/chromiumos/manifest",
+      "files": [
+        {
+          "path": "default.xml",
+          "url": "https://chromium.googlesource.com/chromiumos/manifest/+/88b086eddddc20b6e42231eab2d5dc2bd2d934f1/default.xml?format=TEXT",
+          "bytes": 214,
+          "sha256": "09b037ecac1b20802996825f5dc8aa6182314a7500f4f498b7ba33695b6b63d2",
+          "imports": []
+        }
+      ],
+      "commit": "88b086eddddc20b6e42231eab2d5dc2bd2d934f1",
+      "tree": "b6a68982be59963ba76fdbe8b54e2fc7c90ddb45",
+      "metadata": {
+        "commit": "88b086eddddc20b6e42231eab2d5dc2bd2d934f1",
+        "tree": "b6a68982be59963ba76fdbe8b54e2fc7c90ddb45",
+        "parents": [
+          "480f3643e83d8f2b24f2cafcaf4182018d0a7d5f"
+        ],
+        "author": {
+          "name": "chromeos-ci-prod",
+          "email": "chromeos-ci-prod@chromeos-bot.iam.gserviceaccount.com",
+          "time": "Fri Nov 13 20:09:24 2026"
+        },
+        "committer": {
+          "name": "chromeos-ci-prod",
+          "email": "chromeos-ci-prod@chromeos-bot.iam.gserviceaccount.com",
+          "time": "Fri Nov 13 20:09:24 2026"
+        },
+        "message": "Syncing with internal manifest\n\nCr-Build-Url: https://cr-buildbucket.appspot.com/build/8665219216156741601\nCr-Automation-Id: cros_source/push_uprevs\nChange-Id: I4fc017390dd6d4891079654210be9266b08a3f10\n",
+        "tree_diff": [
+          {
+            "type": "modify",
+            "old_id": "9338f28fdf016de440cd9b98c4219f06ff4d64d5",
+            "old_mode": 33188,
+            "old_path": "full.xml",
+            "new_id": "60cb2532350fa684b0c80011bacdf28908eb1b5a",
+            "new_mode": 33188,
+            "new_path": "full.xml"
+          }
+        ]
+      }
+    }
+  ]
+}

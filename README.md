@@ -1,5 +1,9 @@
 # Repo Proof Lab — etap 7
 
+Etap 8 dodaje osobny [silnik wielu repozytoriów i benchmarki](docs/stage8-usage.md).
+Stan rzeczywistego pilota i poziomy weryfikacji opisują [wyniki etapu 8](docs/stage8-results.md).
+Dotychczasowy formalnie sprawdzony korpus i interfejs Claude pozostają opisane poniżej.
+
 Projekt odpowiada na pytanie, które pliki importują dokładnie wskazany plik
 Mojom bezpośrednio lub przez łańcuch importów. Pełna odpowiedź obejmuje także
 sam korzeń. Obsługiwane są wszystkie 1864 pliki wybranego korpusu Chromium,

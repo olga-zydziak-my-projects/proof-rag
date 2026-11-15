@@ -1,0 +1,1569 @@
+{
+  "origin": "candidate_sources_not_selected_corpus",
+  "files": [
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/keymaster/mojo/cert_store.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/keymaster/mojo/cert_store.mojom?format=TEXT",
+      "bytes": 1694,
+      "sha256": "099f5644b98ade13f248803f25533a4eb577811a34c0fd7ea77ebc91d50efd44",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/keymaster/mojo/keymaster.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/keymaster/mojo/keymaster.mojom?format=TEXT",
+      "bytes": 5149,
+      "sha256": "332e2d02c23aeb34d7629f7e00629bae856f00454e2bcc7ee2cfe5c356bf2f72",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/keymint/mojo/cert_store.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/keymint/mojo/cert_store.mojom?format=TEXT",
+      "bytes": 1924,
+      "sha256": "7dba2ec42110a7266c7c8ec0ed8e6865e19edcb07b592a01cf4d9ad900237671",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/keymint/mojo/keymint.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/keymint/mojo/keymint.mojom?format=TEXT",
+      "bytes": 21921,
+      "sha256": "171ac0dfc12a972be4c0e62085de82fb8dab0111580b2e80b032bc8b134ef63f",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/gfx.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/gfx.mojom?format=TEXT",
+      "bytes": 1002,
+      "sha256": "d3b08eef0a8bf91ccc41954e8f43b65aac0a280d44b19e1fcf08c9ba87132403",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/video.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/video.mojom?format=TEXT",
+      "bytes": 1649,
+      "sha256": "dc21119c02a760eb5590988d4d07c0d58209fddd7c525fbdf7cde74244b5a42d",
+      "imports": [
+        "arc/vm/libvda/gpu/mojom/video_decode_accelerator.mojom",
+        "arc/vm/libvda/gpu/mojom/video_decoder.mojom",
+        "arc/vm/libvda/gpu/mojom/video_encode_accelerator.mojom",
+        "arc/vm/libvda/gpu/mojom/video_protected_buffer_allocator.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/video_common.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/video_common.mojom?format=TEXT",
+      "bytes": 3342,
+      "sha256": "10330bc265cb26718b86f8d7f54a591a5a69fa2eed7edf2c13e28d2eb78fdebf",
+      "imports": [
+        "arc/vm/libvda/gpu/mojom/gfx.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/video_decode_accelerator.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/video_decode_accelerator.mojom?format=TEXT",
+      "bytes": 6679,
+      "sha256": "9e65db816b4f5155b53f04ce5b7c58413267de5967e516381bc36714c721192e",
+      "imports": [
+        "arc/vm/libvda/gpu/mojom/gfx.mojom",
+        "arc/vm/libvda/gpu/mojom/video_common.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/video_decoder.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/video_decoder.mojom?format=TEXT",
+      "bytes": 2998,
+      "sha256": "3929505c991a5e9c05e6074ff9b1a160527dd0fcbce4a2869e5b48933ee435d4",
+      "imports": [
+        "arc/vm/libvda/gpu/mojom/gfx.mojom",
+        "arc/vm/libvda/gpu/mojom/video_common.mojom",
+        "arc/vm/libvda/gpu/mojom/video_frame_pool.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/video_encode_accelerator.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/video_encode_accelerator.mojom?format=TEXT",
+      "bytes": 9197,
+      "sha256": "26661934317b597e8bff361d5f063abe07e085cf277b07c8b1df7767a9f2562a",
+      "imports": [
+        "arc/vm/libvda/gpu/mojom/gfx.mojom",
+        "arc/vm/libvda/gpu/mojom/video_common.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/video_frame_pool.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/video_frame_pool.mojom?format=TEXT",
+      "bytes": 2260,
+      "sha256": "e5063134cbd70c852e7738855498f78cdcc213d34926694dbe90c5301c2198c8",
+      "imports": [
+        "arc/vm/libvda/gpu/mojom/gfx.mojom",
+        "arc/vm/libvda/gpu/mojom/video_common.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "arc/vm/libvda/gpu/mojom/video_protected_buffer_allocator.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/arc/vm/libvda/gpu/mojom/video_protected_buffer_allocator.mojom?format=TEXT",
+      "bytes": 1846,
+      "sha256": "93623968ba4d1943034a88a3400ed5894a10f3077be2df7d381660aab7212806",
+      "imports": [
+        "arc/vm/libvda/gpu/mojom/gfx.mojom",
+        "arc/vm/libvda/gpu/mojom/video_common.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/common/basic_ops_perf_tests/mojom/mojo_perf_test.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/common/basic_ops_perf_tests/mojom/mojo_perf_test.mojom?format=TEXT",
+      "bytes": 235,
+      "sha256": "5ad82994b24a9ab35791bee0da6833665aeca4e63134069e80f78fe4f4f7e6c0",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/algorithm/camera_algorithm.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/algorithm/camera_algorithm.mojom?format=TEXT",
+      "bytes": 3735,
+      "sha256": "50a1f067623bd3cfadeec3db56b31eb10bbaea91e51ce9671795e0829f20a934",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/camera3.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/camera3.mojom?format=TEXT",
+      "bytes": 13411,
+      "sha256": "070ddf24abb99acdd48e87327ae8f5adfbdc41787809c8d3058f9153edfb903a",
+      "imports": [
+        "camera/mojo/camera_features.mojom",
+        "camera/mojo/camera_metadata.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/camera_common.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/camera_common.mojom?format=TEXT",
+      "bytes": 4845,
+      "sha256": "423286c4e780611335e458cdfea17228a08ab46dcc0b555ed50847168562a372",
+      "imports": [
+        "camera/mojo/camera3.mojom",
+        "camera/mojo/camera_metadata.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/camera_diagnostics.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/camera_diagnostics.mojom?format=TEXT",
+      "bytes": 2798,
+      "sha256": "12f2c7f2edc159cc4c9a34c1e2254002a444daec816c05fe46d1299eb386c283",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/camera_features.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/camera_features.mojom?format=TEXT",
+      "bytes": 1159,
+      "sha256": "82d1ccce0d0ac80e99649f989cdc3c683b91175b7d339d688e9865996537f884",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/camera_metadata.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/camera_metadata.mojom?format=TEXT",
+      "bytes": 1125,
+      "sha256": "21cbbde68b5efcca5b2d235ae8eccca710eecb64ac8e8b241653e59998a44a61",
+      "imports": [
+        "camera/mojo/camera_metadata_tags.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/camera_metadata_tags.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/camera_metadata_tags.mojom?format=TEXT",
+      "bytes": 48514,
+      "sha256": "0206d7c2ee47ee243b14a0227891e5e95f189e928a72e9963684ad8c396029e1",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/cros_camera_enum.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/cros_camera_enum.mojom?format=TEXT",
+      "bytes": 922,
+      "sha256": "71422353d0811bbc3d8a0c6cf339f12e816942f8e08535187871aa0f5fe8a09a",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/cros_camera_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/cros_camera_service.mojom?format=TEXT",
+      "bytes": 5911,
+      "sha256": "989569bb19c1f2b67d6df7deae611ddf0b753e95f9294a16d77ba26400cf6db2",
+      "imports": [
+        "camera/mojo/camera_common.mojom",
+        "camera/mojo/effects/effects_pipeline.mojom",
+        "camera/mojo/gpu/jpeg_encode_accelerator.mojom",
+        "camera/mojo/gpu/mjpeg_decode_accelerator.mojom",
+        "camera/mojo/unguessable_token.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/effects/effects_pipeline.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/effects/effects_pipeline.mojom?format=TEXT",
+      "bytes": 3433,
+      "sha256": "2a0403e84cfe1d02449d57f401097f6dfdd96de09f57a7a72cdfa1f7fe8e12f0",
+      "imports": [
+        "camera/mojo/file_path.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/file_path.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/file_path.mojom?format=TEXT",
+      "bytes": 896,
+      "sha256": "7e184a6b7a935213f70e34761b293ea9db66f1975ee60712328a482edc97d4bb",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/gpu/dmabuf.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/gpu/dmabuf.mojom?format=TEXT",
+      "bytes": 1208,
+      "sha256": "ed059043c5a7f1d93edb9104805e4dc6ec3cd8393efd48f10a56593ae6977b27",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/gpu/jpeg_accelerator.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/gpu/jpeg_accelerator.mojom?format=TEXT",
+      "bytes": 717,
+      "sha256": "d7475ff97068d14452dbe5a7987b09ef5526f6dc95680570fceba4b1b3a2020e",
+      "imports": [
+        "camera/mojo/gpu/jpeg_encode_accelerator.mojom",
+        "camera/mojo/gpu/mjpeg_decode_accelerator.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/gpu/jpeg_encode_accelerator.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/gpu/jpeg_encode_accelerator.mojom?format=TEXT",
+      "bytes": 3805,
+      "sha256": "1cb0629ed0ebbf6d69a006dca584b820456b5a3899cb6cec1a6d1775f6e797f4",
+      "imports": [
+        "camera/mojo/gpu/dmabuf.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/gpu/mjpeg_decode_accelerator.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/gpu/mjpeg_decode_accelerator.mojom?format=TEXT",
+      "bytes": 1568,
+      "sha256": "b24ba815e418a3784f094224d77bbcd193113c4c34e63e34d51330f7300f7cf9",
+      "imports": [
+        "camera/mojo/gpu/dmabuf.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/ip/ip_camera.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/ip/ip_camera.mojom?format=TEXT",
+      "bytes": 1351,
+      "sha256": "6e98d030f560cbc2a6bee7c9d6e5c74dc12efbfca2ccd9eb606d50e35af7537a",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "camera/mojo/unguessable_token.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/camera/mojo/unguessable_token.mojom?format=TEXT",
+      "bytes": 298,
+      "sha256": "de1c8c8ccb2d7dd10b4626c3eb3ec6c098ace7feb9505e38e394431617843747",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/cros_healthd/mojom/delegate.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/cros_healthd/mojom/delegate.mojom?format=TEXT",
+      "bytes": 7934,
+      "sha256": "97b725992e423836d799e8fa53ba17ec816e1af7fdf0f334c6192959d671a9d3",
+      "imports": [
+        "diagnostics/cros_healthd/mojom/executor.mojom",
+        "diagnostics/mojom/external/time.mojom",
+        "diagnostics/mojom/public/cros_healthd_diagnostics.mojom",
+        "diagnostics/mojom/public/cros_healthd_probe.mojom",
+        "diagnostics/mojom/public/cros_healthd_routines.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/cros_healthd/mojom/executor.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/cros_healthd/mojom/executor.mojom?format=TEXT",
+      "bytes": 20687,
+      "sha256": "8bbf4f89a3ade82cebc930c89584c1b38ca2f15cd02f7f6ec172007ac3769896",
+      "imports": [
+        "diagnostics/mojom/external/time.mojom",
+        "diagnostics/mojom/public/cros_healthd_diagnostics.mojom",
+        "diagnostics/mojom/public/cros_healthd_events.mojom",
+        "diagnostics/mojom/public/cros_healthd_probe.mojom",
+        "diagnostics/mojom/public/cros_healthd_routines.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/cros_healthd_internal.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/cros_healthd_internal.mojom?format=TEXT",
+      "bytes": 2903,
+      "sha256": "7bf95172dc91f51f8b4b51695431d383887245c5f8c76cd1074ab3abe46b8974",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/input.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/input.mojom?format=TEXT",
+      "bytes": 6054,
+      "sha256": "8bddf3bdc1397b676f70d370966fccaa0c88e32958e0606a804caf603493941f",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/network_diagnostics.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/network_diagnostics.mojom?format=TEXT",
+      "bytes": 13292,
+      "sha256": "7b4aa387988ce106a39639a8a055496e735b44923cad6cc317680ea8be436daf",
+      "imports": [
+        "diagnostics/mojom/external/time.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/network_health.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/network_health.mojom?format=TEXT",
+      "bytes": 2783,
+      "sha256": "d666bdec9e838741dd1ca43678632b86a806fc49703e2c1c4975a83b13061958",
+      "imports": [
+        "diagnostics/mojom/external/network_health_types.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/network_health_types.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/network_health_types.mojom?format=TEXT",
+      "bytes": 4111,
+      "sha256": "8f7f14d8e36d13237fb656e81ba5822240b76fc5d1fa33da50ba166854843de0",
+      "imports": [
+        "diagnostics/mojom/external/network_types.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/network_types.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/network_types.mojom?format=TEXT",
+      "bytes": 4157,
+      "sha256": "17bbea7a066d44aca8888f6ee2feb8093d70d4a79190062a5e11fb114f131a30",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/time.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/time.mojom?format=TEXT",
+      "bytes": 766,
+      "sha256": "e07b9a654e0c6c20b2501e526c8532efa48d218f77f93693307b3d515b62b3cb",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/external/uuid.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/external/uuid.mojom?format=TEXT",
+      "bytes": 458,
+      "sha256": "91eb098184707c8a9f3ee22ba6369e24098aa29417269c3011c074e7b76b661f",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/cros_healthd.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd.mojom?format=TEXT",
+      "bytes": 39607,
+      "sha256": "64a066331ac545abe849887c9adab5003f0888acacaf16c704f170ffc4eeabdb",
+      "imports": [
+        "diagnostics/mojom/external/cros_healthd_internal.mojom",
+        "diagnostics/mojom/external/network_diagnostics.mojom",
+        "diagnostics/mojom/external/network_health.mojom",
+        "diagnostics/mojom/public/cros_healthd_diagnostics.mojom",
+        "diagnostics/mojom/public/cros_healthd_events.mojom",
+        "diagnostics/mojom/public/cros_healthd_exception.mojom",
+        "diagnostics/mojom/public/cros_healthd_probe.mojom",
+        "diagnostics/mojom/public/nullable_primitives.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/cros_healthd_diagnostics.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd_diagnostics.mojom?format=TEXT",
+      "bytes": 8457,
+      "sha256": "be916a5a6e62c00fba98d6c349cfcd69eaa863634efbacc51c1b046c3815589f",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/cros_healthd_event_reporters.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd_event_reporters.mojom?format=TEXT",
+      "bytes": 816,
+      "sha256": "0dd09272d4a51e211eeef31bd4d2c00dadd931c455476559670f5fbff5b7331c",
+      "imports": [
+        "diagnostics/mojom/external/input.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/cros_healthd_events.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd_events.mojom?format=TEXT",
+      "bytes": 16740,
+      "sha256": "0b2d25e7d8800f5bfa32ee8c3003f4f0ee0c857c30288f002ecb2b36f44f24a2",
+      "imports": [
+        "diagnostics/mojom/external/input.mojom",
+        "diagnostics/mojom/external/time.mojom",
+        "diagnostics/mojom/public/cros_healthd_probe.mojom",
+        "diagnostics/mojom/public/nullable_primitives.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/cros_healthd_exception.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd_exception.mojom?format=TEXT",
+      "bytes": 3878,
+      "sha256": "e7e8ac6bf4f79f51df8673c5d0a8e3bf38bce7a209a7380448fe29e83f9cf64b",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/cros_healthd_probe.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd_probe.mojom?format=TEXT",
+      "bytes": 66144,
+      "sha256": "a5b9d5cd9d743370422ba9b56236027ed8c13fa8dd3d350d67825aa22b2e9177",
+      "imports": [
+        "diagnostics/mojom/external/network_health_types.mojom",
+        "diagnostics/mojom/public/nullable_primitives.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/cros_healthd_routines.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/cros_healthd_routines.mojom?format=TEXT",
+      "bytes": 41000,
+      "sha256": "28b1ccc562e2c8c1e477ee84cdba0034274544ca742b1a3e9584393c87a7d9b3",
+      "imports": [
+        "diagnostics/mojom/external/time.mojom",
+        "diagnostics/mojom/external/uuid.mojom",
+        "diagnostics/mojom/public/cros_healthd_exception.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "diagnostics/mojom/public/nullable_primitives.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/diagnostics/mojom/public/nullable_primitives.mojom?format=TEXT",
+      "bytes": 1410,
+      "sha256": "3565e5148004fd2260cc529d2b623bee3b7122f2d47b8a4acbfde3d6c0d33bcb",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "heartd/mojom/heartd.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/heartd/mojom/heartd.mojom?format=TEXT",
+      "bytes": 3572,
+      "sha256": "d9e1705d7a601088f228e056dfcf3e59c49aca996ea1888783cac657cf12a5a2",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "iioservice/mojo/cros_sensor_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/iioservice/mojo/cros_sensor_service.mojom?format=TEXT",
+      "bytes": 1405,
+      "sha256": "b7d8838a086d1fe09c354b5c4b0305a9275df95b91c185dd460dbd53903d55c4",
+      "imports": [
+        "iioservice/mojo/sensor.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "iioservice/mojo/sensor.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/iioservice/mojo/sensor.mojom?format=TEXT",
+      "bytes": 11351,
+      "sha256": "1587f90c19bb7e8b495b933416ba88aec8627c06b7e313a9c6c05c05abf3f2af",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "midis/mojo/midis.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/midis/mojo/midis.mojom?format=TEXT",
+      "bytes": 2979,
+      "sha256": "d1aea63e281e68c9d4f8222168231b6f1f044f0e1885beadb040beff1af41008",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/document_scanner.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/document_scanner.mojom?format=TEXT",
+      "bytes": 3200,
+      "sha256": "e87136d7869f3819072e0f495996b866864d4d6f099ab79f1c5f07ab6439add4",
+      "imports": [
+        "ml/mojom/document_scanner_param_types.mojom",
+        "ml/mojom/file_path.mojom",
+        "ml/mojom/geometry.mojom",
+        "ml/mojom/shared_memory.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/document_scanner_param_types.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/document_scanner_param_types.mojom?format=TEXT",
+      "bytes": 1119,
+      "sha256": "690f019699f0a92e4e4b2603350a2d12f48fec8e808d605af516bc04b2a5daab",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/file_path.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/file_path.mojom?format=TEXT",
+      "bytes": 1231,
+      "sha256": "6fb97b435c929cc02c44f44c6d1c836520058d0f0fcc46f084fdee99a8603dbd",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/geometry.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/geometry.mojom?format=TEXT",
+      "bytes": 1340,
+      "sha256": "367c058644167f60915f94f2f6283d316b903351fc6f385cdec7c7e504e388bc",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/grammar_checker.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/grammar_checker.mojom?format=TEXT",
+      "bytes": 2347,
+      "sha256": "aca460ad3ecb97f27bf162191ca44dc4a1c3a7787187890b6760103eb0eeef73",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/graph_executor.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/graph_executor.mojom?format=TEXT",
+      "bytes": 1980,
+      "sha256": "239cbc09e169c1d9feb6fd6f9eeeb71bad66698846c1b4927dcf6ce12a7ee37b",
+      "imports": [
+        "ml/mojom/tensor.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/handwriting_recognizer.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/handwriting_recognizer.mojom?format=TEXT",
+      "bytes": 6804,
+      "sha256": "ab98a9d4f74d12655cbf219c353c863ba16d6c0beccda11ae7ce114837115aad",
+      "imports": [
+        "ml/mojom/time.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/heatmap_palm_rejection.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/heatmap_palm_rejection.mojom?format=TEXT",
+      "bytes": 3631,
+      "sha256": "5e389cee5a00fa95024b20d1feeb5bebb89d7b64f48f88025260430399df6a44",
+      "imports": [
+        "ml/mojom/time.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/image_content_annotation.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/image_content_annotation.mojom?format=TEXT",
+      "bytes": 2533,
+      "sha256": "4dbb9e53c4a158df9e360951563a702733b27e562d657d162c1ea88787d21357",
+      "imports": [
+        "ml/mojom/geometry.mojom",
+        "ml/mojom/shared_memory.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/machine_learning_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/machine_learning_service.mojom?format=TEXT",
+      "bytes": 5057,
+      "sha256": "ad0196efc11071557ffba2850ccd2bd9951a24ef88396517b06a7b85e49b7669",
+      "imports": [
+        "ml/mojom/document_scanner.mojom",
+        "ml/mojom/grammar_checker.mojom",
+        "ml/mojom/handwriting_recognizer.mojom",
+        "ml/mojom/heatmap_palm_rejection.mojom",
+        "ml/mojom/image_content_annotation.mojom",
+        "ml/mojom/model.mojom",
+        "ml/mojom/soda.mojom",
+        "ml/mojom/text_classifier.mojom",
+        "ml/mojom/text_suggester.mojom",
+        "ml/mojom/web_platform_handwriting.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/model.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/model.mojom?format=TEXT",
+      "bytes": 5281,
+      "sha256": "1f16eedc614eae369089489ff6c79e805280bbf39a1eec17d77267ca3f50caa8",
+      "imports": [
+        "ml/mojom/graph_executor.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/shared_memory.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/shared_memory.mojom?format=TEXT",
+      "bytes": 1277,
+      "sha256": "e4e799584f61d3b2ee08487fb3e212cdb6535ad1db348dfa44aaba92308758a9",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/soda.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/soda.mojom?format=TEXT",
+      "bytes": 11327,
+      "sha256": "528a99df636fbdf4c7ed2fad5eae350315882a502d7f7b0dc5bc96696746e4d8",
+      "imports": [
+        "ml/mojom/time.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/tensor.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/tensor.mojom?format=TEXT",
+      "bytes": 2064,
+      "sha256": "3f76e884f563d14af4ba333da920aae66d7684945d0dddf1ff7a8bdb363b0ce2",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/text_classifier.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/text_classifier.mojom?format=TEXT",
+      "bytes": 6501,
+      "sha256": "4e31c9e1def9967a391ba75be22e797e5d0ca37ad2f37b9cd6650b6ebd8b5f87",
+      "imports": [
+        "ml/mojom/time.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/text_suggester.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/text_suggester.mojom?format=TEXT",
+      "bytes": 4294,
+      "sha256": "99cdeb56d65ef6d576a5ae544e6f626b2986b5fd9dd0bc32cbfb720ba364f615",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/time.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/time.mojom?format=TEXT",
+      "bytes": 821,
+      "sha256": "1bb8c59b03a1c6cdd5d5c9ffaf85b84e5a85d74e75c78a2c6544ca3680170339",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ml/mojom/web_platform_handwriting.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ml/mojom/web_platform_handwriting.mojom?format=TEXT",
+      "bytes": 5217,
+      "sha256": "2136a3d8296ae1015cedebb76048b2a7b05841737d267cb2a784fd1c87c3d2f4",
+      "imports": [
+        "ml/mojom/time.mojom",
+        "ml/mojom/geometry.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "mojo_service_manager/lib/mojom/service_manager.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/mojo_service_manager/lib/mojom/service_manager.mojom?format=TEXT",
+      "bytes": 6656,
+      "sha256": "3ae9720e74d876d20d22557e7822ae78d04813c3c092b62b589d1a752e695306",
+      "imports": [
+        "mojo_service_manager/lib/mojom/time.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "mojo_service_manager/lib/mojom/time.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/mojo_service_manager/lib/mojom/time.mojom?format=TEXT",
+      "bytes": 506,
+      "sha256": "43170f3b58a2132b7ea0ddf701ddef1f1861e7774d5fb6e9e393f514a6637719",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "mojo_service_manager/testing/test.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/mojo_service_manager/testing/test.mojom?format=TEXT",
+      "bytes": 259,
+      "sha256": "7fbaca081ccb0f6715a3455caa36fb2fe51c8d95dad68c64f0eebb738a73946c",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "ocr/mojo/ocr_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/ocr/mojo/ocr_service.mojom?format=TEXT",
+      "bytes": 2261,
+      "sha256": "18ba51c25003fc15a64f0c82994dc8e1ad6251b62fadb12167cbd9ce4c7ff4ea",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/big_buffer.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/big_buffer.mojom?format=TEXT",
+      "bytes": 1480,
+      "sha256": "1f222ccd2d5efd432201591803d4ef4ad4543b8154ecc491e33c47667a2a82d0",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/bitmap.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/bitmap.mojom?format=TEXT",
+      "bytes": 2877,
+      "sha256": "1db850903f6850ed68b798bdedfa81b2b0422a44a424702d3bb71f91b97d6db9",
+      "imports": [
+        "odml/mojom/big_buffer.mojom",
+        "odml/mojom/image_info.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/coral_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/coral_service.mojom?format=TEXT",
+      "bytes": 9057,
+      "sha256": "09fc1f13e1cde56811a91c87b242044d5a9e68434fff826890fcc4bcec61bb1d",
+      "imports": [
+        "ml/mojom/machine_learning_service.mojom",
+        "odml/mojom/token.mojom",
+        "odml/mojom/url.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/cros_safety.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/cros_safety.mojom?format=TEXT",
+      "bytes": 3166,
+      "sha256": "9345b0f55796f41eeadc138dda6b90a3c96d1ad71ab47f4383bc21bf1b7a422c",
+      "imports": [
+        "odml/mojom/big_buffer.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/cros_safety_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/cros_safety_service.mojom?format=TEXT",
+      "bytes": 2360,
+      "sha256": "9bbea36005ad74cdc5accd6431a387bde921cb3fa49728f8c16e6ce7e297ca06",
+      "imports": [
+        "odml/mojom/cros_safety.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/embedding_model.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/embedding_model.mojom?format=TEXT",
+      "bytes": 2083,
+      "sha256": "3927fd60864c69f302a59798a36c1af3836637f9e31d134f4016579666a699d3",
+      "imports": [
+        "odml/mojom/on_device_model.mojom",
+        "odml/mojom/on_device_model_service.mojom",
+        "odml/mojom/uuid.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/file.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/file.mojom?format=TEXT",
+      "bytes": 1082,
+      "sha256": "a545e2ac275e3491e6ef97f10da31c078ef7c12fa7e3daa966036ae96ea48c5a",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/image_info.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/image_info.mojom?format=TEXT",
+      "bytes": 3104,
+      "sha256": "d74f25afa278df54ba9ed9a8a2ab06de9e3454a9a8b2f0d8384511d47d7976ad",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/mantis_processor.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/mantis_processor.mojom?format=TEXT",
+      "bytes": 3412,
+      "sha256": "7ca6484dccf443247fe45835f7fdaec0e3d027a2c5439e5f7ebd8a306697a657",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/mantis_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/mantis_service.mojom?format=TEXT",
+      "bytes": 1779,
+      "sha256": "3e5f8c272dde4d3ad9918015352a391e953f75f9203e1f4abccb3aeb6b306cfe",
+      "imports": [
+        "ml/mojom/text_classifier.mojom",
+        "odml/mojom/mantis_processor.mojom",
+        "odml/mojom/uuid.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/on_device_model.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/on_device_model.mojom?format=TEXT",
+      "bytes": 11999,
+      "sha256": "35f8de88e7080a424bc7fd1f5923e9e4f4500b948e9d87f3584ee5ee33979786",
+      "imports": [
+        "ml/mojom/file_path.mojom",
+        "odml/mojom/bitmap.mojom",
+        "odml/mojom/file.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/on_device_model_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/on_device_model_service.mojom?format=TEXT",
+      "bytes": 5974,
+      "sha256": "ace09decf2e1d4d3bea19fb14839b8c9fc9cc9a1cb8e3735afe6c34e58b2abd8",
+      "imports": [
+        "ml/mojom/file_path.mojom",
+        "odml/mojom/file.mojom",
+        "odml/mojom/on_device_model.mojom",
+        "odml/mojom/uuid.mojom"
+      ]
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/token.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/token.mojom?format=TEXT",
+      "bytes": 537,
+      "sha256": "edb616ca728703dc097c4e5b36b5dec9adc76fca943e4532574d56d4752984c1",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/url.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/url.mojom?format=TEXT",
+      "bytes": 907,
+      "sha256": "214a44fd735e8c81be75f06b22c9d8805bddf5a1362c4f1beecb1e34cc69a6e5",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "odml/mojom/uuid.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/odml/mojom/uuid.mojom?format=TEXT",
+      "bytes": 512,
+      "sha256": "c803f727df097daed0404f3e6c97b5f4f0794523578f68869c53785260bcb64c",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "oobe_config/mojom/rollback_network_config.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/oobe_config/mojom/rollback_network_config.mojom?format=TEXT",
+      "bytes": 729,
+      "sha256": "4a0cffa53fade904b6773e1e6968f0f07dd9196f032072bbc4f3ba14961dea8b",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "printscanmgr/mojom/executor.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/printscanmgr/mojom/executor.mojom?format=TEXT",
+      "bytes": 1083,
+      "sha256": "07fd5bf875c72d760eede4890676d141c5d046a38967d845bf19b13c5b992293",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "rmad/executor/mojom/executor.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/rmad/executor/mojom/executor.mojom?format=TEXT",
+      "bytes": 3862,
+      "sha256": "258ef2e5ba00d8023832d76ccb1eee83946379a8cbacc4b02c25d60f6edf9946",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "shill/mojom/shill/mojom/passpoint.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/shill/mojom/shill/mojom/passpoint.mojom?format=TEXT",
+      "bytes": 2707,
+      "sha256": "e0ad01905beae86e93f6bcbf16ca6320c87677ad8a8acbd2d5ceac262e96117a",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "smbfs/mojom/file_path.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/smbfs/mojom/file_path.mojom?format=TEXT",
+      "bytes": 630,
+      "sha256": "c8316b586b7d36716fd9ee4ded6ac34ca0c238caa39df717b9ddd2a67e4682a5",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "smbfs/mojom/ip_address.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/smbfs/mojom/ip_address.mojom?format=TEXT",
+      "bytes": 694,
+      "sha256": "f91b70af25fc18bc5bf923f2d18cd62838b971dee0171355be2e1dabad300b5c",
+      "imports": []
+    },
+    {
+      "repo_id": "platform2",
+      "commit": "c2c6eedd4d40a38bbd2428542793ffeff7716c90",
+      "path": "smbfs/mojom/smbfs.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform2/+/c2c6eedd4d40a38bbd2428542793ffeff7716c90/smbfs/mojom/smbfs.mojom?format=TEXT",
+      "bytes": 4895,
+      "sha256": "087580ba3b634fe739730795ebc70a27a14d52ec08999aaaf9a75f1d21fcb9cc",
+      "imports": [
+        "smbfs/mojom/file_path.mojom",
+        "smbfs/mojom/ip_address.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "ipc/constants.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/ipc/constants.mojom?format=TEXT",
+      "bytes": 434,
+      "sha256": "46ea29b34a16b328c4973bc915765eed163a1f940492c742a44398250689eb4f",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "ipc/ipc.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/ipc/ipc.mojom?format=TEXT",
+      "bytes": 985,
+      "sha256": "92f715f4f4060dc491dd2a16396703d599b5d15fb0a40020c6299e0aeea34231",
+      "imports": [
+        "mojo/public/interfaces/bindings/native_struct.mojom",
+        "mojo/public/mojom/base/generic_pending_associated_receiver.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/interfaces/bindings/interface_control_messages.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/interfaces/bindings/interface_control_messages.mojom?format=TEXT",
+      "bytes": 3028,
+      "sha256": "44a167728f30e72ab77ee21094478d96274c17980ead60d6d3882beca2320142",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/interfaces/bindings/native_struct.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/interfaces/bindings/native_struct.mojom?format=TEXT",
+      "bytes": 502,
+      "sha256": "a6473eb6196e6c8e2f032ce4083539e78f6f4bc190a378c609786af09062e43f",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/interfaces/bindings/pipe_control_messages.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/interfaces/bindings/pipe_control_messages.mojom?format=TEXT",
+      "bytes": 2064,
+      "sha256": "4c041040edfcb0be8ce9ebc2e8500b928948818c5665c61946753ea53b8595c3",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/absl_status.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/absl_status.mojom?format=TEXT",
+      "bytes": 7917,
+      "sha256": "8975d2147b90b948356da689f875941cb0965ac12d3d6ebe8d1bd728b753444a",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/application_state.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/application_state.mojom?format=TEXT",
+      "bytes": 358,
+      "sha256": "9007e9b705c10752f96f09db01b6ee68b8d4078be5fe2059b24a93d903dcfd21",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/battery_power_status.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/battery_power_status.mojom?format=TEXT",
+      "bytes": 472,
+      "sha256": "779c113ac9f8c481dc72be459672af8807b3a17b37ec6889aa24c26af0614dda",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/big_buffer.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/big_buffer.mojom?format=TEXT",
+      "bytes": 1222,
+      "sha256": "381b5880cef58daf9411895968cbd499968e6bf2f0570023d28f144fc62e1189",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/big_string.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/big_string.mojom?format=TEXT",
+      "bytes": 745,
+      "sha256": "caf625ce15083b91423e65049330884145bd52aa4a597136ece27f0051d8ab7e",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/binder.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/binder.mojom?format=TEXT",
+      "bytes": 606,
+      "sha256": "5eb0819bb8e7f0fdc6caaa4113cdd6c1e667e644f486d5ac3cf10069c9c9aaa6",
+      "imports": [
+        "mojo/public/mojom/base/generic_pending_receiver.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/byte_size.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/byte_size.mojom?format=TEXT",
+      "bytes": 364,
+      "sha256": "5a5edf64b89e9fdcd60a3a6f9ff15e6bbc44f14976eb77dff17180d39153f95b",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/byte_string.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/byte_string.mojom?format=TEXT",
+      "bytes": 716,
+      "sha256": "6849f6cc2d9f51bf01f957b7bf7809b5d04fa6d6b47cb94c8305addd59856d3a",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/empty.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/empty.mojom?format=TEXT",
+      "bytes": 345,
+      "sha256": "5a7e02dedfec7e8f493622c19dd180a1dbdab7e62a318f82744df513ef52b258",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/error.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/error.mojom?format=TEXT",
+      "bytes": 2065,
+      "sha256": "0223435876e0e00b217cc0223232b83ea60da5a18c4fc7f56953dd2fe50ccd70",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/file.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/file.mojom?format=TEXT",
+      "bytes": 827,
+      "sha256": "33f0461f6a48f50521b5bf96a1d85008e905ef72850e818ef5d2c535e25b537d",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/file_error.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/file_error.mojom?format=TEXT",
+      "bytes": 796,
+      "sha256": "95b80e067a323573b34f0fb160ff3601888f4913966dbadc8fb7145458ab8512",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/file_info.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/file_info.mojom?format=TEXT",
+      "bytes": 397,
+      "sha256": "e737b7ea8aa8c247f067455a53493c6aa3e21eacb75ff4bc8c2dc5e16ee7be56",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/file_path.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/file_path.mojom?format=TEXT",
+      "bytes": 3644,
+      "sha256": "3d43d49891d3f15f0255b08147b55caf4275c40ddb809202fee6ae290c33fbca",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/generic_pending_associated_receiver.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/generic_pending_associated_receiver.mojom?format=TEXT",
+      "bytes": 1049,
+      "sha256": "1fe8181ee9c7e95b4220d0a5fcf407cda5a95bfcf5ed712eb48bdc425892de37",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/generic_pending_receiver.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/generic_pending_receiver.mojom?format=TEXT",
+      "bytes": 1003,
+      "sha256": "b8e4f81af82ea87d389102f2d8e7dde13197d74370ca7c2cf2ba8a0b3e3e637f",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/int128.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/int128.mojom?format=TEXT",
+      "bytes": 469,
+      "sha256": "870c07b49e5788f5a8def622e02abf9a96393188496f2a616cfd0e670c08262d",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/jserror.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/jserror.mojom?format=TEXT",
+      "bytes": 1394,
+      "sha256": "648033bf9b2b7244b7a92a986623cf0a83c7f5bcab4e437b0c3c37bdbabd446f",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/language_tag.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/language_tag.mojom?format=TEXT",
+      "bytes": 329,
+      "sha256": "06378a5634995b5ba539419c90efeae003c31e3ce1e68f75456b001bf0bce97f",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/memory_allocator_dump_cross_process_uid.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/memory_allocator_dump_cross_process_uid.mojom?format=TEXT",
+      "bytes": 344,
+      "sha256": "9e53812f2af740b26f70f0b37dc7084fe2757f7d777751051c62c2872bc5fe0f",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/memory_limit.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/memory_limit.mojom?format=TEXT",
+      "bytes": 437,
+      "sha256": "5dcf19ca540587ff50e2e46367dc857e70a86786e374d8509051ed67a7f4d7d2",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/memory_pressure_level.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/memory_pressure_level.mojom?format=TEXT",
+      "bytes": 271,
+      "sha256": "fc59ccb09fe596f0fd6ea59d53363a615fe60b552a0d88d1efe5b40725d9cc88",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/message_pump_type.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/message_pump_type.mojom?format=TEXT",
+      "bytes": 369,
+      "sha256": "301b791bf0a9471f4b8132ba6b1999a66d298e5f973e182784d7f26ae681f700",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/process_id.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/process_id.mojom?format=TEXT",
+      "bytes": 420,
+      "sha256": "1a0549e5d1b031bca4dcbafe8f6de9efab53457e4339dc70a6eb513a0b98d175",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/process_priority.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/process_priority.mojom?format=TEXT",
+      "bytes": 281,
+      "sha256": "a0adf486cb1fc78008b9eaff959b6e5d4cdb937a14b7eea4d9d0a83254bf8222",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/proto_wrapper.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/proto_wrapper.mojom?format=TEXT",
+      "bytes": 1420,
+      "sha256": "6eb281bbd68bf26477b5b7cc6f6dbc51aebabddc2af5c46da4d1a257b1660811",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/read_only_buffer.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/read_only_buffer.mojom?format=TEXT",
+      "bytes": 397,
+      "sha256": "dfda38d2981e46d8aecf3be0ecc3017d0cec462a75dab68257ea79f9b84a4cdb",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/ref_counted_memory.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/ref_counted_memory.mojom?format=TEXT",
+      "bytes": 493,
+      "sha256": "0f023d65e889e52523bdd709440200c41e00e8e2b9add1bdfdcd9c8ec3384294",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/safe_base_name.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/safe_base_name.mojom?format=TEXT",
+      "bytes": 304,
+      "sha256": "2ed5e574bb7cd1f53eff76df9ebf9a94bb56e7af37e03a6bb0450a5d38fd591a",
+      "imports": [
+        "mojo/public/mojom/base/file_path.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/shared_memory.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/shared_memory.mojom?format=TEXT",
+      "bytes": 948,
+      "sha256": "4b88728e7495585ff5c5b6e0b8aed4388ea9f60baffabc21c8b6ad2aabdf3e28",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/string16.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/string16.mojom?format=TEXT",
+      "bytes": 780,
+      "sha256": "fd611567f3e908ed23734c902dc7e5c6fc0fe4570615daf80ec0a4df2683f6dc",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom"
+      ]
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/text_direction.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/text_direction.mojom?format=TEXT",
+      "bytes": 312,
+      "sha256": "f98b5d6d591c5b6786aa6e552f8c9dd9e5bab32ade6052c9fd911b286f7c1cea",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/thread_type.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/thread_type.mojom?format=TEXT",
+      "bytes": 975,
+      "sha256": "3a35eee8e1a1e787f63c4f1ef7cee776b51b90e62446c87b67f2431e059133bb",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/time.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/time.mojom?format=TEXT",
+      "bytes": 959,
+      "sha256": "2343f61f2a1793f0713c66f8339ad53c54a7ecf2270ce471d4edb4d912930ef7",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/token.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/token.mojom?format=TEXT",
+      "bytes": 281,
+      "sha256": "d86a13849663b90444d883943cd6bb7024f595e4fbe2cadcf9112dce366f1ddf",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/unguessable_token.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/unguessable_token.mojom?format=TEXT",
+      "bytes": 307,
+      "sha256": "9a24eecaeeb91a8246f91672ee741c03304b9130ba4bf23d3be8e7ad97b901fa",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/uuid.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/uuid.mojom?format=TEXT",
+      "bytes": 257,
+      "sha256": "c7714617000df1aba9474df10a7954bd78f33ce581e4a25d808c4e7f886f8838",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/values.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/values.mojom?format=TEXT",
+      "bytes": 1067,
+      "sha256": "22d3a29e9183561a51d138ba0c76e9cda19d7598ccfc3b3017cfbce8c4e782cd",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/version.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/version.mojom?format=TEXT",
+      "bytes": 281,
+      "sha256": "a5cb7e4ca79eba393769fb538beab7a20b7c097943df063f4eaa74f5a2feda88",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/work_in_progress.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/work_in_progress.mojom?format=TEXT",
+      "bytes": 844,
+      "sha256": "c9c3eb47cba63318c3014a04171952e5c11ee0d654d792801a856da24f3eb1ef",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/mojom/base/wstring.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/mojom/base/wstring.mojom?format=TEXT",
+      "bytes": 261,
+      "sha256": "a7cfbe3765a6ed847f679cd7ea91d59f64d75912cc27e4e8e56ebaca9c51cf50",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "mojo/public/tools/fuzzers/fuzz.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/mojo/public/tools/fuzzers/fuzz.mojom?format=TEXT",
+      "bytes": 2757,
+      "sha256": "afd101eb724a1a0c98d8f9869c7c5494b1c5f23c6ad822d9e5e2c4083abb9df5",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "ui/gfx/geometry/mojom/geometry.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/ui/gfx/geometry/mojom/geometry.mojom?format=TEXT",
+      "bytes": 1113,
+      "sha256": "2627e9f522ed599bbe7ead6b0ff3c050bb87611a668ca45384119cb9bc9670b7",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "ui/gfx/range/mojom/range.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/ui/gfx/range/mojom/range.mojom?format=TEXT",
+      "bytes": 277,
+      "sha256": "2c908810eb8c3bfbf963c8ae5885bd5f05731de8bc11405566969ae2c5dd3ad4",
+      "imports": []
+    },
+    {
+      "repo_id": "libchrome",
+      "commit": "26299852898bf5d90372372d9d51ba48768f34fb",
+      "path": "ui/gfx/range/mojom/range_traits_test_service.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/platform/libchrome/+/26299852898bf5d90372372d9d51ba48768f34fb/ui/gfx/range/mojom/range_traits_test_service.mojom?format=TEXT",
+      "bytes": 456,
+      "sha256": "62a5fd8431a6486c92ff55e571f9aeb97ec5afc7af2d327a8222c585c7574a31",
+      "imports": [
+        "ui/gfx/range/mojom/range.mojom"
+      ]
+    },
+    {
+      "repo_id": "libcamera",
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "path": "include/libcamera/ipa/core.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/include/libcamera/ipa/core.mojom?format=TEXT",
+      "bytes": 11302,
+      "sha256": "5c9e5aafe7c1a1256805f5bfad507ac2a5a0ae33bdaa6251cdd8946ed0db283f",
+      "imports": []
+    },
+    {
+      "repo_id": "libcamera",
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "path": "include/libcamera/ipa/ipu3.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/include/libcamera/ipa/ipu3.mojom?format=TEXT",
+      "bytes": 1338,
+      "sha256": "76a46847cd2c1b74cd71f50a7cb75abb3c694b0e1c5b43da0c34831176896c79",
+      "imports": [
+        "include/libcamera/ipa/core.mojom"
+      ]
+    },
+    {
+      "repo_id": "libcamera",
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "path": "include/libcamera/ipa/raspberrypi.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/include/libcamera/ipa/raspberrypi.mojom?format=TEXT",
+      "bytes": 9789,
+      "sha256": "bb6141759b349f5486b3c150e33f4348dca6d68a8dd1c93cba842b97dada1ed4",
+      "imports": [
+        "include/libcamera/ipa/core.mojom"
+      ]
+    },
+    {
+      "repo_id": "libcamera",
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "path": "include/libcamera/ipa/rkisp1.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/include/libcamera/ipa/rkisp1.mojom?format=TEXT",
+      "bytes": 1268,
+      "sha256": "0420a43f23433cf9fd9beaac1db71f4980bf9d18a7054d384433d32c3475ad01",
+      "imports": [
+        "include/libcamera/ipa/core.mojom"
+      ]
+    },
+    {
+      "repo_id": "libcamera",
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "path": "include/libcamera/ipa/soft.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/include/libcamera/ipa/soft.mojom?format=TEXT",
+      "bytes": 688,
+      "sha256": "a9f786bbc603893e5611ce402ac609824dccbcd097111c1e38916da7c77fdce6",
+      "imports": [
+        "include/libcamera/ipa/core.mojom"
+      ]
+    },
+    {
+      "repo_id": "libcamera",
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "path": "include/libcamera/ipa/vimc.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/include/libcamera/ipa/vimc.mojom?format=TEXT",
+      "bytes": 1421,
+      "sha256": "1683e5c81651c1771987d274f5d25f117617e23bf5aa9ff236c53c94be668960",
+      "imports": [
+        "include/libcamera/ipa/core.mojom"
+      ]
+    },
+    {
+      "repo_id": "libcamera",
+      "commit": "6273963b72903a528c0bddcb47e4ca5a2745c502",
+      "path": "test/serialization/generated_serializer/include/libcamera/ipa/test.mojom",
+      "url": "https://chromium.googlesource.com/chromiumos/third_party/libcamera/+/6273963b72903a528c0bddcb47e4ca5a2745c502/test/serialization/generated_serializer/include/libcamera/ipa/test.mojom?format=TEXT",
+      "bytes": 658,
+      "sha256": "a1acd88d50d30a1336e32432a008fe4686f28ab8bdbde49758e5efe1972188af",
+      "imports": []
+    }
+  ],
+  "bytes": 631537,
+  "complete_byte_projection": true
+}

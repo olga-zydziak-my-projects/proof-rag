@@ -1,0 +1,24 @@
+{
+  "schema": "stage8-benchmark-v1",
+  "sizes": [10000, 100000, 1000000],
+  "families": ["chain", "modular", "cycles"],
+  "seed": 808,
+  "query_repeats": 3,
+  "logical_repositories": 3,
+  "limits": {
+    "timeout_seconds": 600,
+    "tree_memory_bytes": 4294967296,
+    "artifact_bytes": 8589934592,
+    "duckdb_memory": "512MB",
+    "duckdb_temp": "2GB",
+    "threads": 1,
+    "process_parallelism": 1,
+    "sample_seconds": 0.1
+  },
+  "initial_machine": {
+    "ram_bytes": 33752997888,
+    "available_ram_bytes": 9923039232,
+    "free_disk_bytes": 337882193920,
+    "note": "Observed before large runs; OS file cache is not controlled."
+  }
+}
