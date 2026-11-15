@@ -1,0 +1,35 @@
+{
+  "status": "PROCESS_PASS",
+  "command": [
+    "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "local/stage8/review_final_06.py",
+    "local/stage8/independent-core-review-06/work/review.json"
+  ],
+  "limits": {
+    "timeout_seconds": 600,
+    "tree_memory_bytes": 4294967296,
+    "artifact_bytes": 8589934592,
+    "duckdb_memory": "512MB",
+    "duckdb_temp": "2GB",
+    "threads": 1,
+    "process_parallelism": 1,
+    "sample_seconds": 0.1
+  },
+  "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage8\\independent-core-review-06",
+  "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+  "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+  "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+  "initial_ram_available": 5596016640,
+  "initial_disk_free": 349438734336,
+  "peak_tree_rss": 622092288,
+  "peak_tree_private": 1481199616,
+  "peak_artifact_bytes": 27359,
+  "sample_interval_requested_seconds": 0.1,
+  "exit_code": 0,
+  "members_before_cleanup": 0,
+  "remaining_job_processes": 0,
+  "elapsed_seconds": 24.521457900002133,
+  "max_sample_gap_seconds": 0.1142614999844227,
+  "final_artifact_bytes": 27359,
+  "final_artifact_limit_exceeded": false
+}

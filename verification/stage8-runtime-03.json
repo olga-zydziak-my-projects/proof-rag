@@ -1,0 +1,22 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "python_sha256": "50f885251e42eb8cd1fbf5d4fbcc01efdbe8b9f4d4379e16664d4d0f3d4a9869",
+  "lean_version": "Lean (version 4.35.0, x86_64-w64-windows-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "lean_sha256": "ec7a472d1c12a09b0c0c718f7427c2be527b3f5f07810fdbe076c2507c7a91ea",
+  "ram_bytes": 33752997888,
+  "available_ram_bytes": 10683711488,
+  "disk_free_bytes": 356475072512,
+  "limits": {
+    "timeout_seconds": 600,
+    "tree_memory_bytes": 4294967296,
+    "artifact_bytes": 8589934592,
+    "duckdb_memory": "512MB",
+    "duckdb_temp": "2GB",
+    "threads": 1,
+    "process_parallelism": 1,
+    "sample_seconds": 0.1
+  },
+  "regression_timeout_seconds": 2400,
+  "one_expensive_lean_process_at_a_time": true
+}

@@ -24,7 +24,7 @@ def source_inputs(a):
     locations = {(r['repo_id'], r['commit']): r['directory'] for r in rows}
     if len(locations) != len(rows):
         raise ValueError('duplicate locations')
-    return capture(a.manifest, a.manifest_sha256, locations)
+    return capture(a.manifest, a.manifest_sha256, locations, spool_dir=a.run_dir)
 
 
 def prepare(a):
@@ -70,7 +70,7 @@ def query(a):
             'repository_version_count': len({(rows[i]['repo_id'], rows[i]['commit']) for i in ids}),
             'certificate': 'certificate.parquet', 'report': 'query-report.json',
             'verification_level': 'GRAPH_PASS_WITH_PYTHON_SOURCE_IO', 'source_to_answer_lean': False,
-            'external_events': facts['external'],
+            'external_events': list(facts['external']),
             'limitation': 'No multi-repository source-to-answer Lean bridge has been accepted.'}
         payload = canonical(answer)
         (folder/'answer.pending.json').write_bytes(payload)

@@ -1,7 +1,8 @@
 # Repo Proof Lab — etap 7
 
 Etap 8 dodaje osobny [silnik wielu repozytoriów i benchmarki](docs/stage8-usage.md).
-Stan rzeczywistego pilota i poziomy weryfikacji opisują [wyniki etapu 8](docs/stage8-results.md).
+Stan rzeczywistego pilota i poziomy weryfikacji opisuje [uzupełnienie etapu 8](docs/stage8-completion.md).
+Zachowano [historyczne wyniki etapu 8](docs/stage8-results.md).
 Dotychczasowy formalnie sprawdzony korpus i interfejs Claude pozostają opisane poniżej.
 
 Projekt odpowiada na pytanie, które pliki importują dokładnie wskazany plik

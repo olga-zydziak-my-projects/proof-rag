@@ -18,16 +18,16 @@ Osobne poziomy i bramki:
 | `GRAPH_PASS_WITH_PYTHON_SOURCE_IO` | Pełny wynik oraz certyfikat grafowy, dodatkowo ponowne sprawdzenie źródłowego indeksu przez Python; **bez formalnego source-to-answer** |
 | `GRAPH_PASS` benchmarku | Pełne wyniki zgodne z niezależnym DFS; checker pełnego certyfikatu sprawdza rodziców, rangi i domknięcie |
 | `LEAN_GRAPH_PASS` | Świeży kernel sprawdził graf, certyfikat i maskę całej odpowiedzi; brak twierdzenia o nowych źródłach |
-| `STAGE8_PILOT_PASS` | Co najmniej 3 rzeczywiste, spójnie przypięte i połączone projekty, pochodzenie krawędzi, 6 korzeni, 3 pełne source-to-answer Lean, w tym 2 przekraczające repozytoria, wymagane odrzucenia |
-| `STAGE8_PASS` | Pilot PASS oraz wszystkie trzy rozmiary GRAPH_PASS, regresje, przegląd i niezmienny kod |
+| `STAGE8_PILOT_PASS` | Co najmniej 3 rzeczywiste, spójnie przypięte projekty połączone importami Mojom, pochodzenie krawędzi, 6 różnych rzeczywistych korzeni i 6 pełnych przebiegów źródło–graf–certyfikat–świeży kernel Lean–odpowiedź, co najmniej 3 odpowiedzi przekraczające repozytoria, pełna zgodność z niezależnym obliczeniem i wymagane odrzucenia |
+| `STAGE8_PASS` | Pilot PASS, dziewięć wariantów 10K/100K/1M, pomiary źródeł Git, wykonane próby Lean powyżej 64, testy nadzorcy, regresje, niezależny przegląd i zgodność artefaktów z zamrożonym kodem |
+| `STAGE8_INCOMPLETE` | Co najmniej jedna obowiązkowa bramka pozostaje niezaliczona; bieżący runner podaje osobną mapę wyników korpusu, mostu, pilota, skalowania i regresji |
 | `STAGE8_PARTIAL` | Pilot PASS, lecz niezaliczone wymagane skalowanie |
 | `STAGE8_CORPUS_BLOCKED` | Nie ustalono wymaganego rzeczywistego korpusu; syntetyczne sukcesy nie podnoszą tego statusu |
 | `STAGE8_FAILED` | Niepowodzenie poprawności lub końcowych kontroli |
 
-W tej implementacji pilot jest zablokowany. **Nie wdrożono ani nie zaakceptowano
-formalnego mostu wielu repozytoriów źródło–odpowiedź**. Nie korzystamy z dowodu
-Chromium jako dowodu nowych źródeł. Implementacja źródłowa jest sprawdzanym
-operacyjnie fundamentem do dalszego etapu; brak tej formalizacji jest jawny.
+Ogólny most wielu repozytoriów źródło–odpowiedź jest implementowany przez
+`ContextualSourceBinding.lean`. Każdy przyjęty pilot wymaga własnych pełnych
+dowodów. Wyniki wcześniejszych przebiegów zachowują ówczesny status blokady.
 
 Każdy przebieg otrzymuje nowy katalog. Błędy, brak plików lub repozytoriów,
 niejednoznaczność, konflikt wersji i niezgodność indeksu blokują odpowiedź.
@@ -56,3 +56,11 @@ Podstawy doboru i interpretacji ustawień:
 [DuckDB OOM](https://duckdb.org/docs/current/guides/performance/oom),
 [Soufflé Magic Sets](https://souffle-lang.github.io/magicset).
 Limit menedżera DuckDB nie zastępuje pomiaru pamięci całego procesu.
+
+## Korekta kryteriów 15 listopada 2026
+
+Poprzednia redakcja obniżyła wymaganie sześciu pełnych dowodów do trzech,
+a wymaganie trzech zapytań między repozytoriami do dwóch. Przywrócono
+oryginalne kryteria zlecenia. Poprzednią treść zachowuje
+[wersja historyczna](stage8-contract-before-correction.md).
+Raporty wcześniejszych przebiegów opisują ich ówczesny zakres.

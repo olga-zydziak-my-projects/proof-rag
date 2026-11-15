@@ -15,20 +15,24 @@ $env:PYTHONPATH = "src;local/stage8-deps"
 
 Klucze API i SDK Anthropic nie są potrzebne. Nie uruchamiaj ponownie płatnej
 oceny etapu 7. Nowe testy są offline; integracja poniżej tworzy jawnie
-syntetyczne lokalne repozytoria, a nie zastępuje zablokowanego pilota.
+syntetyczne lokalne repozytoria. Rzeczywisty pilot ma osobny przypięty manifest.
 
 Pełny zestaw niezależnych części, w nowym katalogu i z nowym raportem:
 
 ```powershell
 & $py scripts/check_stage8.py --run-dir local/stage8/reproduce-new `
-  --report verification/stage8-reproduce-new.json --lean $lean
+  --report verification/stage8-reproduce-new.json --lean $lean --independent-only
 ```
 
 Obejmuje dziewięć benchmarków, kontrolowane TIMEOUT/RESOURCE_LIMIT,
 przygotowanie źródłowego fixture i pięć zapytań (w tym powtórzenie), trzy
-świeże dowody grafowe Lean oraz historyczne regresje. Nie korzysta z sieci.
-Status końcowy pozostaje CORPUS_BLOCKED, jeżeli niezależne części przejdą;
-kod 0 tego narzędzia oznacza zaliczenie **niezależnych części**, nie STAGE8_PASS.
+świeże małe dowody grafowe Lean, pełny most na fixture, drabinę 256/1000/10000,
+pomiar 10 000 źródeł Git, testy nadzorcy oraz historyczne regresje. Korzysta
+z wcześniej pobranych obiektów lokalnych.
+Tryb `--independent-only` zwraca kod 0 po zaliczeniu niezależnych części.
+Domyślny tryb zwraca kod 0 wyłącznie po zaliczeniu całego etapu.
+Pełny pilot wymaga dodatkowo `--manifest`, niezależnej kotwicy
+`--manifest-sha256`, `--locations`, `--corpus-evidence` i `--review`.
 
 Duże benchmarki zawsze uruchamiaj przez supervisor:
 
@@ -57,12 +61,15 @@ SHA-256 i mapy lokalizacji `[{repo_id,commit,directory}, ...]`:
   --run-dir local/stage8/my-query
 ```
 
-Realny manifest wyboru `verification/stage8-corpus.json` jest **raportem blokady**,
-nie gotowym korpusem do prepare. Przykładowy działający manifest źródłowy znajduje
+Historyczny manifest wyboru `verification/stage8-corpus.json` zachowuje dawny raport
+blokady. Końcowy zakres zawiera `verification/stage8-connected-corpus-manifest-04.json`,
+a jego konteksty sprawdza `verification/stage8-connected-corpus-evidence-04.json`.
+Przykładowy działający manifest źródłowy znajduje
 się po checku w `local/stage8/final-02/synthetic-source-fixture/manifest.json`;
 jest jednoznacznie oznaczony `synthetic-fixture`. Odpowiedź źródłowego CLI ma
 `formally_verified=false` i poziom GRAPH_PASS_WITH_PYTHON_SOURCE_IO.
-Nowy korpus nie ma formalnego dowodu źródło–odpowiedź.
+Pełny eksport i świeże dowody źródłowe uruchamia końcowy runner przez `check_sources`.
+Samodzielne CLI `query` zachowuje opisany poziom kontroli Python.
 
 Opcjonalny, osobno zamrożony eksperyment Soufflé:
 

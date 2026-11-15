@@ -1,0 +1,367 @@
+{
+  "schema": "stage8-corpus-v1",
+  "origin": "real",
+  "repositories": [
+    {
+      "repo_id": "electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "tree": "fa2587baa940913befc5d539afef827a695dfb73",
+      "url": "https://github.com/electron/electron",
+      "prefixes": [
+        "shell/common/plugin.mojom",
+        "shell/common/web_contents_utility.mojom"
+      ],
+      "files": [
+        {
+          "path": "shell/common/plugin.mojom",
+          "blob": "f334073067f62458c6c5ca88fd2527b49b226b79",
+          "sha256": "c6a1180bd38c89fd553f869008c281bc6acd08bd8bdf66e1f3737dd53cee4f68"
+        },
+        {
+          "path": "shell/common/web_contents_utility.mojom",
+          "blob": "89e5f1b17b762211820a19197d81247e9ebe2e7b",
+          "sha256": "b3a935f0c2050c57806eb8888194d0050b8e055d1e38257a5630d3e74e1ca08c"
+        }
+      ]
+    },
+    {
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "tree": "21f15cb35a06c819d080872a0c404a771a76efc1",
+      "url": "https://github.com/brave/brave-core",
+      "prefixes": [
+        "components/ai_chat/core/common/mojom/"
+      ],
+      "files": [
+        {
+          "path": "components/ai_chat/core/common/mojom/ai_chat.mojom",
+          "blob": "d5345e9225cc7df07c2633e23964776bfc12ed53",
+          "sha256": "e8909afd63469ee05555f6d7bbc38ac6e58bb5d57d00bfab55898c82243916be"
+        },
+        {
+          "path": "components/ai_chat/core/common/mojom/customization_settings.mojom",
+          "blob": "507432916818738e7ec952f9a9e11cf1dcf5f71d",
+          "sha256": "9b56b7d296ee5bff62d67e490b861aa623c1dc6932c7af79ca0564df77a10408"
+        },
+        {
+          "path": "components/ai_chat/core/common/mojom/page_content_extractor.mojom",
+          "blob": "c3f0667c2b6bea260dafed07915dd76df3ed8ee5",
+          "sha256": "637e4a557bd5a5ca6feb0fa7645685e87aeacee569f8a9d0709bda795eac397e"
+        },
+        {
+          "path": "components/ai_chat/core/common/mojom/settings_helper.mojom",
+          "blob": "449aff00f824df0c7778fc8e72c9ff1b42899172",
+          "sha256": "eb30f5672bd618095e9ca6cd4df4cd3855deabd59e7648532b3c5cb43e1a3c02"
+        },
+        {
+          "path": "components/ai_chat/core/common/mojom/tab_tracker.mojom",
+          "blob": "dfadb1aa1709a4a5e8b441eaa521910467d1770f",
+          "sha256": "cfafd64a1774a687065f4aff9803339888301e235b3c2689dd5fbbaa1d1a93c4"
+        },
+        {
+          "path": "components/ai_chat/core/common/mojom/untrusted_frame.mojom",
+          "blob": "945847a2b1941212bad66535dee1ee44866e43b2",
+          "sha256": "48638367070ce8861fd5875525d9fe241b2c05ca3dca4798833dba7b3917d179"
+        }
+      ]
+    },
+    {
+      "repo_id": "chromium",
+      "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+      "tree": "9126a9192eb20fda7cc2e0f5a6b5163dfae53b4b",
+      "url": "https://github.com/chromium/chromium",
+      "prefixes": [
+        "content/public/common/webplugininfo.mojom",
+        "mojo/public/mojom/base/big_buffer.mojom",
+        "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
+        "mojo/public/mojom/base/values.mojom",
+        "third_party/blink/public/mojom/permissions/permission_status.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
+        "url/mojom/origin.mojom",
+        "url/mojom/url.mojom"
+      ],
+      "files": [
+        {
+          "path": "content/public/common/webplugininfo.mojom",
+          "blob": "15db8e74c27486ff6f876d859f7fadff3c46c43f",
+          "sha256": "cdbd01d321d1a7196031689228d7c06a6c1469616e85faae24e41ec577ab03af"
+        },
+        {
+          "path": "mojo/public/mojom/base/big_buffer.mojom",
+          "blob": "0a352846a297f88cf830579dbb8d2900f81a37ab",
+          "sha256": "381b5880cef58daf9411895968cbd499968e6bf2f0570023d28f144fc62e1189"
+        },
+        {
+          "path": "mojo/public/mojom/base/string16.mojom",
+          "blob": "9ea96a9cd3795f8de276498d2a8836b716c397dc",
+          "sha256": "fd611567f3e908ed23734c902dc7e5c6fc0fe4570615daf80ec0a4df2683f6dc"
+        },
+        {
+          "path": "mojo/public/mojom/base/time.mojom",
+          "blob": "95ed7d40586f839613361d0cdd9875ac4e788abe",
+          "sha256": "2343f61f2a1793f0713c66f8339ad53c54a7ecf2270ce471d4edb4d912930ef7"
+        },
+        {
+          "path": "mojo/public/mojom/base/unguessable_token.mojom",
+          "blob": "0f01fc489e153e64b46b94ee09aa24fc9f6b0390",
+          "sha256": "9a24eecaeeb91a8246f91672ee741c03304b9130ba4bf23d3be8e7ad97b901fa"
+        },
+        {
+          "path": "mojo/public/mojom/base/values.mojom",
+          "blob": "a69de4103e9a6e6eaf9caac2fc5fd5757e263f0d",
+          "sha256": "22d3a29e9183561a51d138ba0c76e9cda19d7598ccfc3b3017cfbce8c4e782cd"
+        },
+        {
+          "path": "third_party/blink/public/mojom/permissions/permission_status.mojom",
+          "blob": "22cdc501acf58525135509eeefacf24674837d40",
+          "sha256": "fca09bb389e643d3dd6f55c27da253b9e3a30b8d6e7cb0088a0642a8bd616bde"
+        },
+        {
+          "path": "third_party/blink/public/mojom/tokens/tokens.mojom",
+          "blob": "2def02ae2d0c9a5205518da6e945bd76e20d940e",
+          "sha256": "ba1fe5a2391042eb0f59a59ac7b8564f8bce6d3d69373ab4b305a9f63ab9d7ad"
+        },
+        {
+          "path": "url/mojom/origin.mojom",
+          "blob": "94b6e2d587ca85d117c1f76fc92dc537897c1bd9",
+          "sha256": "185c313a86788467d323b4b3e20c6b1f082c77f55548d21e0a5598b1bd0e98dd"
+        },
+        {
+          "path": "url/mojom/url.mojom",
+          "blob": "7ce745cb8528686c49d5f5f75f4062f86ae3df38",
+          "sha256": "3115c03f9190ef744ed28e98749d923e9ec07f8a5fc7be73122434b4f4ba331a"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "electron-content",
+      "from": [
+        "electron",
+        "d60ae179985685d75d238ee33e17c15a7b53d703"
+      ],
+      "prefix": "content/",
+      "to": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "target_prefix": "content/",
+      "evidence": "electron-DEPS"
+    },
+    {
+      "id": "electron-mojo",
+      "from": [
+        "electron",
+        "d60ae179985685d75d238ee33e17c15a7b53d703"
+      ],
+      "prefix": "mojo/",
+      "to": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "target_prefix": "mojo/",
+      "evidence": "electron-DEPS"
+    },
+    {
+      "id": "electron-third_party",
+      "from": [
+        "electron",
+        "d60ae179985685d75d238ee33e17c15a7b53d703"
+      ],
+      "prefix": "third_party/",
+      "to": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "target_prefix": "third_party/",
+      "evidence": "electron-DEPS"
+    },
+    {
+      "id": "electron-url",
+      "from": [
+        "electron",
+        "d60ae179985685d75d238ee33e17c15a7b53d703"
+      ],
+      "prefix": "url/",
+      "to": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "target_prefix": "url/",
+      "evidence": "electron-DEPS"
+    },
+    {
+      "id": "brave-brave",
+      "from": [
+        "brave",
+        "38bf45887ca5336841cddb4200e6deee32ce45a8"
+      ],
+      "prefix": "brave/",
+      "to": [
+        "brave",
+        "38bf45887ca5336841cddb4200e6deee32ce45a8"
+      ],
+      "target_prefix": "",
+      "evidence": "brave-package.json"
+    },
+    {
+      "id": "brave-mojo",
+      "from": [
+        "brave",
+        "38bf45887ca5336841cddb4200e6deee32ce45a8"
+      ],
+      "prefix": "mojo/",
+      "to": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "target_prefix": "mojo/",
+      "evidence": "brave-package.json"
+    },
+    {
+      "id": "brave-url",
+      "from": [
+        "brave",
+        "38bf45887ca5336841cddb4200e6deee32ce45a8"
+      ],
+      "prefix": "url/",
+      "to": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "target_prefix": "url/",
+      "evidence": "brave-package.json"
+    },
+    {
+      "id": "chromium-mojo",
+      "from": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "prefix": "mojo/",
+      "to": [
+        "chromium",
+        "3927f129b801f969d4abdb1458d55174cc062723"
+      ],
+      "target_prefix": "mojo/",
+      "evidence": "electron-DEPS"
+    }
+  ],
+  "configs": [
+    {
+      "id": "electron-DEPS",
+      "repo_id": "electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "path": "DEPS",
+      "blob": "709c8cf66e2ec3fa169e3ae57e35f5003be7afc3",
+      "sha256": "af0e07b2fe2dbc6160f979472df81dde0602e942632180bdd79bb88c92c307a8"
+    },
+    {
+      "id": "electron-BUILD.gn",
+      "repo_id": "electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "path": "BUILD.gn",
+      "blob": "3ffb61f2021e703e6f517156e105b178a4814bec",
+      "sha256": "d11c9c28a7c980d1a2322be61f86ded7ce8e41648938ca08a993974a108b8543"
+    },
+    {
+      "id": "electron-shell-common-BUILD.gn",
+      "repo_id": "electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "path": "shell/common/BUILD.gn",
+      "blob": "7b25bdecc7140c301681a7f1dc44fcb414e42d75",
+      "sha256": "b3838f7b419a27f9907f9b51e1aa88f27c8707bf4144d722bab5d13421026b92"
+    },
+    {
+      "id": "electron-patches-config.json",
+      "repo_id": "electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "path": "patches/config.json",
+      "blob": "8d297c0fd3e660b5097dbe83605e61ec2e052a4a",
+      "sha256": "30511b8e410073d05c6ef91b9bd47d5fecafaf2eacab203c1c3a09046a195f33"
+    },
+    {
+      "id": "electron-script-lib-patches.py",
+      "repo_id": "electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "path": "script/lib/patches.py",
+      "blob": "785de42e0ec02d1fa809d7ddc12f4ded039d6805",
+      "sha256": "dbc83703912c42fea72d6b64e2b845cd07ef5e0e9f4f743134fdf74448be4a62"
+    },
+    {
+      "id": "brave-package.json",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "package.json",
+      "blob": "d9f22fd0b93200c49851b0533a01abcda90a9067",
+      "sha256": "15211ebb56347ad5c977c702072398446a1f1a43bc6ce0a9a6a79fdfb7a6f273"
+    },
+    {
+      "id": "brave-build-commands-lib-config.js",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "build/commands/lib/config.js",
+      "blob": "3b1f342d5126c659b1611e8df03164a4d88cab7f",
+      "sha256": "50a15a749f1c9bcd85900e716c3e36f6094bbb09d1c8e1541c13f4fabb29cb66"
+    },
+    {
+      "id": "brave-build-commands-scripts-sync.js",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "build/commands/scripts/sync.js",
+      "blob": "c81014e0d6d97a377867673a0561e88da2fa52f7",
+      "sha256": "b408d7413a602070f92d314dbd7b45a1db9d0a7619bb374a6c833d99381bf2d2"
+    },
+    {
+      "id": "brave-build-commands-lib-applyPatches.js",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "build/commands/lib/applyPatches.js",
+      "blob": "b73e937558ef1ad644fc818376b502b6d88bde7d",
+      "sha256": "d22bf13fff0fa63065d94c80fd91473efc9a6cc001b40612a883c3cbcd186990"
+    },
+    {
+      "id": "brave-build-commands-lib-gitPatcher.js",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "build/commands/lib/gitPatcher.js",
+      "blob": "68f2a929ce4ec01c23010237589f7473d6b44d34",
+      "sha256": "9072cfb9895ba07b2d2d8a55f56a27f4499a5cdcdbfc6b8c140ffa1de4652eab"
+    },
+    {
+      "id": "brave-build-commands-lib-syncUtils.js",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "build/commands/lib/syncUtils.js",
+      "blob": "f18538de9d7edb1991cdf9f4df74963352aa6eec",
+      "sha256": "68922b2cea6f1ad62bcb9581e50e3416941fbf38a3536c201120f2f6b6d63a04"
+    },
+    {
+      "id": "brave-build-commands-lib-util.js",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "build/commands/lib/util.js",
+      "blob": "b8f945542950d24121fdd2922c93f3332b3ff7ed",
+      "sha256": "2431c8d316e52a11a8fc4d9d2a03a24c02d9416b43c81f23c8f5196cf3a0e741"
+    },
+    {
+      "id": "brave-components-ai_chat-core-common-mojom-BUILD.gn",
+      "repo_id": "brave",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "path": "components/ai_chat/core/common/mojom/BUILD.gn",
+      "blob": "5161b9f7445f3d6d8e0553e3c63c05c05000b834",
+      "sha256": "b1b25409e2f40adba707ad98079ee02cc5ba61679916e037f69f7b7bdeb74846"
+    },
+    {
+      "id": "chromium-chrome-VERSION",
+      "repo_id": "chromium",
+      "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+      "path": "chrome/VERSION",
+      "blob": "9cbc3bc989503a1f79945e59738093b4da169fe1",
+      "sha256": "44ca3f25291b3c222fe5f29c084a7ca21d365d450adfafe8936e262076a067a1"
+    }
+  ]
+}

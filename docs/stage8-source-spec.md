@@ -1,7 +1,7 @@
 # Źródła, resolver i granica zaufania etapu 8
 
 Specyfikacja operacyjna:
-`SourceBytes byte import projection v2 + contextual exact prefix resolver v8.1`.
+`SourceBytes byte import projection v2 + contextual exact prefix resolver v8.2`.
 Zachowujemy [projekcję bajtową v2](stage5-source-spec-v2.md): pełne surowe bajty,
 UTF-8, automat komentarzy/napisów/importów, porządek i duplikaty zdarzeń,
 brak wartościowania warunków atrybutów. Nie jest to pełna semantyka Mojom.
@@ -64,7 +64,9 @@ sprawdza korzeń, wszystkie oryginalne krawędzie rodziców, spadek rang i pełn
 domknięcie po wszystkich krawędziach. To daje poprawność i kompletność względem
 przekazanego grafu; checker Python nie jest formalnie zweryfikowany.
 
-Eksport bounded Lean dopuszcza do 64 węzłów i 128 krawędzi. Zamknięty niezależny
+Mały eksport regresyjny Lean dopuszcza do 64 węzłów i 128 krawędzi. Nowy
+eksport blokowy używa `FastChecker` i ma osobną drabinę pomiarową powyżej 64.
+Zamknięty niezależny
 parser porównuje cały eksport: liczby, korzeń, wszystkie krawędzie, świadków,
 pełną listę odpowiedzi i dokładną postać dowodów. Kernel sprawdza `accepted`,
 `exact` i `answer_mask`. Raport aksjomatów musi zawierać dokładnie trzy kompletne
@@ -72,7 +74,33 @@ rekordy; dopuszczone są jedynie propext, Classical.choice i Quot.sound.
 Reachability i Checker są świeżo kompilowane w prywatnym LEAN_PATH, bez użycia
 projektowych `.olean` z cache. Nie ma nowych aksjomatów, sorry/admit ani VM proof.
 
-W tej wersji **nie ma nowego twierdzenia źródło→resolver→graf→odpowiedź**.
+Wersja początkowa etapu 8 nie zawierała twierdzenia źródło→resolver→graf→odpowiedź.
+Uzupełnienie opisane poniżej wprowadza ogólne twierdzenie i nowy eksport.
 Git, hashe, ekstrakcja/resolver Python, DuckDB/Parquet, serializacja i renderer
 są kontrolowanymi granicami IO, a nie twierdzeniami Lean. Przyjmujemy uczciwy
 system, Git/kernel i zaufany lokalny katalog bez wrogiego współbieżnego zapisu.
+
+## Implementacja uzupełniająca z 15 listopada 2026
+
+Zakres v8.2 zachowuje semantykę prefiksów ścieżek. Prefiks kończący się `/`
+wybiera całe poddrzewo. Prefiksy nazw plików są rozwijane na podstawie pełnej
+listy ich katalogu nadrzędnego, z jednokrotnym odczytem każdego takiego katalogu.
+Pusty prefiks wybiera całe repozytorium. Enumeracja używa literalnych
+pathspec Git i odtwarza pełną listę zadeklarowanego zakresu. Pozwala to czytać
+przypięte obiekty częściowego repozytorium bez pobierania obcych poddrzew.
+
+Capture tworzy mapę metadanych raz. Jeden trwały `git cat-file --batch` na
+repozytorium odczytuje pojedyncze bloby. Skaner uruchamia te same przejścia
+bajtowe bez alokowania świadków dowodowych. Zdarzenia, rozstrzygnięcia i external
+są sekwencjami na dysku. Zapis i porównanie faktów używają partii 4096 wierszy.
+Przygotowanie i zapytanie zachowują pełne ponowne sprawdzenie treści.
+Pliki tymczasowe produkcyjnej ścieżki mieszczą się w katalogu artefaktów.
+Manifest, tabela tożsamości i unikalne krawędzie pozostają w pamięci.
+
+`formal/ContextualSourceBinding.lean` definiuje kontekstowy resolver na regułach,
+niezależnie od tabeli krawędzi. Twierdzenia `target_iff`, `source_exact` i
+`answer_exact` łączą skaner bajtowy, obustronną zgodność grafu, certyfikat oraz
+pełne tożsamości odpowiedzi. `check_sources` wykonuje świeżą kompilację zależności,
+źródeł i zapytania, audyt całej dozwolonej składni eksportu oraz raportów aksjomatów.
+Przyjęcie reguł mapowania pozostaje ręczną specyfikacją opartą na przypiętych danych.
+Bieżący wynik konkretnych przebiegów opisuje nowy raport uzupełniający.

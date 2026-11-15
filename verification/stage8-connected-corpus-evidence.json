@@ -1,0 +1,9 @@
+{
+  "schema": "stage8-pinned-corpus-evidence-v1",
+  "manifest_sha256": "cb5ef2cef74e9435604cd18ca65386127600a5bc284805302d361b73c05ec8e3",
+  "data_directory": "local/stage8/connected-recon-01",
+  "recon_sha256": "13a07fc48a26c4971592b7257915ad02946c7aaf05914111f2be52612bffff1e",
+  "manual_mapping_specification": "Pinned Electron DEPS places Chromium at src and Electron at src/electron. Pinned Brave package.json and build/commands/lib/config.js place Chromium at src and Brave at src/brave. Literal Chromium source-root prefixes resolve in the shared exact Chromium commit. brave/ strips the src/brave mount prefix. All selected raw Mojom bytes are unaffected by either complete pinned patch set or the complete Brave chromium_src overlay inventory. Mapping semantics are a reviewed specification, not a theorem about GN or DEPS execution.",
+  "scope_selection": "Complete Electron GN plugin and web_contents_utility target sources plus complete Brave AI Chat Mojom target/directory and least import closure. Scope frozen before query selection.",
+  "rejected_scope": "The original Electron API target closure reaches services/network/public/mojom/url_response_head.mojom, modified by the pinned Electron feat_expose_raw_response_headers_from_urlloader.patch. Its unpatched bytes were rejected as effective-state evidence. Original API manifest and scope retained separately."
+}
