@@ -1,0 +1,10 @@
+[
+  {"id":"h01","question":"Co importuje mojo/public/mojom/base/values.mojom?","status":"unsupported","root":null},
+  {"id":"h02","question":"Które pliki importuje ash/public/mojom/accelerator_actions.mojom?","status":"unsupported","root":null},
+  {"id":"h03","question":"Daj tylko bezpośrednich importerów accelerator_keys.mojom.","status":"unsupported","root":null},
+  {"id":"h04","question":"Only direct importers of ash/system/diagnostics/mojom/input.mojom, please.","status":"unsupported","root":null},
+  {"id":"h05","question":"Podaj wszystkich bezpośrednich i pośrednich importerów mojo/public/mojom/base/values.mojom wraz z korzeniem.","status":"ready","root":"mojo/public/mojom/base/values.mojom"},
+  {"id":"h06","question":"All files transitively or directly importing ash/public/mojom/accelerator_keys.mojom, plus the root itself.","status":"ready","root":"ash/public/mojom/accelerator_keys.mojom"},
+  {"id":"h07","question":"Znajdź wszystkich pośrednich i bezpośrednich importerów renderer.mojom z korzeniem.","status":"needs_clarification","root":null},
+  {"id":"h08","question":"Explain what happens at runtime when time.mojom is modified.","status":"unsupported","root":null}
+]

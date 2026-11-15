@@ -1,0 +1,14 @@
+﻿{
+    "schema":  "stage7-initial-regression-v1",
+    "status":  "REJECTED_IDENTITY_CHANGED",
+    "test_exit_code":  0,
+    "tests":  136,
+    "skips":  0,
+    "failures":  0,
+    "errors":  0,
+    "identity_verified":  false,
+    "reason":  "README and tests changed during the initial run; final validation reruns the complete suite with frozen code.",
+    "stdout":  "local/stage7/regressions-01.stdout",
+    "stderr":  "local/stage7/regressions-01.stderr",
+    "stderr_sha256":  "f8d99278ee7f85358a72828fca675b37dd7d469d7e1e164a709d5f050333c853"
+}

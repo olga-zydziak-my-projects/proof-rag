@@ -1,9 +1,14 @@
-# Repo Proof Lab — etap 6
+# Repo Proof Lab — etap 7
 
 Projekt odpowiada na pytanie, które pliki importują dokładnie wskazany plik
 Mojom bezpośrednio lub przez łańcuch importów. Pełna odpowiedź obejmuje także
 sam korzeń. Obsługiwane są wszystkie 1864 pliki wybranego korpusu Chromium,
-zawierającego 4419 krawędzi importów. Integracja LLM pozostaje osobnym etapem.
+zawierającego 4419 krawędzi importów. Etap 7 dodaje interpretację pytania
+po polsku lub angielsku przez Claude i lokalną walidację przed uruchomieniem
+dotychczasowego dowodu. [Instrukcja etapu 7](docs/stage7-usage.md),
+[kontrakt](docs/stage7-contract.md) i [wyniki](docs/stage7-results.md).
+Lean dowodzi wyniku dla wybranego korzenia; nie poprawności interpretacji
+języka naturalnego. SDK Anthropic jest opcjonalną zależnością etapu 7.
 
 ## Gwarancja
 
