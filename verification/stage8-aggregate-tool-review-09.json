@@ -1,0 +1,36 @@
+{
+  "blocking_findings": [],
+  "checks": {
+    "expensive_tests_executed": false,
+    "original_config_anchor_verified": true
+  },
+  "closed_findings": [
+    "Corrected nonexistent final06/config.json assumption to original verification/stage8-benchmark-config.json and verified its current hash equals final06.config_sha256.",
+    "Coverage now binds parsed qualified results, report expected IDs, start expected IDs and selected/discovered artifact lists, rejecting duplicates and count/time disagreement.",
+    "A passing regression receipt must agree with all-ok parsed records, plain OK summary, process exit, no-skips, differential pass and every identity flag."
+  ],
+  "decision": "Approved prepare/finalize control flow after required new result evidence and independent candidate review exist.",
+  "driver": {
+    "bytes": 12508,
+    "path": "verification/stage8-aggregate-09.py",
+    "sha256": "3dc9a375228459cf0d9b4ec32c45aff2c0378558fd51f1622438bb179334ed97"
+  },
+  "final_review_obligations": [
+    "Independently derive the complete current full unittest discovery set and compare it with every fresh coverage receipt and parsed log.",
+    "Inspect actual recorded root/Lean normal-priority and all-CPU profile values, native executable identity,600second intrinsic test and660/2400second supervisor limits.",
+    "Verify the standalone and full suites actually passed with zero failures/errors/skips and no remaining owned processes.",
+    "Bind final review to exact candidate anchor, closure_tools and code_and_tests before finalization."
+  ],
+  "independent": true,
+  "reviewed_controls": [
+    "Reuses only reports whose exact identities and current frozen code match independently reviewed final06 evidence.",
+    "Rechecks complete old proof/benchmark/index/process artifact inventories and all input anchors before preparing and finalizing.",
+    "Rechecks fresh standalone/full regression logs, resources, copied inputs, nativeLean and control-driver anchors, minute observation and6GiB standard resource profiles.",
+    "Uses unchanged stage8_acceptance.evaluate to derive final status after a candidate-bound independent review.",
+    "Finalization binds exact candidate bytes, both auxiliary tools, fresh regression reports, reuse review and current code; new paths refuse overwrites.",
+    "No costly tests or Lean compilation are performed by this aggregator."
+  ],
+  "reviewer_id": "formal-agent",
+  "schema": "stage8-aggregate-tool-review-v1",
+  "status": "TOOL_REVIEW_PASS"
+}

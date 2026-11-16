@@ -1,0 +1,60 @@
+{
+  "blocking_findings": [],
+  "closed_findings": [
+    "Added cleanup on every observer BaseException using the retained Popen supervisor handle and baseJob kill-on-close.",
+    "Validated every ordered minuteCPU/RAM sample and known WSLbefore/after state instead of accepting only a final quiet sample.",
+    "Restricted pending unittest tails to empty output and the two actually observed Fetching messages.",
+    "Revalidated complete single-test prerequisite receipts before full execution.",
+    "Rechecked every initially anchored copied input after execution while allowing newly generated artifacts."
+  ],
+  "core_matches_final06": true,
+  "decision": "Approved single run and subsequent full run only through the reviewed prerequisite gates. Final acceptance requires independent review of the new results and reused unchanged evidence.",
+  "driver": {
+    "bytes": 16905,
+    "path": "verification/stage8-close-09.py",
+    "sha256": "040ca14e9c8076343a7838464f48bd25d88f7057180b826c5e04a915793ad549"
+  },
+  "independent": true,
+  "independent_checks": {
+    "actual_old_log": {
+      "ERROR": 1,
+      "ok": 179,
+      "only_error": "test_lean_export.LeanExportTests.test_differential",
+      "path": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage8\\final-06\\regressions.stderr",
+      "sha256": "c45f840a7737433c227f784fc6492711542459ad7355e71094c4f0429199e577",
+      "tests": 180
+    },
+    "cases": [
+      "LF",
+      "CRLF",
+      "CR",
+      "empty_pending_tail",
+      "known_fetching_tail_1",
+      "known_fetching_tail_2",
+      "duplicate_test_rejected",
+      "method_identity_mismatch_rejected",
+      "unknown_fetching_rejected",
+      "malformed_status_tail_rejected",
+      "unattributed_status_rejected",
+      "pending_missing_result_rejected",
+      "busy_minute_rejected",
+      "low_memory_minute_rejected"
+    ],
+    "expensive_tests_executed_by_reviewer": false,
+    "method": "Extracted parser and minute-validation AST functions without importing or running the driver entry point.",
+    "saved_minute_observation_validated": true,
+    "small_cases_passed": 14
+  },
+  "reviewer_id": "formal-agent",
+  "schema": "stage8-closure-tool-review-v1",
+  "scope": [
+    "Original historical differential test byte identity with current main and isolated view, preserving all1547cases and600second intrinsic timeout.",
+    "Base Windows Job Object supervisor and explicit6GiB memory with660second single or2400second full supervision; standard inherited CPU affinity and normal priority are observed read-only and checked.",
+    "Complete current unittest discovery, exact qualified-ID result coverage, no skips, nativeLean path/hash/version and full code/input/README identity checks.",
+    "Sustained quiet-minute validation and pre-start Windows/WSL resource checks.",
+    "Exception-path retained-handle supervisor termination, wait and identity-tracked descendant observation.",
+    "Full-run prerequisite revalidates the successful single-test artifacts, exact results and current code, nativeLean and driver anchors.",
+    "Complete report/artifact receipts for subsequent independent final acceptance review."
+  ],
+  "status": "TOOL_REVIEW_PASS"
+}

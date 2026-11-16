@@ -1,0 +1,62 @@
+{
+  "core_files_modified": 0,
+  "final_review": {
+    "bytes": 64023,
+    "path": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\stage8-final-review-09.json",
+    "sha256": "6929b6a5684db2fed66d17c76121163fea0cada0c58ec9025a622aaa250c7b49"
+  },
+  "prior_read_only_attempt": {
+    "reason": "Reviewer checker originally assumed an optional single-test pass-observation timestamp existed. The corrected check uses enclosing original unittest duration129.741seconds as a strict upper bound and retains the optional full-suite sampled duration separately. All prior logs remain unchanged.",
+    "receipt": {
+      "bytes": 1350,
+      "path": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage8\\close-review-09\\process\\resource-report.json",
+      "sha256": "79bbd6f24e2c5839dd9ee89fd4fc93ebeb29f74941b94f010d19fc5e56b4662c"
+    }
+  },
+  "review_script": {
+    "bytes": 19535,
+    "path": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage8\\close-review-09\\check.py",
+    "sha256": "488cd2d45ad684371845121953745c3c7b1dcdefd0a2393da7addc7ed82290a4"
+  },
+  "schema": "stage8-final-review-resources-v1",
+  "successful_read_only_review": {
+    "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage8\\close-review-09",
+    "command": [
+      "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "local/stage8/close-review-09/check.py"
+    ],
+    "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+    "elapsed_seconds": 18.119358800002374,
+    "exit_code": 0,
+    "final_artifact_bytes": 23428,
+    "final_artifact_limit_exceeded": false,
+    "initial_disk_free": 353025212416,
+    "initial_ram_available": 11969994752,
+    "limits": {
+      "artifact_bytes": 8589934592,
+      "duckdb_memory": "512MB",
+      "duckdb_temp": "2GB",
+      "process_parallelism": 1,
+      "sample_seconds": 0.1,
+      "threads": 1,
+      "timeout_seconds": 2400,
+      "tree_memory_bytes": 6442450944
+    },
+    "max_sample_gap_seconds": 0.10237519998918287,
+    "members_before_cleanup": 0,
+    "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+    "peak_artifact_bytes": 28669,
+    "peak_tree_private": 884965376,
+    "peak_tree_rss": 158769152,
+    "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+    "remaining_job_processes": 0,
+    "sample_interval_requested_seconds": 0.1,
+    "status": "PROCESS_PASS"
+  },
+  "successful_receipt": {
+    "bytes": 1356,
+    "path": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage8\\close-review-09\\process-02\\resource-report.json",
+    "sha256": "c233ab7f02b7ff64e1ef42294ed43bf225a7391a5272efd1de1094e70ca6bb4f"
+  },
+  "tests_or_lean_runs_executed": 0
+}
