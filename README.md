@@ -1,4 +1,24 @@
-# Repo Proof Lab — etap 7
+# Repo Proof Lab — etap 9
+
+Etap 9 dodaje kontekstowy korpus **1251 rzeczywistych plików Chromium–Electron–Brave**,
+4 188 752 bajty źródeł i 3286 krawędzi, w tym 13 między projektami.
+[Kontrakt](docs/stage9-contract.md), [specyfikacja](docs/stage9-source-spec.md),
+[publiczne CLI](docs/stage9-usage.md), [wyniki i ograniczenia](docs/stage9-results.md)
+oraz [maszynowy status wszystkich bramek](verification/stage9-status.json).
+Liczebność zaindeksowanego korpusu sama nie ustanawia pełnego dowodu:
+największy rzeczywiście przyjęty zakres formalny wskazuje raport wyników.
+Korpus dotyczy Chromium upstream oraz wybranych, audytowanych celów Electron i Brave;
+nie całych grafów aplikacji po poprawkach. Dwa wyjścia generatorów GN są jawnymi
+granicami źródłowego zakresu. Odtwarzanie wymaga ignorowanych lokalnych danych,
+zależności i natywnego toolchain; zwykły czysty klon nie został sprawdzony.
+
+Potwierdzone zamknięcie etapu 8 to **STAGE8_PASS**, commit `160860c`:
+18 rzeczywistych plików trzech projektów i sześć dowodów źródło–odpowiedź;
+1000 syntetycznych węzłów z zaakceptowanym dowodem grafowym Lean;
+milion syntetycznych węzłów z kontrolą grafową i certyfikatami Python.
+1864 pliki Chromium opisane dalej są osobnym historycznym wynikiem źródłowym.
+
+## Historyczna ścieżka etapów 1–8
 
 Etap 8 dodaje osobny [silnik wielu repozytoriów i benchmarki](docs/stage8-usage.md).
 Stan rzeczywistego pilota i poziomy weryfikacji opisuje [uzupełnienie etapu 8](docs/stage8-completion.md).

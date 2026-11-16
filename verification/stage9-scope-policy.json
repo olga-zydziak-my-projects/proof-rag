@@ -1,0 +1,14 @@
+{
+  "schema": "stage9-frozen-scope-v1",
+  "chromium_complete_modules": ["components", "content", "device", "gpu", "media", "mojo/public/mojom", "printing", "services", "third_party/blink/public/mojom", "ui", "url/mojom"],
+  "selection": "All regular committed .mojom in every complete listed module, including tests, plus least closure of committed literal imports; complete Electron plugin and web_contents_utility GN targets; complete Brave AI Chat Mojom GN target",
+  "context_identity": "(project, commit, context, path); Lean repository bytes encode project@context injectively for the fixed registry",
+  "contexts": {"chromium": "upstream", "electron": "electron-default", "brave": "brave-default"},
+  "shared_context_equivalence": "Only the complete unchanged Electron/Brave import closure of the Stage8 accepted GN targets maps to upstream. Other Chromium files claim upstream context only, regardless of application patches or overlays.",
+  "external_generated_literals": ["third_party/blink/public/mojom/runtime_feature_state/runtime_feature.mojom", "third_party/blink/public/mojom/origin_trials/origin_trial_feature.mojom"],
+  "external_reason": "Pinned GN generates these two outputs under root_gen_dir. They are absent from complete pinned source trees; their GN, generators and templates are bound configs. All four source events remain explicit. This source corpus is not closed over build-generated files.",
+  "query_selection": "Compute complete independent reverse answers for all roots. Sort cross-project roots by (-number of projects,-answer size,identity), select positions 0,floor(length/2),length-1. Then sort all roots by (answer size,identity), select first unused root at or cyclically after positions 0,floor(length/2),length-1. Freeze six distinct roots before any proof measurements.",
+  "minimum_real_distinct_files": 1000,
+  "query_repetitions": 3,
+  "scope_frozen_before_query_selection": true
+}

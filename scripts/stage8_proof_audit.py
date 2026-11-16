@@ -5,8 +5,32 @@ from review_stage4_binding import TreeParser, section
 from stage5_v2_audit_bytes import route_body
 
 
+def _definition_index(text):
+    """Index lexical declaration boundaries once, retaining duplicate rejection.
+
+    Closed grammar consumption below still reads every character. Repeated
+    whole-module regex scans made source audit quadratic in export bytes.
+    """
+    boundaries=list(re.finditer(r'^(?:def |theorem |end )',text,re.M))
+    class Definitions(dict):
+        def __missing__(self,name):
+            raise ValueError('missing definition: '+name)
+    definitions=Definitions()
+    for i,match in enumerate(boundaries):
+        if not text.startswith('def ',match.start()):
+            continue
+        stop=boundaries[i+1].start() if i+1<len(boundaries) else len(text)
+        block=text[match.start():stop]
+        found=re.match(r'def ([A-Za-z_][A-Za-z_0-9]*)\b.*?:=\s*(.*)',block,re.S)
+        if not found or found[1] in definitions:
+            raise ValueError('missing or duplicated definition')
+        definitions[found[1]]=found[2].strip()
+    return definitions
+
+
 def audit_graph(text, n, edges, root, ids, parents, ranks):
     position = 0
+    definitions=_definition_index(text)
 
     def consume(line):
         nonlocal position
@@ -16,7 +40,7 @@ def audit_graph(text, n, edges, root, ids, parents, ranks):
         position += len(token)
 
     def definition(name, declaration, multiline=False):
-        body = section(text, name)
+        body = definitions[name]
         consume('def ' + name + declaration + ' :=' + ('' if multiline else ' ' + body))
         if multiline:
             consume('  ' + body)
@@ -29,7 +53,7 @@ def audit_graph(text, n, edges, root, ids, parents, ranks):
     path_blocks = []
     for i in range((n + 63) // 64):
         name = 'pathBlock' + str(i)
-        body = section(text, name)
+        body = definitions[name]
         consume('def ' + name + ' : Array String := #[')
         block = json.loads(body[1: ])
         for j, value in enumerate(block):
@@ -47,7 +71,7 @@ def audit_graph(text, n, edges, root, ids, parents, ranks):
     blocks = []
     for i in range((len(edges) + 63) // 64):
         name = 'edgeBlock' + str(i)
-        body = section(text, name)
+        body = definitions[name]
         pairs = re.findall(edge_pattern, body)
         if not re.fullmatch(r'\[\s*' + edge_pattern + r'(?:,\s*' + edge_pattern + r')*\s*\]', body):
             raise ValueError('edge block syntax')
@@ -122,6 +146,7 @@ def audit_source(text, identities, sources, rules, edges, ids):
     """Read every literal, every byte and every proof command in the module."""
     n = len(identities)
     position = 0
+    definitions=_definition_index(text)
     def consume(line):
         nonlocal position
         token = line + '\n'
@@ -129,7 +154,7 @@ def audit_source(text, identities, sources, rules, edges, ids):
             raise ValueError('source export outside closed grammar at ' + str(position))
         position += len(token)
     def body(name, decl, multiline=False):
-        value = section(text, name)
+        value = definitions[name]
         consume('def ' + name + decl + ' :=' + ('' if multiline else ' ' + value))
         if multiline:
             consume('  ' + value)

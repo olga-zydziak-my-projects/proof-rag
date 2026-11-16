@@ -1,0 +1,20 @@
+{
+  "schema": "stage9-resource-profile-v1",
+  "query_repeats": 3,
+  "limits": {
+    "timeout_seconds": 3600,
+    "tree_memory_bytes": 6442450944,
+    "artifact_bytes": 21474836480,
+    "duckdb_memory": "512MB",
+    "duckdb_temp": "2GB",
+    "threads": 1,
+    "process_parallelism": 1,
+    "sample_seconds": 0.5
+  },
+  "query_timeout_seconds": 600,
+  "regression_timeout_seconds": 2400,
+  "historical_differential_timeout_seconds": 600,
+  "runtime": "native Windows Python and Lean; Normal priority",
+  "artifact_scope": "entire unique run directory, including logs, Git objects, generated Lean, olean, index, answers and temporary files; read-only historical inputs and coordinator excluded",
+  "os_file_cache_controlled": false
+}

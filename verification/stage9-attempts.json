@@ -1,0 +1,130 @@
+{
+  "schema": "stage9-retained-attempts-v1",
+  "runs": [
+    {
+      "run": "acquire-01",
+      "report_path": "local/stage9/acquire-01/process/resource-report.json",
+      "report_sha256": "5ce9acf434e7bb239b65df4060ef68111c6c785e5398b766d2e822c23bb6989b",
+      "status": "FAILED",
+      "elapsed_seconds": 204.92786609998439,
+      "peak_tree_private": 867553280,
+      "peak_tree_rss": 151027712,
+      "artifact_bytes": 22936504,
+      "remaining_job_processes": 0,
+      "executed_command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "scripts/stage9_recon.py",
+        "--run-dir",
+        "local/stage9/acquire-01/data"
+      ]
+    },
+    {
+      "run": "acquire-02",
+      "report_path": "local/stage9/acquire-02/process/resource-report.json",
+      "report_sha256": "c62b8e984d11fac03665b125e2c093440fdafc276813fc41b7de7fc3f75c515d",
+      "status": "FAILED",
+      "elapsed_seconds": 25.839444499986712,
+      "peak_tree_private": 871931904,
+      "peak_tree_rss": 163639296,
+      "artifact_bytes": 23040029,
+      "remaining_job_processes": 0,
+      "executed_command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "scripts/stage9_recon.py",
+        "--run-dir",
+        "local/stage9/acquire-02/data",
+        "--reuse",
+        "local/stage9/acquire-01/data"
+      ]
+    },
+    {
+      "run": "acquire-03",
+      "report_path": "local/stage9/acquire-03/process/resource-report.json",
+      "report_sha256": "d6f2c678642d7d1a88ba825bb7a7badfc8b1b8b32edd1aae14634e4d61c40272",
+      "status": "PROCESS_PASS",
+      "elapsed_seconds": 24.744608300039545,
+      "peak_tree_private": 871112704,
+      "peak_tree_rss": 163364864,
+      "artifact_bytes": 23443982,
+      "remaining_job_processes": 0,
+      "executed_command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "scripts/stage9_recon.py",
+        "--run-dir",
+        "local/stage9/acquire-03/data",
+        "--reuse",
+        "local/stage9/acquire-02/data"
+      ]
+    },
+    {
+      "run": "prepare-01",
+      "report_path": "local/stage9/prepare-01/work-control/process/resource-report.json",
+      "report_sha256": "329c3794d48d756452b2ac5f7a22c10208ce2aaa503c9d416cb1c7811b1fee54",
+      "status": "FAILED",
+      "elapsed_seconds": 39.66745389997959,
+      "peak_tree_private": 879034368,
+      "peak_tree_rss": 150364160,
+      "artifact_bytes": 289302,
+      "remaining_job_processes": 0,
+      "executed_command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-S",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\stage9.py",
+        "prepare",
+        "--manifest",
+        "verification/stage9-manifest.json",
+        "--manifest-sha256",
+        "49e019318b6ca51cd70806f5816a06616dfcd3693337f564a5431018ad652299",
+        "--locations",
+        "local/stage9/acquire-03/data/locations.json",
+        "--lean",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "--run-dir",
+        "local/stage9/prepare-01/work",
+        "--clean-bytecode",
+        "--worker"
+      ]
+    },
+    {
+      "run": "prepare-02",
+      "report_path": "local/stage9/prepare-02/work-control/process/resource-report.json",
+      "report_sha256": "0f85ee6d7dcaad38062eb1aa2e5cef2664dfe0df62e886a7be8c6c7e3d04ad2b",
+      "status": "FAILED",
+      "elapsed_seconds": 121.97542580001755,
+      "peak_tree_private": 4022685696,
+      "peak_tree_rss": 2869432320,
+      "artifact_bytes": 21914911,
+      "remaining_job_processes": 0,
+      "executed_command": [
+        "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-S",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\stage9.py",
+        "prepare",
+        "--manifest",
+        "verification/stage9-manifest.json",
+        "--manifest-sha256",
+        "49e019318b6ca51cd70806f5816a06616dfcd3693337f564a5431018ad652299",
+        "--locations",
+        "local/stage9/acquire-03/data/locations.json",
+        "--lean",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\work\\toolchains\\lean-4.35.0-windows\\bin\\lean.exe",
+        "--run-dir",
+        "local/stage9/prepare-02/work",
+        "--clean-bytecode",
+        "--worker"
+      ]
+    }
+  ],
+  "notes": {
+    "recon-01": "Initial restricted-network read failed with WinError10013. Approved official whole-tree Gitiles request exceeded the exploratory64MB response cap; no inventory acceptance. Raw tool output records this; duration not separately measured. Later reads used eleven complete module trees,32MB per-response cap.",
+    "acquire-01": "Missing build-generated target discovered; preserved failed scope/objects.",
+    "acquire-02": "Corrected generated boundary; guessed template path absent; preserved.",
+    "acquire-03": "Pinned actual GN/generator/templates, all source objects reused; completed1251files.",
+    "prepare-01": "Own worker stopped to fix synchronous Windows bootstrap; no source layer accepted.",
+    "prepare-02": "Own worker stopped before finishing SourceNames because independent measurement-driver preparation anchor fix invalidated code freeze; all Job descendants cleaned."
+  }
+}

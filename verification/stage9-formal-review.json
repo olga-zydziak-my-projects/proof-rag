@@ -1,0 +1,553 @@
+{
+    "schema":  "stage9-independent-formal-review-v1",
+    "reviewer":  "/root/formal_review",
+    "utc":  "2026-11-16T22:49:36.2993174Z",
+    "phase":  "final execution and candidate dossier",
+    "status":  "FORMAL_REVIEW_PASS",
+    "accepted":  true,
+    "blocking_findings":  [
+
+                          ],
+    "candidate_sha256":  "06b2d6f65cacb764698d50b6c5391a35cf939a33fd0e85631c6bd3c68015d2bc",
+    "preparation_receipt_sha256":  "e9a1ce003e44ac1de5ce2faddcce4d18ff5f0a39da1bfaa5a2bcd315c06e473b",
+    "manifest_sha256":  "49e019318b6ca51cd70806f5816a06616dfcd3693337f564a5431018ad652299",
+    "separate_corpus_review_sha256":  "b48dc4d2f549f5ec33336b6bd841e2fc5973f511daada612c13a253e17988ddb",
+    "code_freeze_sha256":  "e1115c0bac88ec87ff09dd1247ef365a68dd36b2d2bdcd501676a5a6ae07924f",
+    "checked_code_and_test_files":  133,
+    "formal_scope":  {
+                         "compiled_during_review":  false,
+                         "accepted_axioms":  [
+                                                 "propext",
+                                                 "Classical.choice",
+                                                 "Quot.sound"
+                                             ],
+                         "source_groups":  157,
+                         "source_bytes":  4188752,
+                         "graph_edges":  3286,
+                         "fresh_source_modules":  168,
+                         "real_files":  1251,
+                         "source_axiom_report_records":  1295
+                     },
+    "queries":  {
+                    "latency_runs":  18,
+                    "result_sizes":  [
+                                         264,
+                                         157,
+                                         2,
+                                         1,
+                                         3,
+                                         372
+                                     ],
+                    "fresh_query_modules":  36,
+                    "cross_project_roots":  4,
+                    "all_three_project_roots":  1,
+                    "full_lists_compared":  true,
+                    "distinct_roots":  6,
+                    "additional_diagnostic_queries":  1
+                },
+    "regression":  {
+                       "discovered":  205,
+                       "executed":  205,
+                       "historical_test_and_engine_files_preserved":  34,
+                       "historical_tests":  180,
+                       "new_tests":  25,
+                       "resources":  {
+                                         "cleanup":  0,
+                                         "current_directory_bytes":  236089675,
+                                         "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\regression-01\\process\\resource-report.json",
+                                         "peak_private":  5455605760,
+                                         "peak_rss":  3346690048,
+                                         "recorded_final_bytes":  236089675,
+                                         "seconds":  231.18010370002594,
+                                         "sha256":  "f3e0ce00eb5945fb55659bfbea9b763b6b30167ba1b83af870d3872e134e3c48"
+                                     },
+                       "unittest_seconds":  209.139
+                   },
+    "checks":  {
+                   "code_and_input_anchors":  {
+                                                  "candidate":  "06b2d6f65cacb764698d50b6c5391a35cf939a33fd0e85631c6bd3c68015d2bc",
+                                                  "files":  133,
+                                                  "manifest":  "49e019318b6ca51cd70806f5816a06616dfcd3693337f564a5431018ad652299"
+                                              },
+                   "complete_prepared_layer":  {
+                                                   "bytes":  4188752,
+                                                   "edges":  3286,
+                                                   "environment_identity_files":  {
+                                                                                      "code":  3,
+                                                                                      "dependencies":  1518,
+                                                                                      "git_runtime":  9574,
+                                                                                      "lean_toolchain":  17934,
+                                                                                      "python_runtime":  2295,
+                                                                                      "source_tools":  5,
+                                                                                      "specifications":  5
+                                                                                  },
+                                                   "files":  1251,
+                                                   "fresh_modules":  168,
+                                                   "resources":  {
+                                                                     "cleanup":  0,
+                                                                     "current_directory_bytes":  443821003,
+                                                                     "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\prepare-03\\work-control\\process\\resource-report.json",
+                                                                     "peak_private":  4548874240,
+                                                                     "peak_rss":  3289604096,
+                                                                     "recorded_final_bytes":  439300684,
+                                                                     "seconds":  1585.9858353000018,
+                                                                     "sha256":  "883f3849e085138dd7a8dd54a66fc3eceea5eb65361ed04ca701858598a0dda3"
+                                                                 },
+                                                   "source_groups":  157
+                                               },
+                   "independent_source_graph_and_selection":  {
+                                                                  "edges":  3286,
+                                                                  "events":  3292,
+                                                                  "external_events":  4,
+                                                                  "projects":  [
+                                                                                   3,
+                                                                                   2,
+                                                                                   2,
+                                                                                   1,
+                                                                                   1,
+                                                                                   2
+                                                                               ],
+                                                                  "selected_ids":  [
+                                                                                       1247,
+                                                                                       432,
+                                                                                       251,
+                                                                                       1,
+                                                                                       1074,
+                                                                                       430
+                                                                                   ],
+                                                                  "sizes":  [
+                                                                                264,
+                                                                                157,
+                                                                                2,
+                                                                                1,
+                                                                                3,
+                                                                                372
+                                                                            ]
+                                                              },
+                   "regression":  {
+                                      "discovered":  205,
+                                      "executed":  205,
+                                      "historical_test_and_engine_files_preserved":  34,
+                                      "historical_tests":  180,
+                                      "new_tests":  25,
+                                      "resources":  {
+                                                        "cleanup":  0,
+                                                        "current_directory_bytes":  236089675,
+                                                        "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\regression-01\\process\\resource-report.json",
+                                                        "peak_private":  5455605760,
+                                                        "peak_rss":  3346690048,
+                                                        "recorded_final_bytes":  236089675,
+                                                        "seconds":  231.18010370002594,
+                                                        "sha256":  "f3e0ce00eb5945fb55659bfbea9b763b6b30167ba1b83af870d3872e134e3c48"
+                                                    },
+                                      "unittest_seconds":  209.139
+                                  },
+                   "supplementary_profiles":  {
+                                                  "publication":  {
+                                                                      "helper_sha256":  "767c19215e04ef0f37dfe47872f1b76d82e309ff1b292749739190294f855e6e",
+                                                                      "report_sha256":  "d8f1a5e619a2526420bd935bf120d3ab4c78fcd25dc0536f4bb227346f76ad96"
+                                                                  },
+                                                  "search":  {
+                                                                 "helper_sha256":  "236b11c7e45396bc6b2c2c98ded04fd2cae4afbf4137a812b558b934e3fb9d96",
+                                                                 "report_sha256":  "757dc5fbc385e22f63d73267a700191ccf5e956dc01dcc9eae7ec9f298d35e90",
+                                                                 "resources":  {
+                                                                                   "cleanup":  0,
+                                                                                   "current_directory_bytes":  288259,
+                                                                                   "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\search-profile-01\\process\\resource-report.json",
+                                                                                   "peak_private":  973340672,
+                                                                                   "peak_rss":  206168064,
+                                                                                   "recorded_final_bytes":  288259,
+                                                                                   "seconds":  29.588339800015092,
+                                                                                   "sha256":  "87d5283c0c5e796707589f388ccb2c3bb301b7a1cabbff561a939cc6b4d9cd0f"
+                                                                               }
+                                                             },
+                                                  "source":  {
+                                                                 "helper_sha256":  "5f98ff9618a8d674ebc3b616007a5f4ea29514f47617a240b9b1ba9ef76207fc",
+                                                                 "report_sha256":  "756e6ad60cda306a4ec1d6c2bafb827dbff7df05c81684208412f58fab74cb86",
+                                                                 "resources":  {
+                                                                                   "cleanup":  0,
+                                                                                   "current_directory_bytes":  3971437,
+                                                                                   "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\source-profile-01\\process\\resource-report.json",
+                                                                                   "peak_private":  895303680,
+                                                                                   "peak_rss":  150839296,
+                                                                                   "recorded_final_bytes":  3971437,
+                                                                                   "seconds":  15.547896799980663,
+                                                                                   "sha256":  "abf48dcc496b62554e9773e19d567c3870158bc58fa1c5d4021446bab1cc87be"
+                                                                               }
+                                                             }
+                                              }
+               },
+    "query_checks":  [
+                         {
+                             "query_sha256":  "ca84fad033731a35512fd8abfe2a02bab61dad064cb8b66c33b627759145a5e4",
+                             "repeat":  1,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  3975890,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q1-r1\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3641905152,
+                                               "peak_rss":  1191624704,
+                                               "recorded_final_bytes":  3927373,
+                                               "seconds":  61.72148909996031,
+                                               "sha256":  "776baf742a9b67af9aff7d6967e60cd0f00210eda224c2343f801b6713683f04"
+                                           },
+                             "results":  264,
+                             "root_index":  1
+                         },
+                         {
+                             "query_sha256":  "be5ed205d9908bff62737fecfd3c61082592fee73293d314ea020999ad199f65",
+                             "repeat":  2,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  3975902,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q1-r2\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3639218176,
+                                               "peak_rss":  1189920768,
+                                               "recorded_final_bytes":  3927383,
+                                               "seconds":  62.22663809999358,
+                                               "sha256":  "3dc04d20dcbc806a7ceb9da37ca2d16599fe6970811f2c17a7c6fc46c30d28ac"
+                                           },
+                             "results":  264,
+                             "root_index":  1
+                         },
+                         {
+                             "query_sha256":  "06d44da88a7327714855bbbb2e0b51e8097fffc0aa9797d9869965232353ea47",
+                             "repeat":  3,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  3975896,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q1-r3\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3643195392,
+                                               "peak_rss":  1191096320,
+                                               "recorded_final_bytes":  3927377,
+                                               "seconds":  62.22654020000482,
+                                               "sha256":  "8899a2ced31bd8c2803c0c1ba88da02fc43d968873f87fa7c9690fde36ebd1b3"
+                                           },
+                             "results":  264,
+                             "root_index":  1
+                         },
+                         {
+                             "query_sha256":  "e52733117e5f79ac41cff7e42a26f68b6fdce3ea615f4ae0f20c06db5abe4c04",
+                             "repeat":  1,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  2966826,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q2-r1\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3618816000,
+                                               "peak_rss":  1165512704,
+                                               "recorded_final_bytes":  2937034,
+                                               "seconds":  58.714342000021134,
+                                               "sha256":  "e0f27f5137cc2dbf189d5d4f94dfc57e514657d8f47bd7af0dff103a68e74657"
+                                           },
+                             "results":  157,
+                             "root_index":  2
+                         },
+                         {
+                             "query_sha256":  "a82c81928b607d4d21f7e201d4e7e7468b415383ace1d2f0a2c02b842bf1e619",
+                             "repeat":  2,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  2966840,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q2-r2\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3643113472,
+                                               "peak_rss":  1179443200,
+                                               "recorded_final_bytes":  2937045,
+                                               "seconds":  59.222724899998866,
+                                               "sha256":  "ad4d586a539b07a3aa4153e31face4ba85933d57a298c1f52e372bc12d51e9ff"
+                                           },
+                             "results":  157,
+                             "root_index":  2
+                         },
+                         {
+                             "query_sha256":  "b953436b1f0746542e190608788687c768518d27ab03ac6b7f367e22792f716f",
+                             "repeat":  3,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  2966836,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q2-r3\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3642425344,
+                                               "peak_rss":  1177239552,
+                                               "recorded_final_bytes":  2937041,
+                                               "seconds":  59.22088039998198,
+                                               "sha256":  "35569f41200cadf5e5e275ef134bc2134bf13d4bf2b4c83effdcc2a0293003c3"
+                                           },
+                             "results":  157,
+                             "root_index":  2
+                         },
+                         {
+                             "query_sha256":  "fc08156cb59d33fc8c173a00983c7980bc40a74e519067d8005984d4e3dfa1b7",
+                             "repeat":  1,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1223153,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q3-r1\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3575861248,
+                                               "peak_rss":  1127526400,
+                                               "recorded_final_bytes":  1218387,
+                                               "seconds":  54.697498699999414,
+                                               "sha256":  "e868ad4bf74113eb8861844a0b664c16209b9ff41c05535b9202532737a71d35"
+                                           },
+                             "results":  2,
+                             "root_index":  3
+                         },
+                         {
+                             "query_sha256":  "5bbd808ccccbad0fb391e71f65c9f4677e1a35c1645737705510acf5115e5876",
+                             "repeat":  2,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1223150,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q3-r2\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3580022784,
+                                               "peak_rss":  1133703168,
+                                               "recorded_final_bytes":  1218385,
+                                               "seconds":  55.20101269998122,
+                                               "sha256":  "6dcc75dd39d04f79d143e84fdace4c39165869c12f2f4ef4fc1bffe24630dbd8"
+                                           },
+                             "results":  2,
+                             "root_index":  3
+                         },
+                         {
+                             "query_sha256":  "1c423d8201f79932ce249f3e53f18bc8fdb17e149067e3fcf904b3883444cd00",
+                             "repeat":  3,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1223146,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q3-r3\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3579543552,
+                                               "peak_rss":  1129467904,
+                                               "recorded_final_bytes":  1218382,
+                                               "seconds":  56.224093900003936,
+                                               "sha256":  "8516a82ed4f4722e7971120a401c64971e4ac8e8143bfe127176fba4539bfe1c"
+                                           },
+                             "results":  2,
+                             "root_index":  3
+                         },
+                         {
+                             "query_sha256":  "864ad144fabe2e5617742a511fdc061bda04f59637d24be1ac48168a1fb75951",
+                             "repeat":  1,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1200971,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q4-r1\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3581407232,
+                                               "peak_rss":  1132941312,
+                                               "recorded_final_bytes":  1196294,
+                                               "seconds":  55.19564839999657,
+                                               "sha256":  "518297c0d0e62bb685e70938e9677aa8ec9a7e71b1fb6ef0c611b9f4a2effb04"
+                                           },
+                             "results":  1,
+                             "root_index":  4
+                         },
+                         {
+                             "query_sha256":  "d66d4269894fe4290932ef45a77b656d434318dc7faa01c26d01b016227cceab",
+                             "repeat":  2,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1200982,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q4-r2\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3582918656,
+                                               "peak_rss":  1134354432,
+                                               "recorded_final_bytes":  1196303,
+                                               "seconds":  55.20356279995758,
+                                               "sha256":  "26559c6dfece87e9737d2d71b13a3f692afac9dc53d7adb999e22ebcfa66a37b"
+                                           },
+                             "results":  1,
+                             "root_index":  4
+                         },
+                         {
+                             "query_sha256":  "14dd20b595b4920558279378424b56e9fb08adf308c35ff7f8e220de026e129c",
+                             "repeat":  3,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1200988,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q4-r3\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3565555712,
+                                               "peak_rss":  1110548480,
+                                               "recorded_final_bytes":  1196310,
+                                               "seconds":  62.30138680001255,
+                                               "sha256":  "a7c745ba4ee8d68444cdb0e432745a3224b0baa71b9037208e9e172e4a168c9f"
+                                           },
+                             "results":  1,
+                             "root_index":  4
+                         },
+                         {
+                             "query_sha256":  "543b13c28a6a329142b60197c200970469d2ff039776be4e293f4c729bd05759",
+                             "repeat":  1,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1240427,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q5-r1\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3579396096,
+                                               "peak_rss":  1131675648,
+                                               "recorded_final_bytes":  1235435,
+                                               "seconds":  64.30658920004498,
+                                               "sha256":  "3d65ddcfa1954d65fb0721cb4cb160be8cba5dc2d67ccac5d998c8b28d1f9424"
+                                           },
+                             "results":  3,
+                             "root_index":  5
+                         },
+                         {
+                             "query_sha256":  "ea46b0b6a40e6ed0f7c63e5413f2e215aad414b8b464793bb993932d59ca5ab5",
+                             "repeat":  2,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1240447,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q5-r2\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3580092416,
+                                               "peak_rss":  1130860544,
+                                               "recorded_final_bytes":  1235455,
+                                               "seconds":  66.8027965000365,
+                                               "sha256":  "f158866dcaa25b9ff13ff615f3d85c497276043b2a5a3b9ce34d5e85899508c4"
+                                           },
+                             "results":  3,
+                             "root_index":  5
+                         },
+                         {
+                             "query_sha256":  "222944a1cf30b12f4bc52e7eaec6fd0c31ff41e6baeda20fe3637f1acd27bf76",
+                             "repeat":  3,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  1240462,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q5-r3\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3580502016,
+                                               "peak_rss":  1132589056,
+                                               "recorded_final_bytes":  1235470,
+                                               "seconds":  85.03911879996303,
+                                               "sha256":  "8bede7c8931f811f68ed42f906b1bbf9108f2de6e3a5c45a3f1d12c988c3069a"
+                                           },
+                             "results":  3,
+                             "root_index":  5
+                         },
+                         {
+                             "query_sha256":  "61e281505e10cf98cef4cda43a4984d4619352c4a12190adfced214f2716d76e",
+                             "repeat":  1,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  5025528,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q6-r1\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3679248384,
+                                               "peak_rss":  1221627904,
+                                               "recorded_final_bytes":  4960345,
+                                               "seconds":  90.5117749000201,
+                                               "sha256":  "702d6264159ced0f8fe448cb6eb5c262622fee8bab1413833a6d6128171318a0"
+                                           },
+                             "results":  372,
+                             "root_index":  6
+                         },
+                         {
+                             "query_sha256":  "fdee45d4d456b41e998bd87cc314603ab80d7edcd55d69025d1f27cccee3dc3c",
+                             "repeat":  2,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  5025533,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q6-r2\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3703664640,
+                                               "peak_rss":  1248395264,
+                                               "recorded_final_bytes":  4960349,
+                                               "seconds":  80.87997880001785,
+                                               "sha256":  "f3bac40a89bdb45a1de1a311cb906b54c4ee305e00179f4f73fbf0fc14414509"
+                                           },
+                             "results":  372,
+                             "root_index":  6
+                         },
+                         {
+                             "query_sha256":  "b0ca8beab72d15475f243046978b5e5f365fc28c423753e6bc5c9545c73fcbdc",
+                             "repeat":  3,
+                             "resources":  {
+                                               "cleanup":  0,
+                                               "current_directory_bytes":  5025531,
+                                               "path":  "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\stage9\\queries-01\\q6-r3\\work-control\\process\\resource-report.json",
+                                               "peak_private":  3706040320,
+                                               "peak_rss":  1244254208,
+                                               "recorded_final_bytes":  4960346,
+                                               "seconds":  78.3832808000152,
+                                               "sha256":  "95b3408dc8b9d239ceb98734414edb087800318aa19989ab430a8a89e395cf29"
+                                           },
+                             "results":  372,
+                             "root_index":  6
+                         }
+                     ],
+    "documents":  {
+                      "docs/stage9-results.md":  "7c1a49e3599a0ae5fe63ddcc1f1125df01b138818c641ca0d705120dd10779c3",
+                      "docs/stage9-review.md":  "79d0c872cca89e528f2679a2062824185c07de7cc893ecee1f3a66f76d23fc97",
+                      "docs/stage9-contract.md":  "965a452caecf0d57944698e3af41c00b59f8a321cd54991fdd5e38c541fb45fe",
+                      "README.md":  "a752f454905f4699c01dcf6403cfc0847e3ae08b60257672935d2ef40bb74381",
+                      "docs/stage9-usage.md":  "91ee634783c124638bd2671bcdcfda3fb0b3536fe5d3625a3f37d62024e16c3a",
+                      "docs/stage9-source-spec.md":  "e57109ac1dc41918a0f082331dbe245c8c8ba8cb7fe1e5c5b5ad9e5bfc88ad8f",
+                      "docs/stage9-corpus.md":  "dd632d5331d1e250dce050128f1ec26e9bbb237b6bf5ba318aeaeeb3cb877244"
+                  },
+    "methodology":  [
+                        "Checked the exact independently supplied candidate SHA before and after the complete review.",
+                        "Compared all 133 current code and test files with the frozen inventory and candidate dossier.",
+                        "Revalidated every prepared source, manifest, mapping/config, DB/Parquet row, source export, olean, module log, Python/dependency/toolchain/Git identity and exact active native Lean executable.",
+                        "Rebuilt all 3286 edges independently from all raw bytes using SourceBytes certificate scanning and a separate mount resolver; compared all source events and four generated-boundary events.",
+                        "Used a separate DFS and independently applied the deterministic root-selection rule to all 1251 roots.",
+                        "Read and audited all 18 fresh query exports, full axiom records, certificates, complete serialized answers, oracle files, resource seals and six-by-three repeat identities.",
+                        "Freshly discovered all 205 unique test names without executing tests, and compared every name/result with the full actual unittest log and historical 180-name set.",
+                        "Checked historical native checkout byte hashes against the accepted Stage8 closure inventory, plus normalized Git content; the Stage5 README fixture remains exact.",
+                        "Rechecked supplemental source Parquet tables and raw cProfile statistics, pure-search reference identity/statistics and the separate fresh publication query.",
+                        "Checked complete current run-directory sizes and all actual timeout, memory, disk, priority and process-cleanup receipts; no expensive compilation or benchmark was repeated."
+                    ],
+    "review_execution":  {
+                             "resource_sha256":  "131d49c5a3120f0a2ccff16f8adf9efce4d8142f814c4e9338025c48911f6e97",
+                             "peak_tree_private":  1047494656,
+                             "evidence_path":  "local/stage9/formal-review-exec-02/work/review-evidence.json",
+                             "supervised_seconds":  35.6099054000224,
+                             "resource_path":  "local/stage9/formal-review-exec-02/process/resource-report.json",
+                             "worker_seconds":  34.481941299978644,
+                             "evidence_sha256":  "60bf9fc69f81a2909e76cbcf8412807532e25f19e8055defd34718352fd1f3d0",
+                             "remaining_job_processes":  0,
+                             "helper_sha256":  "02744d4e204c8a673e74fca8409383cc2c0e33eb4dd00abf9e43abb8adc3e601",
+                             "peak_tree_rss":  279764992,
+                             "helper_path":  "local/stage9/final_formal_review.py"
+                         },
+    "previous_review":  {
+                            "sha256":  "3ac9df4ce882f507b66f4d24c95b4f8b23ba918bdc1352f1ab9d38973aafb22a",
+                            "path":  "local/stage9/formal-review-exec-01/previous-review.json"
+                        },
+    "preserved_failed_review_attempt":  {
+                                            "path":  "local/stage9/formal-review-exec-01/work/review-evidence.json",
+                                            "reason":  "The initial helper incorrectly compared historical CRLF worktree bytes directly with LF-normalized Git blobs. Exact accepted Stage8 raw hashes match; the corrected helper checks those raw hashes and normalized Git content.",
+                                            "remaining_job_processes":  0,
+                                            "status":  "FAILED_REVIEW_CHECK",
+                                            "resource_path":  "local/stage9/formal-review-exec-01/process/resource-report.json"
+                                        },
+    "limitations":  [
+                        "Completeness is relative to the frozen corpus and manually accepted contextual mount specification.",
+                        "Two genuinely build-generated targets remain explicit external boundaries; this is not a full build-generated source closure.",
+                        "Import reachability does not prove behavioral impact or include importers outside the selected scope.",
+                        "IO, hashes, native tools and the trusted local environment remain operational trust boundaries; no hostile concurrent writes are assumed.",
+                        "OS caches were not controlled; sampled tree-memory totals may double-count shared RSS and miss short spikes.",
+                        "Clean-clone reproduction and million-real-file readiness are not established."
+                    ],
+    "archived_control_helpers":  [
+                                     {
+                                         "kind":  "sources",
+                                         "local":  "local/stage9/profile_sources.py",
+                                         "versioned":  "verification/stage9-control-tools/profile_sources.py",
+                                         "sha256":  "5f98ff9618a8d674ebc3b616007a5f4ea29514f47617a240b9b1ba9ef76207fc",
+                                         "bytes":  4150
+                                     },
+                                     {
+                                         "kind":  "search",
+                                         "local":  "local/stage9/profile_search.py",
+                                         "versioned":  "verification/stage9-control-tools/profile_search.py",
+                                         "sha256":  "236b11c7e45396bc6b2c2c98ded04fd2cae4afbf4137a812b558b934e3fb9d96",
+                                         "bytes":  3815
+                                     },
+                                     {
+                                         "kind":  "publication",
+                                         "local":  "local/stage9/profile_publication.py",
+                                         "versioned":  "verification/stage9-control-tools/profile_publication.py",
+                                         "sha256":  "767c19215e04ef0f37dfe47872f1b76d82e309ff1b292749739190294f855e6e",
+                                         "bytes":  3432
+                                     }
+                                 ],
+    "post_execution_documentation_check":  {
+                                               "frozen_proof_code_unchanged":  true,
+                                               "candidate_unchanged":  true,
+                                               "utc":  "2026-11-16T22:50:56.7401761Z",
+                                               "change":  "Archived byte-identical diagnostic helper copies under verification/stage9-control-tools and appended usage instructions",
+                                               "new_execution":  false
+                                           }
+}

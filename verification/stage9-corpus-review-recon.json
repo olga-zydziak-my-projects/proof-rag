@@ -1,0 +1,146 @@
+{
+  "schema": "stage9-independent-corpus-review-v1",
+  "phase": "reconnaissance",
+  "reviewer": "/root/corpus_review",
+  "utc": "2026-11-16T21:07:46.555569+00:00",
+  "status": "PENDING_FROZEN_STAGE9_CORPUS",
+  "final_corpus_accepted": false,
+  "reviewed_inputs": {
+    "src/repo_proof/stage8_corpus_audit.py": "4a1752fef66da90f9a42a74b5fb27a2e4369f665d1657325238932a3b4fd8587",
+    "verification/stage8-connected-corpus-manifest-04.json": "ca113f50946345eacd8905d48fb2367dd0a95886bbb72631d4ec6cb344d204e1",
+    "verification/stage8-connected-corpus-evidence-04.json": "6cbecc130a3490a03c01f95e66d2a1f79f553958b6544c620d841ebe9cbcf7a0",
+    "local/stage8/connected-recon-01/recon.json": "13a07fc48a26c4971592b7257915ad02946c7aaf05914111f2be52612bffff1e"
+  },
+  "checks_performed": [
+    "Read complete Stage 9 request and Stage 8 corpus/source specification and implementation.",
+    "Re-ran verify_corpus offline for original 18-file manifest. It reconstructs complete patch/overlay inventory trees, verifies source/config/patch blobs, target source lists, source mounts and matching Chromium VERSION/dependency pins.",
+    "Read pinned Brave AST overlay implementation and Electron patch application script.",
+    "Enumerated every .patch diff header in complete pinned inventories and mapped touched paths to effective Chromium roots."
+  ],
+  "pins": {
+    "electron": {
+      "repository": "electron/electron",
+      "tag": "v38.1.2",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "tree": "fa2587baa940913befc5d539afef827a695dfb73"
+    },
+    "brave": {
+      "repository": "brave/brave-core",
+      "tag": "v1.82.166",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "tree": "21f15cb35a06c819d080872a0c404a771a76efc1"
+    },
+    "chromium": {
+      "repository": "chromium/chromium",
+      "tag": "140.0.7339.133",
+      "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+      "tree": "9126a9192eb20fda7cc2e0f5a6b5163dfae53b4b"
+    }
+  },
+  "patch_audit": {
+    "electron": {
+      "patch_count": 225,
+      "touched_mojom": {
+        "third_party/blink/public/mojom/page/page.mojom": [
+          "patches/chromium/allow_disabling_blink_scheduler_throttling_per_renderview.patch"
+        ],
+        "third_party/blink/public/mojom/webpreferences/web_preferences.mojom": [
+          "patches/chromium/allow_in-process_windows_to_have_different_web_prefs.patch"
+        ],
+        "content/common/frame.mojom": [
+          "patches/chromium/can_create_window.patch"
+        ],
+        "third_party/blink/public/mojom/dom_storage/storage_area.mojom": [
+          "patches/chromium/dom_storage_limits.patch"
+        ],
+        "services/network/public/mojom/network_context.mojom": [
+          "patches/chromium/expose_setuseragent_on_networkcontext.patch",
+          "patches/chromium/network_service_allow_remote_certificate_verification_logic.patch"
+        ],
+        "third_party/blink/public/mojom/use_counter/metrics/css_property_id.mojom": [
+          "patches/chromium/feat_corner_smoothing_css_rule_and_blink_painting.patch"
+        ],
+        "services/viz/privileged/mojom/compositing/layered_window_updater.mojom": [
+          "patches/chromium/feat_enable_offscreen_rendering_with_viz_compositor.patch"
+        ],
+        "services/viz/privileged/mojom/compositing/display_private.mojom": [
+          "patches/chromium/feat_enable_offscreen_rendering_with_viz_compositor.patch"
+        ],
+        "ui/gfx/mojom/ca_layer_params.mojom": [
+          "patches/chromium/feat_enable_offscreen_rendering_with_viz_compositor.patch"
+        ],
+        "services/viz/privileged/mojom/compositing/frame_sink_manager.mojom": [
+          "patches/chromium/feat_enable_offscreen_rendering_with_viz_compositor.patch"
+        ],
+        "services/network/public/mojom/url_request.mojom": [
+          "patches/chromium/feat_expose_raw_response_headers_from_urlloader.patch"
+        ],
+        "services/network/public/mojom/url_response_head.mojom": [
+          "patches/chromium/feat_expose_raw_response_headers_from_urlloader.patch"
+        ],
+        "third_party/blink/public/mojom/permissions/permission.mojom": [
+          "patches/chromium/feat_separate_content_settings_callback_for_sync_and_async_clipboard.patch",
+          "patches/chromium/refactor_patch_electron_permissiontypes_into_blink.patch"
+        ],
+        "components/printing/common/print.mojom": [
+          "patches/chromium/printing.patch"
+        ]
+      }
+    },
+    "brave": {
+      "patch_count": 644,
+      "touched_mojom": {
+        "chrome/browser/ui/webui/side_panel/bookmarks/bookmarks.mojom": [
+          "patches/chrome-browser-ui-webui-side_panel-bookmarks-bookmarks.mojom.patch"
+        ],
+        "components/content_settings/core/common/content_settings_enums.mojom": [
+          "patches/components-content_settings-core-common-content_settings_enums.mojom.patch"
+        ],
+        "content/common/frame.mojom": [
+          "patches/content-common-frame.mojom.patch"
+        ]
+      }
+    }
+  },
+  "overlay_inventory_entries": 2780,
+  "overlay_mojom_paths": [
+    "brave/mojo/brave_ast_patcher/test_module.mojom",
+    "chrome/browser/ui/webui/side_panel/customize_chrome/customize_chrome.mojom",
+    "chrome/browser/ui/webui/side_panel/customize_chrome/customize_toolbar/customize_toolbar.mojom",
+    "chrome/browser/ui/webui/tab_search/tab_search.mojom",
+    "chrome/services/printing/public/mojom/printing_service.mojom",
+    "components/content_settings/common/content_settings_manager.mojom",
+    "components/content_settings/core/common/content_settings.mojom",
+    "components/content_settings/core/common/content_settings_types.mojom",
+    "components/printing/common/print.mojom",
+    "components/remote_cocoa/common/native_widget_ns_window.mojom",
+    "extensions/common/mojom/api_permission_id.mojom",
+    "media/mojo/mojom/media_player.mojom",
+    "services/network/public/mojom/cookie_manager.mojom",
+    "services/network/public/mojom/network_param.mojom",
+    "services/network/public/mojom/network_service.mojom",
+    "services/network/public/mojom/permissions_policy/permissions_policy_feature.mojom",
+    "services/viz/privileged/mojom/gl/gpu_host.mojom",
+    "third_party/blink/public/mojom/clipboard/clipboard.mojom",
+    "third_party/blink/public/mojom/frame/frame.mojom",
+    "third_party/blink/public/mojom/permissions/permission.mojom",
+    "third_party/blink/public/mojom/webpreferences/web_preferences.mojom",
+    "third_party/blink/public/mojom/worker/worker_content_settings_proxy.mojom"
+  ],
+  "selection_assessment": {
+    "conflict_free_directory_pruning": "Deterministic directory exclusion can define an import-closed source scope. A parent directory alone requires justification as a complete module or GN source grouping, since targets may span directories.",
+    "explicit_upstream_context": "Complete upstream Chromium modules can coexist with selected Electron and Brave targets if upstream context is explicit in formal identities and answers. Cross-context targets require a checked full dependency closure with equal effective bytes. Other upstream nodes must retain their upstream-only provenance.",
+    "requires_final_checks": [
+      "Exact complete selected modules and file membership against pinned Git trees.",
+      "Manifest independent anchor and selection freeze preceding query selection and measurements.",
+      "Full-scope patch/overlay conflict report and exact context routing.",
+      "Recompute every import/resolution and all edges independently, including no unreported missing/external events.",
+      "Count actual project/path files separately from context variants.",
+      "Inspect final formal identity representation and source-to-graph binding."
+    ]
+  },
+  "blocking_findings": [],
+  "pending_findings": [
+    "No frozen Stage 9 manifest or final corpus was available at reconnaissance review time."
+  ]
+}

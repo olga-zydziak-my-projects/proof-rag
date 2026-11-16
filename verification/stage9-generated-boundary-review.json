@@ -1,0 +1,79 @@
+{
+  "schema": "stage9-generated-boundary-review-v1",
+  "reviewer": "/root/corpus_review",
+  "utc": "2026-11-16T21:16:32.597439+00:00",
+  "status": "GENERATED_BOUNDARY_JUSTIFIED_WITH_REQUIRED_DISCLOSURES",
+  "corpus_final_acceptance": false,
+  "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+  "assessment": "The two exact paths are real declared GN outputs under root_gen_dir and have no committed Mojom blobs at the selected pin. Explicitly excluding them from a corpus of committed source files is justified. Every external import occurrence must remain represented and the frozen source specification must disclose this generated-output boundary. This acceptance concerns the source graph and requires the final implementation and manifest audit.",
+  "generated_targets": [
+    {
+      "path": "third_party/blink/public/mojom/runtime_feature_state/runtime_feature.mojom",
+      "gn": "third_party/blink/public/mojom/runtime_feature_state/BUILD.gn",
+      "gn_blob": "637a05e483cafee4e9ce98380cc39fb30edfc163",
+      "gn_sha256": "63a300292be293f5566112d94ee03f26721cb5fa6dd081fa56216153fe8443f4",
+      "gn_generator_target": "generate_runtime_feature",
+      "generator": "third_party/blink/renderer/build/scripts/make_runtime_feature_mojom_defs.py",
+      "generator_blob": "0848fec77ed526795bfed9889791522f0133e09a",
+      "generator_sha256": "3ad073269bebbcc78da418750a352b36f513f9128d07e9b757171093c90db4d9",
+      "template": "third_party/blink/renderer/build/scripts/templates/runtime_feature.mojom.tmpl",
+      "template_blob": "201c2134d91b6054908342286299c65916a9bbd0",
+      "template_sha256": "24ed70fa4ea2821eb529d8b5a86cb85dcffd9a6bea8ccc6aa43bd246aa841930"
+    },
+    {
+      "path": "third_party/blink/public/mojom/origin_trials/origin_trial_feature.mojom",
+      "gn": "third_party/blink/public/mojom/origin_trials/BUILD.gn",
+      "gn_blob": "5c619e10b69af19b6a13d99bac597d11c480eaf9",
+      "gn_sha256": "1297eead6aa8f225c656039b09dbf9bfad86ba59d4c18af99d3f498aa639d768",
+      "gn_generator_target": "generate_origin_trial_feature",
+      "generator": "third_party/blink/renderer/build/scripts/make_origin_trial_feature_mojom_defs.py",
+      "generator_blob": "88e5715c058c646fcea5d61b7fbd82c88a3490c3",
+      "generator_sha256": "f61a416d607acd8530840b3ecf2aeebcdb26e49745a5b1632d9a0b59eba63410",
+      "template": "third_party/blink/renderer/build/scripts/templates/origin_trial_feature.mojom.tmpl",
+      "template_blob": "a3c960992155415fbcbc6f60002bd8080964288d",
+      "template_sha256": "0d15c1d5d18af1c5f0195b821375d3b136581226c2329b0e21768f0bc30cae0d"
+    }
+  ],
+  "evidence_checks": [
+    "Read both exact pinned GN files from official chromium/chromium raw source. Both sources, outputs and parser_deps explicitly name root_gen_dir generated targets.",
+    "Read both generator scripts. Their _outputs fields produce exactly runtime_feature.mojom and origin_trial_feature.mojom, respectively.",
+    "Read both Jinja templates. They define blink.mojom enum source and contain no Mojom import declarations. Jinja macro imports are present in the templates.",
+    "Read complete pinned Git trees for both public Mojom directories. The generated filenames are absent.",
+    "Independently decompressed and checked Git SHA1 of all 1202 selected source objects from acquire-01, then scanned complete bytes with source_bytes_v2.certificate to enumerate all four affected events."
+  ],
+  "source_inventory_sha256": "2d67226ae2eafd52447c363a14ef5d147a268e0ebaa45ad3bef9d1747e3ca4e9",
+  "external_events": [
+    {
+      "importer": "third_party/blink/public/mojom/navigation/navigation_params.mojom",
+      "ordinal": 36,
+      "literal": "third_party/blink/public/mojom/runtime_feature_state/runtime_feature.mojom"
+    },
+    {
+      "importer": "third_party/blink/public/mojom/origin_trials/origin_trial_state_host.mojom",
+      "ordinal": 0,
+      "literal": "third_party/blink/public/mojom/runtime_feature_state/runtime_feature.mojom"
+    },
+    {
+      "importer": "third_party/blink/public/mojom/shared_storage/shared_storage.mojom",
+      "ordinal": 6,
+      "literal": "third_party/blink/public/mojom/origin_trials/origin_trial_feature.mojom"
+    },
+    {
+      "importer": "third_party/blink/public/mojom/worker/worklet_global_scope_creation_params.mojom",
+      "ordinal": 3,
+      "literal": "third_party/blink/public/mojom/origin_trials/origin_trial_feature.mojom"
+    }
+  ],
+  "required_final_checks": [
+    "The frozen scope and final answer disclose that generated output sources are excluded.",
+    "Rules and the independent resolution audit admit only these two literal external paths and retain every occurrence.",
+    "All other dependencies are resolved to pinned real source blobs.",
+    "GN, generator and template evidence is bound to the frozen manifest and original Git blobs. Each external rule evidence refers to its generator GN configuration.",
+    "Report both external path count and external event count separately from internal edges."
+  ],
+  "blocking_findings": [],
+  "notes": [
+    "The first web fetch returned cache-miss. Direct read-only raw source requests succeeded under approved network escalation. No generator or downloaded code was executed.",
+    "Generator GN also lists runtime_enabled_features.json5, runtime_enabled_features.override.json5, make_runtime_features.py and make_runtime_features_utilities.py as inputs. Execution or formal verification of generated bytes remains outside this source corpus."
+  ]
+}

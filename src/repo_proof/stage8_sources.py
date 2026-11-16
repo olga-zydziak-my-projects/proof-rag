@@ -134,7 +134,7 @@ def resolve_event(importer, literal, rules, universe):
     return target, rule['id']
 
 
-def capture(manifest_path, expected_sha, locations, spool_dir=None):
+def capture(manifest_path, expected_sha, locations, spool_dir=None, *, file_prefixes=False):
     raw = Path(manifest_path).read_bytes()
     if sha256(raw).hexdigest() != expected_sha:
         raise ValueError('manifest differs from independent caller anchor')
@@ -215,7 +215,9 @@ def capture(manifest_path, expected_sha, locations, spool_dir=None):
                 or not isinstance(rule['prefix'], str) or not isinstance(rule['target_prefix'], str)):
             raise ValueError('resolver rule schema/version/evidence')
         for prefix in (rule['prefix'], rule['target_prefix']):
-            if prefix and (not prefix.endswith('/') or not path_ok(prefix[:-1])):
+            directory = prefix.endswith('/') and path_ok(prefix[:-1])
+            literal_file = file_prefixes and prefix.endswith('.mojom') and path_ok(prefix)
+            if prefix and not (directory or literal_file):
                 raise ValueError('noncanonical prefix')
         rule_ids.add(rule['id'])
     keys = sorted(universe)
