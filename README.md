@@ -7,7 +7,8 @@ Do wyszukiwania literałów w Apache Fineract użyj
 dopiero po porównaniu z przypiętymi obiektami Git. Gwarancja R2 dotyczy tej
 odpowiedzi i jest odrębna od dowodów Lean dla grafów Mojom.
 [Uruchomienie i ograniczenia](docs/fineract-r2-usage.md) ·
-[Wyniki](docs/fineract-r2-results.md)
+[Wyniki](docs/fineract-r2-results.md) ·
+[Lokalna pamięć projektu](docs/project-memory-usage.md)
 
 ## Korpus Mojom
 
