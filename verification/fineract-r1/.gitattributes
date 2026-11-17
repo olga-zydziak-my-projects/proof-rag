@@ -1,0 +1,2 @@
+# Preserve the original report bytes, including CRLF from its Windows subprocess.
+verification.json -text

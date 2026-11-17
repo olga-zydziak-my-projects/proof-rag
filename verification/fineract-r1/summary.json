@@ -1,0 +1,1080 @@
+{
+  "experiment": "fineract-r1-literal-search",
+  "started_utc": "2026-11-17T21:54:02.728045+00:00",
+  "contract_sha256": "b134a39f5314ebf0ca2dd7d21391de22135e39dfd8ce6278478b01a0084cc2ab",
+  "hardware": {
+    "cpu": "Intel(R) Core(TM) Ultra 9 275HX",
+    "logical_cpus": 24,
+    "physical_memory_bytes": 34359738368,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14",
+    "git": "git version 2.55.0.windows.2",
+    "sqlite": "3.53.1"
+  },
+  "optional_manifest_crosscheck": "not_found",
+  "measurement": {
+    "build": "Inventory through atomic index publication; excludes network fetch.",
+    "match_seconds": "From opening the read-only SQLite index through exact blob matching.",
+    "output_seconds": "Path traversal, preview collection, JSONL serialization, fsync and atomic publication.",
+    "cli_wall_seconds": "Fresh Python process including startup, queries, result serialization and stdout.",
+    "peak_rss_bytes": "Per-process peak working set or RSS; excludes child Git processes.",
+    "cache": "First query pass on the just-built index, OS file cache not cleared. Warm passes immediately follow in the same order, with fresh CLI processes."
+  },
+  "queries": [
+    {
+      "literal": "Loan",
+      "first": {
+        "candidate_blobs": 3220,
+        "count": 3218,
+        "literal": "Loan",
+        "match_seconds": 0.12669390003429726,
+        "method": "trigram_candidates",
+        "output_seconds": 0.026189500000327826,
+        "peak_rss_bytes": 26046464,
+        "preview": [
+          {
+            "blob_id": "148ddfabe091afa952103bedcc91e3f81b1e1014",
+            "byte_offset": 2279,
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "line": 35,
+            "path": ".agents/skills/fineract-testing/SKILL.md",
+            "repository": "apache/fineract",
+            "type": "hit"
+          }
+        ],
+        "total_seconds": 0.15288340003462508,
+        "cli_wall_seconds": 0.2632265000138432,
+        "exit_code": 0,
+        "result_sha256": "65aad6fd8cd7699f956ba96edb4d0c18ffcaed0de9c70d06c1b505e68aa75bb2"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 3220,
+          "count": 3218,
+          "literal": "Loan",
+          "match_seconds": 0.12135899998247623,
+          "method": "trigram_candidates",
+          "output_seconds": 0.02461820002645254,
+          "peak_rss_bytes": 26087424,
+          "preview": [
+            {
+              "blob_id": "148ddfabe091afa952103bedcc91e3f81b1e1014",
+              "byte_offset": 2279,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 35,
+              "path": ".agents/skills/fineract-testing/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.14597720000892878,
+          "cli_wall_seconds": 0.25494750001234934,
+          "exit_code": 0,
+          "result_sha256": "65aad6fd8cd7699f956ba96edb4d0c18ffcaed0de9c70d06c1b505e68aa75bb2",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 3220,
+          "count": 3218,
+          "literal": "Loan",
+          "match_seconds": 0.11462820001179352,
+          "method": "trigram_candidates",
+          "output_seconds": 0.024246799992397428,
+          "peak_rss_bytes": 26091520,
+          "preview": [
+            {
+              "blob_id": "148ddfabe091afa952103bedcc91e3f81b1e1014",
+              "byte_offset": 2279,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 35,
+              "path": ".agents/skills/fineract-testing/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.13887500000419095,
+          "cli_wall_seconds": 0.24262630002340302,
+          "exit_code": 0,
+          "result_sha256": "65aad6fd8cd7699f956ba96edb4d0c18ffcaed0de9c70d06c1b505e68aa75bb2",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 3220,
+          "count": 3218,
+          "literal": "Loan",
+          "match_seconds": 0.10978050000267103,
+          "method": "trigram_candidates",
+          "output_seconds": 0.023658999998588115,
+          "peak_rss_bytes": 26046464,
+          "preview": [
+            {
+              "blob_id": "148ddfabe091afa952103bedcc91e3f81b1e1014",
+              "byte_offset": 2279,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 35,
+              "path": ".agents/skills/fineract-testing/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.13343950000125915,
+          "cli_wall_seconds": 0.24080400000093505,
+          "exit_code": 0,
+          "result_sha256": "65aad6fd8cd7699f956ba96edb4d0c18ffcaed0de9c70d06c1b505e68aa75bb2",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "01.jsonl.gz",
+      "gzip_sha256": "252ba4d6efb999a8c588374e234ef47a9a0a456c4ac08aa0ab5c9b44fbe5db12"
+    },
+    {
+      "literal": "loan",
+      "first": {
+        "candidate_blobs": 3627,
+        "count": 3613,
+        "literal": "loan",
+        "match_seconds": 0.13204430002951995,
+        "method": "trigram_candidates",
+        "output_seconds": 0.02795049996348098,
+        "peak_rss_bytes": 26800128,
+        "preview": [
+          {
+            "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+            "byte_offset": 1504,
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "line": 23,
+            "path": ".agents/skills/fineract-database/SKILL.md",
+            "repository": "apache/fineract",
+            "type": "hit"
+          }
+        ],
+        "total_seconds": 0.15999479999300092,
+        "cli_wall_seconds": 0.27013000001898035,
+        "exit_code": 0,
+        "result_sha256": "157d4f030f2bc3c1e9f7d1ffbeb09bec4fc52ae5c7274950776d9216511803c1"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 3627,
+          "count": 3613,
+          "literal": "loan",
+          "match_seconds": 0.13264769996749237,
+          "method": "trigram_candidates",
+          "output_seconds": 0.028748699987772852,
+          "peak_rss_bytes": 25907200,
+          "preview": [
+            {
+              "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+              "byte_offset": 1504,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 23,
+              "path": ".agents/skills/fineract-database/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.16139639995526522,
+          "cli_wall_seconds": 0.2649904999998398,
+          "exit_code": 0,
+          "result_sha256": "157d4f030f2bc3c1e9f7d1ffbeb09bec4fc52ae5c7274950776d9216511803c1",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 3627,
+          "count": 3613,
+          "literal": "loan",
+          "match_seconds": 0.12352449999889359,
+          "method": "trigram_candidates",
+          "output_seconds": 0.029007399978581816,
+          "peak_rss_bytes": 25997312,
+          "preview": [
+            {
+              "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+              "byte_offset": 1504,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 23,
+              "path": ".agents/skills/fineract-database/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.1525318999774754,
+          "cli_wall_seconds": 0.2589520000037737,
+          "exit_code": 0,
+          "result_sha256": "157d4f030f2bc3c1e9f7d1ffbeb09bec4fc52ae5c7274950776d9216511803c1",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 3627,
+          "count": 3613,
+          "literal": "loan",
+          "match_seconds": 0.1345173000008799,
+          "method": "trigram_candidates",
+          "output_seconds": 0.026170700031798333,
+          "peak_rss_bytes": 26791936,
+          "preview": [
+            {
+              "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+              "byte_offset": 1504,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 23,
+              "path": ".agents/skills/fineract-database/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.16068800003267825,
+          "cli_wall_seconds": 0.25676399999065325,
+          "exit_code": 0,
+          "result_sha256": "157d4f030f2bc3c1e9f7d1ffbeb09bec4fc52ae5c7274950776d9216511803c1",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "02.jsonl.gz",
+      "gzip_sha256": "095f1086711a53ecfa93fe8b06e368da6488bc136dc8390fc3fd244cbf0c07db"
+    },
+    {
+      "literal": "LoanTransaction",
+      "first": {
+        "candidate_blobs": 765,
+        "count": 718,
+        "literal": "LoanTransaction",
+        "match_seconds": 0.05362620000960305,
+        "method": "trigram_candidates",
+        "output_seconds": 0.013058599957730621,
+        "peak_rss_bytes": 25964544,
+        "preview": [
+          {
+            "blob_id": "49d482c59cad281eff5103278740fbcc9709495f",
+            "byte_offset": 1427,
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "line": 29,
+            "path": "custom/acme/note/starter/src/test/java/com/acme/fineract/portfolio/note/starter/TestDefaultConfiguration.java",
+            "repository": "apache/fineract",
+            "type": "hit"
+          }
+        ],
+        "total_seconds": 0.06668479996733367,
+        "cli_wall_seconds": 0.1723111000028439,
+        "exit_code": 0,
+        "result_sha256": "2ca68a3b97b073c866e29bc34ba27725f247cdded453adb1f6dacc3609500a49"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 765,
+          "count": 718,
+          "literal": "LoanTransaction",
+          "match_seconds": 0.054243599995970726,
+          "method": "trigram_candidates",
+          "output_seconds": 0.012920400011353195,
+          "peak_rss_bytes": 26017792,
+          "preview": [
+            {
+              "blob_id": "49d482c59cad281eff5103278740fbcc9709495f",
+              "byte_offset": 1427,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 29,
+              "path": "custom/acme/note/starter/src/test/java/com/acme/fineract/portfolio/note/starter/TestDefaultConfiguration.java",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.06716400000732392,
+          "cli_wall_seconds": 0.17266149999340996,
+          "exit_code": 0,
+          "result_sha256": "2ca68a3b97b073c866e29bc34ba27725f247cdded453adb1f6dacc3609500a49",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 765,
+          "count": 718,
+          "literal": "LoanTransaction",
+          "match_seconds": 0.05797169997822493,
+          "method": "trigram_candidates",
+          "output_seconds": 0.013362099998630583,
+          "peak_rss_bytes": 25886720,
+          "preview": [
+            {
+              "blob_id": "49d482c59cad281eff5103278740fbcc9709495f",
+              "byte_offset": 1427,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 29,
+              "path": "custom/acme/note/starter/src/test/java/com/acme/fineract/portfolio/note/starter/TestDefaultConfiguration.java",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.07133379997685552,
+          "cli_wall_seconds": 0.18909429997438565,
+          "exit_code": 0,
+          "result_sha256": "2ca68a3b97b073c866e29bc34ba27725f247cdded453adb1f6dacc3609500a49",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 765,
+          "count": 718,
+          "literal": "LoanTransaction",
+          "match_seconds": 0.053085300023667514,
+          "method": "trigram_candidates",
+          "output_seconds": 0.013143899966962636,
+          "peak_rss_bytes": 26140672,
+          "preview": [
+            {
+              "blob_id": "49d482c59cad281eff5103278740fbcc9709495f",
+              "byte_offset": 1427,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 29,
+              "path": "custom/acme/note/starter/src/test/java/com/acme/fineract/portfolio/note/starter/TestDefaultConfiguration.java",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.06622919999063015,
+          "cli_wall_seconds": 0.16731769999023527,
+          "exit_code": 0,
+          "result_sha256": "2ca68a3b97b073c866e29bc34ba27725f247cdded453adb1f6dacc3609500a49",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "03.jsonl.gz",
+      "gzip_sha256": "1d859288cdfece0d9b565f9b75d607db7396083e2c47ef491f3806c008a7d1ec"
+    },
+    {
+      "literal": "BigDecimal",
+      "first": {
+        "candidate_blobs": 1362,
+        "count": 1362,
+        "literal": "BigDecimal",
+        "match_seconds": 0.04075200000079349,
+        "method": "trigram_candidates",
+        "output_seconds": 0.018192999996244907,
+        "peak_rss_bytes": 23785472,
+        "preview": [
+          {
+            "blob_id": "d1b385d55caf26812295e373d224d3573c9208e2",
+            "byte_offset": 28688,
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "line": 674,
+            "path": "build.gradle",
+            "repository": "apache/fineract",
+            "type": "hit"
+          }
+        ],
+        "total_seconds": 0.058944999997038394,
+        "cli_wall_seconds": 0.1594891999848187,
+        "exit_code": 0,
+        "result_sha256": "d67dcaf5d698e15ddaf0e33b577790b9607cef51b55d4957df11c145b0350ccc"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 1362,
+          "count": 1362,
+          "literal": "BigDecimal",
+          "match_seconds": 0.04889450001064688,
+          "method": "trigram_candidates",
+          "output_seconds": 0.017772099992725998,
+          "peak_rss_bytes": 24039424,
+          "preview": [
+            {
+              "blob_id": "d1b385d55caf26812295e373d224d3573c9208e2",
+              "byte_offset": 28688,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 674,
+              "path": "build.gradle",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.06666660000337288,
+          "cli_wall_seconds": 0.1744868999812752,
+          "exit_code": 0,
+          "result_sha256": "d67dcaf5d698e15ddaf0e33b577790b9607cef51b55d4957df11c145b0350ccc",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 1362,
+          "count": 1362,
+          "literal": "BigDecimal",
+          "match_seconds": 0.04987970000365749,
+          "method": "trigram_candidates",
+          "output_seconds": 0.018110700009856373,
+          "peak_rss_bytes": 23814144,
+          "preview": [
+            {
+              "blob_id": "d1b385d55caf26812295e373d224d3573c9208e2",
+              "byte_offset": 28688,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 674,
+              "path": "build.gradle",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.06799040001351386,
+          "cli_wall_seconds": 0.16860879998421296,
+          "exit_code": 0,
+          "result_sha256": "d67dcaf5d698e15ddaf0e33b577790b9607cef51b55d4957df11c145b0350ccc",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 1362,
+          "count": 1362,
+          "literal": "BigDecimal",
+          "match_seconds": 0.04728950001299381,
+          "method": "trigram_candidates",
+          "output_seconds": 0.01730219996534288,
+          "peak_rss_bytes": 23805952,
+          "preview": [
+            {
+              "blob_id": "d1b385d55caf26812295e373d224d3573c9208e2",
+              "byte_offset": 28688,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 674,
+              "path": "build.gradle",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.06459169997833669,
+          "cli_wall_seconds": 0.16320280003128573,
+          "exit_code": 0,
+          "result_sha256": "d67dcaf5d698e15ddaf0e33b577790b9607cef51b55d4957df11c145b0350ccc",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "04.jsonl.gz",
+      "gzip_sha256": "a195d2184e8a8ab92343f50606784a115606912dd65659c15d134b5c4b4c63f5"
+    },
+    {
+      "literal": "org.apache.fineract",
+      "first": {
+        "candidate_blobs": 7344,
+        "count": 7347,
+        "literal": "org.apache.fineract",
+        "match_seconds": 0.10758119996171445,
+        "method": "trigram_candidates",
+        "output_seconds": 0.03855310002109036,
+        "peak_rss_bytes": 25489408,
+        "preview": [
+          {
+            "blob_id": "283d14e22fbfb98338befd832ceb86db687322a4",
+            "byte_offset": 4035,
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "line": 113,
+            "path": ".github/workflows/smoke-messaging.yml",
+            "repository": "apache/fineract",
+            "type": "hit"
+          }
+        ],
+        "total_seconds": 0.1461342999828048,
+        "cli_wall_seconds": 0.2430068999528885,
+        "exit_code": 0,
+        "result_sha256": "4bf83ef8111333f36dbda183be265b0109e64c404c463e791ec3341638d616a7"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 7344,
+          "count": 7347,
+          "literal": "org.apache.fineract",
+          "match_seconds": 0.11251080001238734,
+          "method": "trigram_candidates",
+          "output_seconds": 0.040862100024241954,
+          "peak_rss_bytes": 25591808,
+          "preview": [
+            {
+              "blob_id": "283d14e22fbfb98338befd832ceb86db687322a4",
+              "byte_offset": 4035,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 113,
+              "path": ".github/workflows/smoke-messaging.yml",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.1533729000366293,
+          "cli_wall_seconds": 0.25775859999703243,
+          "exit_code": 0,
+          "result_sha256": "4bf83ef8111333f36dbda183be265b0109e64c404c463e791ec3341638d616a7",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 7344,
+          "count": 7347,
+          "literal": "org.apache.fineract",
+          "match_seconds": 0.12315970001509413,
+          "method": "trigram_candidates",
+          "output_seconds": 0.043455999984871596,
+          "peak_rss_bytes": 25513984,
+          "preview": [
+            {
+              "blob_id": "283d14e22fbfb98338befd832ceb86db687322a4",
+              "byte_offset": 4035,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 113,
+              "path": ".github/workflows/smoke-messaging.yml",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.16661569999996573,
+          "cli_wall_seconds": 0.27071720000822097,
+          "exit_code": 0,
+          "result_sha256": "4bf83ef8111333f36dbda183be265b0109e64c404c463e791ec3341638d616a7",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 7344,
+          "count": 7347,
+          "literal": "org.apache.fineract",
+          "match_seconds": 0.11019819998182356,
+          "method": "trigram_candidates",
+          "output_seconds": 0.03972940001403913,
+          "peak_rss_bytes": 25612288,
+          "preview": [
+            {
+              "blob_id": "283d14e22fbfb98338befd832ceb86db687322a4",
+              "byte_offset": 4035,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 113,
+              "path": ".github/workflows/smoke-messaging.yml",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.1499275999958627,
+          "cli_wall_seconds": 0.24963429995113984,
+          "exit_code": 0,
+          "result_sha256": "4bf83ef8111333f36dbda183be265b0109e64c404c463e791ec3341638d616a7",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "05.jsonl.gz",
+      "gzip_sha256": "31ddb29f0b8da6ae104791a28ab9ec40464858fe2afa5aa0e77c6fda7f501784"
+    },
+    {
+      "literal": "tenant_id",
+      "first": {
+        "candidate_blobs": 46,
+        "count": 7,
+        "literal": "tenant_id",
+        "match_seconds": 0.017416000016964972,
+        "method": "trigram_candidates",
+        "output_seconds": 0.011186000017914921,
+        "peak_rss_bytes": 25972736,
+        "preview": [
+          {
+            "blob_id": "d2069bcf99e6f9e7a5180ef6ac0d36e5cabb2e0a",
+            "byte_offset": 1751,
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "line": 37,
+            "path": "fineract-command-jdbc/src/main/resources/db/changelog/tenant/module/command/parts/0001_command_init.xml",
+            "repository": "apache/fineract",
+            "type": "hit"
+          }
+        ],
+        "total_seconds": 0.028602000034879893,
+        "cli_wall_seconds": 0.13478500000201166,
+        "exit_code": 0,
+        "result_sha256": "bbcb212f75ca9291a8e9ff8858dcc336e4026eea7bffeda66216f48d06fb9828"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 46,
+          "count": 7,
+          "literal": "tenant_id",
+          "match_seconds": 0.017077299999073148,
+          "method": "trigram_candidates",
+          "output_seconds": 0.01074480003444478,
+          "peak_rss_bytes": 26013696,
+          "preview": [
+            {
+              "blob_id": "d2069bcf99e6f9e7a5180ef6ac0d36e5cabb2e0a",
+              "byte_offset": 1751,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 37,
+              "path": "fineract-command-jdbc/src/main/resources/db/changelog/tenant/module/command/parts/0001_command_init.xml",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.027822100033517927,
+          "cli_wall_seconds": 0.13313040003413334,
+          "exit_code": 0,
+          "result_sha256": "bbcb212f75ca9291a8e9ff8858dcc336e4026eea7bffeda66216f48d06fb9828",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 46,
+          "count": 7,
+          "literal": "tenant_id",
+          "match_seconds": 0.01956299995072186,
+          "method": "trigram_candidates",
+          "output_seconds": 0.01073280000127852,
+          "peak_rss_bytes": 25456640,
+          "preview": [
+            {
+              "blob_id": "d2069bcf99e6f9e7a5180ef6ac0d36e5cabb2e0a",
+              "byte_offset": 1751,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 37,
+              "path": "fineract-command-jdbc/src/main/resources/db/changelog/tenant/module/command/parts/0001_command_init.xml",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.03029579995200038,
+          "cli_wall_seconds": 0.13719800004037097,
+          "exit_code": 0,
+          "result_sha256": "bbcb212f75ca9291a8e9ff8858dcc336e4026eea7bffeda66216f48d06fb9828",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 46,
+          "count": 7,
+          "literal": "tenant_id",
+          "match_seconds": 0.018863199977204204,
+          "method": "trigram_candidates",
+          "output_seconds": 0.011394399974960834,
+          "peak_rss_bytes": 25964544,
+          "preview": [
+            {
+              "blob_id": "d2069bcf99e6f9e7a5180ef6ac0d36e5cabb2e0a",
+              "byte_offset": 1751,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 37,
+              "path": "fineract-command-jdbc/src/main/resources/db/changelog/tenant/module/command/parts/0001_command_init.xml",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.030257599952165037,
+          "cli_wall_seconds": 0.14476060000015423,
+          "exit_code": 0,
+          "result_sha256": "bbcb212f75ca9291a8e9ff8858dcc336e4026eea7bffeda66216f48d06fb9828",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "06.jsonl.gz",
+      "gzip_sha256": "08072e0f5dd77fec39d8c1ea38bf142b8d9a8c15b6807feef438386c5a45797b"
+    },
+    {
+      "literal": ".",
+      "first": {
+        "candidate_blobs": 8609,
+        "count": 8575,
+        "literal": ".",
+        "match_seconds": 0.1481210999772884,
+        "method": "full_scan",
+        "output_seconds": 0.044863899995107204,
+        "peak_rss_bytes": 28315648,
+        "preview": [
+          {
+            "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+            "byte_offset": 365,
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "line": 3,
+            "path": ".agents/skills/fineract-database/SKILL.md",
+            "repository": "apache/fineract",
+            "type": "hit"
+          }
+        ],
+        "total_seconds": 0.1929849999723956,
+        "cli_wall_seconds": 0.29670040000928566,
+        "exit_code": 0,
+        "result_sha256": "d5a93458b5e6f8518baf2a24a11f9a4f2b0383308a12134641f3b150b263516c"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 8609,
+          "count": 8575,
+          "literal": ".",
+          "match_seconds": 0.14608809998026118,
+          "method": "full_scan",
+          "output_seconds": 0.0483716000453569,
+          "peak_rss_bytes": 28004352,
+          "preview": [
+            {
+              "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+              "byte_offset": 365,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 3,
+              "path": ".agents/skills/fineract-database/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.19445970002561808,
+          "cli_wall_seconds": 0.3036013999953866,
+          "exit_code": 0,
+          "result_sha256": "d5a93458b5e6f8518baf2a24a11f9a4f2b0383308a12134641f3b150b263516c",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 8609,
+          "count": 8575,
+          "literal": ".",
+          "match_seconds": 0.13701880001462996,
+          "method": "full_scan",
+          "output_seconds": 0.04218599997693673,
+          "peak_rss_bytes": 28262400,
+          "preview": [
+            {
+              "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+              "byte_offset": 365,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 3,
+              "path": ".agents/skills/fineract-database/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.1792047999915667,
+          "cli_wall_seconds": 0.2790814000181854,
+          "exit_code": 0,
+          "result_sha256": "d5a93458b5e6f8518baf2a24a11f9a4f2b0383308a12134641f3b150b263516c",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 8609,
+          "count": 8575,
+          "literal": ".",
+          "match_seconds": 0.1587330000475049,
+          "method": "full_scan",
+          "output_seconds": 0.04630929999984801,
+          "peak_rss_bytes": 28815360,
+          "preview": [
+            {
+              "blob_id": "bc006a27c5a194f7111fe9e7fbc24636be3f266d",
+              "byte_offset": 365,
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "line": 3,
+              "path": ".agents/skills/fineract-database/SKILL.md",
+              "repository": "apache/fineract",
+              "type": "hit"
+            }
+          ],
+          "total_seconds": 0.2050423000473529,
+          "cli_wall_seconds": 0.31319640000583604,
+          "exit_code": 0,
+          "result_sha256": "d5a93458b5e6f8518baf2a24a11f9a4f2b0383308a12134641f3b150b263516c",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "07.jsonl.gz",
+      "gzip_sha256": "bc781e34c91788507c69ce08c0d0cfabe1c3d082ab0348be088e17440ef5498e"
+    },
+    {
+      "literal": "R1_ABSENCE_SENTINEL_9F807CD3",
+      "first": {
+        "candidate_blobs": 0,
+        "count": 0,
+        "literal": "R1_ABSENCE_SENTINEL_9F807CD3",
+        "match_seconds": 0.003820299985818565,
+        "method": "trigram_candidates",
+        "output_seconds": 0.010478499985765666,
+        "peak_rss_bytes": 22069248,
+        "preview": [],
+        "total_seconds": 0.01429879997158423,
+        "cli_wall_seconds": 0.1254346999921836,
+        "exit_code": 0,
+        "result_sha256": "5602740f1dca39e7401229f8b5f59e4d7b795e519d0f385744b906ec6a0185af"
+      },
+      "warm": [
+        {
+          "candidate_blobs": 0,
+          "count": 0,
+          "literal": "R1_ABSENCE_SENTINEL_9F807CD3",
+          "match_seconds": 0.005265099985990673,
+          "method": "trigram_candidates",
+          "output_seconds": 0.011896700016222894,
+          "peak_rss_bytes": 21966848,
+          "preview": [],
+          "total_seconds": 0.017161800002213567,
+          "cli_wall_seconds": 0.1201028999639675,
+          "exit_code": 0,
+          "result_sha256": "5602740f1dca39e7401229f8b5f59e4d7b795e519d0f385744b906ec6a0185af",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 0,
+          "count": 0,
+          "literal": "R1_ABSENCE_SENTINEL_9F807CD3",
+          "match_seconds": 0.0034530999837443233,
+          "method": "trigram_candidates",
+          "output_seconds": 0.008297500025946647,
+          "peak_rss_bytes": 22044672,
+          "preview": [],
+          "total_seconds": 0.01175060000969097,
+          "cli_wall_seconds": 0.1085505000082776,
+          "exit_code": 0,
+          "result_sha256": "5602740f1dca39e7401229f8b5f59e4d7b795e519d0f385744b906ec6a0185af",
+          "matches_first_result": true
+        },
+        {
+          "candidate_blobs": 0,
+          "count": 0,
+          "literal": "R1_ABSENCE_SENTINEL_9F807CD3",
+          "match_seconds": 0.004421499965246767,
+          "method": "trigram_candidates",
+          "output_seconds": 0.010209300031419843,
+          "peak_rss_bytes": 22011904,
+          "preview": [],
+          "total_seconds": 0.01463079999666661,
+          "cli_wall_seconds": 0.11487409996334463,
+          "exit_code": 0,
+          "result_sha256": "5602740f1dca39e7401229f8b5f59e4d7b795e519d0f385744b906ec6a0185af",
+          "matches_first_result": true
+        }
+      ],
+      "result_file": "08.jsonl.gz",
+      "gzip_sha256": "608bb5ae23fafe7b5f475f76cdd62fb5e123fd9c406c42aa24f5e8fadaa0bb71"
+    }
+  ],
+  "controls": {
+    "passed": true,
+    "checks": {
+      "known_witnesses": true,
+      "deduplicated_blobs": true,
+      "correct_result_accepted": true,
+      "shifted_offset_rejected": true,
+      "omitted_path_rejected": true
+    },
+    "fixture_snapshot": {
+      "repository": "local/literal-search-fixture",
+      "url": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/fineract-r1/run-01/controls/fixture.git",
+      "object_format": "sha1",
+      "commit": "4540f71b7162d15fc02a99c1625fc337a43f2b6a",
+      "root_tree": "261408254b186b2c679b53c98098df90d6f79635",
+      "blob_paths": 4,
+      "regular_paths": 3,
+      "symlinks": 1,
+      "gitlinks": 0
+    },
+    "known_witnesses": {
+      "binary.bin": [
+        "d33e0854fda594e276c8ac07701a2ab64acb989e",
+        9,
+        2
+      ],
+      "copy.bin": [
+        "d33e0854fda594e276c8ac07701a2ab64acb989e",
+        9,
+        2
+      ],
+      "final.txt": [
+        "8cbb5fd5a312d1c9cd48aefe39d6d9b8f68aeb11",
+        2,
+        2
+      ]
+    },
+    "verification": {
+      "status": "PASS",
+      "inventory": {
+        "regular_paths": 3,
+        "symlinks": 1,
+        "gitlinks": 0,
+        "blob_paths": 4,
+        "distinct_regular_blobs": 2
+      },
+      "agreements": 3,
+      "query_count": 3,
+      "queries": [
+        {
+          "literal": "Needle",
+          "agrees": true,
+          "expected_count": 3,
+          "returned_unique_paths": 3,
+          "discrepancies": 0,
+          "examples": [],
+          "comparison_seconds": 0.0005582000012509525
+        },
+        {
+          "literal": ".",
+          "agrees": true,
+          "expected_count": 2,
+          "returned_unique_paths": 2,
+          "discrepancies": 0,
+          "examples": [],
+          "comparison_seconds": 0.00017859996296465397
+        },
+        {
+          "literal": "NEEDLE",
+          "agrees": true,
+          "expected_count": 0,
+          "returned_unique_paths": 0,
+          "discrepancies": 0,
+          "examples": [],
+          "comparison_seconds": 0.00011829996947199106
+        }
+      ],
+      "git_scan_seconds": 0.1411888999864459,
+      "verification_seconds": 0.14252569997915998
+    },
+    "tampering": {
+      "shifted-offset": {
+        "rejected": true,
+        "comparison": {
+          "literal": "Needle",
+          "agrees": false,
+          "expected_count": 3,
+          "returned_unique_paths": 3,
+          "discrepancies": 1,
+          "examples": [
+            "unexpected witness for 'binary.bin': ('d33e0854fda594e276c8ac07701a2ab64acb989e', 20, 2); expected ('d33e0854fda594e276c8ac07701a2ab64acb989e', 9, 2)"
+          ],
+          "comparison_seconds": 0.0008836999768391252
+        }
+      },
+      "omitted-path": {
+        "rejected": true,
+        "comparison": {
+          "literal": "Needle",
+          "agrees": false,
+          "expected_count": 3,
+          "returned_unique_paths": 2,
+          "discrepancies": 1,
+          "examples": [
+            "1 missing path(s); first examples: ['binary.bin']"
+          ],
+          "comparison_seconds": 0.00047580001410096884
+        }
+      }
+    }
+  },
+  "build": {
+    "blob_paths": 8637,
+    "build_seconds": 19.05691599997226,
+    "complete": true,
+    "distinct_regular_blobs": 8609,
+    "distinct_trigrams": 269679,
+    "excluded_symlinks": [
+      {
+        "category": "symlink",
+        "mode": "120000",
+        "object_id": "55f9dc105ec3cf0e7b722d66b24caa5e323ec816",
+        "path": ".claude/skills/fineract-database",
+        "type": "blob"
+      },
+      {
+        "category": "symlink",
+        "mode": "120000",
+        "object_id": "74f01001197acc7536c56852a75b3649d460ade0",
+        "path": ".claude/skills/fineract-testing",
+        "type": "blob"
+      }
+    ],
+    "gitlinks": 0,
+    "index_bytes": 159535104,
+    "path_and_blob_sets_reconciled": true,
+    "peak_rss_bytes": 146911232,
+    "raw_blob_bytes": 96188447,
+    "regular_paths": 8635,
+    "schema": 1,
+    "snapshot": {
+      "blob_paths": 8637,
+      "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+      "gitlinks": 0,
+      "object_format": "sha1",
+      "regular_paths": 8635,
+      "repository": "apache/fineract",
+      "root_tree": "04e7b93943ea30b4557d651fd0e6ef6e98f61c0d",
+      "symlinks": 2,
+      "url": "https://github.com/apache/fineract.git"
+    },
+    "symlinks": 2,
+    "cli_wall_seconds": 19.224849099991843,
+    "exit_code": 0
+  },
+  "independent_verification": {
+    "status": "PASS",
+    "inventory": {
+      "regular_paths": 8635,
+      "symlinks": 2,
+      "gitlinks": 0,
+      "blob_paths": 8637,
+      "distinct_regular_blobs": 8609
+    },
+    "agreements": 8,
+    "query_count": 8,
+    "queries": [
+      {
+        "literal": "Loan",
+        "agrees": true,
+        "expected_count": 3218,
+        "returned_unique_paths": 3218,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.01378640002803877
+      },
+      {
+        "literal": "loan",
+        "agrees": true,
+        "expected_count": 3613,
+        "returned_unique_paths": 3613,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.014770199952181429
+      },
+      {
+        "literal": "LoanTransaction",
+        "agrees": true,
+        "expected_count": 718,
+        "returned_unique_paths": 718,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.0031427000067196786
+      },
+      {
+        "literal": "BigDecimal",
+        "agrees": true,
+        "expected_count": 1362,
+        "returned_unique_paths": 1362,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.006613000005017966
+      },
+      {
+        "literal": "org.apache.fineract",
+        "agrees": true,
+        "expected_count": 7347,
+        "returned_unique_paths": 7347,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.030810699972789735
+      },
+      {
+        "literal": "tenant_id",
+        "agrees": true,
+        "expected_count": 7,
+        "returned_unique_paths": 7,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.00037889997474849224
+      },
+      {
+        "literal": ".",
+        "agrees": true,
+        "expected_count": 8575,
+        "returned_unique_paths": 8575,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.03345720004290342
+      },
+      {
+        "literal": "R1_ABSENCE_SENTINEL_9F807CD3",
+        "agrees": true,
+        "expected_count": 0,
+        "returned_unique_paths": 0,
+        "discrepancies": 0,
+        "examples": [],
+        "comparison_seconds": 0.0002762000076472759
+      }
+    ],
+    "git_scan_seconds": 0.9405725999968126,
+    "verification_seconds": 1.0467906999983825,
+    "cli_wall_seconds": 1.1466839999775402
+  },
+  "agreements": 8,
+  "verdict": "PASS",
+  "finished_utc": "2026-11-17T21:54:32.268362+00:00"
+}

@@ -1,0 +1,37 @@
+{
+  "contract_version": 1,
+  "experiment": "fineract-r1-literal-search",
+  "snapshot": {
+    "repository": "apache/fineract",
+    "url": "https://github.com/apache/fineract.git",
+    "object_format": "sha1",
+    "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+    "root_tree": "04e7b93943ea30b4557d651fd0e6ef6e98f61c0d",
+    "blob_paths": 8637,
+    "regular_paths": 8635,
+    "symlinks": 2,
+    "gitlinks": 0
+  },
+  "scope": "Every tracked regular path, including tests, configurations, binary blobs and LFS pointers as stored. Record all symlinks and exclude them from search.",
+  "semantics": "A nonempty printable ASCII literal is matched case-sensitively in raw Git blob bytes. Return each matching path once with repository, commit, path, blob ID and its first zero-based byte offset. Line is one plus the number of LF bytes before the offset.",
+  "queries": [
+    "Loan",
+    "loan",
+    "LoanTransaction",
+    "BigDecimal",
+    "org.apache.fineract",
+    "tenant_id",
+    ".",
+    "R1_ABSENCE_SENTINEL_9F807CD3"
+  ],
+  "metric": "Count of frozen queries whose entire path, blob ID and first byte offset mapping agrees with an independent scan of the pinned Git tree and blobs.",
+  "decision": {
+    "PASS": "8/8, full coverage of 8635 regular paths, at least one nonempty and one empty query, and successful controls.",
+    "FAIL": "A retrieval discrepancy or another unmet PASS condition on a complete snapshot.",
+    "BLOCKED": "The pinned snapshot is unavailable or incomplete."
+  },
+  "controls": [
+    "Separate Git fixture with duplicate content at two paths, two matches in one file, binary NUL bytes and a final line without LF.",
+    "The verifier must reject a shifted offset and a result missing a genuine matching path."
+  ]
+}

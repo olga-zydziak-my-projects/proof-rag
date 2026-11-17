@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "inventory": {
+    "regular_paths": 8635,
+    "symlinks": 2,
+    "gitlinks": 0,
+    "blob_paths": 8637,
+    "distinct_regular_blobs": 8609
+  },
+  "agreements": 8,
+  "query_count": 8,
+  "queries": [
+    {
+      "literal": "Loan",
+      "agrees": true,
+      "expected_count": 3218,
+      "returned_unique_paths": 3218,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.01378640002803877
+    },
+    {
+      "literal": "loan",
+      "agrees": true,
+      "expected_count": 3613,
+      "returned_unique_paths": 3613,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.014770199952181429
+    },
+    {
+      "literal": "LoanTransaction",
+      "agrees": true,
+      "expected_count": 718,
+      "returned_unique_paths": 718,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.0031427000067196786
+    },
+    {
+      "literal": "BigDecimal",
+      "agrees": true,
+      "expected_count": 1362,
+      "returned_unique_paths": 1362,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.006613000005017966
+    },
+    {
+      "literal": "org.apache.fineract",
+      "agrees": true,
+      "expected_count": 7347,
+      "returned_unique_paths": 7347,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.030810699972789735
+    },
+    {
+      "literal": "tenant_id",
+      "agrees": true,
+      "expected_count": 7,
+      "returned_unique_paths": 7,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.00037889997474849224
+    },
+    {
+      "literal": ".",
+      "agrees": true,
+      "expected_count": 8575,
+      "returned_unique_paths": 8575,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.03345720004290342
+    },
+    {
+      "literal": "R1_ABSENCE_SENTINEL_9F807CD3",
+      "agrees": true,
+      "expected_count": 0,
+      "returned_unique_paths": 0,
+      "discrepancies": 0,
+      "examples": [],
+      "comparison_seconds": 0.0002762000076472759
+    }
+  ],
+  "git_scan_seconds": 0.9405725999968126,
+  "verification_seconds": 1.0467906999983825
+}
