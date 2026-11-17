@@ -1,5 +1,16 @@
 # Repo Proof Lab — etap 9
 
+## Pilotaż Fineract R2
+
+Do wyszukiwania literałów w Apache Fineract użyj
+`scripts/fineract_r2.py query-verified`. Polecenie publikuje pełną odpowiedź
+dopiero po porównaniu z przypiętymi obiektami Git. Gwarancja R2 dotyczy tej
+odpowiedzi i jest odrębna od dowodów Lean dla grafów Mojom.
+[Uruchomienie i ograniczenia](docs/fineract-r2-usage.md) ·
+[Wyniki](docs/fineract-r2-results.md)
+
+## Korpus Mojom
+
 Etap 9 dodaje kontekstowy korpus **1251 rzeczywistych plików Chromium–Electron–Brave**,
 4 188 752 bajty źródeł i 3286 krawędzi, w tym 13 między projektami.
 [Kontrakt](docs/stage9-contract.md), [specyfikacja](docs/stage9-source-spec.md),

@@ -1,0 +1,26 @@
+{
+  "verifier_publication": {
+    "agent": "verify_review",
+    "method": "Independent static review of pinned object verification, exact JSONL comparison, supervised publication and fixture coverage.",
+    "blocking_findings": [],
+    "resolved_findings": [
+      "Handle Ctrl+C at the publication boundary as part of the committed operation.",
+      "Keep Git batch request files in the monitored scratch directory.",
+      "Exercise wrong commit and tree pins directly against the independent Git oracle."
+    ],
+    "file_sha256": {
+      "src/repo_proof/fineract_oracle.py": "c409f4e7c15761e8a627f0482517b8c00920ee3d7cd8718ef51ca5c7a19f891f",
+      "scripts/fineract_r2.py": "766f5a40f25fd7658a64be476dd4cf4fac53da099b35898f6d338edd80f6c027",
+      "tests/test_fineract_r2.py": "f66624b2e04e922a3261d5454a9a43af7e3c58222a9b33842a2bde1039a1fb7f"
+    }
+  },
+  "evidence": {
+    "agent": "evidence_review",
+    "method": "Independent on-disk verification of 64 published JSONL files, 24 exact R1 archive comparisons, 32 logged tests, 65 Windows jobs, source and dependency hashes, and recomputed published timing statistics.",
+    "blocking_findings": [],
+    "run_report_sha256": "4a916472e275791f5d5c0e3bc8bb4291a1463ff18114b19572643defcd4c5c94",
+    "gate_code_sha256": "468d1905447bf6e02fb0c715056474f7b943e92eaf36d7b8fcc1e6f9f9831f50",
+    "results_doc_sha256": "e1af144465fd30d791cdd96da65e1ee6476af6bdbb33c367df7d76b8a55d012c",
+    "usage_doc_sha256": "a049ae7b95f58d61523f20d3f293b42d289e3aa2473118a5d961b8cd6b69f37c"
+  }
+}

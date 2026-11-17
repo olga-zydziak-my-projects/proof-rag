@@ -1,0 +1,62 @@
+{
+  "contract_version": 2,
+  "experiment": "fineract-r2-verified-literal-search",
+  "r1_baseline": "c4842d788d11cfa1459c8ab4ad68c78f5bd2b456",
+  "snapshot": {
+    "repository": "apache/fineract",
+    "url": "https://github.com/apache/fineract.git",
+    "object_format": "sha1",
+    "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+    "root_tree": "04e7b93943ea30b4557d651fd0e6ef6e98f61c0d",
+    "blob_paths": 8637,
+    "regular_paths": 8635,
+    "symlinks": 2,
+    "gitlinks": 0
+  },
+  "distinct_regular_blobs": 8609,
+  "scope": "All ordinary tracked files, including tests, configuration, binaries and stored LFS pointers. Inventory symlinks and exclude them from search.",
+  "semantics": "Nonempty printable ASCII, matched case-sensitively as exact raw bytes. One record per matching path with the Git blob ID, its first zero-based offset, and one plus the preceding LF count.",
+  "query_selection": "Preserve R1 verbatim. Before executing any R2 evaluation, choose disjoint development and final lists by syntax and domain vocabulary, without inspecting counts or search results for either list. Each list samples one and two characters, code and database terms, capitalization, whitespace, shell and regex punctuation, repeated trigrams and a separately named absence sentinel. Keep the final list untouched during development; any final cases used for repairs enter regression and require a newly frozen final list.",
+  "query_sets": {
+    "historical": {
+      "file": "docs/fineract-r1-contract.json",
+      "sha256": "b134a39f5314ebf0ca2dd7d21391de22135e39dfd8ce6278478b01a0084cc2ab",
+      "literals": 8,
+      "runs_per_literal": 3
+    },
+    "development": {
+      "file": "verification/fineract-r2/development.json",
+      "sha256": "5a117d5517e590fa063f355339c8058d522122d23a7d41502e8e825fab84db94",
+      "literals": 20,
+      "runs_per_literal": 1
+    },
+    "final": {
+      "file": "verification/fineract-r2/final.json",
+      "sha256": "15c6c6b39e67e6b82f258e682c5fb8cfedf75054b3e2699d3bba75ff976af813",
+      "literals": 20,
+      "runs_per_literal": 1
+    }
+  },
+  "measurement": {
+    "parallel_heavy_jobs": 1,
+    "priority": "Normal",
+    "build_timeout_seconds": 300,
+    "query_timeout_seconds": 60,
+    "sample_seconds": 0.02,
+    "tree_memory_bytes": 2147483648,
+    "artifact_bytes": 4294967296,
+    "filesystem_cache": "Not cleared"
+  },
+  "acceptance": [
+    "Public entry point requires full independent verification and atomic publication.",
+    "Pinned coverage and R1 byte semantics established.",
+    "Eight historical answers match the archived complete answers across all three repetitions.",
+    "Both new sets pass full comparison.",
+    "Controlled mutations are rejected.",
+    "Failures and interruption do not publish a verified answer.",
+    "Required CLI, corpus and R2 tests pass.",
+    "Measured children, resources and cleanup meet the frozen budget.",
+    "Exact measured implementation, tests and dependency bytes are bound to the evidence.",
+    "Independent verifier/publication and evidence reviews have no blocking findings."
+  ]
+}

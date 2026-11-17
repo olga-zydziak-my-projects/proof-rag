@@ -1,0 +1,289 @@
+"""Fineract R2 fixtures exercise the public command and exact response format."""
+
+from contextlib import redirect_stdout
+from hashlib import sha256
+import io
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import sqlite3
+import subprocess
+import sys
+from tempfile import TemporaryDirectory
+import time
+import unittest
+from unittest.mock import patch
+
+
+PROJECT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT / "scripts"))
+import fineract_r2 as cli
+import stage8_supervise
+from repo_proof.fineract_oracle import ResultMismatch, SourceUnavailable, compare, scan_git
+
+
+@unittest.skipUnless(sys.platform == "win32", "requires the Windows R2 supervisor")
+class FineractR2Tests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root = os.environ.get("FINERACT_R2_TEST_ROOT")
+        if root:
+            cls.folder = Path(root).resolve()
+            cls.folder.mkdir()
+        else:
+            temporary = TemporaryDirectory()
+            cls.addClassCleanup(temporary.cleanup)
+            cls.folder = Path(temporary.name)
+        cls.git_store = cls.folder / "fixture.git"
+        subprocess.run(["git", "init", "--bare", "--object-format=sha1", cls.git_store],
+                       check=True, capture_output=True)
+        environment = dict(os.environ, GIT_AUTHOR_NAME="Fixture", GIT_COMMITTER_NAME="Fixture",
+                           GIT_AUTHOR_EMAIL="fixture@example.invalid",
+                           GIT_COMMITTER_EMAIL="fixture@example.invalid",
+                           GIT_AUTHOR_DATE="2000-01-01T00:00:00Z",
+                           GIT_COMMITTER_DATE="2000-01-01T00:00:00Z")
+
+        def git(*args, data=None):
+            return subprocess.run(["git", "-C", cls.git_store, *args], input=data, check=True,
+                                  capture_output=True, env=environment).stdout.strip()
+
+        binary = git("hash-object", "-w", "--stdin", data=b"Needle\r\n\x00Needle.")
+        final = git("hash-object", "-w", "--stdin", data=b"row\r\nNeedle")
+        empty = git("hash-object", "-w", "--stdin", data=b"")
+        link = git("hash-object", "-w", "--stdin", data=b"Needle")
+        nested = git("mktree", "-z", data=b"100644 blob " + final + b"\tend-\xff.txt\0")
+        tree = git("mktree", "-z", data=b"".join([
+            b"100644 blob " + binary + b"\tbinary.bin\0",
+            b"100755 blob " + binary + b"\tcopy & [x].bin\0",
+            b"040000 tree " + nested + b"\tnested\0",
+            b"100644 blob " + empty + b"\tempty\0",
+            b"120000 blob " + link + b"\tlink\0",
+        ]))
+        commit = git("commit-tree", tree.decode("ascii"), "-m", "R2 fixture")
+        cls.pin = {"repository": "local/fineract-r2-fixture", "url": cls.git_store.as_uri(),
+                   "object_format": "sha1", "commit": commit.decode("ascii"),
+                   "root_tree": tree.decode("ascii"), "blob_paths": 5, "regular_paths": 4,
+                   "symlinks": 1, "gitlinks": 0}
+        cls.spec = {"contract_version": 2, "snapshot": cls.pin, "distinct_regular_blobs": 3}
+        cls.contract = cls.folder / "contract.json"
+        cls.contract.write_text(json.dumps(cls.spec), encoding="ascii")
+        cls.index = cls.folder / "fixture.sqlite"
+        cls.binary, cls.final, cls.empty = map(bytes.decode, (binary, final, empty))
+        cls.expected = {
+            "binary.bin": (cls.binary, 0, 1),
+            "copy & [x].bin": (cls.binary, 0, 1),
+            "nested/end-\udcff.txt": (cls.final, 5, 2),
+        }
+        build = cls.execute("build", "--git-dir", cls.git_store, "--contract", cls.contract,
+                            "--index", cls.index, "--log-dir", cls.folder / "build-log")
+        if build[0] != 0 or build[1]["status"] != "BUILT":
+            raise AssertionError(build)
+        cls.canonical = cls.folder / "canonical"
+        verified = cls.execute("query-verified", "--git-dir", cls.git_store,
+                               "--contract", cls.contract, "--index", cls.index,
+                               "--literal=Needle", "--output-dir", cls.canonical,
+                               "--log-dir", cls.folder / "canonical-log")
+        if verified[0] != 0 or verified[1]["status"] != "VERIFIED":
+            raise AssertionError(verified)
+        cls.rows = [json.loads(line) for line in (cls.canonical / "answer.jsonl").read_bytes().splitlines()]
+
+    @staticmethod
+    def execute(*args):
+        cmd = [sys.executable, "-B", str(PROJECT / "scripts/fineract_r2.py"), *map(str, args)]
+        run = subprocess.run(cmd, cwd=PROJECT, capture_output=True, timeout=30)
+        return run.returncode, json.loads(run.stdout), run.stderr.decode("utf-8", "replace")
+
+    def search_arguments(self, out, *, index=None, store=None, contract=None, literal="Needle"):
+        return ["query-verified", "--git-dir", str(store or self.git_store),
+                "--contract", str(contract or self.contract), "--index", str(index or self.index),
+                f"--literal={literal}", "--output-dir", str(out), "--log-dir", str(out) + "-log"]
+
+    def reject(self, name, code, status, **kwargs):
+        out = self.folder / name
+        actual_code, result, stderr = self.execute(*self.search_arguments(out, **kwargs))
+        self.assertEqual((actual_code, result["status"]), (code, status), (result, stderr))
+        self.assertFalse(out.exists())
+        self.assertNotIn("count", result)
+        return result
+
+    def changed_index(self, name, statement, parameters=()):
+        copy = self.folder / (name + ".sqlite")
+        shutil.copyfile(self.index, copy)
+        with sqlite3.connect(copy) as db:
+            self.assertEqual(db.execute(statement, parameters).rowcount, 1)
+        return copy
+
+    def assert_bad_format(self, name, rows, trailer=b""):
+        file = self.folder / f"{name}.jsonl"
+        file.write_bytes(b"".join(line if isinstance(line, bytes) else
+                                 (json.dumps(line) + "\n").encode("ascii") for line in rows) + trailer)
+        with self.assertRaises(ResultMismatch):
+            compare(file, self.pin, "Needle", self.expected)
+
+    def test_known_witnesses_and_raw_names(self):
+        answer = self.canonical / "answer.jsonl"
+        by_path = {row["path"]: (row["blob_id"], row["byte_offset"], row["line"])
+                   for row in self.rows[1:-1]}
+        receipt = json.loads((self.canonical / "verification.json").read_bytes())
+        self.assertEqual(by_path, self.expected)
+        self.assertEqual(receipt["status"], "VERIFIED")
+        self.assertEqual(receipt["result_sha256"], sha256(answer.read_bytes()).hexdigest())
+        self.assertEqual(receipt["inventory"]["excluded_symlinks"][0]["path"], "link")
+        self.assertEqual(receipt["inventory"]["regular_paths"], 4)
+        self.assertEqual(receipt["inventory"]["distinct_regular_blobs"], 3)
+        self.assertEqual(scan_git(self.git_store, self.pin, 3, "Needle")[0], self.expected)
+
+    def test_verified_empty(self):
+        out = self.folder / "empty-answer"
+        code, report, _ = self.execute(*self.search_arguments(out, literal="NEEDLE"))
+        self.assertEqual((code, report["status"], report["count"]), (0, "VERIFIED", 0))
+        self.assertEqual(len((out / "answer.jsonl").read_bytes().splitlines()), 2)
+
+    def test_deleted_trigram_reproduces_false_empty_then_rejects(self):
+        copy = self.changed_index("deleted-posting", "DELETE FROM postings WHERE gram=?", (b"Nee",))
+        candidate = self.folder / "r1-false-empty.jsonl"
+        cmd = [sys.executable, "-B", "-m", "repo_proof.git_search", "query",
+               "--contract", str(self.contract), "--index", str(copy), "--literal=Needle",
+               "--output", str(candidate), "--preview", "0"]
+        run = subprocess.run(cmd, cwd=PROJECT, capture_output=True, timeout=30,
+                             env=dict(os.environ, PYTHONPATH=str(PROJECT / "src")))
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual(json.loads(run.stdout)["count"], 0)
+        r2 = self.reject("deleted-posting-answer", 2, "MISMATCH", index=copy)
+        self.assertEqual(r2["reason"], "result omits 3 Git path(s)")
+        (self.folder / "deleted-posting-evidence.json").write_text(json.dumps({
+            "removed_postings": 1, "r1_command": cmd, "r1_exit_code": run.returncode,
+            "r1_count": 0, "git_count": len(self.expected), "r2_exit_code": 2,
+            "r2_status": r2["status"], "r2_published": False,
+        }), encoding="ascii")
+
+    def test_changed_blob_bytes(self):
+        copy = self.changed_index("changed-bytes", "UPDATE blobs SET data=? WHERE oid=?",
+                                  (b"prefix Needle", self.binary))
+        self.reject("wrong-blob-bytes", 2, "MISMATCH", index=copy)
+
+    def test_changed_path_mapping(self):
+        copy = self.changed_index("changed-mapping", "UPDATE paths SET oid=? WHERE path=?",
+                                  (self.empty, b"binary.bin"))
+        self.reject("wrong-path-mapping", 2, "MISMATCH", index=copy)
+
+    def test_missing_git_blob(self):
+        copy = self.folder / "missing-objects.git"
+        parent = self.git_store / "objects" / self.final[:2]
+        shutil.copytree(self.git_store, copy, ignore=lambda folder, names:
+                        [self.final[2:]] if Path(folder) == parent else [])
+        self.reject("missing-blob", 3, "BLOCKED", store=copy)
+
+    def test_wrong_contract_pins(self):
+        for field in ("commit", "root_tree"):
+            with self.subTest(field=field):
+                contract = self.folder / f"wrong-{field}.json"
+                contract.write_text(json.dumps({**self.spec, "snapshot":
+                                               {**self.pin, field: "0" * 40}}), encoding="ascii")
+                code, result, _ = self.execute("build", "--git-dir", self.git_store, "--contract",
+                                               contract, "--index", self.folder / f"wrong-{field}.sqlite")
+                self.assertEqual((code, result["status"]), (3, "BLOCKED"))
+                self.assertFalse((self.folder / f"wrong-{field}.sqlite").exists())
+                with self.assertRaises(SourceUnavailable):
+                    scan_git(self.git_store, {**self.pin, field: "0" * 40}, 3, "Needle")
+
+    def test_invalid_literals(self):
+        for number, literal in enumerate(("", "a\nb", "é", "\x7f")):
+            with self.subTest(literal=literal):
+                self.reject(f"invalid-literal-{number}", 4, "ERROR", literal=literal)
+
+    def test_existing_output(self):
+        out = self.folder / "existing"
+        out.mkdir()
+        marker = out / "keep"
+        marker.write_bytes(b"keep")
+        code, result, _ = self.execute(*self.search_arguments(out))
+        self.assertEqual((code, result["status"]), (4, "ERROR"))
+        self.assertEqual(list(out.iterdir()), [marker])
+        self.assertEqual(marker.read_bytes(), b"keep")
+
+    def test_timeout_does_not_publish(self):
+        out = self.folder / "timeout"
+        code, report, _ = self.execute(*self.search_arguments(out), "--timeout", "0.001")
+        self.assertEqual((code, report["status"]), (4, "ERROR"))
+        self.assertFalse(out.exists())
+        monitor = json.loads((self.folder / "timeout-log/resource-report.json").read_bytes())
+        self.assertEqual((monitor["status"], monitor["remaining_job_processes"]), ("TIMEOUT", 0))
+
+    def test_supervised_interrupt_does_not_publish(self):
+        out = self.folder / "interrupt"
+        stdout = io.StringIO()
+        sleep = time.sleep
+
+        def interrupt(delay):
+            if delay == 0.02:
+                raise KeyboardInterrupt()
+            return sleep(delay)
+
+        with patch.object(stage8_supervise.time, "sleep", side_effect=interrupt), redirect_stdout(stdout):
+            code = cli.main(self.search_arguments(out))
+        self.assertEqual((code, json.loads(stdout.getvalue())["status"]), (4, "ERROR"))
+        self.assertFalse(out.exists())
+        monitor = json.loads((self.folder / "interrupt-log/resource-report.json").read_bytes())
+        self.assertEqual((monitor["status"], monitor["remaining_job_processes"]), ("INTERRUPTED", 0))
+
+    def test_interrupt_mask_at_publication_commit(self):
+        out = self.folder / "commit-interrupt"
+        stdout = io.StringIO()
+        rename = os.rename
+        previous = signal.getsignal(signal.SIGINT)
+
+        def interrupt_after_rename(source, destination):
+            rename(source, destination)
+            if Path(destination) == out:
+                self.assertEqual(signal.getsignal(signal.SIGINT), signal.SIG_IGN)
+                signal.raise_signal(signal.SIGINT)
+
+        with patch.object(cli.os, "rename", side_effect=interrupt_after_rename), redirect_stdout(stdout):
+            code = cli.main(self.search_arguments(out))
+        self.assertEqual((code, json.loads(stdout.getvalue())["status"]), (0, "VERIFIED"))
+        self.assertEqual(signal.getsignal(signal.SIGINT), previous)
+        self.assertTrue((out / "verification.json").exists())
+
+    def test_omitted_and_additional_path(self):
+        self.assert_bad_format("omission", [self.rows[0], *self.rows[2:-1],
+                                           {"type": "complete", "count": 2}])
+        self.assert_bad_format("addition", [*self.rows[:-1], {**self.rows[1], "path": "extra"},
+                                           {"type": "complete", "count": 4}])
+
+    def test_second_occurrence_and_wrong_line(self):
+        self.assert_bad_format("second-offset",
+                               [self.rows[0], {**self.rows[1], "byte_offset": 9, "line": 2},
+                                *self.rows[2:]])
+        self.assert_bad_format("wrong-line", [self.rows[0], {**self.rows[1], "line": 2}, *self.rows[2:]])
+
+    def test_wrong_result_provenance(self):
+        for key in ("commit", "root_tree", "literal", "repository"):
+            with self.subTest(key=key):
+                self.assert_bad_format("header-" + key, [{**self.rows[0], key: "changed"}, *self.rows[1:]])
+        self.assert_bad_format("witness-commit",
+                               [self.rows[0], {**self.rows[1], "commit": "0" * 40}, *self.rows[2:]])
+
+    def test_incomplete_and_invalid_jsonl(self):
+        self.assert_bad_format("no-footer", self.rows[:-1])
+        self.assert_bad_format("invalid-json", [self.rows[0], b'{"bad":\n', *self.rows[2:]])
+        self.assert_bad_format("invalid-utf8", [self.rows[0], b'{"path":"\xff"}\n', *self.rows[2:]])
+        self.assert_bad_format("trailing-data", self.rows, trailer=b"\n")
+        self.assert_bad_format("truncated-footer", [*self.rows[:-1], b'{"count":3,"type":"complete"}'])
+        self.assert_bad_format("incorrect-count", [*self.rows[:-1], {"type": "complete", "count": 4}])
+
+    def test_duplicate_keys_paths_and_wrong_types(self):
+        repeated_key = json.dumps(self.rows[1])[:-1] + ', "line": 1}\n'
+        self.assert_bad_format("duplicate-key", [self.rows[0], repeated_key.encode("ascii"), *self.rows[2:]])
+        self.assert_bad_format("duplicate-path", [*self.rows[:-1], self.rows[1], self.rows[-1]])
+        self.assert_bad_format("boolean-offset", [self.rows[0], {**self.rows[1], "byte_offset": False},
+                                                  *self.rows[2:]])
+        self.assert_bad_format("floating-line", [self.rows[0], {**self.rows[1], "line": 1.0}, *self.rows[2:]])
+        self.assert_bad_format("incomplete-witness", [self.rows[0], {"type": "hit"}, *self.rows[2:]])
+        self.assert_bad_format("wrong-footer-type", [*self.rows[:-1], {"type": "complete", "count": 3.0}])
+
+
+if __name__ == "__main__":
+    unittest.main()

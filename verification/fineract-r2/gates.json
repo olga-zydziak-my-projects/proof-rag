@@ -1,0 +1,24 @@
+{
+  "status": "FINERACT_R2_PASS",
+  "gates": {
+    "public_verified_command": true,
+    "pinned_scope_and_byte_semantics": true,
+    "historical_answers": true,
+    "development_and_final": true,
+    "controlled_mutations_rejected": true,
+    "fail_closed": true,
+    "required_tests": true,
+    "measurement_budget": true,
+    "bound_artifacts_and_code": true,
+    "independent_reviews": true
+  },
+  "unmet_gates": [],
+  "r1_baseline": "c4842d788d11cfa1459c8ab4ad68c78f5bd2b456",
+  "contract_sha256": "972acf547c703020a737bf05a8716b555b8a589291326ba03f30c49a030594c8",
+  "run_report_sha256": "4a916472e275791f5d5c0e3bc8bb4291a1463ff18114b19572643defcd4c5c94",
+  "reviews_sha256": "e7c3d26f61ba208d3fbcb60d1287c301bbea83c1aa5c7637e6d206a0b5d08839",
+  "gate_code_sha256": "468d1905447bf6e02fb0c715056474f7b943e92eaf36d7b8fcc1e6f9f9831f50",
+  "query_runs": 64,
+  "distinct_literals": 48,
+  "tests_passed": 32
+}
