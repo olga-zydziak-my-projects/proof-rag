@@ -1,8 +1,10 @@
 """Exercise project memory across independent invocations of the public CLI."""
 
+from contextlib import closing
 from hashlib import sha256
 import json
 from pathlib import Path
+import sqlite3
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
@@ -13,7 +15,7 @@ CLI = Path(__file__).resolve().parents[1] / "scripts/project_memory.py"
 QUESTION = "które z tych plików są testami?"
 
 
-def write_bundle(folder, project, commit, paths, *, literal="Needle"):
+def write_bundle(folder, project, commit, paths, *, literal="Needle", output_directory=None):
     identity = {"repository": project, "commit": commit}
     snapshot = {**identity, "root_tree": "0" * 40}
     header = {"type": "result", "format": "git-literal-search-v1", **snapshot, "literal": literal}
@@ -22,6 +24,7 @@ def write_bundle(folder, project, commit, paths, *, literal="Needle"):
     rows = [header, *hits, {"type": "complete", "count": len(paths)}]
     answer = "".join(json.dumps(row) + "\n" for row in rows).encode("ascii")
     receipt = {"format": "fineract-r2-verification-v1", "status": "VERIFIED", "snapshot": snapshot,
+               "output_directory": str(folder.resolve() if output_directory is None else output_directory),
                "literal": literal, "result_sha256": sha256(answer).hexdigest(), "count": len(paths)}
     folder.mkdir()
     (folder / "answer.jsonl").write_bytes(answer)
@@ -121,9 +124,10 @@ class ConversationMemoryTests(unittest.TestCase):
         self.assertFalse(result.stdout if code else result.stderr)
         return (result.stderr if code else result.stdout).splitlines()
 
-    def bundle(self, name, literal, paths):
+    def bundle(self, name, literal, paths, *, output_directory=None):
         folder = self.root / name
-        write_bundle(folder, self.repository, self.commit, paths, literal=literal)
+        write_bundle(folder, self.repository, self.commit, paths, literal=literal,
+                     output_directory=output_directory)
         return folder
 
     def assert_tests(self, conversation, literal, paths, total, *, question=QUESTION, cwd=None):
@@ -180,9 +184,9 @@ class ConversationMemoryTests(unittest.TestCase):
 
     def test_stale_artifacts_require_reopening(self):
         original = self.bundle("original", "Needle", ["src/test/Original.java"])
-        replacement = self.bundle("replacement", "Other", ["src/test/Replacement.java"])
+        replacement = self.bundle("replacement", "Other", ["src/test/Replacement.java"],
+                                  output_directory=original.resolve())
         self.run_cli("otwórz-wynik", "--rozmowa", "A", original)
-        self.run_cli("otwórz-wynik", "--rozmowa", "B", replacement)
 
         renamed = self.root / "renamed"
         original.rename(renamed)
@@ -205,11 +209,75 @@ class ConversationMemoryTests(unittest.TestCase):
         for filename in ("answer.jsonl", "verification.json"):
             (original / filename).write_bytes((replacement / filename).read_bytes())
         changed = self.run_cli("zapytaj", "--rozmowa", "A", QUESTION, code=1)[0]
-        self.assertIn("różni się od zapamiętanego", changed)
+        self.assertIn("SHA-256 pliku verification.json różni się od zapamiętanego", changed)
         self.assertIn("otwórz-wynik", changed)
-        self.assert_tests("B", "Other", ["src/test/Replacement.java"], 1)
         self.run_cli("otwórz-wynik", "--rozmowa", "A", original)
         self.assert_tests("A", "Other", ["src/test/Replacement.java"], 1)
+
+    def test_open_requires_publication_by_rename(self):
+        loan_paths = ["modul/src/test/Loan.java", "src/test/LoanDetails.java"]
+        decimal_paths = ["src/test/Decimal.java", "modul/src/test/Rounding.java"]
+        loan = self.bundle("loan", "LoanTransaction", [*loan_paths, "src/main/Loan.java"])
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", loan.name)
+
+        target = self.root / "decimal"
+        (self.root / "work").mkdir()
+        staged = self.bundle("work/bundle", "BigDecimal", [*decimal_paths, "src/main/Decimal.java"],
+                             output_directory=target.resolve())
+        artifacts = ("answer.jsonl", "verification.json")
+        staged_bytes = [(staged / name).read_bytes() for name in artifacts]
+        self.assertFalse(target.exists())
+        rejected = self.run_cli("otwórz-wynik", "--rozmowa", "A", staged, code=1)[0]
+        self.assertIn("nie jest opublikowanym katalogiem R2", rejected)
+        self.assertIn("output_directory", rejected)
+        self.assert_tests("A", "LoanTransaction", loan_paths, 3)
+
+        staged.rename(target)
+        self.assertEqual([(target / name).read_bytes() for name in artifacts], staged_bytes)
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", target.name)
+        self.assert_tests("A", "BigDecimal", decimal_paths, 3)
+
+    def test_publication_directory_must_be_an_absolute_path(self):
+        paths = ["src/test/A.java"]
+        folder = self.bundle("result", "Needle", paths)
+        receipt_file = folder / "verification.json"
+        receipt = json.loads(receipt_file.read_bytes())
+        del receipt["output_directory"]
+        invalid_fields = [
+            {}, {"output_directory": None}, {"output_directory": 42},
+            {"output_directory": ""}, {"output_directory": folder.name},
+        ]
+        if sys.platform == "win32":
+            invalid_fields.extend([{"output_directory": f"{folder.drive}{folder.name}"},
+                                   {"output_directory": str(folder)[len(folder.drive):]}])
+        for field in invalid_fields:
+            with self.subTest(field=field):
+                receipt_file.write_text(json.dumps(receipt | field), encoding="ascii")
+                rejected = self.run_cli("otwórz-wynik", "--rozmowa", "A", folder, code=1)[0]
+                self.assertIn("output_directory", rejected)
+                self.assertIn("bezwzględną ścieżkę", rejected)
+        self.assertFalse(self.database.exists())
+
+        target = folder.resolve()
+        if sys.platform == "win32":
+            target = target.with_name(target.name.upper())
+        receipt_file.write_text(json.dumps(receipt | {"output_directory": target.as_posix() + "/"}),
+                                encoding="ascii")
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", folder.name)
+        self.assert_tests("A", "Needle", paths, 1)
+
+    def test_resume_rejects_working_directory_remembered_by_older_cli(self):
+        target = self.bundle("target", "Needle", ["src/test/Old.java"])
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", target)
+        staged = self.root / "work"
+        target.rename(staged)
+        with closing(sqlite3.connect(self.database)) as db, db:
+            db.execute("UPDATE active_results SET folder = ? WHERE conversation = 'A'", (str(staged.resolve()),))
+
+        rejected = self.run_cli("zapytaj", "--rozmowa", "A", QUESTION, code=1)[0]
+        self.assertIn("nie jest opublikowanym katalogiem R2", rejected)
+        self.assertIn("output_directory", rejected)
+        self.assertIn("otwórz-wynik", rejected)
 
     def test_open_validates_before_replacing_active_result(self):
         paths = ["src/test/Retained.java"]

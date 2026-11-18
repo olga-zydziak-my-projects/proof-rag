@@ -35,6 +35,11 @@ Przykład używa zachowanych wyników `LoanTransaction` i `BigDecimal`.
 Jeśli katalogów brakuje, opublikuj oba wyniki w osobnych katalogach i wskaż ich
 ścieżki w `$r2Answer` i `$r2Other`. [Instrukcja Fineract R2](fineract-r2-usage.md)
 
+Po publikacji uruchom `otwórz-wynik` i wskaż katalog docelowy użyty w
+`query-verified --output-dir`. Możesz podać ścieżkę względną. Pole
+`output_directory` w `verification.json` musi wskazywać ten sam katalog
+bezwzględną ścieżką. `zapytaj` sprawdza tę lokalizację również przy wznowieniu.
+
 ```powershell
 $r2Answer = 'local/fineract-r2/run-02/historical/01-03/answer'
 $r2Other = 'local/fineract-r2/run-02/historical/01-04/answer'

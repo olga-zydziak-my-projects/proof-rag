@@ -50,7 +50,20 @@ def project_preference(db_path, project, enabled=None):
         return db.execute("SELECT 1 FROM preferences WHERE project = ?", (project,)).fetchone() is not None
 
 
-def read_verified_result(folder, *, expected_answer=None, expected_verification=None):
+def check_published_directory(folder, output_directory):
+    if (not isinstance(output_directory, str) or "\0" in output_directory
+            or not Path(output_directory).is_absolute()):
+        raise ValueError("pole output_directory w verification.json musi zawierać bezwzględną ścieżkę katalogu")
+    target = Path(output_directory)
+    try:
+        published = folder.samefile(target)
+    except (FileNotFoundError, NotADirectoryError):
+        published = False
+    if not published:
+        raise ValueError(f"katalog {folder} nie jest opublikowanym katalogiem R2 z pola output_directory ({target})")
+
+
+def read_verified_result(folder, *, require_published=False, expected_answer=None, expected_verification=None):
     receipt_bytes = (folder / "verification.json").read_bytes()
     verification_hash = sha256(receipt_bytes).hexdigest()
     if expected_verification is not None and verification_hash != expected_verification:
@@ -60,6 +73,8 @@ def read_verified_result(folder, *, expected_answer=None, expected_verification=
         raise ValueError("niepoprawny format pliku verification.json")
     if receipt["status"] != "VERIFIED":
         raise ValueError("potwierdzenie R2 musi mieć status VERIFIED")
+    if require_published:
+        check_published_directory(folder, receipt.get("output_directory"))
     answer = (folder / "answer.jsonl").read_bytes()
     answer_hash = sha256(answer).hexdigest()
     if expected_answer is not None and answer_hash != expected_answer:
@@ -134,7 +149,7 @@ def resume_result(db_path, conversation):
         raise ValueError(f"Rozmowa {conversation!r} nie ma aktywnego wyniku. {reopen}")
     folder, repository, commit, literal, answer_hash, verification_hash = active
     try:
-        result = read_verified_result(Path(folder), expected_answer=answer_hash,
+        result = read_verified_result(Path(folder), require_published=True, expected_answer=answer_hash,
                                       expected_verification=verification_hash)
         if (result.repository, result.commit, result.literal) != (repository, commit, literal):
             raise ValueError("repozytorium, commit lub literał różni się od zapamiętanego")
@@ -211,7 +226,7 @@ def main(argv=None):
             show_result(result.paths, project_preference(args.db, result.repository))
         elif args.command == "otwórz-wynik":
             folder = args.katalog.resolve()
-            result = read_verified_result(folder)
+            result = read_verified_result(folder, require_published=True)
             save_active_result(args.db, args.rozmowa, folder, result)
             print(f"Otwarto wynik {result.repository} — literał {result.literal!r} — pliki ({len(result.paths)})")
         elif args.command == "zapytaj":
