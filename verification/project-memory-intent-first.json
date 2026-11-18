@@ -1,0 +1,2156 @@
+{
+  "status": "complete",
+  "model": "claude-haiku-5-5",
+  "pricing": {
+    "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "checked": "2026-11-18",
+    "model": "claude-haiku-5-5",
+    "long_input_threshold": 100000,
+    "regular": [
+      100,
+      500
+    ],
+    "long": [
+      500,
+      2500
+    ]
+  },
+  "rows": [
+    {
+      "id": "P01",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "Daj mi same ścieżki do testów z tego wyniku.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2494233000325039,
+        "estimated_input_tokens": 451,
+        "paid_attempt": true,
+        "api_seconds": 0.8831529999733903,
+        "response": {
+          "id": "msg_011ChAQs7sRYonv7uNR8Apbs",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 451,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.0044433000148274004
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.4396835999796167,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 49100,
+      "cost_usd": "0.000049100"
+    },
+    {
+      "id": "P01",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "Daj mi same ścieżki do testów z tego wyniku.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.4086974000092596,
+        "estimated_input_tokens": 640,
+        "paid_attempt": true,
+        "api_seconds": 0.9269733999972232,
+        "response": {
+          "id": "msg_011ChAQsbEhzoN3wV3Vs4rH4",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 640,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.005343800003174692
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 7.438483100035228,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 81000,
+      "cost_usd": "0.000081000"
+    },
+    {
+      "id": "P02",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "Wyłuskaj z tej zbieraniny testy i wypisz ich pliki.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.27139840001473203,
+        "estimated_input_tokens": 648,
+        "paid_attempt": true,
+        "api_seconds": 0.7459725000080653,
+        "response": {
+          "id": "msg_011ChAQt7i2StH9FUp9SWtmm",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 648,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.0077040999894961715
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 6.957953799981624,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 81800,
+      "cost_usd": "0.000081800"
+    },
+    {
+      "id": "P02",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "Wyłuskaj z tej zbieraniny testy i wypisz ich pliki.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.28639650001423433,
+        "estimated_input_tokens": 459,
+        "paid_attempt": true,
+        "api_seconds": 0.722734400012996,
+        "response": {
+          "id": "msg_011ChAQtMms3Xke3MzK1J8hJ",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 459,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.007044700032565743
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.3649617999908514,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 49900,
+      "cost_usd": "0.000049900"
+    },
+    {
+      "id": "P03",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "A z tych trafień, co leży w katalogach src/test/?",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2568139999639243,
+        "estimated_input_tokens": 450,
+        "paid_attempt": true,
+        "api_seconds": 0.6981941999983974,
+        "response": {
+          "id": "msg_011ChAQtXheh46NNCHJDd7AE",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 450,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.004655299999285489
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.3032318000332452,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 49000,
+      "cost_usd": "0.000049000"
+    },
+    {
+      "id": "P03",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "A z tych trafień, co leży w katalogach src/test/?",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2830674999859184,
+        "estimated_input_tokens": 639,
+        "paid_attempt": true,
+        "api_seconds": 1.2769341000239365,
+        "response": {
+          "id": "msg_011ChAQtyWBho5NBEXFSHd2S",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 639,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.005226799985393882
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 7.477845899993554,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 80900,
+      "cost_usd": "0.000080900"
+    },
+    {
+      "id": "P04",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "Pokaż, które pozycje na tej liście to pliki testowe.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2842024000128731,
+        "estimated_input_tokens": 642,
+        "paid_attempt": true,
+        "api_seconds": 0.7887186000007205,
+        "response": {
+          "id": "msg_011ChAQuXGPgn8ZkzPE6QxmD",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 642,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.007321800047066063
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 6.954280700010713,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 81200,
+      "cost_usd": "0.000081200"
+    },
+    {
+      "id": "P04",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "Pokaż, które pozycje na tej liście to pliki testowe.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2590878000482917,
+        "estimated_input_tokens": 453,
+        "paid_attempt": true,
+        "api_seconds": 0.7536372000467964,
+        "response": {
+          "id": "msg_011ChAQukxAE5VVp3VGs7a4x",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 453,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.007354300003498793
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.274374299973715,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 49300,
+      "cost_usd": "0.000049300"
+    },
+    {
+      "id": "P05",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "Które pliki z ostatniego wyniku należą do testów?",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.28106609999667853,
+        "estimated_input_tokens": 450,
+        "paid_attempt": true,
+        "api_seconds": 0.7179112000158057,
+        "response": {
+          "id": "msg_011ChAQuvmWp7LTitjda7dTR",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 450,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.004276099964044988
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.2379040000378154,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 49000,
+      "cost_usd": "0.000049000"
+    },
+    {
+      "id": "P05",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "Które pliki z ostatniego wyniku należą do testów?",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2816095000016503,
+        "estimated_input_tokens": 639,
+        "paid_attempt": true,
+        "api_seconds": 0.8436204000026919,
+        "response": {
+          "id": "msg_011ChAQvNjiAjGt6ioee2cPq",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 639,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.005196899990551174
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 7.130230200011283,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 80900,
+      "cost_usd": "0.000080900"
+    },
+    {
+      "id": "P06",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "Podeślij z otwartego wyniku namiary na wszystkie pliki testowe.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.26264019997324795,
+        "estimated_input_tokens": 648,
+        "paid_attempt": true,
+        "api_seconds": 0.7543617999763228,
+        "response": {
+          "id": "msg_011ChAQvuJUkt83WQ4cTYEdv",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 648,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.007674199994653463
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 7.025560599984601,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 81800,
+      "cost_usd": "0.000081800"
+    },
+    {
+      "id": "P06",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "Podeślij z otwartego wyniku namiary na wszystkie pliki testowe.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2791613999870606,
+        "estimated_input_tokens": 459,
+        "paid_attempt": true,
+        "api_seconds": 0.7190818000235595,
+        "response": {
+          "id": "msg_011ChAQw93yKHYvLbu9UHMCH",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 459,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.006788600003346801
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.2721119999769144,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 49900,
+      "cost_usd": "0.000049900"
+    },
+    {
+      "id": "P07",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "Bez produkcyjnych, poproszę tylko listę testowych z tych trafień.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2770248000160791,
+        "estimated_input_tokens": 459,
+        "paid_attempt": true,
+        "api_seconds": 0.7168495999649167,
+        "response": {
+          "id": "msg_011ChAQwJmNFudMjkeGDpGwD",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 459,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.004395199997816235
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.2552843999583274,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 49900,
+      "cost_usd": "0.000049900"
+    },
+    {
+      "id": "P07",
+      "conversation": "A",
+      "expected": "show_test_paths",
+      "question": "Bez produkcyjnych, poproszę tylko listę testowych z tych trafień.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.25221350003266707,
+        "estimated_input_tokens": 648,
+        "paid_attempt": true,
+        "api_seconds": 0.7790782999945804,
+        "response": {
+          "id": "msg_011ChAQwjX9ebLcBWfcDsPD5",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 648,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.004772500018589199
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 6.725552599993534,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "7474ab839f5a9009c94aaaea94ffd5c3aa162ac62baf420967bbf8f0ea7ef60b",
+        "stderr": ""
+      },
+      "cost_nanos": 81800,
+      "cost_usd": "0.000081800"
+    },
+    {
+      "id": "P08",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "A które z tych plików siedzą pod src/test? Wypisz je.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.27416460000677034,
+        "estimated_input_tokens": 642,
+        "paid_attempt": true,
+        "api_seconds": 0.7328288000426255,
+        "response": {
+          "id": "msg_011ChAQxEpFywEGYmkBP3BhK",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nshow_test_paths\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 642,
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.007414499996230006
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 6.856672400026582,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 81200,
+      "cost_usd": "0.000081200"
+    },
+    {
+      "id": "P08",
+      "conversation": "B",
+      "expected": "show_test_paths",
+      "question": "A które z tych plików siedzą pod src/test? Wypisz je.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.257957499998156,
+        "estimated_input_tokens": 453,
+        "paid_attempt": true,
+        "api_seconds": 0.7274869999964722,
+        "response": {
+          "id": "msg_011ChAQxUWn42u7HxzoZssEH",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "show_test_paths",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 453,
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "show_test_paths",
+        "application": "showed_paths",
+        "local_seconds": 0.007176100043579936
+      },
+      "application": {
+        "status": "showed_paths",
+        "return_code": 0,
+        "seconds": 2.3283905000425875,
+        "issued_list": true,
+        "false_release": false,
+        "full_list_matched": true,
+        "stdout_sha256": "c0d619f21336a4734d9d3979e02bf6ebc1fcf5275090d4838cd6f95b6a805422",
+        "stderr": ""
+      },
+      "cost_nanos": 49300,
+      "cost_usd": "0.000049300"
+    },
+    {
+      "id": "P09",
+      "conversation": "A",
+      "expected": "clarify",
+      "question": "I co z tymi plikami?",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2893725000321865,
+        "estimated_input_tokens": 439,
+        "paid_attempt": true,
+        "api_seconds": 0.7172299000085331,
+        "response": {
+          "id": "msg_011ChAQxeTKC9J2rGa94JprV",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "clarify",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 439,
+            "output_tokens": 5,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 2.2667529999744147,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 46400,
+      "cost_usd": "0.000046400"
+    },
+    {
+      "id": "P09",
+      "conversation": "A",
+      "expected": "clarify",
+      "question": "I co z tymi plikami?",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.24871600000187755,
+        "estimated_input_tokens": 628,
+        "paid_attempt": true,
+        "api_seconds": 0.7302487999550067,
+        "response": {
+          "id": "msg_011ChAQy5VxAY3jC5WUGLFeN",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nclarify\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 628,
+            "output_tokens": 31,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 6.750289999996312,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 78300,
+      "cost_usd": "0.000078300"
+    },
+    {
+      "id": "P10",
+      "conversation": "B",
+      "expected": "clarify",
+      "question": "Dasz mi z tej listy te właściwe?",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.24692360003245994,
+        "estimated_input_tokens": 635,
+        "paid_attempt": true,
+        "api_seconds": 0.7286856999853626,
+        "response": {
+          "id": "msg_011ChAQybeBRpWNBBHPVKhML",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nclarify\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 635,
+            "output_tokens": 31,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 7.054066999990027,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 79000,
+      "cost_usd": "0.000079000"
+    },
+    {
+      "id": "P10",
+      "conversation": "B",
+      "expected": "clarify",
+      "question": "Dasz mi z tej listy te właściwe?",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.27845519996481016,
+        "estimated_input_tokens": 446,
+        "paid_attempt": true,
+        "api_seconds": 0.7346711999853142,
+        "response": {
+          "id": "msg_011ChAQyqTPM6UqccdDHrixT",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "clarify",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 446,
+            "output_tokens": 5,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 2.324710499960929,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 47100,
+      "cost_usd": "0.000047100"
+    },
+    {
+      "id": "P11",
+      "conversation": "A",
+      "expected": "clarify",
+      "question": "No dobra, a w sprawie testów?",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.24895869998726994,
+        "estimated_input_tokens": 443,
+        "paid_attempt": true,
+        "api_seconds": 0.6836181000107899,
+        "response": {
+          "id": "msg_011ChAQz1KTmApSmVxzv3zvg",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "clarify",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 443,
+            "output_tokens": 5,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 2.271079499972984,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 46800,
+      "cost_usd": "0.000046800"
+    },
+    {
+      "id": "P11",
+      "conversation": "A",
+      "expected": "clarify",
+      "question": "No dobra, a w sprawie testów?",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.26767949998611584,
+        "estimated_input_tokens": 632,
+        "paid_attempt": true,
+        "api_seconds": 0.7682366000371985,
+        "response": {
+          "id": "msg_011ChAQzUSrsZvsEU1A52S8X",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nclarify\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 632,
+            "output_tokens": 31,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 7.350479900022037,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 78700,
+      "cost_usd": "0.000078700"
+    },
+    {
+      "id": "P12",
+      "conversation": "B",
+      "expected": "clarify",
+      "question": "Wypisz tylko te, które mam na myśli.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2447060000267811,
+        "estimated_input_tokens": 636,
+        "paid_attempt": true,
+        "api_seconds": 0.7931554999668151,
+        "response": {
+          "id": "msg_011ChAQzzJDg42qbwsJFQMuW",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nclarify\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 636,
+            "output_tokens": 31,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 7.0566885999869555,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 79100,
+      "cost_usd": "0.000079100"
+    },
+    {
+      "id": "P12",
+      "conversation": "B",
+      "expected": "clarify",
+      "question": "Wypisz tylko te, które mam na myśli.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2708242000080645,
+        "estimated_input_tokens": 447,
+        "paid_attempt": true,
+        "api_seconds": 0.7399211000301875,
+        "response": {
+          "id": "msg_011ChAR1EhQMyuaQq8U3rXYw",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "clarify",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 447,
+            "output_tokens": 5,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "clarify",
+        "application": "asked_for_clarification"
+      },
+      "application": {
+        "status": "asked_for_clarification",
+        "return_code": 0,
+        "seconds": 2.3245246000005864,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "a48777a3c6946122adcc67bedf6656eeedb70d7a6df863593bcdc8ad9cb21fcb",
+        "stderr": ""
+      },
+      "cost_nanos": 47200,
+      "cost_usd": "0.000047200"
+    },
+    {
+      "id": "P13",
+      "conversation": "A",
+      "expected": "unsupported",
+      "question": "Nie pokazuj plików testowych, daj mi całą resztę.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2693993999855593,
+        "estimated_input_tokens": 453,
+        "paid_attempt": true,
+        "api_seconds": 0.7473063999786973,
+        "response": {
+          "id": "msg_011ChAR1QdhdDbLVQQqDGw9t",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "unsupported",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 453,
+            "output_tokens": 6,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 2.308896000031382,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 48300,
+      "cost_usd": "0.000048300"
+    },
+    {
+      "id": "P13",
+      "conversation": "A",
+      "expected": "unsupported",
+      "question": "Nie pokazuj plików testowych, daj mi całą resztę.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2786506999982521,
+        "estimated_input_tokens": 642,
+        "paid_attempt": true,
+        "api_seconds": 1.0576311000040732,
+        "response": {
+          "id": "msg_011ChAR1r1w3fkj25hmz3fCS",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nunsupported\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 642,
+            "output_tokens": 32,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 7.126739600033034,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 80200,
+      "cost_usd": "0.000080200"
+    },
+    {
+      "id": "P14",
+      "conversation": "B",
+      "expected": "unsupported",
+      "question": "Które testy się wywaliły przy ostatnim uruchomieniu?",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.281968199997209,
+        "estimated_input_tokens": 643,
+        "paid_attempt": true,
+        "api_seconds": 0.8569774000206962,
+        "response": {
+          "id": "msg_011ChAR2P7h84b6WbFUnRNRP",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nunsupported\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 643,
+            "output_tokens": 32,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 7.032988800026942,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 80300,
+      "cost_usd": "0.000080300"
+    },
+    {
+      "id": "P14",
+      "conversation": "B",
+      "expected": "unsupported",
+      "question": "Które testy się wywaliły przy ostatnim uruchomieniu?",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.27257919998373836,
+        "estimated_input_tokens": 454,
+        "paid_attempt": true,
+        "api_seconds": 0.74739520001458,
+        "response": {
+          "id": "msg_011ChAR2dFzjRnSHnvbuVoPS",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "unsupported",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 454,
+            "output_tokens": 6,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 2.352511400007643,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 48400,
+      "cost_usd": "0.000048400"
+    },
+    {
+      "id": "P15",
+      "conversation": "A",
+      "expected": "unsupported",
+      "question": "Ile jest plików testowych? Wystarczy mi liczba.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2741315999883227,
+        "estimated_input_tokens": 452,
+        "paid_attempt": true,
+        "api_seconds": 0.7670762999914587,
+        "response": {
+          "id": "msg_011ChAR2o8p2z1SPsrqBMnEN",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "unsupported",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 452,
+            "output_tokens": 6,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 2.301517099956982,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 48200,
+      "cost_usd": "0.000048200"
+    },
+    {
+      "id": "P15",
+      "conversation": "A",
+      "expected": "unsupported",
+      "question": "Ile jest plików testowych? Wystarczy mi liczba.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.27617110003484413,
+        "estimated_input_tokens": 641,
+        "paid_attempt": true,
+        "api_seconds": 0.7931447000009939,
+        "response": {
+          "id": "msg_011ChAR3E2XDQoC9yemMY1qe",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nunsupported\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 641,
+            "output_tokens": 32,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 6.7433349000057206,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 80100,
+      "cost_usd": "0.000080100"
+    },
+    {
+      "id": "P16",
+      "conversation": "B",
+      "expected": "unsupported",
+      "question": "Wklej zawartość tych plików testowych.",
+      "variant": "dspy",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2514113000361249,
+        "estimated_input_tokens": 634,
+        "paid_attempt": true,
+        "api_seconds": 0.7665060000144877,
+        "response": {
+          "id": "msg_011ChAR3jCTM1pVoapy6hYD9",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "[[ ## decision ## ]]\nunsupported\n\n[[ ## completed ## ]]",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 634,
+            "output_tokens": 32,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 6.781971899967175,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 79400,
+      "cost_usd": "0.000079400"
+    },
+    {
+      "id": "P16",
+      "conversation": "B",
+      "expected": "unsupported",
+      "question": "Wklej zawartość tych plików testowych.",
+      "variant": "claude",
+      "state": "finished",
+      "model_evidence": {
+        "count_seconds": 0.2677728999988176,
+        "estimated_input_tokens": 445,
+        "paid_attempt": true,
+        "api_seconds": 0.9943224000162445,
+        "response": {
+          "id": "msg_011ChAR3xh4rid3GA1Y6oxC1",
+          "container": null,
+          "content": [
+            {
+              "citations": null,
+              "text": "unsupported",
+              "type": "text"
+            }
+          ],
+          "diagnostics": null,
+          "model": "claude-haiku-5-5",
+          "role": "assistant",
+          "stop_details": null,
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "type": "message",
+          "usage": {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "inference_geo": "global",
+            "input_tokens": 445,
+            "output_tokens": 6,
+            "output_tokens_details": {
+              "thinking_tokens": 0
+            },
+            "server_tool_use": null,
+            "service_tier": "standard",
+            "speed": "standard"
+          }
+        },
+        "decision": "unsupported",
+        "application": "explained_scope"
+      },
+      "application": {
+        "status": "explained_scope",
+        "return_code": 0,
+        "seconds": 2.5139207000029273,
+        "issued_list": false,
+        "false_release": false,
+        "full_list_matched": null,
+        "stdout_sha256": "365d6cf298b7a75d371b07a0ac8d5c32a76c6cd4b0e58dfa72c22a5da1e062b2",
+        "stderr": ""
+      },
+      "cost_nanos": 47500,
+      "cost_usd": "0.000047500"
+    }
+  ],
+  "planned_attempts": 32,
+  "limit_usd": "1.000000000",
+  "planned_upper_bound_usd": "0.269824000",
+  "per_attempt_reservation_usd": "0.008432000",
+  "max_output_tokens": 96,
+  "input_token_reserve": 16384,
+  "source_sha256": {
+    "scripts/project_memory.py": "3ef1376083286322acbc9c8925290485f15d4f012fa87c340579c714c70deaef",
+    "verification/project-memory-intent-questions.json": "5720c3cb78708606b63dcbdf823f49a37b7d5c04fc32b902ccd58ce9977b4d23",
+    "scripts/evaluate_project_memory_intent.py": "be98c91cb48415ceb216cb63d308411068e5ce55de6d926c3a780bcc116a90cc",
+    "src/repo_proof/memory_intent.py": "296096290df0258cdde514ccadfd232916c4cb2597ea278f20cd7bb1ac85e77a",
+    "requirements-project-memory-intent.txt": "8a4c3165dc7a8e6f57219c67fae79c45def41e63a648c953a7d3e18a102c4890"
+  },
+  "model_confirmed": "claude-haiku-5-5",
+  "versions": {
+    "python": "3.12.10",
+    "anthropic": "2.8.0",
+    "dspy": "3.2.1",
+    "litellm": "1.110.0"
+  },
+  "r2_artifact_sha256": {
+    "A": {
+      "answer.jsonl": "2ca68a3b97b073c866e29bc34ba27725f247cdded453adb1f6dacc3609500a49",
+      "verification.json": "cd60742d293c43e4fd938adeaf21fd8ebb51830d42708b1044f1766a4b752ab1"
+    },
+    "B": {
+      "answer.jsonl": "d67dcaf5d698e15ddaf0e33b577790b9607cef51b55d4957df11c145b0350ccc",
+      "verification.json": "54212097e48250e3fb47ff05818fb9b6b07ab38605af4cf4ecf6a4f784f1b0be"
+    }
+  },
+  "reservations": 32,
+  "charged_or_reserved_usd": "0.002061000",
+  "summaries": {
+    "claude": {
+      "attempted": 16,
+      "correct_decisions": 16,
+      "incorrect_or_missing": [],
+      "false_releases": 0,
+      "complete_lists_matched": 8,
+      "billed_usage_rows": 16,
+      "reported_input_tokens": 7213,
+      "reported_output_tokens": 108,
+      "reported_cost_usd": "0.000775300",
+      "full_seconds": {
+        "n": 16,
+        "median": 2.3060639000323135,
+        "min": 2.2379040000378154,
+        "max": 2.5139207000029273
+      },
+      "api_seconds": {
+        "n": 16,
+        "median": 0.7310790999908932,
+        "min": 0.6836181000107899,
+        "max": 0.9943224000162445
+      },
+      "count_seconds": {
+        "n": 16,
+        "median": 0.27170169999590144,
+        "min": 0.24895869998726994,
+        "max": 0.2893725000321865
+      },
+      "local_seconds": {
+        "n": 8,
+        "median": 0.005721950001316145,
+        "min": 0.004276099964044988,
+        "max": 0.007354300003498793
+      }
+    },
+    "dspy": {
+      "attempted": 16,
+      "correct_decisions": 16,
+      "incorrect_or_missing": [],
+      "false_releases": 0,
+      "complete_lists_matched": 8,
+      "billed_usage_rows": 16,
+      "reported_input_tokens": 10237,
+      "reported_output_tokens": 524,
+      "reported_cost_usd": "0.001285700",
+      "full_seconds": {
+        "n": 16,
+        "median": 7.029274700005772,
+        "min": 6.725552599993534,
+        "max": 7.477845899993554
+      },
+      "api_seconds": {
+        "n": 16,
+        "median": 0.7838984499976505,
+        "min": 0.7286856999853626,
+        "max": 1.2769341000239365
+      },
+      "count_seconds": {
+        "n": 16,
+        "median": 0.2727815000107512,
+        "min": 0.2447060000267811,
+        "max": 0.4086974000092596
+      },
+      "local_seconds": {
+        "n": 8,
+        "median": 0.0063328000251203775,
+        "min": 0.004772500018589199,
+        "max": 0.0077040999894961715
+      }
+    }
+  }
+}

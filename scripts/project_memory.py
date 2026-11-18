@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import sqlite3
 import sys
+from time import perf_counter
 
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,7 @@ sys.path.insert(0, str(PROJECT / "src"))
 
 from repo_proof.fineract_oracle import strict_json
 from repo_proof.git_search import RESULT_FORMAT
+from repo_proof.memory_intent import InterpretationError, interpret_question
 
 
 DEFAULT_DB = PROJECT / "local/project-memory/preferences.sqlite3"
@@ -199,6 +201,35 @@ def nonempty_conversation(value):
     return value
 
 
+def ask_question(args, evidence):
+    if args.interpreter == "local":
+        if args.pytanie.strip().casefold() not in (TEST_QUESTION, f"a {TEST_QUESTION}"):
+            raise ValueError(f"Obsługiwane pytanie: {TEST_QUESTION}")
+        decision = "show_test_paths"
+    else:
+        decision = interpret_question(args.interpreter, args.pytanie, evidence)
+    evidence["decision"] = decision
+    if decision == "clarify":
+        print("Czy chodzi o listę plików testowych z aktywnego wyniku rozmowy?")
+        evidence["application"] = "asked_for_clarification"
+        return
+    if decision == "unsupported":
+        print("Mogę pokazać listę plików spod src/test/ z aktywnego wyniku rozmowy.")
+        evidence["application"] = "explained_scope"
+        return
+
+    started = perf_counter()
+    evidence["application"] = "active_result_error"
+    try:
+        result = resume_result(args.db, args.rozmowa)
+        tests = [path for path in result.paths if is_test_path(path)]
+    finally:
+        evidence["local_seconds"] = perf_counter() - started
+    print(f"Repozytorium: {result.repository}\nCommit: {result.commit}\nLiterał: {result.literal}")
+    print_paths("Pliki pod src/test/", tests, total=len(result.paths))
+    evidence["application"] = "showed_paths"
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--db", type=Path, default=DEFAULT_DB,
@@ -218,8 +249,13 @@ def main(argv=None):
         command.add_argument("--rozmowa", type=nonempty_conversation, required=True)
     open_result.add_argument("katalog", type=Path)
     ask.add_argument("pytanie")
+    ask.add_argument("--interpreter", choices=("local", "claude", "dspy"), default="local",
+                     help="opcjonalny tryb Claude lub DSPy wysyła pytanie do Anthropic API")
+    ask.add_argument("--measurement", type=Path, help="nowy plik JSON z pomiarem próby")
     args = parser.parse_args(argv)
 
+    evidence = {}
+    measurement = None
     try:
         if args.command == "pokaż-wynik":
             result = read_verified_result(args.katalog)
@@ -230,12 +266,9 @@ def main(argv=None):
             save_active_result(args.db, args.rozmowa, folder, result)
             print(f"Otwarto wynik {result.repository} — literał {result.literal!r} — pliki ({len(result.paths)})")
         elif args.command == "zapytaj":
-            if args.pytanie.strip().casefold() not in (TEST_QUESTION, f"a {TEST_QUESTION}"):
-                raise ValueError(f"Obsługiwane pytanie: {TEST_QUESTION}")
-            result = resume_result(args.db, args.rozmowa)
-            print(f"Repozytorium: {result.repository}\nCommit: {result.commit}\nLiterał: {result.literal}")
-            tests = [path for path in result.paths if is_test_path(path)]
-            print_paths("Pliki pod src/test/", tests, total=len(result.paths))
+            if args.measurement:
+                measurement = args.measurement.open("x", encoding="utf-8")
+            ask_question(args, evidence)
         else:
             enabled = {"zapamiętaj": True, "zapomnij": False}.get(args.command)
             remembered = project_preference(args.db, args.project, enabled)
@@ -245,9 +278,18 @@ def main(argv=None):
                 print(f"{args.project} — {PREFERENCE}")
             else:
                 print("Brak zapisanych preferencji")
-    except (OSError, ValueError, TypeError, KeyError, RecursionError, sqlite3.Error) as exc:
+    except InterpretationError as exc:
+        evidence["application"] = exc.kind
         print(f"Błąd: {exc}", file=sys.stderr)
         return 1
+    except (OSError, ValueError, TypeError, KeyError, RecursionError, sqlite3.Error) as exc:
+        evidence.setdefault("application", "error")
+        print(f"Błąd: {exc}", file=sys.stderr)
+        return 1
+    finally:
+        if measurement is not None:
+            with measurement:
+                json.dump(evidence, measurement, ensure_ascii=True, indent=2)
     return 0
 
 

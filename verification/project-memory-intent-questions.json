@@ -1,0 +1,18 @@
+[
+  {"id":"P01","conversation":"A","expected":"show_test_paths","question":"Daj mi same ścieżki do testów z tego wyniku."},
+  {"id":"P02","conversation":"B","expected":"show_test_paths","question":"Wyłuskaj z tej zbieraniny testy i wypisz ich pliki."},
+  {"id":"P03","conversation":"A","expected":"show_test_paths","question":"A z tych trafień, co leży w katalogach src/test/?"},
+  {"id":"P04","conversation":"B","expected":"show_test_paths","question":"Pokaż, które pozycje na tej liście to pliki testowe."},
+  {"id":"P05","conversation":"A","expected":"show_test_paths","question":"Które pliki z ostatniego wyniku należą do testów?"},
+  {"id":"P06","conversation":"B","expected":"show_test_paths","question":"Podeślij z otwartego wyniku namiary na wszystkie pliki testowe."},
+  {"id":"P07","conversation":"A","expected":"show_test_paths","question":"Bez produkcyjnych, poproszę tylko listę testowych z tych trafień."},
+  {"id":"P08","conversation":"B","expected":"show_test_paths","question":"A które z tych plików siedzą pod src/test? Wypisz je."},
+  {"id":"P09","conversation":"A","expected":"clarify","question":"I co z tymi plikami?"},
+  {"id":"P10","conversation":"B","expected":"clarify","question":"Dasz mi z tej listy te właściwe?"},
+  {"id":"P11","conversation":"A","expected":"clarify","question":"No dobra, a w sprawie testów?"},
+  {"id":"P12","conversation":"B","expected":"clarify","question":"Wypisz tylko te, które mam na myśli."},
+  {"id":"P13","conversation":"A","expected":"unsupported","question":"Nie pokazuj plików testowych, daj mi całą resztę."},
+  {"id":"P14","conversation":"B","expected":"unsupported","question":"Które testy się wywaliły przy ostatnim uruchomieniu?"},
+  {"id":"P15","conversation":"A","expected":"unsupported","question":"Ile jest plików testowych? Wystarczy mi liczba."},
+  {"id":"P16","conversation":"B","expected":"unsupported","question":"Wklej zawartość tych plików testowych."}
+]

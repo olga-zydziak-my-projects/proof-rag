@@ -66,6 +66,23 @@ plików R2. Pliki zostają w katalogu wyniku. Jeśli zapamiętany wynik jest
 niedostępny albo jego pliki się zmieniły, użyj ponownie `otwórz-wynik` w tej
 rozmowie i wskaż zweryfikowany katalog.
 
+## Pytania własnymi słowami
+
+Domyślnie `zapytaj` działa lokalnie i obsługuje dwa ustalone sformułowania.
+Opcjonalne `--interpreter claude` i `--interpreter dspy` wysyłają pytanie
+oraz instrukcję klasyfikacji do Anthropic API. Odczyt SQLite, sprawdzenie
+artefaktów i wyświetlenie ścieżek odbywają się lokalnie.
+
+```powershell
+& $projectPython -B -X utf8 -m pip install -r requirements-project-memory-intent.txt
+& $projectPython -B -X utf8 $memoryCli --db $memoryDb 'zapytaj' --rozmowa A --interpreter claude 'Daj mi same ścieżki do testów z tego wyniku.'
+& $projectPython -B -X utf8 $memoryCli --db $memoryDb 'zapytaj' --rozmowa B --interpreter dspy 'Wyłuskaj z tej zbieraniny testy i wypisz ich pliki.'
+```
+
+Tryby eksperymentalne wymagają `ANTHROPIC_API_KEY` w środowisku procesu.
+Polecenia wykonują płatną klasyfikację. Zestaw pytań, budżet wspólny dla obu
+wariantów i polecenia odtworzenia opisuje [raport eksperymentu](project-memory-intent-results.md).
+
 ## Preferencja wyświetlania projektu
 
 ```powershell
