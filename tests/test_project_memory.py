@@ -10,18 +10,19 @@ import unittest
 
 
 CLI = Path(__file__).resolve().parents[1] / "scripts/project_memory.py"
+QUESTION = "które z tych plików są testami?"
 
 
-def write_bundle(folder, project, commit, paths):
+def write_bundle(folder, project, commit, paths, *, literal="Needle"):
     identity = {"repository": project, "commit": commit}
     snapshot = {**identity, "root_tree": "0" * 40}
-    header = {"type": "result", "format": "git-literal-search-v1", **snapshot, "literal": "Needle"}
+    header = {"type": "result", "format": "git-literal-search-v1", **snapshot, "literal": literal}
     hits = [{"type": "hit", **identity, "path": path, "blob_id": "1" * 40,
              "byte_offset": 0, "line": 1} for path in paths]
     rows = [header, *hits, {"type": "complete", "count": len(paths)}]
     answer = "".join(json.dumps(row) + "\n" for row in rows).encode("ascii")
     receipt = {"format": "fineract-r2-verification-v1", "status": "VERIFIED", "snapshot": snapshot,
-               "literal": "Needle", "result_sha256": sha256(answer).hexdigest(), "count": len(paths)}
+               "literal": literal, "result_sha256": sha256(answer).hexdigest(), "count": len(paths)}
     folder.mkdir()
     (folder / "answer.jsonl").write_bytes(answer)
     (folder / "verification.json").write_text(json.dumps(receipt), encoding="ascii")
@@ -99,3 +100,141 @@ class ProjectMemoryTests(unittest.TestCase):
             receipt.update(status="MISMATCH", result_sha256=sha256(invalid_answer.read_bytes()).hexdigest())
             invalid_receipt.write_text(json.dumps(receipt), encoding="ascii")
             self.assertIn("VERIFIED", run("pokaż-wynik", invalid_bundle, code=1)[0])
+
+
+class ConversationMemoryTests(unittest.TestCase):
+    repository = "apache/fineract"
+    commit = "2" * 40
+
+    def setUp(self):
+        temporary = TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.database = self.root / "memory" / "conversations.sqlite3"
+
+    def run_cli(self, *args, code=0, cwd=None):
+        result = subprocess.run(
+            [sys.executable, "-B", "-X", "utf8", CLI, "--db", self.database, *args],
+            cwd=cwd or self.root, capture_output=True, encoding="utf-8", timeout=10,
+        )
+        self.assertEqual(result.returncode, code, (result.stdout, result.stderr))
+        self.assertFalse(result.stdout if code else result.stderr)
+        return (result.stderr if code else result.stdout).splitlines()
+
+    def bundle(self, name, literal, paths):
+        folder = self.root / name
+        write_bundle(folder, self.repository, self.commit, paths, literal=literal)
+        return folder
+
+    def assert_tests(self, conversation, literal, paths, total, *, question=QUESTION, cwd=None):
+        self.assertEqual(self.run_cli("zapytaj", "--rozmowa", conversation, question, cwd=cwd), [
+            f"Repozytorium: {self.repository}", f"Commit: {self.commit}", f"Literał: {literal}",
+            f"Pliki pod src/test/ ({len(paths)} z {total})", *(f"  {path}" for path in paths),
+        ])
+
+    def test_conversations_survive_restart_and_stay_isolated(self):
+        tests_a = ["modul/src/test/java/A.java", "src/test/Zażółć.java"]
+        tests_b = ["modul/src/test/java/B.java", "another/src/test/java/B2.java"]
+        tests_later = ["src/test/C.java", "modul/src/test/java/C2.java"]
+        other = ["modul/src/testing/No.java", "modul/notsrc/test/No.java", "modul/src/test"]
+        a = self.bundle("a", "LoanTransaction", [tests_a[0], *other, tests_a[1]])
+        b = self.bundle("b", "BigDecimal", [*other, *tests_b])
+        later = self.bundle("later", "Money", [*tests_later, *other])
+        preference = "pokazuj pliki testowe osobno"
+        project = ("--project", self.repository)
+        self.run_cli("zapamiętaj", *project, preference)
+        self.assertIn("nie ma aktywnego wyniku", self.run_cli("zapytaj", "--rozmowa", "A", QUESTION, code=1)[0])
+
+        self.assertEqual(self.run_cli("otwórz-wynik", "--rozmowa", "A", a.name), [
+            "Otwarto wynik apache/fineract — literał 'LoanTransaction' — pliki (5)",
+        ])
+        self.run_cli("otwórz-wynik", "--rozmowa", "B", b.name)
+        self.assertEqual(self.run_cli("pokaż, co pamiętasz", *project), [f"{self.repository} — {preference}"])
+        self.run_cli("zapomnij", *project)
+        self.assert_tests("A", "LoanTransaction", tests_a, 5, cwd=b)
+        self.assert_tests("B", "BigDecimal", tests_b, 5, question=f"a {QUESTION}")
+
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", later)
+        self.assert_tests("A", "Money", tests_later, 5)
+        self.assert_tests("B", "BigDecimal", tests_b, 5)
+
+    def test_missing_conversation_unknown_question_and_zero_matches(self):
+        unknown = self.run_cli("zapytaj", "--rozmowa", "N", QUESTION, code=1)[0]
+        self.assertIn("Rozmowa 'N' nie ma aktywnego wyniku", unknown)
+        self.assertIn("otwórz-wynik", unknown)
+        self.assertFalse(self.database.exists())
+
+        non_tests = self.bundle("non-tests", "OnlyMain", ["src/main/Main.java"])
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", non_tests)
+        unknown = self.run_cli("zapytaj", "--rozmowa", "N", QUESTION, code=1)[0]
+        self.assertIn("Rozmowa 'N' nie ma aktywnego wyniku", unknown)
+        self.assertIn("otwórz-wynik", unknown)
+        self.assertEqual(self.run_cli("zapytaj", "--rozmowa", "A", "co dalej?", code=1), [
+            f"Błąd: Obsługiwane pytanie: {QUESTION}",
+        ])
+        self.assert_tests("A", "OnlyMain", [], 1)
+
+        empty = self.bundle("empty", "Absent", [])
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", empty)
+        self.assert_tests("A", "Absent", [], 0)
+
+    def test_stale_artifacts_require_reopening(self):
+        original = self.bundle("original", "Needle", ["src/test/Original.java"])
+        replacement = self.bundle("replacement", "Other", ["src/test/Replacement.java"])
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", original)
+        self.run_cli("otwórz-wynik", "--rozmowa", "B", replacement)
+
+        renamed = self.root / "renamed"
+        original.rename(renamed)
+        missing = self.run_cli("zapytaj", "--rozmowa", "A", QUESTION, code=1)[0]
+        self.assertIn("Brakuje zapamiętanego pliku R2", missing)
+        self.assertIn("verification.json", missing)
+        self.assertIn("otwórz-wynik", missing)
+        renamed.rename(original)
+
+        for filename in ("answer.jsonl", "verification.json"):
+            with self.subTest(filename=filename):
+                artifact = original / filename
+                raw = artifact.read_bytes()
+                artifact.write_bytes(raw + b"\n")
+                changed = self.run_cli("zapytaj", "--rozmowa", "A", QUESTION, code=1)[0]
+                self.assertIn(f"SHA-256 pliku {filename} różni się od zapamiętanego", changed)
+                self.assertIn("otwórz-wynik", changed)
+                artifact.write_bytes(raw)
+
+        for filename in ("answer.jsonl", "verification.json"):
+            (original / filename).write_bytes((replacement / filename).read_bytes())
+        changed = self.run_cli("zapytaj", "--rozmowa", "A", QUESTION, code=1)[0]
+        self.assertIn("różni się od zapamiętanego", changed)
+        self.assertIn("otwórz-wynik", changed)
+        self.assert_tests("B", "Other", ["src/test/Replacement.java"], 1)
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", original)
+        self.assert_tests("A", "Other", ["src/test/Replacement.java"], 1)
+
+    def test_open_validates_before_replacing_active_result(self):
+        paths = ["src/test/Retained.java"]
+        valid = self.bundle("valid", "Needle", paths)
+        invalid = self.bundle("invalid", "Other", ["src/test/Other.java"])
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", valid)
+        self.run_cli("otwórz-wynik", "--rozmowa", "A", self.root / "missing", code=1)
+        self.assert_tests("A", "Needle", paths, 1)
+
+        receipt_file = invalid / "verification.json"
+        answer_file = invalid / "answer.jsonl"
+        receipt = json.loads(receipt_file.read_bytes())
+        for change, message in [({"status": "MISMATCH"}, "VERIFIED"),
+                                ({"literal": "Different"}, "nagłówek"),
+                                ({"count": 9}, "liczba")]:
+            with self.subTest(change=change):
+                receipt_file.write_text(json.dumps(receipt | change), encoding="ascii")
+                error = self.run_cli("otwórz-wynik", "--rozmowa", "A", invalid, code=1)[0]
+                self.assertIn(message, error)
+
+        rows = answer_file.read_bytes().splitlines(keepends=True)
+        partial_answer = b"".join(rows[:-1])
+        answer_file.write_bytes(partial_answer)
+        receipt_file.write_text(json.dumps(receipt | {"result_sha256": sha256(partial_answer).hexdigest()}),
+                                encoding="ascii")
+        error = self.run_cli("otwórz-wynik", "--rozmowa", "A", invalid, code=1)[0]
+        self.assertIn("liczba", error)
+        self.assert_tests("A", "Needle", paths, 1)
