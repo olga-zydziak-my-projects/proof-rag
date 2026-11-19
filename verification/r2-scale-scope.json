@@ -1,0 +1,30 @@
+{
+  "scope_version": 1,
+  "selection": "All regular paths in Chromium chrome/, and all regular paths in the full Electron and Brave Core trees. No filter by extension, size, language or query. Symlinks and gitlinks are counted but excluded from search.",
+  "repositories": [
+    {
+      "id": "chromium",
+      "repository": "chromium/chromium",
+      "url": "https://github.com/chromium/chromium.git",
+      "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+      "root_tree": "9126a9192eb20fda7cc2e0f5a6b5163dfae53b4b",
+      "directories": ["chrome"]
+    },
+    {
+      "id": "electron",
+      "repository": "electron/electron",
+      "url": "https://github.com/electron/electron.git",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "root_tree": "fa2587baa940913befc5d539afef827a695dfb73",
+      "directories": []
+    },
+    {
+      "id": "brave-core",
+      "repository": "brave/brave-core",
+      "url": "https://github.com/brave/brave-core.git",
+      "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+      "root_tree": "21f15cb35a06c819d080872a0c404a771a76efc1",
+      "directories": []
+    }
+  ]
+}

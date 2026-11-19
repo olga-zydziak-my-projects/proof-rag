@@ -1,0 +1,2335 @@
+{
+  "question": "Klient złożył wniosek 12 maja. Czy według reguły daty można go zatwierdzić również 12 maja?",
+  "work_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4",
+  "attempts": [
+    {
+      "id": "build-baseline",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "build",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\s",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\i",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\build-log"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 10.362413499969989,
+      "stderr": "",
+      "stdout_json": {
+        "status": "BUILT",
+        "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+        "shards": {
+          "fineract": {
+            "complete": true,
+            "schema": 1,
+            "snapshot": {
+              "repository": "apache/fineract",
+              "url": "https://github.com/apache/fineract.git",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "root_tree": "04e7b93943ea30b4557d651fd0e6ef6e98f61c0d",
+              "object_format": "sha1",
+              "regular_paths": 8635,
+              "blob_paths": 8637,
+              "symlinks": 2,
+              "gitlinks": 0
+            },
+            "regular_paths": 8635,
+            "symlinks": 2,
+            "gitlinks": 0,
+            "blob_paths": 8637,
+            "distinct_regular_blobs": 8609,
+            "raw_blob_bytes": 96188447,
+            "distinct_trigrams": 269679,
+            "excluded_symlinks": [
+              {
+                "path": ".claude/skills/fineract-database",
+                "mode": "120000",
+                "type": "blob",
+                "object_id": "55f9dc105ec3cf0e7b722d66b24caa5e323ec816",
+                "category": "symlink"
+              },
+              {
+                "path": ".claude/skills/fineract-testing",
+                "mode": "120000",
+                "type": "blob",
+                "object_id": "74f01001197acc7536c56852a75b3649d460ade0",
+                "category": "symlink"
+              }
+            ],
+            "path_and_blob_sets_reconciled": true,
+            "build_seconds": 9.929120899992995,
+            "index_bytes": 159535104,
+            "peak_rss_bytes": 150650880,
+            "sha256": "861f5520087cf97886c916682c6d1312d4d6808dd19bf0868609f8c55b3c04c4"
+          }
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\i",
+        "publication_seconds": 0.09103549999417737
+      }
+    },
+    {
+      "id": "check-baseline",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\prepare_checked_r2_index.py",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\s",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\i",
+        "--output",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\checked"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.47445759997936,
+      "stderr": "fineract: checked paths, objects and postings in 8.355 s\r\n",
+      "stdout_json": {
+        "status": "VERIFIED",
+        "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\checked",
+        "receipt_sha256": "b59e37f84ff6ed3833598b2bc641addefe8225e4feba8576b8a450c4c6a748c8",
+        "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+        "seconds": 8.37167739996221,
+        "repository_seconds": {
+          "fineract": 8.355075100029353
+        },
+        "bytes": 180289819,
+        "peak_tree_rss_bytes": 213774336,
+        "sample_interval_seconds": 0.05,
+        "repositories": [
+          {
+            "id": "fineract",
+            "paths": 8635,
+            "objects": 8609,
+            "blob_bytes": 96188447,
+            "trigrams": 269679,
+            "postings_bytes": 39537008,
+            "grams_sha256": "12b13edd8610b2ea0fb6be4b84b59763b95ede06daf262259a623e874e644d8c",
+            "objects_sha256": "7781f0d04f0bd37e4be1ac6ff2c67931ffe3bc0e4517576a4e5270ed70a6f95b"
+          }
+        ],
+        "reused_repositories": [],
+        "reconciled_repositories": [
+          "fineract"
+        ]
+      }
+    },
+    {
+      "id": "opened",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_pr.py",
+        "event",
+        "--config",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\config.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.34579200000735,
+      "stderr": "",
+      "stdout_json": {
+        "status": "REGISTERED",
+        "view": {
+          "number": 1,
+          "corpus": "default",
+          "repository": "fineract",
+          "base": "main",
+          "head": "local-approval-after"
+        },
+        "view_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255",
+        "base_head": {
+          "id": "fineract",
+          "repository": "apache/fineract",
+          "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/qa4/s/fineract.git",
+          "branch": "main",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "resolved_unix_ns": 1795080480509157200
+        },
+        "pr_head": {
+          "id": "fineract",
+          "repository": "apache/fineract",
+          "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/qa4/s/fineract.git",
+          "branch": "local-approval-after",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "resolved_unix_ns": 1795080480567136700
+        },
+        "refresh": {
+          "status": "READY",
+          "already_ready": true,
+          "selection": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/qa4/s/fineract.git",
+              "branch": "local-approval-after",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "resolved_unix_ns": 1795080480648676400
+            }
+          ],
+          "receipt_sha256": "b59e37f84ff6ed3833598b2bc641addefe8225e4feba8576b8a450c4c6a748c8"
+        }
+      }
+    },
+    {
+      "id": "pr-before-push",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_ask.py",
+        "ask",
+        "--config",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\config.json",
+        "--repo",
+        "fineract",
+        "--pr",
+        "1",
+        "Klient złożył wniosek 12 maja. Czy według reguły daty można go zatwierdzić również 12 maja?"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 17.877666699991096,
+      "stderr": "",
+      "stdout_json": {
+        "status": "VERIFIED",
+        "answer_pl": "Tak. Reguła sprawdza wyłącznie, czy data zatwierdzenia nie jest wcześniejsza od daty złożenia wniosku (DateUtils.isBefore). Data równa dacie złożenia (12 maja) nie jest wcześniejsza, więc nie zostanie odrzucona przez tę regułę. Inne warunki operacji nie były tu oceniane.",
+        "verdict": "yes",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "start": 2144,
+            "end": 2149,
+            "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "excerpt": "            if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {\n                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" can not be before its submittal date: \"\n                        + loan.getSubmittedOnDate();\n                throw new InvalidLoanStateTransitionException(\"approval\", \"cannot.be.before.submittal.date\", errorMessage, approvedOnDate,\n                        loan.getSubmittedOnDate());\n            }"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "start": 587,
+            "end": 591,
+            "quote": "loanApplicationValidator.validateApproval(command, loanId);",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "excerpt": "    public CommandProcessingResult approveApplication(final Long loanId, final JsonCommand command) {\n        final AppUser currentUser = getAppUserIfPresent();\n        loanApplicationValidator.validateApproval(command, loanId);\n\n        Pair<Loan, Map<String, Object>> loanAndChanges = loanScheduleAssembler.assembleLoanApproval(currentUser, command, loanId);"
+          }
+        ],
+        "api_calls": [
+          {
+            "number": 1,
+            "seconds": 1.0397410999867134,
+            "provider_id": "msg_011ChC3qWsn6UogBZxGyTKKX",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 1417,
+              "output_tokens": 82,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 2,
+            "seconds": 0.9695435999892652,
+            "provider_id": "msg_011ChC3qdXdC2NsD2emYPnai",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 5311,
+              "output_tokens": 129,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 3,
+            "seconds": 0.9044215999892913,
+            "provider_id": "msg_011ChC3qk6GSdNSYCQ948eLg",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 7526,
+              "output_tokens": 119,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 4,
+            "seconds": 0.7198963999981061,
+            "provider_id": "msg_011ChC3qrRmQWfzc6c4oBhqG",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 9708,
+              "output_tokens": 79,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 5,
+            "seconds": 0.7998834000318311,
+            "provider_id": "msg_011ChC3qvmDcg5kCGvkkTjK9",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 11735,
+              "output_tokens": 99,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 6,
+            "seconds": 0.9628921000403352,
+            "provider_id": "msg_011ChC3r2UFaKraBZSK7rXCC",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 12032,
+              "output_tokens": 159,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 7,
+            "seconds": 0.9025420999969356,
+            "provider_id": "msg_011ChC3r9F3USjUM3nekXmBo",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 16058,
+              "output_tokens": 135,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 8,
+            "seconds": 0.9849595000268891,
+            "provider_id": "msg_011ChC3rDGQGqaxeicGqKsU8",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 17942,
+              "output_tokens": 157,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 9,
+            "seconds": 0.9938081000000238,
+            "provider_id": "msg_011ChC3rHUQcKXwqZz8wrDYB",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 18326,
+              "output_tokens": 157,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 10,
+            "seconds": 1.8086888000252657,
+            "provider_id": "msg_011ChC3rMmrm9qxJvRnZN5GB",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 20194,
+              "output_tokens": 359,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 11,
+            "seconds": 2.166965699987486,
+            "provider_id": "msg_011ChC3rWunWXcN1GkxBnix8",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 4043,
+              "output_tokens": 469,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          }
+        ],
+        "searches": [
+          {
+            "literal": "approval",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 211,
+            "result_sha256": "3336fd4022b064773c5ef5e75366ed590fbfb298a7fa6db855cae0d9b06c76cd",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-01",
+            "r2_seconds": {
+              "search": 0.046824000019114465,
+              "checked_verification": 0.04128240002319217,
+              "comparison": 0.0017694999696686864
+            },
+            "seconds": 0.3161846000002697
+          },
+          {
+            "literal": "submitted",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 668,
+            "result_sha256": "96d7d0bd42727bd2340f8a1189f0a99251dbdbafdc84ce58c2233992e6dd7929",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-02",
+            "r2_seconds": {
+              "search": 0.08313539996743202,
+              "checked_verification": 0.08121989999199286,
+              "comparison": 0.0034018000005744398
+            },
+            "seconds": 0.3799496000283398
+          },
+          {
+            "literal": "approvedOnDate",
+            "path_terms": "loan approval validation service domain",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 119,
+            "result_sha256": "6f4e9e78103a132ba5ca579c810a876899c257142aced04a68b7645e23fb956f",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-03",
+            "r2_seconds": {
+              "search": 0.05320149997714907,
+              "checked_verification": 0.05171819997485727,
+              "comparison": 0.0013123999815434217
+            },
+            "seconds": 0.3181526999687776
+          },
+          {
+            "literal": "isBefore(submittedOnDate)",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 0,
+            "result_sha256": "06ad3020de715d140bd02ec8f4df91e2aa453112cea826e73b3793f4a48a95d2",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-04",
+            "r2_seconds": {
+              "search": 0.024153799982741475,
+              "checked_verification": 0.012544600002001971,
+              "comparison": 0.000680500001180917
+            },
+            "seconds": 0.25582820002455264
+          },
+          {
+            "literal": "approvalDate",
+            "path_terms": "loan origination validator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 25,
+            "result_sha256": "bfaf300e14996cd0c5ae3b01176eaff2490fa225191a99832b0ba8d96ac1b348",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-05",
+            "r2_seconds": {
+              "search": 0.03336010000202805,
+              "checked_verification": 0.023989599954802543,
+              "comparison": 0.0010819000308401883
+            },
+            "seconds": 0.276926500024274
+          },
+          {
+            "literal": "cannot be before submitted",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 0,
+            "result_sha256": "ff7db336fbc20b00a75984bd3ee55690352745e133bc69decabac7b03e2aab74",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-06",
+            "r2_seconds": {
+              "search": 0.03771669999696314,
+              "checked_verification": 0.030189599958248436,
+              "comparison": 0.0007357000140473247
+            },
+            "seconds": 0.29883579997112975
+          },
+          {
+            "literal": "approvalDate",
+            "path_terms": "LoanApplicationValidator loan approve validator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 25,
+            "result_sha256": "bfaf300e14996cd0c5ae3b01176eaff2490fa225191a99832b0ba8d96ac1b348",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-07",
+            "r2_seconds": {
+              "search": 0.03337479999754578,
+              "checked_verification": 0.023688299988862127,
+              "comparison": 0.0009822000283747911
+            },
+            "seconds": 0.28073920001043007
+          },
+          {
+            "literal": "approvalDateCannotBeBefore",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 0,
+            "result_sha256": "bb9343d42998bfae31290e51b6e7711f626ad61508b16de101b13f341023b4bf",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-08",
+            "r2_seconds": {
+              "search": 0.020999900007154793,
+              "checked_verification": 0.006545900017954409,
+              "comparison": 0.0006232999730855227
+            },
+            "seconds": 0.25193359999684617
+          },
+          {
+            "literal": "The approval date cannot be before",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 0,
+            "result_sha256": "b6bdae517f503728de129486f52078b21800cc37ddb1226c1f9de58fbce0d7f4",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-09",
+            "r2_seconds": {
+              "search": 0.03596469998592511,
+              "checked_verification": 0.028019200020935386,
+              "comparison": 0.0007327999919652939
+            },
+            "seconds": 0.2832827999955043
+          },
+          {
+            "literal": "approvedOnDate",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 119,
+            "result_sha256": "6f4e9e78103a132ba5ca579c810a876899c257142aced04a68b7645e23fb956f",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-10",
+            "r2_seconds": {
+              "search": 0.05304490000708029,
+              "checked_verification": 0.052009399980306625,
+              "comparison": 0.001375799998641014
+            },
+            "seconds": 0.33816589997150004
+          },
+          {
+            "literal": "approvalDate",
+            "path_terms": "loanaccount domain Loan.java approve",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 25,
+            "result_sha256": "bfaf300e14996cd0c5ae3b01176eaff2490fa225191a99832b0ba8d96ac1b348",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-11",
+            "r2_seconds": {
+              "search": 0.031773700029589236,
+              "checked_verification": 0.023707700020167977,
+              "comparison": 0.0009028000058606267
+            },
+            "seconds": 0.27482180000515655
+          },
+          {
+            "literal": "loanApplicationValidator.validateApproval(",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "bffd3dac3cab675a6ee25177e2c53fe92ee78cccc4d2f2be2594aeb125a1b4e4",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a\\search-12",
+            "r2_seconds": {
+              "search": 0.025412000017240644,
+              "checked_verification": 0.012576400011312217,
+              "comparison": 0.0007147000287659466
+            },
+            "seconds": 0.24981710000429302
+          }
+        ],
+        "reads": [
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2083,
+            "end": 2135
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2130,
+            "end": 2182
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2132,
+            "end": 2184
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 575,
+            "end": 627
+          }
+        ],
+        "checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "resolve_seconds": 0.06573910004226491,
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "branch": "local-approval-after",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f"
+            }
+          ],
+          "number": 1,
+          "repository": "fineract"
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\e5fc12491e6b497a",
+        "downloads": [
+          {
+            "repository": "apache/fineract",
+            "commit_present_before_fetch": false,
+            "fetches": 1,
+            "fetch_seconds": 0.46599169995170087,
+            "local_preparation_seconds": 0.07932020002044737
+          }
+        ],
+        "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+        "pin_seconds": 0.6414042999967933,
+        "model": "claude-haiku-5-5",
+        "command_seconds": 17.68257479998283,
+        "model_calls": 11,
+        "api_seconds": 12.253342400072142,
+        "search_seconds": 3.5246378000010736
+      },
+      "grade": {
+        "citations": "VERIFIED",
+        "business_conclusion": "CORRECT",
+        "status": "PASS",
+        "prose_review_required": true
+      }
+    },
+    {
+      "id": "pr-after-push-before-synchronize",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_ask.py",
+        "ask",
+        "--config",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\config.json",
+        "--repo",
+        "fineract",
+        "--pr",
+        "1",
+        "Klient złożył wniosek 12 maja. Czy według reguły daty można go zatwierdzić również 12 maja?"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 31.885617199994158,
+      "stderr": "fineract: 8635 regular paths, 8609 distinct blobs, 0 to fetch\r\nfineract: 96188504 unique blob bytes, 0.14 s\r\n",
+      "stdout_json": {
+        "status": "VERIFIED",
+        "answer_pl": "Nie. Reguła wymaga, aby data zatwierdzenia była późniejsza niż data złożenia wniosku (DateUtils.isAfter), więc zatwierdzenie w dniu złożenia, 12 maja, zostanie odrzucone wyjątkiem InvalidLoanStateTransitionException. Najwcześniejsza dopuszczalna data zatwierdzenia to 13 maja.",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "start": 2144,
+            "end": 2151,
+            "quote": "if (approvedOnDate != null && !DateUtils.isAfter(approvedOnDate, loan.getSubmittedOnDate())) {",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "excerpt": "            // Local test rule: require a later approval date.\n\n            if (approvedOnDate != null && !DateUtils.isAfter(approvedOnDate, loan.getSubmittedOnDate())) {\n                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" must be after its submittal date: \"\n                        + loan.getSubmittedOnDate();\n                throw new InvalidLoanStateTransitionException(\"approval\", \"must.be.after.submittal.date\", errorMessage, approvedOnDate,\n                        loan.getSubmittedOnDate());\n            }"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "start": 589,
+            "end": 591,
+            "quote": "loanApplicationValidator.validateApproval(command, loanId);",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "excerpt": "        loanApplicationValidator.validateApproval(command, loanId);\n\n        Pair<Loan, Map<String, Object>> loanAndChanges = loanScheduleAssembler.assembleLoanApproval(currentUser, command, loanId);"
+          }
+        ],
+        "api_calls": [
+          {
+            "number": 1,
+            "seconds": 1.143621199997142,
+            "provider_id": "msg_011ChC3t4V7avhVUy566sH86",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 1417,
+              "output_tokens": 86,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 2,
+            "seconds": 0.8779790000407957,
+            "provider_id": "msg_011ChC3tFsTeD2MGTU6TQQqu",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 5285,
+              "output_tokens": 111,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 3,
+            "seconds": 0.7363236000528559,
+            "provider_id": "msg_011ChC3tSk4UiRgchyR32XdR",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 5590,
+              "output_tokens": 71,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 4,
+            "seconds": 0.991102600004524,
+            "provider_id": "msg_011ChC3tZhmhzgpR13MNYanm",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 7597,
+              "output_tokens": 133,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 5,
+            "seconds": 0.7597018000087701,
+            "provider_id": "msg_011ChC3teFrjPNzB8UdiQ3fr",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 7961,
+              "output_tokens": 71,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 6,
+            "seconds": 1.1833933999878354,
+            "provider_id": "msg_011ChC3tm1v69bTG3jG43sNQ",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 9993,
+              "output_tokens": 157,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 7,
+            "seconds": 0.9760437000077218,
+            "provider_id": "msg_011ChC3tr3HMMYtTQi34qdvT",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 11903,
+              "output_tokens": 157,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 8,
+            "seconds": 1.6629722000216134,
+            "provider_id": "msg_011ChC3tvEYxj9Eg9qSiyXyo",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 13773,
+              "output_tokens": 360,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 9,
+            "seconds": 1.9272362000192516,
+            "provider_id": "msg_011ChC3u6xDLAfGGxRWp9DiZ",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 4021,
+              "output_tokens": 476,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          }
+        ],
+        "searches": [
+          {
+            "literal": "isBefore",
+            "path_terms": "",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 174,
+            "result_sha256": "c493de293b53e5100de9eb3f560b1237e3a822054f8d4be9028a42e92d919f24",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6\\search-01",
+            "r2_seconds": {
+              "search": 0.029165100015234202,
+              "git_scan": 0.5994612999493256,
+              "git_scan_per_repository": [
+                0.598788200004492
+              ],
+              "comparison": 0.0015228000120259821
+            },
+            "seconds": 0.8448667000047863
+          },
+          {
+            "literal": "approvalDate",
+            "path_terms": "",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 25,
+            "result_sha256": "d032ed6dbdf16ac59d0064dc2e30daf7aebbbc96b20d68d9d1edb11632295c91",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6\\search-02",
+            "r2_seconds": {
+              "search": 0.03065889998106286,
+              "git_scan": 0.6353835000190884,
+              "git_scan_per_repository": [
+                0.6347001999965869
+              ],
+              "comparison": 0.0008600999717600644
+            },
+            "seconds": 0.8821295999805443
+          },
+          {
+            "literal": "The approval date cannot be before the submitted on date",
+            "path_terms": "",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 0,
+            "result_sha256": "a1694c5eb671a8110a7cc2221222d412089e6a9ba8f1977fa182f076912c3c75",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6\\search-03",
+            "r2_seconds": {
+              "search": 0.03967900003772229,
+              "git_scan": 0.5861912000109442,
+              "git_scan_per_repository": [
+                0.585428399965167
+              ],
+              "comparison": 0.0006767999730072916
+            },
+            "seconds": 0.8379052000236697
+          },
+          {
+            "literal": "approvalDate.isBefore(submittedOnDate)",
+            "path_terms": "",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 0,
+            "result_sha256": "4956ad50709f78ac0af44f8770ffdb529ace35110f128658f8b2c12859606276",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6\\search-04",
+            "r2_seconds": {
+              "search": 0.024184599984437227,
+              "git_scan": 0.5785899999900721,
+              "git_scan_per_repository": [
+                0.5778867999906652
+              ],
+              "comparison": 0.0008009000448510051
+            },
+            "seconds": 0.8198930000071414
+          },
+          {
+            "literal": "submittedOnDate",
+            "path_terms": "loan approval validator",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 386,
+            "result_sha256": "4c8d1ee4582660178e90b0ab37ac4db27a2cff1356a58dcbcba8962833b38d6c",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6\\search-05",
+            "r2_seconds": {
+              "search": 0.061663500033318996,
+              "git_scan": 0.5969700000132434,
+              "git_scan_per_repository": [
+                0.596264699997846
+              ],
+              "comparison": 0.0024537999997846782
+            },
+            "seconds": 0.8833712000050582
+          },
+          {
+            "literal": "approvedOnDate",
+            "path_terms": "loan approval validator",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 119,
+            "result_sha256": "3f705ff0be62f30c4a7526f483734fec8545730f72f75a252789d705d64eebca",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6\\search-06",
+            "r2_seconds": {
+              "search": 0.05014230002416298,
+              "git_scan": 0.5829189000069164,
+              "git_scan_per_repository": [
+                0.5821832000510767
+              ],
+              "comparison": 0.0012425000313669443
+            },
+            "seconds": 0.8432137999916449
+          },
+          {
+            "literal": "loanApplicationValidator.validateApproval(",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "7a1e2270fe10a7b483cf76650c454bde5c8ab9fbe424e330c5c549dc4fc6d118",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6\\search-07",
+            "r2_seconds": {
+              "search": 0.024940099974628538,
+              "git_scan": 0.5641210000030696,
+              "git_scan_per_repository": [
+                0.563407100038603
+              ],
+              "comparison": 0.0007142000249586999
+            },
+            "seconds": 0.7975112000131048
+          }
+        ],
+        "reads": [
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 2083,
+            "end": 2135
+          },
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 2132,
+            "end": 2184
+          },
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 2134,
+            "end": 2186
+          },
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 575,
+            "end": 627
+          }
+        ],
+        "checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "resolve_seconds": 0.07133529998827726,
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "branch": "local-approval-after",
+              "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322"
+            }
+          ],
+          "number": 1,
+          "repository": "fineract"
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\223134025d384eb6",
+        "downloads": [
+          {
+            "repository": "apache/fineract",
+            "commit_present_before_fetch": false,
+            "fetches": 1,
+            "fetch_seconds": 3.28812260000268,
+            "local_preparation_seconds": 0.2274312999797985
+          }
+        ],
+        "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+        "pin_seconds": 14.288193300017156,
+        "model": "claude-haiku-5-5",
+        "command_seconds": 31.671759899996687,
+        "model_calls": 9,
+        "api_seconds": 10.25837370014051,
+        "search_seconds": 5.90889070002595
+      },
+      "grade": {
+        "citations": "VERIFIED",
+        "business_conclusion": "CORRECT",
+        "status": "PASS",
+        "prose_review_required": true
+      }
+    },
+    {
+      "id": "synchronize",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_pr.py",
+        "event",
+        "--config",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\config.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 21.298801600001752,
+      "stderr": "fineract: 8635 regular paths, 8609 distinct blobs, 0 to fetch\r\nfineract: 96188504 unique blob bytes, 0.14 s\r\nfineract: checked paths, objects and postings in 7.872 s\r\n",
+      "stdout_json": {
+        "status": "READY",
+        "release": "94d416fcc2004914bac1cc25311bd4d9",
+        "receipt_sha256": "a96c79cac4206e3cb6707bffa3b21ffa8402032f095093390d2bafef67cc2b5c",
+        "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+        "selection": [
+          {
+            "id": "fineract",
+            "repository": "apache/fineract",
+            "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/qa4/s/fineract.git",
+            "branch": "local-approval-after",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "resolved_unix_ns": 1795080548442156000
+          }
+        ],
+        "ready_unix_ns": 1795080569542715000,
+        "seconds": 21.1917056000093,
+        "manifest_and_fetch_seconds": 3.2961512000183575,
+        "candidate_index_seconds": 9.853349499986507,
+        "downloads": [
+          {
+            "repository": "apache/fineract",
+            "commit_present_before_fetch": false,
+            "fetches": 1,
+            "fetch_seconds": 3.0844603000441566,
+            "local_preparation_seconds": 0.2094486999558285
+          }
+        ],
+        "verification": {
+          "status": "VERIFIED",
+          "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\r\\94d416fcc2004914bac1cc25311bd4d9\\checked",
+          "receipt_sha256": "a96c79cac4206e3cb6707bffa3b21ffa8402032f095093390d2bafef67cc2b5c",
+          "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+          "seconds": 7.888450800033752,
+          "repository_seconds": {
+            "fineract": 7.872285799996462
+          },
+          "bytes": 180289819,
+          "peak_tree_rss_bytes": 214007808,
+          "sample_interval_seconds": 0.05,
+          "repositories": [
+            {
+              "id": "fineract",
+              "paths": 8635,
+              "objects": 8609,
+              "blob_bytes": 96188504,
+              "trigrams": 269679,
+              "postings_bytes": 39537028,
+              "grams_sha256": "1376f28290ec2d1fb4244b818566e187ef78edf716f2fc449ac718b7b8edadb8",
+              "objects_sha256": "9d6004d32615d25998a2dd8cf33400be4b2c327815777f112c42d637f38ede3a"
+            }
+          ],
+          "reused_repositories": [],
+          "reconciled_repositories": [
+            "fineract"
+          ]
+        },
+        "candidate_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\r\\94d416fcc2004914bac1cc25311bd4d9\\index",
+        "candidate_reused": [],
+        "candidate_rebuilt": [
+          "fineract"
+        ],
+        "candidate_rebuilt_bytes": 159535104,
+        "verifier_rebuilt_bytes": 180288576
+      }
+    },
+    {
+      "id": "base-after-push",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_ask.py",
+        "ask",
+        "--config",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\config.json",
+        "Klient złożył wniosek 12 maja. Czy według reguły daty można go zatwierdzić również 12 maja?"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 16.307259999972302,
+      "stderr": "",
+      "stdout_json": {
+        "status": "VERIFIED",
+        "answer_pl": "Tak. Reguła sprawdza tylko, czy data zatwierdzenia nie jest wcześniejsza niż data złożenia wniosku (DateUtils.isBefore(approvedOnDate, submittedOnDate)). Data 12 maja nie jest wcześniejsza niż 12 maja, więc ta reguła nie blokuje zatwierdzenia tego samego dnia. Inne warunki operacji nie były tu oceniane.",
+        "verdict": "yes",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "start": 2144,
+            "end": 2149,
+            "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "excerpt": "            if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {\n                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" can not be before its submittal date: \"\n                        + loan.getSubmittedOnDate();\n                throw new InvalidLoanStateTransitionException(\"approval\", \"cannot.be.before.submittal.date\", errorMessage, approvedOnDate,\n                        loan.getSubmittedOnDate());\n            }"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "start": 587,
+            "end": 591,
+            "quote": "loanApplicationValidator.validateApproval(command, loanId);",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "excerpt": "    public CommandProcessingResult approveApplication(final Long loanId, final JsonCommand command) {\n        final AppUser currentUser = getAppUserIfPresent();\n        loanApplicationValidator.validateApproval(command, loanId);\n\n        Pair<Loan, Map<String, Object>> loanAndChanges = loanScheduleAssembler.assembleLoanApproval(currentUser, command, loanId);"
+          }
+        ],
+        "api_calls": [
+          {
+            "number": 1,
+            "seconds": 1.0622291999752633,
+            "provider_id": "msg_011ChC3x4KJk3iFCvBLU17mb",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 1417,
+              "output_tokens": 86,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 2,
+            "seconds": 1.0170660000294447,
+            "provider_id": "msg_011ChC3xAqTYjo7QFYEGFVbs",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 5325,
+              "output_tokens": 128,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 3,
+            "seconds": 1.1289828000008129,
+            "provider_id": "msg_011ChC3xJ3o4cjDwi16fCPQv",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 7516,
+              "output_tokens": 164,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 4,
+            "seconds": 0.904593399958685,
+            "provider_id": "msg_011ChC3xRCf2dwapW8YmDDKZ",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 11616,
+              "output_tokens": 135,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 5,
+            "seconds": 1.0193964000209235,
+            "provider_id": "msg_011ChC3xVEkG2GrNdudZDVVn",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 13500,
+              "output_tokens": 154,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 6,
+            "seconds": 0.9126709999982268,
+            "provider_id": "msg_011ChC3xZcfpZ4bifQqchVSV",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 15329,
+              "output_tokens": 126,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 7,
+            "seconds": 1.0338628999888897,
+            "provider_id": "msg_011ChC3xdow5P1yqS8nhznk5",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 16681,
+              "output_tokens": 132,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 8,
+            "seconds": 0.9769943000283092,
+            "provider_id": "msg_011ChC3xiJocf2JcYQF8eUF9",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 18024,
+              "output_tokens": 142,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 9,
+            "seconds": 1.8641957000363618,
+            "provider_id": "msg_011ChC3xnV5YjhJvGd16SMji",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 19300,
+              "output_tokens": 416,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          },
+          {
+            "number": 10,
+            "seconds": 2.2901259000063874,
+            "provider_id": "msg_011ChC3xwihjQtXgh8cWDrut",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {
+              "cache_creation": {
+                "ephemeral_1h_input_tokens": 0,
+                "ephemeral_5m_input_tokens": 0
+              },
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0,
+              "inference_geo": "global",
+              "input_tokens": 4043,
+              "output_tokens": 488,
+              "output_tokens_details": {
+                "thinking_tokens": 0
+              },
+              "server_tool_use": null,
+              "service_tier": "standard",
+              "speed": "standard"
+            }
+          }
+        ],
+        "searches": [
+          {
+            "literal": "isBefore",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 174,
+            "result_sha256": "72ee0f1939450263e79abe5216db3e6a1507c2c06c912f1fbd8e93c212d71044",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b\\search-01",
+            "r2_seconds": {
+              "search": 0.02796809998108074,
+              "checked_verification": 0.015845399990212172,
+              "comparison": 0.001353300001937896
+            },
+            "seconds": 0.25922030000947416
+          },
+          {
+            "literal": "approvalDate",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 25,
+            "result_sha256": "bfaf300e14996cd0c5ae3b01176eaff2490fa225191a99832b0ba8d96ac1b348",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b\\search-02",
+            "r2_seconds": {
+              "search": 0.0329314999980852,
+              "checked_verification": 0.021439599979203194,
+              "comparison": 0.0007187000010162592
+            },
+            "seconds": 0.2809866000316106
+          },
+          {
+            "literal": "approvalDate",
+            "path_terms": "loan approval validator service domain",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 25,
+            "result_sha256": "bfaf300e14996cd0c5ae3b01176eaff2490fa225191a99832b0ba8d96ac1b348",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b\\search-03",
+            "r2_seconds": {
+              "search": 0.032767899974714965,
+              "checked_verification": 0.022815699980128556,
+              "comparison": 0.0007649000035598874
+            },
+            "seconds": 0.2737230999628082
+          },
+          {
+            "literal": "The approved date cannot be before the submitted date",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 0,
+            "result_sha256": "ab7e3fbc6c0afd43c6729bf8d6a83eeecd1b1c1019e8ed5cb4f8b509d82e09e0",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b\\search-04",
+            "r2_seconds": {
+              "search": 0.045066699967719615,
+              "checked_verification": 0.03811409999616444,
+              "comparison": 0.0007547000423073769
+            },
+            "seconds": 0.29678630002308637
+          },
+          {
+            "literal": "approvalDate",
+            "path_terms": "LoanApprovalData LoanApprovalValidator loan approval service",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 25,
+            "result_sha256": "bfaf300e14996cd0c5ae3b01176eaff2490fa225191a99832b0ba8d96ac1b348",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b\\search-05",
+            "r2_seconds": {
+              "search": 0.031908500008285046,
+              "checked_verification": 0.023889000003691763,
+              "comparison": 0.0009888000204227865
+            },
+            "seconds": 0.28387099999235943
+          },
+          {
+            "literal": "submittedOnDate",
+            "path_terms": "loan approval validator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 386,
+            "result_sha256": "96700963a9d60ae36fa304b82b8481400e7adffd2e6cde499db4a14fea675d2e",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b\\search-06",
+            "r2_seconds": {
+              "search": 0.0594400999834761,
+              "checked_verification": 0.05204249999951571,
+              "comparison": 0.002444600046146661
+            },
+            "seconds": 0.3339319999795407
+          },
+          {
+            "literal": "loanApplicationValidator.validateApproval(",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "bffd3dac3cab675a6ee25177e2c53fe92ee78cccc4d2f2be2594aeb125a1b4e4",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b\\search-07",
+            "r2_seconds": {
+              "search": 0.026726000010967255,
+              "checked_verification": 0.012554100016131997,
+              "comparison": 0.000590600015129894
+            },
+            "seconds": 0.25024270004360005
+          }
+        ],
+        "reads": [
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2083,
+            "end": 2135
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2130,
+            "end": 2182
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/service/DateUtils.java",
+            "blob_id": "8bc1d911b955f0e2b387e27591911f90191876c2",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 130,
+            "end": 182
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/service/DateUtils.java",
+            "blob_id": "8bc1d911b955f0e2b387e27591911f90191876c2",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 130,
+            "end": 182
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/service/DateUtils.java",
+            "blob_id": "8bc1d911b955f0e2b387e27591911f90191876c2",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 282,
+            "end": 334
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2132,
+            "end": 2184
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 575,
+            "end": 627
+          }
+        ],
+        "checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "resolve_seconds": 0.058027999999467283,
+        "view": {
+          "corpus": "default",
+          "kind": "branch",
+          "repositories": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "branch": "main",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f"
+            }
+          ]
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\base\\qa\\59413a412746462b",
+        "downloads": [
+          {
+            "repository": "apache/fineract",
+            "commit_present_before_fetch": false,
+            "fetches": 1,
+            "fetch_seconds": 0.4178562999586575,
+            "local_preparation_seconds": 0.06950270006200299
+          }
+        ],
+        "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+        "pin_seconds": 0.5731172999949194,
+        "model": "claude-haiku-5-5",
+        "command_seconds": 16.13549170002807,
+        "model_calls": 10,
+        "api_seconds": 12.210117600043304,
+        "search_seconds": 1.9787620000424795
+      },
+      "grade": {
+        "citations": "VERIFIED",
+        "business_conclusion": "CORRECT",
+        "status": "PASS",
+        "prose_review_required": true
+      }
+    }
+  ],
+  "git_checks": {
+    "A": {
+      "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+      "local_test_change": false,
+      "verdict": "yes",
+      "rule": {
+        "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+        "start": 2144,
+        "end": 2147,
+        "source": [
+          "            if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {",
+          "                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" can not be before its submittal date: \"",
+          "                        + loan.getSubmittedOnDate();",
+          "                throw new InvalidLoanStateTransitionException(\"approval\", \"cannot.be.before.submittal.date\", errorMessage, approvedOnDate,"
+        ]
+      },
+      "call": {
+        "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+        "start": 589,
+        "end": 591,
+        "source": [
+          "        loanApplicationValidator.validateApproval(command, loanId);",
+          "",
+          "        Pair<Loan, Map<String, Object>> loanAndChanges = loanScheduleAssembler.assembleLoanApproval(currentUser, command, loanId);"
+        ]
+      }
+    },
+    "B": {
+      "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+      "local_test_change": true,
+      "verdict": "no",
+      "rule": {
+        "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+        "start": 2146,
+        "end": 2149,
+        "source": [
+          "            if (approvedOnDate != null && !DateUtils.isAfter(approvedOnDate, loan.getSubmittedOnDate())) {",
+          "                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" must be after its submittal date: \"",
+          "                        + loan.getSubmittedOnDate();",
+          "                throw new InvalidLoanStateTransitionException(\"approval\", \"must.be.after.submittal.date\", errorMessage, approvedOnDate,"
+        ]
+      },
+      "call": {
+        "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+        "start": 589,
+        "end": 591,
+        "source": [
+          "        loanApplicationValidator.validateApproval(command, loanId);",
+          "",
+          "        Pair<Loan, Map<String, Object>> loanAndChanges = loanScheduleAssembler.assembleLoanApproval(currentUser, command, loanId);"
+        ]
+      }
+    },
+    "changed_paths": [
+      "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java"
+    ]
+  },
+  "controlled_race": {
+    "paused_question": {
+      "exit_code": 0,
+      "wall_seconds": 1.9991705999709666,
+      "stdout_json": {
+        "status": "VERIFIED",
+        "answer_pl": "Tak.",
+        "verdict": "yes",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "start": 2144,
+            "end": 2147,
+            "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "excerpt": "            if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {\n                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" can not be before its submittal date: \"\n                        + loan.getSubmittedOnDate();\n                throw new InvalidLoanStateTransitionException(\"approval\", \"cannot.be.before.submittal.date\", errorMessage, approvedOnDate,"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "start": 589,
+            "end": 591,
+            "quote": "loanApplicationValidator.validateApproval(command, loanId);",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "excerpt": "        loanApplicationValidator.validateApproval(command, loanId);\n\n        Pair<Loan, Map<String, Object>> loanAndChanges = loanScheduleAssembler.assembleLoanApproval(currentUser, command, loanId);"
+          }
+        ],
+        "api_calls": [
+          {
+            "number": 1,
+            "seconds": 1.3199984095990658e-05,
+            "provider_id": "controlled-1",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 2,
+            "seconds": 0.2719958000234328,
+            "provider_id": "controlled-2",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 3,
+            "seconds": 6.13999436609447e-05,
+            "provider_id": "controlled-3",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 4,
+            "seconds": 2.5300018023699522e-05,
+            "provider_id": "controlled-4",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 5,
+            "seconds": 6.160000339150429e-05,
+            "provider_id": "controlled-5",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 6,
+            "seconds": 3.9700011257082224e-05,
+            "provider_id": "controlled-6",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          }
+        ],
+        "searches": [
+          {
+            "literal": "approvedOnDate != null && ",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 2,
+            "result_sha256": "b10ac47460bc7a93f295fbca728096493e99614a23180e2ab2f651a35b93cb29",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\adb3dfb7d12f48a5\\search-01",
+            "r2_seconds": {
+              "search": 0.03033760003745556,
+              "checked_verification": 0.018056900007650256,
+              "comparison": 0.0008582000155001879
+            },
+            "seconds": 0.2826770000392571
+          },
+          {
+            "literal": "loanApplicationValidator.validateApproval(command, loanId);",
+            "path_terms": "",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "a1a95b1bf9f76ebbab49f375845c7277a74a983d1d7f4c33fab13d89e830fc8a",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\adb3dfb7d12f48a5\\search-02",
+            "r2_seconds": {
+              "search": 0.029068399977404624,
+              "checked_verification": 0.018249899963848293,
+              "comparison": 0.0007137000211514533
+            },
+            "seconds": 0.2743580999667756
+          },
+          {
+            "literal": "loanApplicationValidator.validateApproval(",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "bffd3dac3cab675a6ee25177e2c53fe92ee78cccc4d2f2be2594aeb125a1b4e4",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\adb3dfb7d12f48a5\\search-03",
+            "r2_seconds": {
+              "search": 0.025771199958398938,
+              "checked_verification": 0.013340000004973263,
+              "comparison": 0.0007123000104911625
+            },
+            "seconds": 0.2621124000288546
+          }
+        ],
+        "reads": [
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2130,
+            "end": 2182
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 575,
+            "end": 627
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "197a8e665e0c422b607417017930809644dff1d9",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 2132,
+            "end": 2184
+          },
+          {
+            "repository": "fineract",
+            "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+            "start": 575,
+            "end": 627
+          }
+        ],
+        "checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "resolve_seconds": 0.0613514999859035,
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "branch": "local-approval-after",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f"
+            }
+          ],
+          "number": 1,
+          "repository": "fineract"
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\adb3dfb7d12f48a5",
+        "downloads": [
+          {
+            "repository": "apache/fineract",
+            "commit_present_before_fetch": false,
+            "fetches": 1,
+            "fetch_seconds": 0.4537784000276588,
+            "local_preparation_seconds": 0.07888499996624887
+          }
+        ],
+        "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+        "pin_seconds": 0.6257243999862112,
+        "model": "claude-haiku-5-5",
+        "command_seconds": 1.8345416000229307,
+        "model_calls": 6,
+        "api_seconds": 0.27219699998386204,
+        "search_seconds": 0.8191475000348873
+      },
+      "stderr": ""
+    },
+    "next_question": {
+      "exit_code": 0,
+      "wall_seconds": 14.734786899993196,
+      "stdout_json": {
+        "status": "VERIFIED",
+        "answer_pl": "Nie.",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "start": 2146,
+            "end": 2149,
+            "quote": "if (approvedOnDate != null && !DateUtils.isAfter(approvedOnDate, loan.getSubmittedOnDate())) {",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "excerpt": "            if (approvedOnDate != null && !DateUtils.isAfter(approvedOnDate, loan.getSubmittedOnDate())) {\n                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" must be after its submittal date: \"\n                        + loan.getSubmittedOnDate();\n                throw new InvalidLoanStateTransitionException(\"approval\", \"must.be.after.submittal.date\", errorMessage, approvedOnDate,"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "start": 589,
+            "end": 591,
+            "quote": "loanApplicationValidator.validateApproval(command, loanId);",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "excerpt": "        loanApplicationValidator.validateApproval(command, loanId);\n\n        Pair<Loan, Map<String, Object>> loanAndChanges = loanScheduleAssembler.assembleLoanApproval(currentUser, command, loanId);"
+          }
+        ],
+        "api_calls": [
+          {
+            "number": 1,
+            "seconds": 1.090002479031682e-05,
+            "provider_id": "controlled-1",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 2,
+            "seconds": 2.6100024115294218e-05,
+            "provider_id": "controlled-2",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 3,
+            "seconds": 5.859998054802418e-05,
+            "provider_id": "controlled-3",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 4,
+            "seconds": 2.0200037397444248e-05,
+            "provider_id": "controlled-4",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 5,
+            "seconds": 5.400000372901559e-05,
+            "provider_id": "controlled-5",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          },
+          {
+            "number": 6,
+            "seconds": 4.109996370971203e-05,
+            "provider_id": "controlled-6",
+            "model": "claude-haiku-5-5",
+            "stop_reason": "tool_use",
+            "usage": {}
+          }
+        ],
+        "searches": [
+          {
+            "literal": "approvedOnDate != null && ",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 2,
+            "result_sha256": "610e1c5004bcab10d167debc858f557ba2e5e4e451aaa7f47c6ae0e740eda69a",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\c60cc13f67b541ef\\search-01",
+            "r2_seconds": {
+              "search": 0.027647199982311577,
+              "git_scan": 0.5690070000127889,
+              "git_scan_per_repository": [
+                0.5682746999664232
+              ],
+              "comparison": 0.0006578000029549003
+            },
+            "seconds": 0.9165018000057898
+          },
+          {
+            "literal": "loanApplicationValidator.validateApproval(command, loanId);",
+            "path_terms": "",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "73d943d1d4ee72c42742f3e3b98ebcb0067be076461de544b2ebcb9cfa210b99",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\c60cc13f67b541ef\\search-02",
+            "r2_seconds": {
+              "search": 0.027342400047928095,
+              "git_scan": 0.5995445000007749,
+              "git_scan_per_repository": [
+                0.5988688000361435
+              ],
+              "comparison": 0.0008152999798767269
+            },
+            "seconds": 0.8389871999970637
+          },
+          {
+            "literal": "loanApplicationValidator.validateApproval(",
+            "path_terms": "LoanApplicationValidator",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "operation": "query-verified",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "7a1e2270fe10a7b483cf76650c454bde5c8ab9fbe424e330c5c549dc4fc6d118",
+            "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\c60cc13f67b541ef\\search-03",
+            "r2_seconds": {
+              "search": 0.024590899993199855,
+              "git_scan": 0.5641443000058644,
+              "git_scan_per_repository": [
+                0.5634887999622151
+              ],
+              "comparison": 0.0006907000206410885
+            },
+            "seconds": 0.8001420000218786
+          }
+        ],
+        "reads": [
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 2132,
+            "end": 2184
+          },
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 575,
+            "end": 627
+          },
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+            "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 2134,
+            "end": 2186
+          },
+          {
+            "repository": "fineract",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+            "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+            "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+            "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+            "start": 575,
+            "end": 627
+          }
+        ],
+        "checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "resolve_seconds": 0.0608422999503091,
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "branch": "local-approval-after",
+              "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322"
+            }
+          ],
+          "number": 1,
+          "repository": "fineract"
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\c60cc13f67b541ef",
+        "downloads": [
+          {
+            "repository": "apache/fineract",
+            "commit_present_before_fetch": false,
+            "fetches": 1,
+            "fetch_seconds": 1.1416902000200935,
+            "local_preparation_seconds": 0.2267084999475628
+          }
+        ],
+        "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+        "pin_seconds": 11.911985200014897,
+        "model": "claude-haiku-5-5",
+        "command_seconds": 14.579847699962556,
+        "model_calls": 6,
+        "api_seconds": 0.00021090003428980708,
+        "search_seconds": 2.555631000024732
+      },
+      "stderr": "fineract: 8635 regular paths, 8609 distinct blobs, 0 to fetch\r\nfineract: 96188504 unique blob bytes, 0.16 s\r\n"
+    },
+    "status": "PASS"
+  },
+  "fallback_exercised": true,
+  "status": "PASS"
+}

@@ -1,0 +1,10 @@
+{
+  "repository_order": ["chromium/chromium", "electron/electron", "brave/brave-core"],
+  "selection": "Frozen after index-only reconnaissance and before the first timed query. Counts from reconnaissance must be independently verified in every trial.",
+  "queries": [
+    {"id": "single", "literal": "BUILD=7339", "counts": [1, 0, 0]},
+    {"id": "many", "literal": "electron::", "counts": [0, 277, 0]},
+    {"id": "cross", "literal": "chrome://", "counts": [5098, 13, 755]},
+    {"id": "zero", "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6", "counts": [0, 0, 0]}
+  ]
+}

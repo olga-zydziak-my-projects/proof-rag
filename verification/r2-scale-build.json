@@ -1,0 +1,292 @@
+{
+  "argv": [
+    "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "scripts/fineract_r2_corpus.py",
+    "build",
+    "--sources",
+    "local\\r2-scale\\sources",
+    "--manifest",
+    "verification/r2-scale-manifest.json",
+    "--index",
+    "local\\r2-scale\\index-01",
+    "--log-dir",
+    "local\\r2-scale\\build-01-log"
+  ],
+  "wall_seconds": 172.95879509998485,
+  "returncode": 0,
+  "response": {
+    "status": "BUILT",
+    "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+    "shards": {
+      "chromium": {
+        "complete": true,
+        "schema": 1,
+        "snapshot": {
+          "repository": "chromium/chromium",
+          "url": "https://github.com/chromium/chromium.git",
+          "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+          "root_tree": "9126a9192eb20fda7cc2e0f5a6b5163dfae53b4b",
+          "object_format": "sha1",
+          "regular_paths": 80782,
+          "blob_paths": 80785,
+          "symlinks": 3,
+          "gitlinks": 35
+        },
+        "regular_paths": 80782,
+        "symlinks": 3,
+        "gitlinks": 35,
+        "blob_paths": 80785,
+        "distinct_regular_blobs": 74089,
+        "raw_blob_bytes": 781713802,
+        "distinct_trigrams": 854036,
+        "excluded_symlinks": [
+          {
+            "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d",
+            "category": "symlink"
+          },
+          {
+            "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314",
+            "category": "symlink"
+          },
+          {
+            "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032",
+            "category": "symlink"
+          }
+        ],
+        "path_and_blob_sets_reconciled": true,
+        "directories": [
+          "chrome"
+        ],
+        "build_seconds": 77.9452001999598,
+        "index_bytes": 1192841216,
+        "peak_rss_bytes": 652800000,
+        "sha256": "aef9f1c67011d7831d09fd3ca1527d05323f850412df5735a5305d85c28f04cc"
+      },
+      "electron": {
+        "complete": true,
+        "schema": 1,
+        "snapshot": {
+          "repository": "electron/electron",
+          "url": "https://github.com/electron/electron.git",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "root_tree": "fa2587baa940913befc5d539afef827a695dfb73",
+          "object_format": "sha1",
+          "regular_paths": 2700,
+          "blob_paths": 2700,
+          "symlinks": 0,
+          "gitlinks": 0
+        },
+        "regular_paths": 2700,
+        "symlinks": 0,
+        "gitlinks": 0,
+        "blob_paths": 2700,
+        "distinct_regular_blobs": 2662,
+        "raw_blob_bytes": 26311171,
+        "distinct_trigrams": 496479,
+        "excluded_symlinks": [],
+        "path_and_blob_sets_reconciled": true,
+        "build_seconds": 3.68444520002231,
+        "index_bytes": 51535872,
+        "peak_rss_bytes": 652800000,
+        "sha256": "1df9f41702f2303c57db753b16b69d30f28a3fd6b5a1111a6d7b2d25c3f6bd37"
+      },
+      "brave-core": {
+        "complete": true,
+        "schema": 1,
+        "snapshot": {
+          "repository": "brave/brave-core",
+          "url": "https://github.com/brave/brave-core.git",
+          "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+          "root_tree": "21f15cb35a06c819d080872a0c404a771a76efc1",
+          "object_format": "sha1",
+          "regular_paths": 50083,
+          "blob_paths": 50099,
+          "symlinks": 16,
+          "gitlinks": 0
+        },
+        "regular_paths": 50083,
+        "symlinks": 16,
+        "gitlinks": 0,
+        "blob_paths": 50099,
+        "distinct_regular_blobs": 44584,
+        "raw_blob_bytes": 979224260,
+        "distinct_trigrams": 855315,
+        "excluded_symlinks": [
+          {
+            "path": "build/mac/cross_compile/path/codesign",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/hdiutil",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/lipo",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/notarytool",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/pkgbuild",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/plutil",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/productbuild",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/productsign",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/security",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/spctl",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/sw_vers",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/xcodebuild",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "build/mac/cross_compile/path/xcrun",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9",
+            "category": "symlink"
+          },
+          {
+            "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21",
+            "category": "symlink"
+          },
+          {
+            "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "de23ff59f70f7edc1b628ff14db738129fe366e5",
+            "category": "symlink"
+          },
+          {
+            "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+            "mode": "120000",
+            "type": "blob",
+            "object_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b",
+            "category": "symlink"
+          }
+        ],
+        "path_and_blob_sets_reconciled": true,
+        "build_seconds": 87.63132060004864,
+        "index_bytes": 1328545792,
+        "peak_rss_bytes": 652800000,
+        "sha256": "bdc0177e649ecad282fe4e59c1b05df800dfa40ade746fe90b35ab5563842b18"
+      }
+    },
+    "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+    "publication_seconds": 1.6395387999946252
+  },
+  "stderr": "",
+  "resource": {
+    "status": "PROCESS_PASS",
+    "command": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+      "_stage",
+      "build",
+      "--manifest",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+      "--manifest-hash",
+      "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+      "--sources",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+      "--scratch",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\.r2-corpus-stage-71d029644c004196b82dbd65e2d3bfcd"
+    ],
+    "limits": {
+      "timeout_seconds": 900,
+      "tree_memory_bytes": 3221225472,
+      "artifact_bytes": 17179869184,
+      "sample_seconds": 0.02
+    },
+    "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\.r2-corpus-stage-71d029644c004196b82dbd65e2d3bfcd",
+    "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+    "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+    "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+    "initial_ram_available": 9934819328,
+    "initial_disk_free": 337172631552,
+    "peak_tree_rss": 1033183232,
+    "peak_tree_private": 741781504,
+    "peak_artifact_bytes": 2572949165,
+    "sample_interval_requested_seconds": 0.02,
+    "exit_code": 0,
+    "members_before_cleanup": 0,
+    "remaining_job_processes": 0,
+    "elapsed_seconds": 171.20382880000398,
+    "max_sample_gap_seconds": 0.03701319999527186,
+    "final_artifact_bytes": 2572930663,
+    "final_artifact_limit_exceeded": false
+  }
+}

@@ -1,0 +1,2143 @@
+{
+  "date": "2026-11-19",
+  "model": "claude-sonnet-5-5",
+  "outcome_pl": "W obu niezależnych pytaniach przed pierwszą odpowiedzią roboczą Claude otworzył właściwy plik produkcyjny i dostał wszystkie cztery ustalone wcześniej fragmenty. Oba szkice poprawnie opisywały wymagane dane, ale zawierały również zbyt szerokie zapewnienie. W obu przypadkach lokalny checker reguły Java zatrzymał publikację przed dodatkową oceną modelową. Publiczne CLI wydało 0 odpowiedzi biznesowych.",
+  "purpose_pl": "Sprawdzenie, czy Claude na oryginalnej wersji prawdziwego PR-a sam znajdzie i przeczyta rozstrzygający kod w całym drzewie źródłowym. Czas mierzony osobno dla każdego publicznego żądania CLI; przygotowanie indeksu jest oddzielnym pomiarem.",
+  "question": "W starszym, synchronicznym trybie Fineracta polecenie kończy się błędem HTTP 500 bez treści odpowiedzi. Czy z powodu braku tej treści aplikacja pomija powiadomienie dla zewnętrznej integracji? Jeśli je przygotowuje, po czym w jego danych można poznać błąd i jego kod HTTP?",
+  "upstream": {
+    "url": "https://github.com/apache/fineract/pull/6834",
+    "number": 6834,
+    "title": "FINERACT-3197: Send status and response in legacy failure webhooks",
+    "state": "closed",
+    "merged_at": "2026-11-06T13:05:42Z",
+    "original_head": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+    "base_in_pr_api": "0e797f852002cce98699054a01428d83551fa4d8",
+    "merge_commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+    "changed_files": [
+      "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+      "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java"
+    ],
+    "api_archives_sha256": {
+      "upstream-pr-6834.json": "d0d93d13e138c2941d88e01f6c13a3bc76281c7cce54ddddd8e93b3377802ec4",
+      "upstream-files-6834.json": "b7967b79909033c6c4ff333869d71f247af27a6bfb5f34c7632c5ffad130ce50"
+    }
+  },
+  "scope": {
+    "tree_modes": {
+      "100644": 8610,
+      "120000": 2,
+      "100755": 13
+    },
+    "regular_files": 8623,
+    "directory_filters": [],
+    "execution_note_pl": "Oryginalne obiekty Git PR-a pobrano z GitHub. Rejestrację widoku i wyszukiwanie odtworzono lokalnie. Modelowi nie podano tytułu, diffu, nazw plików, symboli ani oczekiwanych pól odpowiedzi."
+  },
+  "prepared_view": {
+    "number": 6834,
+    "repo": "fineract",
+    "repository": "apache/fineract",
+    "corpus": "default",
+    "config": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\fineract-real-pr-01\\config.json",
+    "bare": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\fineract-real-pr-01\\s\\fineract.git",
+    "base": "0e797f852002cce98699054a01428d83551fa4d8",
+    "head": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+    "base_branch": "develop",
+    "head_branch": "FINERACT-3197-legacy-failure-webhook-payload",
+    "source_ref": "refs/pull/6834/head",
+    "pr_url": "https://github.com/apache/fineract/pull/6834",
+    "merge_commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+    "scope": "Entire tree; regular Git files; empty directory filters",
+    "regular_files": 8623,
+    "tree": "5de8f8c7bae5d8b75fe5e37f31cb0b4289a99a3b",
+    "git_modes": {
+      "100644": 8610,
+      "120000": 2,
+      "100755": 13
+    },
+    "unique_regular_blobs": 8597,
+    "bytes": 100355946,
+    "changed_paths": [
+      "M\tfineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+      "M\tfineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java"
+    ],
+    "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+    "receipt_sha256": "6fb823046dd15717391c252b15e2f32e67084134ad19cbb5f45278868a119e8f",
+    "head_manifest": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\fineract-real-pr-01\\p\\p-23d156d03008eb559fa31caaa577c699\\r\\c72798ba9f20437984795e1ecee54906\\manifest.json",
+    "base_index_strategy": "Fresh index and independent check on the exact archived API base",
+    "base_manifest_seconds": 0.16702690010424703,
+    "base_build_seconds": 10.10799439996481,
+    "base_check_seconds": 7.870557700050995,
+    "opened_cli_seconds": 20.15428380004596,
+    "head_refresh_seconds": 19.866995900054462,
+    "head_fetch_plus_manifest_seconds": 1.905802799970843,
+    "head_candidate_index_seconds": 10.111012000008486,
+    "head_candidate_bytes": 159256576,
+    "head_verifier_bytes": 179993280,
+    "upstream_metadata_sha256": "d0d93d13e138c2941d88e01f6c13a3bc76281c7cce54ddddd8e93b3377802ec4",
+    "replay_note": "The public PR ref and base commits were fetched from GitHub. The created local heads are pinned aliases of those objects. This CLI run replayed its registration locally; the original historical fork name/PR title are not provided to the model in its natural question."
+  },
+  "frozen_oracle": {
+    "question": "W starszym, synchronicznym trybie Fineracta polecenie kończy się błędem HTTP 500 bez treści odpowiedzi. Czy z powodu braku tej treści aplikacja pomija powiadomienie dla zewnętrznej integracji? Jeśli je przygotowuje, po czym w jego danych można poznać błąd i jego kod HTTP?",
+    "number": 6834,
+    "head": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+    "base": "0e797f852002cce98699054a01428d83551fa4d8",
+    "repo": "apache/fineract",
+    "url": "https://github.com/apache/fineract/pull/6834",
+    "merge_commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+    "merged_at": "2026-11-06T13:05:42Z",
+    "official_files_endpoint": "https://api.github.com/repos/apache/fineract/pulls/6834/files",
+    "git_changed_files": [
+      "M\tfineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+      "M\tfineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java"
+    ],
+    "upstream_sha256": {
+      "upstream-pr-6834.json": "d0d93d13e138c2941d88e01f6c13a3bc76281c7cce54ddddd8e93b3377802ec4",
+      "upstream-files-6834.json": "b7967b79909033c6c4ff333869d71f247af27a6bfb5f34c7632c5ffad130ce50"
+    },
+    "source_spans": {
+      "decisive_changed_production": [
+        {
+          "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+          "start": 425,
+          "end": 426,
+          "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+          "excerpt": "                } else if (result instanceof ErrorInfo ex) {\n                    reqmap.put(\"status\", \"Exception\");",
+          "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L426"
+        },
+        {
+          "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+          "start": 431,
+          "end": 431,
+          "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+          "excerpt": "                        errorMap = gson.fromJson(ex.getMessage(), type);",
+          "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L431-L431"
+        },
+        {
+          "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+          "start": 436,
+          "end": 438,
+          "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+          "excerpt": "                    if (errorMap == null) {\n                        errorMap = new HashMap<>();\n                        errorMap.put(\"errorMessage\", ex.getMessage());",
+          "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L436-L438"
+        },
+        {
+          "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+          "start": 441,
+          "end": 444,
+          "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+          "excerpt": "                    errorMap.put(\"errorCode\", ex.getErrorCode());\n                    errorMap.put(\"statusCode\", ex.getStatusCode());\n\n                    reqmap.put(\"response\", errorMap);",
+          "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L441-L444"
+        }
+      ]
+    },
+    "supporting_source": {
+      "upstream_regression": {
+        "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+        "start": 485,
+        "end": 490,
+        "blob_id": "eaf8388f05f3e742c5fba8c48a9edc4d6eb1b2a5",
+        "excerpt": "    public void failedCommandPublishesHookEventWhenErrorHasNoBody() {\n        // ErrorHandler serializes a response without an entity to the JSON literal null\n        Map<String, Object> payload = failCommandAndCaptureHookPayload(new ErrorInfo(500, null, \"null\", null));\n\n        assertEquals(\"Exception\", payload.get(\"status\"));\n        assertEquals(500, ((Map<?, ?>) payload.get(\"response\")).get(\"statusCode\"));",
+        "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java#L485-L490"
+      },
+      "use_of_typed_error": {
+        "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+        "start": 233,
+        "end": 236,
+        "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+        "excerpt": "    private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {\n        try {\n            publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);\n        } catch (Exception e) {",
+        "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L233-L236"
+      },
+      "internal_event_publication": {
+        "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+        "start": 447,
+        "end": 454,
+        "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+        "excerpt": "                reqmap.put(\"timestamp\", Instant.now().toString());\n\n                final String serializedResult = toApiJsonSerializer.serialize(reqmap);\n\n                final HookEvent applicationEvent = new HookEvent(hookEventSource, serializedResult, appUser,\n                        ThreadLocalContextUtil.getContext());\n\n                eventPublisher.publishEvent(applicationEvent);",
+        "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L447-L454"
+      }
+    },
+    "expected_pl": "Sam brak treści błędu nie powoduje pominięcia. W normalnym przebiegu kod buduje dane powiadomienia z polem status o wartości Exception na najwyższym poziomie, a liczbowy kod HTTP umieszcza w response.statusCode (tu 500). Dla treści błędu niebędącej obiektem mapy, także literału JSON null, tworzy zastępczą mapę i dodaje m.in. statusCode. Dotyczy to przygotowania i lokalnej publikacji zdarzenia, nie gwarantuje odbioru u odbiorcy.",
+    "required": [
+      "absence of the error response body does not by itself suppress creation of notification data",
+      "outer status equals Exception",
+      "response.statusCode equals 500 numerically"
+    ],
+    "optional": [
+      "raw ErrorInfo (not serialized String) flows to the builder",
+      "errorMessage fallback for no parsed object",
+      "errorCode is distinct from the HTTP statusCode",
+      "outer request's command JSON must exist"
+    ],
+    "forbidden": [
+      "asserted successful HTTP delivery to an external receiver",
+      "mixing up missing original request JSON with missing error-response entity",
+      "the numeric HTTP code is top-level status or solely response.errorCode",
+      "the fallback itself sets an errorCode of 500"
+    ],
+    "scoring": {
+      "semantics": "Full: all required facts and no material unsupported extras; partial: recognizes local event but omits/misplaces required fields or adds material error; incorrect: says the absent body suppresses notification or otherwise contradicts core; no answer reported separately.",
+      "discovery": "Count actual numbered lines returned to a read action before the first submit. Strict production coverage requires all four listed minimal changed production spans, regardless of whether the answer quotes them. The changed regression can independently corroborate behavior and semantics but test-only or different command pipeline is not success in finding the real PR's deciding production code. Note if the agent found/partially read or cited production, or found only tests/another pipeline, instead of binary collapse.",
+      "citations": "Report separately if released answer cites the changed production rule, changed upstream regression or unrelated implementation; never infer discovery from appearance in search results or review windows alone."
+    },
+    "oracle_basis": "Independent static trace of exact Git production blob and assertions in the exact upstream JUnit regression. No JVM/Gradle execution by this oracle. Test captures the map for serialization and configures source ErrorInfo for a failed command; this does not measure external delivery.",
+    "prior_base_delta": "Base passed gson.toJson(errorInfo) into publishHookEvent; PR passes the typed errorInfo so its instanceof branch runs. Null parsing on the new error path is guarded before codes are added; three regressions in upstream test cover structured, text and absent body. Only PR head is used for Claude."
+  },
+  "frozen_live_plan": {
+    "question": "W starszym, synchronicznym trybie Fineracta polecenie kończy się błędem HTTP 500 bez treści odpowiedzi. Czy z powodu braku tej treści aplikacja pomija powiadomienie dla zewnętrznej integracji? Jeśli je przygotowuje, po czym w jego danych można poznać błąd i jego kod HTTP?",
+    "number": 6834,
+    "head": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+    "regular_files": 8623,
+    "repo": "apache/fineract",
+    "alias": "fineract",
+    "corpus": "default",
+    "model": "claude-sonnet-5-5",
+    "prepared_manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+    "input_sha256": {
+      "oracle.json": "24e78e579d6473a793abe7a95625d4b9b3ca946313b516b7a1f43b918492315d",
+      "config.json": "ff6f3ed2987c0b970e946774b1a649104c4f6ff3642171154b2537380005bbf9",
+      "prep.json": "3956eec914ba3bb3b2be42be559905a7d397ccaaf4bedcf7fc746fc4a4f6e412",
+      "fineract_r2_ask.py": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f"
+    },
+    "protocol": "Two independent sequential public CLI calls on one frozen authentic PR head and prepared whole-repository index. Identical Polish question, model defaults, no prompt hints or gold or prior answers. Measure from process launch through exit and full stdout. Do not retry model insufficiency or a wrong answer. Allow one separate fresh retry per Windows I/O or transient provider failure after the two first attempts. Paid calls use only production ask. Verify all decisive source in model-selected read responses before first submit. Report any source obtained only after that moment separately."
+  },
+  "recorded_cli_results": {
+    "rows": [
+      {
+        "label": "1",
+        "status": "BLOCKED",
+        "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+        "code": 3,
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "branch": "FINERACT-3197-legacy-failure-webhook-payload",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934"
+            }
+          ],
+          "number": 6834,
+          "repository": "fineract"
+        },
+        "wall_seconds": 23.688775799935684,
+        "model": "claude-sonnet-5-5",
+        "live_ids": [
+          "msg_011ChCU5nNcqJ5qSRvsLLE4X",
+          "msg_011ChCU61xgLs6mxfo3LpTRr",
+          "msg_011ChCU6DhNfHSi1HCAjWnbo",
+          "msg_011ChCU6Kin418Xe4JEwdGzp",
+          "msg_011ChCU6TBjkji3QhESmpb4d",
+          "msg_011ChCU6dkjaqRG5eMJJw2qH",
+          "msg_011ChCU6kzoLkx9n8tURPKNv",
+          "msg_011ChCU6sgspZ18mbw2j1w4h"
+        ],
+        "model_calls": 8,
+        "input_tokens": 53855,
+        "output_tokens": 1895,
+        "estimated_usd": 0.12666,
+        "uncosted_calls": 0,
+        "answer": null,
+        "verdict": null,
+        "checks": {
+          "citations": "INCOMPLETE",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "conclusion_review": null,
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\fineract-real-pr-01\\p\\p-23d156d03008eb559fa31caaa577c699\\agent\\qa\\6e6a9d5d9c1545d0",
+        "raw_sha256": "c2bc2e8472d9b244c4fd1a49e8317adbf1f0506c717ef06bc20898e2e51ce54d",
+        "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+        "discovery_actions": [
+          {
+            "turn": 1,
+            "id": "toolu_01Vkht2QCV4NAFbMokBJEto8",
+            "tool": "search",
+            "arguments": {
+              "literal": "CommandSourceService"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "count": 5,
+              "shown": [
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/CommandSourceService.java",
+                  "line": 55
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/CommandSourceServiceTest.java",
+                  "line": 48
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreHelper.java",
+                  "line": 25
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+                  "line": 83
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+                  "line": 100
+                }
+              ]
+            }
+          },
+          {
+            "turn": 1,
+            "id": "toolu_01PFrLsZXnmrxNYz3EgZNY9K",
+            "tool": "search",
+            "arguments": {
+              "literal": "SynchronousCommandProcessingService"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "count": 17,
+              "shown": [
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+                  "line": 69
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+                  "line": 81
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/IdempotencyKeyResolver.java",
+                  "line": 40
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/configuration/RetryConfigurationAssembler.java",
+                  "line": 79
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreFilter.java",
+                  "line": 33
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreHelper.java",
+                  "line": 26
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandHookAfter.java",
+                  "line": 31
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreBatchFilter.java",
+                  "line": 27
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandEventPublisher.java",
+                  "line": 44
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-command/README.md",
+                  "line": 21
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/command/intro.adoc",
+                  "line": 20
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/fsip/fsip-005.adoc",
+                  "line": 36
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/resilience/command.adoc",
+                  "line": 10
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/architecture/design.adoc",
+                  "line": 33
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/appendix/properties-resilience4j.adoc",
+                  "line": 12
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/IdempotencyKeyResolverTest.java",
+                  "line": 61
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/test/java/org/apache/fineract/commands/configuration/RetryConfigurationAssemblerTest.java",
+                  "line": 82
+                }
+              ]
+            }
+          },
+          {
+            "turn": 2,
+            "id": "toolu_018oifPBkTwbAdx3gzQnUfDn",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 95,
+              "needle": "publishErrorEvent"
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [],
+              "note": "Brak podanego tekstu w tym zakresie pliku."
+            }
+          },
+          {
+            "turn": 3,
+            "id": "toolu_01K4pux5qszmfiXJuLVDfxeS",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 95
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "95:             return executeCommandAttempt(executionContext);",
+                "96:         } catch (RollbackTransactionNotApprovedException e) {",
+                "97:             throw e;",
+                "98:         } catch (RuntimeException e) {",
+                "99:             RuntimeException mappable = ErrorHandler.getMappable(e);",
+                "100:             persistFinalErrorResult(executionContext, mappable);",
+                "101:             throw mappable;",
+                "102:         }",
+                "103:     }",
+                "104: ",
+                "105:     @Override",
+                "106:     public CommandProcessingResult executeCommand(final CommandWrapper wrapper, final JsonCommand command,",
+                "107:             final boolean isApprovedByChecker) {",
+                "108:         return executeWithRetry(new CommandExecutionContext(wrapper, command, isApprovedByChecker));",
+                "109:     }",
+                "110: ",
+                "111:     private CommandProcessingResult executeCommandAttempt(CommandExecutionContext executionContext) {",
+                "112:         // Do not store the idempotency key because of the exception handling",
+                "113:         setIdempotencyKeyStoreFlag(false);",
+                "114: ",
+                "115:         CommandWrapper wrapper = executionContext.wrapper();",
+                "116:         JsonCommand command = executionContext.command();",
+                "117:         Long commandId = (Long) fineractRequestContextHolder.getAttribute(COMMAND_SOURCE_ID, null);",
+                "118:         boolean isRetry = commandId != null;",
+                "119:         boolean isEnclosingTransaction = BatchRequestContextHolder.isEnclosingTransaction();",
+                "120:         executionContext.setEnclosingTransaction(isEnclosingTransaction);",
+                "121: ",
+                "122:         CommandSource commandSource = null;",
+                "123:         String idempotencyKey;",
+                "124:         if (isRetry) {",
+                "125:             commandSource = commandSourceService.getCommandSource(commandId);",
+                "126:             idempotencyKey = commandSource.getIdempotencyKey();",
+                "127:         } else if ((commandId = command.commandId()) != null) { // action on the command itself",
+                "128:             commandSource = commandSourceService.getCommandSource(commandId);",
+                "129:             idempotencyKey = commandSource.getIdempotencyKey();",
+                "130:         } else {",
+                "131:             idempotencyKey = idempotencyKeyResolver.resolve(wrapper);",
+                "132:         }",
+                "133:         exceptionWhenTheRequestAlreadyProcessed(wrapper, idempotencyKey, isRetry);",
+                "134: ",
+                "135:         AppUser user = context.authenticatedUser(wrapper);",
+                "136:         if (commandSource == null) {",
+                "137:             if (isEnclosingTransaction) {",
+                "138:                 commandSource = commandSourceService.getInitialCommandSource(wrapper, command, user, idempotencyKey);",
+                "139:             } else {",
+                "140:                 commandSource = commandSourceService.saveInitial(wrapper, command, user, idempotencyKey);",
+                "141:                 commandId = commandSource.getId();",
+                "142:             }",
+                "143:         }",
+                "144:         executionContext.setCommandSource(commandSource);",
+                "145:         if (commandId != null) {",
+                "146:             storeCommandIdInContext(commandSource); // Store command id as a request attribute",
+                "147:         }"
+              ],
+              "occurrences": []
+            }
+          },
+          {
+            "turn": 4,
+            "id": "toolu_01MSqvz3Vd4RWUEEMfPnoa2B",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 148,
+              "needle": "persistFinalErrorResult(Comm"
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "191:             publishHookEvent(executionContext.wrapper().entityName(), executionContext.wrapper().actionName(), executionContext.command(),",
+                "192:                     result);",
+                "193:         }",
+                "194: ",
+                "195:         return result;",
+                "196:     }",
+                "197: ",
+                "198:     private void updateSuccessfulResult(CommandSource commandSource, CommandProcessingResult result) {",
+                "199:         commandSource.setResultStatusCode(SC_OK);",
+                "200:         commandSource.updateForAudit(result);",
+                "201:         commandSource.setResult(toApiResultJsonSerializer.serializeResult(result));",
+                "202:         commandSource.setStatus(PROCESSED);",
+                "203:     }",
+                "204: ",
+                "205:     private void persistFinalErrorResult(CommandExecutionContext executionContext, RuntimeException mappable) {",
+                "206:         CommandSource commandSource = executionContext.commandSource();",
+                "207:         if (commandSource == null) {",
+                "208:             return;",
+                "209:         }",
+                "210:         ErrorInfo errorInfo = commandSourceService.generateErrorInfo(mappable);",
+                "211:         publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);",
+                "212:         if (executionContext.enclosingTransaction()) {",
+                "213:             return;",
+                "214:         }",
+                "215: ",
+                "216:         Integer statusCode = errorInfo.getStatusCode();",
+                "217:         commandSource.setResultStatusCode(statusCode);",
+                "218:         commandSource.setResult(errorInfo.getMessage());",
+                "219:         if (statusCode != SC_OK) {",
+                "220:             commandSource.setStatus(ERROR);",
+                "221:         }",
+                "222:         commandSourceService.saveResult(commandSource);",
+                "223:     }",
+                "224: ",
+                "225:     private void storeCommandIdInContext(CommandSource savedCommandSource) {",
+                "226:         if (savedCommandSource.getId() == null) {",
+                "227:             throw new IllegalStateException(\"Command source not saved\");",
+                "228:         }",
+                "229:         // Idempotency filters and retry need this",
+                "230:         fineractRequestContextHolder.setAttribute(COMMAND_SOURCE_ID, savedCommandSource.getId());",
+                "231:     }",
+                "232: ",
+                "233:     private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {",
+                "234:         try {",
+                "235:             publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);",
+                "236:         } catch (Exception e) {",
+                "237:             log.error(\"Failed to publish hook error event for entity: {}, action: {}\", wrapper.entityName(), wrapper.actionName(), e);",
+                "238:         }",
+                "239:     }",
+                "240: ",
+                "241:     private void exceptionWhenTheRequestAlreadyProcessed(CommandWrapper wrapper, String idempotencyKey, boolean retry) {",
+                "242:         CommandSource command = commandSourceService.findCommandSource(wrapper, idempotencyKey);",
+                "243:         if (command == null) {"
+              ],
+              "occurrences": [
+                205
+              ]
+            }
+          },
+          {
+            "turn": 5,
+            "id": "toolu_01H1AzTVFmHL2eKgUPvv8wmk",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "needle": "void publishHookEvent("
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "374:         } else {",
+                "375:             handler = commandHandlerProvider.getHandler(wrapper.entityName(), wrapper.actionName());",
+                "376:         }",
+                "377: ",
+                "378:         return handler;",
+                "379:     }",
+                "380: ",
+                "381:     @Override",
+                "382:     public boolean validateRollbackCommand(final CommandWrapper commandWrapper, final AppUser user) {",
+                "383:         user.validateHasPermissionTo(commandWrapper.getTaskPermissionName());",
+                "384:         boolean isMakerChecker = configurationDomainService.isMakerCheckerEnabledForTask(commandWrapper.taskPermissionName());",
+                "385:         return isMakerChecker && !user.isCheckerSuperUser();",
+                "386:     }",
+                "387: ",
+                "388:     protected void publishHookEvent(final String entityName, final String actionName, JsonCommand command, final Object result) {",
+                "389:         try {",
+                "390:             final AppUser appUser = context.authenticatedUser(CommandWrapper.wrap(actionName, entityName, null, null));",
+                "391: ",
+                "392:             final HookEventSource hookEventSource = new HookEventSource(entityName, actionName);",
+                "393: ",
+                "394:             // TODO: Add support for publishing array events",
+                "395:             if (command.json() != null) {",
+                "396:                 Type type = new TypeToken<Map<String, Object>>() {",
+                "397: ",
+                "398:                 }.getType();",
+                "399: ",
+                "400:                 Map<String, Object> myMap;",
+                "401: ",
+                "402:                 try {",
+                "403:                     myMap = gson.fromJson(command.json(), type);",
+                "404:                 } catch (Exception e) {",
+                "405:                     throw new PlatformApiDataValidationException(\"error.msg.invalid.json\", \"The provided JSON is invalid.\",",
+                "406:                             new ArrayList<>(), e);",
+                "407:                 }",
+                "408: ",
+                "409:                 Map<String, Object> reqmap = new HashMap<>();",
+                "410:                 reqmap.put(\"entityName\", entityName);",
+                "411:                 reqmap.put(\"actionName\", actionName);",
+                "412:                 reqmap.put(\"createdBy\", context.authenticatedUser().getId());",
+                "413:                 reqmap.put(\"createdByName\", context.authenticatedUser().getUsername());",
+                "414:                 reqmap.put(\"createdByFullName\", context.authenticatedUser().getDisplayName());",
+                "415: ",
+                "416:                 reqmap.put(\"request\", myMap);",
+                "417:                 if (result instanceof CommandProcessingResult) {",
+                "418:                     CommandProcessingResult resultCopy = CommandProcessingResult",
+                "419:                             .fromCommandProcessingResult((CommandProcessingResult) result);",
+                "420: ",
+                "421:                     reqmap.put(\"officeId\", resultCopy.getOfficeId());",
+                "422:                     reqmap.put(\"clientId\", resultCopy.getClientId());",
+                "423:                     resultCopy.setOfficeId(null);",
+                "424:                     reqmap.put(\"response\", resultCopy);",
+                "425:                 } else if (result instanceof ErrorInfo ex) {",
+                "426:                     reqmap.put(\"status\", \"Exception\");"
+              ],
+              "occurrences": [
+                388
+              ]
+            }
+          },
+          {
+            "turn": 5,
+            "id": "toolu_01Jff5rFrYYLTB7p9jMX6RiV",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/CommandSourceService.java",
+              "needle": "generateErrorInfo"
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/CommandSourceService.java",
+              "blob_id": "0b560528706456b2e50019b46bae0e073e7fbdc5",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "79:     @Transactional",
+                "80:     public void saveResult(Long commandSourceId, Integer response, String body) {",
+                "81:         commandSourceRepository.findById(commandSourceId).ifPresent(commandSource -> {",
+                "82:             commandSource.setResultStatusCode(response);",
+                "83:             commandSource.setResult(body);",
+                "84:             saveResult(commandSource);",
+                "85:         });",
+                "86:     }",
+                "87: ",
+                "88:     @NonNull",
+                "89:     public CommandSource saveResult(@NonNull CommandSource commandSource) {",
+                "90:         return commandSourceRepository.saveAndFlush(commandSource);",
+                "91:     }",
+                "92: ",
+                "93:     public ErrorInfo generateErrorInfo(Throwable t) {",
+                "94:         return errorHandler.handle(ErrorHandler.getMappable(t));",
+                "95:     }",
+                "96: ",
+                "97:     public CommandSource getCommandSource(Long commandSourceId) {",
+                "98:         return commandSourceRepository.findById(commandSourceId).orElseThrow(() -> new CommandNotFoundException(commandSourceId));",
+                "99:     }",
+                "100: ",
+                "101:     public CommandSource findCommandSource(CommandWrapper wrapper, String idempotencyKey) {",
+                "102:         return commandSourceRepository.findByActionNameAndEntityNameAndIdempotencyKey(wrapper.actionName(), wrapper.entityName(),",
+                "103:                 idempotencyKey);",
+                "104:     }",
+                "105: ",
+                "106:     public CommandSource getInitialCommandSource(CommandWrapper wrapper, JsonCommand jsonCommand, AppUser maker, String idempotencyKey) {",
+                "107:         CommandSource commandSourceResult = CommandSource.fullEntryFrom(wrapper, jsonCommand, maker, idempotencyKey,",
+                "108:                 UNDER_PROCESSING.getValue(), false);",
+                "109:         sanitizeJson(commandSourceResult, wrapper.getSanitizeJsonKeys());",
+                "110:         if (commandSourceResult.getCommandAsJson() == null) {",
+                "111:             commandSourceResult.setCommandAsJson(\"{}\");",
+                "112:         }",
+                "113:         return commandSourceResult;",
+                "114:     }",
+                "115: ",
+                "116:     @Transactional",
+                "117:     public CommandExecutionResult processCommandAndSaveResult(NewCommandSourceHandler handler, JsonCommand command,",
+                "118:             CommandSource commandSource, AppUser user, boolean isApprovedByChecker,",
+                "119:             BiConsumer<CommandSource, CommandProcessingResult> resultUpdater) {",
+                "120:         final CommandProcessingResult result = handler.processCommand(command);",
+                "121:         validateMakerChecker(commandSource, user, isApprovedByChecker, result);",
+                "122:         resultUpdater.accept(commandSource, result);",
+                "123:         return new CommandExecutionResult(result, saveResult(commandSource));",
+                "124:     }",
+                "125: ",
+                "126:     private void validateMakerChecker(CommandSource commandSource, AppUser user, boolean isApprovedByChecker,",
+                "127:             CommandProcessingResult result) {",
+                "128:         String permission = commandSource.getPermissionCode();",
+                "129:         boolean isMakerChecker = configurationDomainService.isMakerCheckerEnabledForTask(permission);",
+                "130:         if (isMakerChecker || result.isRollbackTransaction()) {",
+                "131:             if (isApprovedByChecker || user.isCheckerSuperUser()) {"
+              ],
+              "occurrences": [
+                93
+              ]
+            }
+          },
+          {
+            "turn": 6,
+            "id": "toolu_016hNvAZ1ZQdWXEX2Arooc13",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 425,
+              "needle": "Exception\\\""
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [],
+              "note": "Brak podanego tekstu w tym zakresie pliku."
+            }
+          },
+          {
+            "turn": 7,
+            "id": "toolu_014jQEtoHGnhGSRXaEh8YPHG",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 424
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "424:                     reqmap.put(\"response\", resultCopy);",
+                "425:                 } else if (result instanceof ErrorInfo ex) {",
+                "426:                     reqmap.put(\"status\", \"Exception\");",
+                "427: ",
+                "428:                     Map<String, Object> errorMap = null;",
+                "429: ",
+                "430:                     try {",
+                "431:                         errorMap = gson.fromJson(ex.getMessage(), type);",
+                "432:                     } catch (Exception e) {",
+                "433:                         log.debug(\"Error message is not a JSON object, sending it as is\", e);",
+                "434:                     }",
+                "435: ",
+                "436:                     if (errorMap == null) {",
+                "437:                         errorMap = new HashMap<>();",
+                "438:                         errorMap.put(\"errorMessage\", ex.getMessage());",
+                "439:                     }",
+                "440: ",
+                "441:                     errorMap.put(\"errorCode\", ex.getErrorCode());",
+                "442:                     errorMap.put(\"statusCode\", ex.getStatusCode());",
+                "443: ",
+                "444:                     reqmap.put(\"response\", errorMap);",
+                "445:                 }",
+                "446: ",
+                "447:                 reqmap.put(\"timestamp\", Instant.now().toString());",
+                "448: ",
+                "449:                 final String serializedResult = toApiJsonSerializer.serialize(reqmap);",
+                "450: ",
+                "451:                 final HookEvent applicationEvent = new HookEvent(hookEventSource, serializedResult, appUser,",
+                "452:                         ThreadLocalContextUtil.getContext());",
+                "453: ",
+                "454:                 eventPublisher.publishEvent(applicationEvent);",
+                "455:             }",
+                "456:         } catch (Exception e) {",
+                "457:             log.error(\"Failed to publish hook event for entity: {}, action: {}\", entityName, actionName, e);",
+                "458:         }",
+                "459:     }",
+                "460: }",
+                "461: "
+              ],
+              "occurrences": []
+            }
+          }
+        ],
+        "search_receipts": [
+          {
+            "literal": "CommandSourceService",
+            "path_terms": "",
+            "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 5,
+            "result_sha256": "205b4af0395361e135a645447868a88b00de1f5a1610659dff4fd86ca42268db",
+            "r2_seconds": {
+              "search": 0.022539000026881695,
+              "checked_verification": 0.008755699964240193,
+              "comparison": 0.0006393999792635441
+            },
+            "seconds": 0.2557110999478027
+          },
+          {
+            "literal": "SynchronousCommandProcessingService",
+            "path_terms": "",
+            "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 17,
+            "result_sha256": "c88c65a2c88c91b592d68ae31238a2b697a44be972375dc832d009b92769eea8",
+            "r2_seconds": {
+              "search": 0.021941700018942356,
+              "checked_verification": 0.009008600027300417,
+              "comparison": 0.000700299977324903
+            },
+            "seconds": 0.25244389998260885
+          }
+        ],
+        "first_submit": {
+          "answer_pl": "Nie, brak treści odpowiedzi nie powoduje pominięcia powiadomienia. Przy błędzie synchroniczny serwis poleceń mapuje wyjątek i generuje ErrorInfo. Następnie wywołuje publishHookErrorEvent, a ta metoda publikuje zdarzenie hooka. Dzieje się to jeszcze przed zapisem wyniku i niezależnie od tego, czy jest treść błędu. Powiadomienie jest pomijane tylko w trzech przypadkach: gdy nie ma commandSource, gdy command.json() jest null, albo gdy publikacja rzuci wyjątek (jest on tylko logowany). Brak treści błędu sam w sobie nie jest warunkiem pominięcia.\n\nBłąd widać w danych zdarzenia po polu \"status\" ustawionym na \"Exception\". W obiekcie \"response\" są pola \"errorCode\" (kod błędu) i \"statusCode\" (kod HTTP, np. 500). Jeśli komunikat błędu jest JSON-em, jego pola trafiają do \"response\". W przeciwnym razie, w tym gdy komunikat jest pusty, \"response\" dostaje \"errorMessage\" z tym komunikatem. Zdarzenie zawiera też \"request\", \"entityName\", \"actionName\" i \"timestamp\".",
+          "verdict": "no",
+          "citations": [
+            {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 205,
+              "end": 223,
+              "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+            },
+            {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 425,
+              "end": 445,
+              "quote": "reqmap.put(\"status\", \"Exception\");"
+            }
+          ]
+        },
+        "published_citations": [],
+        "source_span_coverage": {
+          "decisive_changed_production": [
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 425,
+              "end": 426,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                } else if (result instanceof ErrorInfo ex) {\n                    reqmap.put(\"status\", \"Exception\");",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L426",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                425,
+                426
+              ]
+            },
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 431,
+              "end": 431,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                        errorMap = gson.fromJson(ex.getMessage(), type);",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L431-L431",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                431
+              ]
+            },
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 436,
+              "end": 438,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                    if (errorMap == null) {\n                        errorMap = new HashMap<>();\n                        errorMap.put(\"errorMessage\", ex.getMessage());",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L436-L438",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                436,
+                437,
+                438
+              ]
+            },
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 441,
+              "end": 444,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                    errorMap.put(\"errorCode\", ex.getErrorCode());\n                    errorMap.put(\"statusCode\", ex.getStatusCode());\n\n                    reqmap.put(\"response\", errorMap);",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L441-L444",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                441,
+                442,
+                443,
+                444
+              ]
+            }
+          ],
+          "supplemental_upstream_regression": [
+            {
+              "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+              "start": 485,
+              "end": 490,
+              "blob_id": "eaf8388f05f3e742c5fba8c48a9edc4d6eb1b2a5",
+              "excerpt": "    public void failedCommandPublishesHookEventWhenErrorHasNoBody() {\n        // ErrorHandler serializes a response without an entity to the JSON literal null\n        Map<String, Object> payload = failCommandAndCaptureHookPayload(new ErrorInfo(500, null, \"null\", null));\n\n        assertEquals(\"Exception\", payload.get(\"status\"));\n        assertEquals(500, ((Map<?, ?>) payload.get(\"response\")).get(\"statusCode\"));",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java#L485-L490",
+              "path_returned_by_search": true,
+              "actually_read": false,
+              "first_submit_covers": false,
+              "published_citations_cover": false,
+              "actual_lines_read": []
+            }
+          ],
+          "supplemental_use_of_typed_error": [
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 233,
+              "end": 236,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "    private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {\n        try {\n            publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);\n        } catch (Exception e) {",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L233-L236",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": false,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                233,
+                234,
+                235,
+                236
+              ]
+            }
+          ],
+          "supplemental_internal_event_publication": [
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 447,
+              "end": 454,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                reqmap.put(\"timestamp\", Instant.now().toString());\n\n                final String serializedResult = toApiJsonSerializer.serialize(reqmap);\n\n                final HookEvent applicationEvent = new HookEvent(hookEventSource, serializedResult, appUser,\n                        ThreadLocalContextUtil.getContext());\n\n                eventPublisher.publishEvent(applicationEvent);",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L447-L454",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": false,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                447,
+                448,
+                449,
+                450,
+                451,
+                452,
+                453,
+                454
+              ]
+            }
+          ]
+        },
+        "distinct_paths_read": [
+          "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+          "fineract-core/src/main/java/org/apache/fineract/commands/service/CommandSourceService.java"
+        ],
+        "live_evidence_groups_read": {
+          "decisive_changed_production": true,
+          "supplemental_upstream_regression": false,
+          "supplemental_use_of_typed_error": true,
+          "supplemental_internal_event_publication": true
+        }
+      },
+      {
+        "label": "2",
+        "status": "BLOCKED",
+        "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+        "code": 3,
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "fineract",
+              "repository": "apache/fineract",
+              "branch": "FINERACT-3197-legacy-failure-webhook-payload",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934"
+            }
+          ],
+          "number": 6834,
+          "repository": "fineract"
+        },
+        "wall_seconds": 27.216745699988678,
+        "model": "claude-sonnet-5-5",
+        "live_ids": [
+          "msg_011ChCU7bGC7rAoihVQvGqZm",
+          "msg_011ChCU7patCtkJiTbLnFhP5",
+          "msg_011ChCU826RV8rbfH9WbaFPt",
+          "msg_011ChCU8Bbfw2PtQ8qgZQLtx",
+          "msg_011ChCU8JVfBSMB7fqTZq4qH",
+          "msg_011ChCU8U8qTVHCAXVQwwS21",
+          "msg_011ChCU8b63piSx8fwKsUcu2",
+          "msg_011ChCU8mDkaGQ2Wdb7Wpb8a",
+          "msg_011ChCU8tQrDaxfySiGDJwdY"
+        ],
+        "model_calls": 9,
+        "input_tokens": 71302,
+        "output_tokens": 2212,
+        "estimated_usd": 0.164724,
+        "uncosted_calls": 0,
+        "answer": null,
+        "verdict": null,
+        "checks": {
+          "citations": "INCOMPLETE",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "conclusion_review": null,
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\fineract-real-pr-01\\p\\p-23d156d03008eb559fa31caaa577c699\\agent\\qa\\c6d951daad784715",
+        "raw_sha256": "77a7dd1eef501cb8e34e2b333af8c08c9e85c27d4fe643540656deec040ea910",
+        "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+        "discovery_actions": [
+          {
+            "turn": 1,
+            "id": "toolu_01Edaw1uKU8FC8o7oXCWmun4",
+            "tool": "search",
+            "arguments": {
+              "literal": "CommandSourceService"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "count": 5,
+              "shown": [
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/CommandSourceService.java",
+                  "line": 55
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/CommandSourceServiceTest.java",
+                  "line": 48
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreHelper.java",
+                  "line": 25
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+                  "line": 83
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+                  "line": 100
+                }
+              ]
+            }
+          },
+          {
+            "turn": 1,
+            "id": "toolu_0188qoZd77KYE4rEMsC2aCg4",
+            "tool": "search",
+            "arguments": {
+              "literal": "SynchronousCommandProcessingService"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "count": 17,
+              "shown": [
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+                  "line": 69
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+                  "line": 81
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/IdempotencyKeyResolver.java",
+                  "line": 40
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/configuration/RetryConfigurationAssembler.java",
+                  "line": 79
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreFilter.java",
+                  "line": 33
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreHelper.java",
+                  "line": 26
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandHookAfter.java",
+                  "line": 31
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/core/filters/IdempotencyStoreBatchFilter.java",
+                  "line": 27
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandEventPublisher.java",
+                  "line": 44
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-command/README.md",
+                  "line": 21
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/command/intro.adoc",
+                  "line": 20
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/fsip/fsip-005.adoc",
+                  "line": 36
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/resilience/command.adoc",
+                  "line": 10
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/architecture/design.adoc",
+                  "line": 33
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-doc/src/docs/en/chapters/appendix/properties-resilience4j.adoc",
+                  "line": 12
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/IdempotencyKeyResolverTest.java",
+                  "line": 61
+                },
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/test/java/org/apache/fineract/commands/configuration/RetryConfigurationAssemblerTest.java",
+                  "line": 82
+                }
+              ]
+            }
+          },
+          {
+            "turn": 2,
+            "id": "toolu_01TNrxbMTtTMXPVYCVtgwi8z",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 95,
+              "needle": "publishErrorEvent"
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [],
+              "note": "Brak podanego tekstu w tym zakresie pliku."
+            }
+          },
+          {
+            "turn": 3,
+            "id": "toolu_01Qx17aaKVMo78629CP2xbpW",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 95
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "95:             return executeCommandAttempt(executionContext);",
+                "96:         } catch (RollbackTransactionNotApprovedException e) {",
+                "97:             throw e;",
+                "98:         } catch (RuntimeException e) {",
+                "99:             RuntimeException mappable = ErrorHandler.getMappable(e);",
+                "100:             persistFinalErrorResult(executionContext, mappable);",
+                "101:             throw mappable;",
+                "102:         }",
+                "103:     }",
+                "104: ",
+                "105:     @Override",
+                "106:     public CommandProcessingResult executeCommand(final CommandWrapper wrapper, final JsonCommand command,",
+                "107:             final boolean isApprovedByChecker) {",
+                "108:         return executeWithRetry(new CommandExecutionContext(wrapper, command, isApprovedByChecker));",
+                "109:     }",
+                "110: ",
+                "111:     private CommandProcessingResult executeCommandAttempt(CommandExecutionContext executionContext) {",
+                "112:         // Do not store the idempotency key because of the exception handling",
+                "113:         setIdempotencyKeyStoreFlag(false);",
+                "114: ",
+                "115:         CommandWrapper wrapper = executionContext.wrapper();",
+                "116:         JsonCommand command = executionContext.command();",
+                "117:         Long commandId = (Long) fineractRequestContextHolder.getAttribute(COMMAND_SOURCE_ID, null);",
+                "118:         boolean isRetry = commandId != null;",
+                "119:         boolean isEnclosingTransaction = BatchRequestContextHolder.isEnclosingTransaction();",
+                "120:         executionContext.setEnclosingTransaction(isEnclosingTransaction);",
+                "121: ",
+                "122:         CommandSource commandSource = null;",
+                "123:         String idempotencyKey;",
+                "124:         if (isRetry) {",
+                "125:             commandSource = commandSourceService.getCommandSource(commandId);",
+                "126:             idempotencyKey = commandSource.getIdempotencyKey();",
+                "127:         } else if ((commandId = command.commandId()) != null) { // action on the command itself",
+                "128:             commandSource = commandSourceService.getCommandSource(commandId);",
+                "129:             idempotencyKey = commandSource.getIdempotencyKey();",
+                "130:         } else {",
+                "131:             idempotencyKey = idempotencyKeyResolver.resolve(wrapper);",
+                "132:         }",
+                "133:         exceptionWhenTheRequestAlreadyProcessed(wrapper, idempotencyKey, isRetry);",
+                "134: ",
+                "135:         AppUser user = context.authenticatedUser(wrapper);",
+                "136:         if (commandSource == null) {",
+                "137:             if (isEnclosingTransaction) {",
+                "138:                 commandSource = commandSourceService.getInitialCommandSource(wrapper, command, user, idempotencyKey);",
+                "139:             } else {",
+                "140:                 commandSource = commandSourceService.saveInitial(wrapper, command, user, idempotencyKey);",
+                "141:                 commandId = commandSource.getId();",
+                "142:             }",
+                "143:         }",
+                "144:         executionContext.setCommandSource(commandSource);",
+                "145:         if (commandId != null) {",
+                "146:             storeCommandIdInContext(commandSource); // Store command id as a request attribute",
+                "147:         }"
+              ],
+              "occurrences": []
+            }
+          },
+          {
+            "turn": 3,
+            "id": "toolu_01E3KhgHUmhsgzVvqMBC3SuU",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandEventPublisher.java",
+              "start": 30
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandEventPublisher.java",
+              "blob_id": "5d949c37f67ede81fe31000fdc5b7ad311ad2f93",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "30: import org.apache.fineract.infrastructure.core.service.ThreadLocalContextUtil;",
+                "31: import org.apache.fineract.infrastructure.hooks.event.HookEvent;",
+                "32: import org.apache.fineract.infrastructure.hooks.event.HookEventSource;",
+                "33: import org.apache.fineract.infrastructure.security.service.PlatformSecurityContext;",
+                "34: import org.apache.fineract.useradministration.domain.AppUser;",
+                "35: import org.springframework.context.ApplicationEventPublisher;",
+                "36: import org.springframework.stereotype.Component;",
+                "37: import tools.jackson.core.JacksonException;",
+                "38: import tools.jackson.databind.JsonNode;",
+                "39: import tools.jackson.databind.ObjectMapper;",
+                "40: import tools.jackson.databind.node.ObjectNode;",
+                "41: ",
+                "42: /**",
+                "43:  * Builds and publishes the {@link HookEvent} of a command processed by the new command processing, in the format of the",
+                "44:  * legacy {@code SynchronousCommandProcessingService}, for both its successful and its failed execution.",
+                "45:  */",
+                "46: @Slf4j",
+                "47: @RequiredArgsConstructor",
+                "48: @Component",
+                "49: class WebhookCommandEventPublisher {",
+                "50: ",
+                "51:     private final PlatformSecurityContext context;",
+                "52:     private final ApplicationEventPublisher eventPublisher;",
+                "53:     private final ObjectMapper mapper;",
+                "54:     private final ErrorHandler errorHandler;",
+                "55: ",
+                "56:     void publishSuccess(HookableCommand hookable, Object request, Object response) {",
+                "57:         publish(hookable, request, payload -> {",
+                "58:             // As in the legacy command processing, the office and client are exposed at the top level of the payload,",
+                "59:             // where the SMS hooks look up the client to notify, and the office is cleared from the response.",
+                "60:             final JsonNode responseNode = mapper.valueToTree(response);",
+                "61:             if (responseNode instanceof ObjectNode responseObject) {",
+                "62:                 putIfPresent(payload, \"officeId\", responseObject.get(\"officeId\"));",
+                "63:                 putIfPresent(payload, \"clientId\", responseObject.get(\"clientId\"));",
+                "64:                 if (responseObject.has(\"officeId\")) {",
+                "65:                     responseObject.putNull(\"officeId\");",
+                "66:                 }",
+                "67:             }",
+                "68:             payload.put(\"response\", responseNode);",
+                "69:         });",
+                "70:     }",
+                "71: ",
+                "72:     void publishError(HookableCommand hookable, Object request, Throwable error) {",
+                "73:         publish(hookable, request, payload -> {",
+                "74:             final ErrorInfo errorInfo = errorHandler.handle(ErrorHandler.getMappable(error));",
+                "75:             payload.put(\"status\", \"Exception\");",
+                "76:             payload.put(\"response\", errorResponse(errorInfo));",
+                "77:         });",
+                "78:     }",
+                "79: ",
+                "80:     private void publish(HookableCommand hookable, Object request, Consumer<Map<String, Object>> result) {",
+                "81:         final String entityName = hookable.hookEntityName();",
+                "82:         final String actionName = hookable.hookActionName();"
+              ],
+              "occurrences": []
+            }
+          },
+          {
+            "turn": 4,
+            "id": "toolu_01G18yxNEbomKnNdvUhPi6mV",
+            "tool": "search",
+            "arguments": {
+              "literal": "publishHookErrorEvent"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "count": 1,
+              "shown": [
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+                  "line": 168
+                }
+              ]
+            }
+          },
+          {
+            "turn": 5,
+            "id": "toolu_017C9yyDxULeYARTrYNy6SsR",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 148,
+              "needle": "private void publishHookErrorEvent"
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "219:         if (statusCode != SC_OK) {",
+                "220:             commandSource.setStatus(ERROR);",
+                "221:         }",
+                "222:         commandSourceService.saveResult(commandSource);",
+                "223:     }",
+                "224: ",
+                "225:     private void storeCommandIdInContext(CommandSource savedCommandSource) {",
+                "226:         if (savedCommandSource.getId() == null) {",
+                "227:             throw new IllegalStateException(\"Command source not saved\");",
+                "228:         }",
+                "229:         // Idempotency filters and retry need this",
+                "230:         fineractRequestContextHolder.setAttribute(COMMAND_SOURCE_ID, savedCommandSource.getId());",
+                "231:     }",
+                "232: ",
+                "233:     private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {",
+                "234:         try {",
+                "235:             publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);",
+                "236:         } catch (Exception e) {",
+                "237:             log.error(\"Failed to publish hook error event for entity: {}, action: {}\", wrapper.entityName(), wrapper.actionName(), e);",
+                "238:         }",
+                "239:     }",
+                "240: ",
+                "241:     private void exceptionWhenTheRequestAlreadyProcessed(CommandWrapper wrapper, String idempotencyKey, boolean retry) {",
+                "242:         CommandSource command = commandSourceService.findCommandSource(wrapper, idempotencyKey);",
+                "243:         if (command == null) {",
+                "244:             return;",
+                "245:         }",
+                "246:         CommandProcessingResultType status = CommandProcessingResultType.fromInt(command.getStatus());",
+                "247:         switch (status) {",
+                "248:             case UNDER_PROCESSING -> {",
+                "249:                 Class<?> lastExecutionExceptionClass = retryConfigurationAssembler.getLastException();",
+                "250:                 if (lastExecutionExceptionClass == null",
+                "251:                         || IdempotentCommandProcessUnderProcessingException.class.isAssignableFrom(lastExecutionExceptionClass)) {",
+                "252:                     throw new IdempotentCommandProcessUnderProcessingException(wrapper, idempotencyKey);",
+                "253:                 }",
+                "254:             }",
+                "255:             case PROCESSED -> throw new IdempotentCommandProcessSucceedException(wrapper, idempotencyKey, command);",
+                "256:             case ERROR -> {",
+                "257:                 if (!retry) {",
+                "258:                     throw new IdempotentCommandProcessFailedException(wrapper, idempotencyKey, command);",
+                "259:                 }",
+                "260:             }",
+                "261:             default -> {",
+                "262:             }",
+                "263:         }",
+                "264:     }",
+                "265: ",
+                "266:     private void setIdempotencyKeyStoreFlag(boolean flag) {",
+                "267:         fineractRequestContextHolder.setAttribute(IDEMPOTENCY_KEY_STORE_FLAG, flag);",
+                "268:     }",
+                "269: ",
+                "270:     private static final class CommandExecutionContext {",
+                "271: "
+              ],
+              "occurrences": [
+                233
+              ]
+            }
+          },
+          {
+            "turn": 5,
+            "id": "toolu_01J7nucqmAhzxRBoF9mfdw76",
+            "tool": "search",
+            "arguments": {
+              "literal": "void publishHookErrorEvent"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "count": 1,
+              "shown": [
+                {
+                  "repository": "fineract",
+                  "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+                  "line": 233
+                }
+              ]
+            }
+          },
+          {
+            "turn": 6,
+            "id": "toolu_01ScMxtfyTxzpJwWecVtYhwb",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 160,
+              "needle": "x"
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "146:             storeCommandIdInContext(commandSource); // Store command id as a request attribute",
+                "147:         }",
+                "148: ",
+                "149:         setIdempotencyKeyStoreFlag(true);",
+                "150: ",
+                "151:         return executeCommandInTransaction(executionContext, commandSource, user, isEnclosingTransaction);",
+                "152:     }",
+                "153: ",
+                "154:     private CommandProcessingResult executeCommandInTransaction(CommandExecutionContext executionContext, CommandSource commandSource,",
+                "155:             AppUser user, boolean isEnclosingTransaction) {",
+                "156: ",
+                "157:         final CommandSourceService.CommandExecutionResult commandExecutionResult;",
+                "158:         try {",
+                "159:             commandExecutionResult = commandSourceService.processCommandAndSaveResult(findCommandHandler(executionContext.wrapper()),",
+                "160:                     executionContext.command(), commandSource, user, executionContext.approvedByChecker(), this::updateSuccessfulResult);",
+                "161:         } catch (RollbackTransactionNotApprovedException e) {",
+                "162:             ErrorInfo errorInfo = commandSourceService.generateErrorInfo(e);",
+                "163:             commandSource.setResultStatusCode(errorInfo.getStatusCode());",
+                "164:             commandSource.setResult(errorInfo.getMessage());",
+                "165:             if (!isEnclosingTransaction) { // TODO: temporary solution",
+                "166:                 commandSourceService.saveResult(commandSource);",
+                "167:             }",
+                "168:             publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);",
+                "169:             throw e;",
+                "170:         }",
+                "171: ",
+                "172:         CommandProcessingResult result = commandExecutionResult.result();",
+                "173:         storeCommandIdInContext(commandExecutionResult.commandSource());",
+                "174: ",
+                "175:         result.setRollbackTransaction(null);",
+                "176: ",
+                "177:         // When running inside an enclosing batch transaction, defer hook publication",
+                "178:         // until after the transaction commits. This prevents webhooks from firing for",
+                "179:         // commands that are subsequently rolled back when a later command in the batch",
+                "180:         // fails (e.g. a withdrawal succeeds but its fee charge fails, rolling back both).",
+                "181:         if (isEnclosingTransaction && TransactionSynchronizationManager.isSynchronizationActive()) {",
+                "182:             TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {",
+                "183: ",
+                "184:                 @Override",
+                "185:                 public void afterCommit() {",
+                "186:                     publishHookEvent(executionContext.wrapper().entityName(), executionContext.wrapper().actionName(),",
+                "187:                             executionContext.command(), result);",
+                "188:                 }",
+                "189:             });",
+                "190:         } else {",
+                "191:             publishHookEvent(executionContext.wrapper().entityName(), executionContext.wrapper().actionName(), executionContext.command(),",
+                "192:                     result);",
+                "193:         }",
+                "194: ",
+                "195:         return result;",
+                "196:     }",
+                "197: ",
+                "198:     private void updateSuccessfulResult(CommandSource commandSource, CommandProcessingResult result) {"
+              ],
+              "occurrences": [
+                160,
+                161,
+                168,
+                172,
+                173,
+                186,
+                187,
+                191,
+                205,
+                206,
+                211,
+                212,
+                225,
+                227,
+                230,
+                236,
+                241,
+                249,
+                250,
+                251,
+                252,
+                255,
+                258,
+                267
+              ]
+            }
+          },
+          {
+            "turn": 7,
+            "id": "toolu_01DkUHrPbDA9hFNMToaVWnD9",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "needle": "void persistFinalErrorResult"
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "191:             publishHookEvent(executionContext.wrapper().entityName(), executionContext.wrapper().actionName(), executionContext.command(),",
+                "192:                     result);",
+                "193:         }",
+                "194: ",
+                "195:         return result;",
+                "196:     }",
+                "197: ",
+                "198:     private void updateSuccessfulResult(CommandSource commandSource, CommandProcessingResult result) {",
+                "199:         commandSource.setResultStatusCode(SC_OK);",
+                "200:         commandSource.updateForAudit(result);",
+                "201:         commandSource.setResult(toApiResultJsonSerializer.serializeResult(result));",
+                "202:         commandSource.setStatus(PROCESSED);",
+                "203:     }",
+                "204: ",
+                "205:     private void persistFinalErrorResult(CommandExecutionContext executionContext, RuntimeException mappable) {",
+                "206:         CommandSource commandSource = executionContext.commandSource();",
+                "207:         if (commandSource == null) {",
+                "208:             return;",
+                "209:         }",
+                "210:         ErrorInfo errorInfo = commandSourceService.generateErrorInfo(mappable);",
+                "211:         publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);",
+                "212:         if (executionContext.enclosingTransaction()) {",
+                "213:             return;",
+                "214:         }",
+                "215: ",
+                "216:         Integer statusCode = errorInfo.getStatusCode();",
+                "217:         commandSource.setResultStatusCode(statusCode);",
+                "218:         commandSource.setResult(errorInfo.getMessage());",
+                "219:         if (statusCode != SC_OK) {",
+                "220:             commandSource.setStatus(ERROR);",
+                "221:         }",
+                "222:         commandSourceService.saveResult(commandSource);",
+                "223:     }",
+                "224: ",
+                "225:     private void storeCommandIdInContext(CommandSource savedCommandSource) {",
+                "226:         if (savedCommandSource.getId() == null) {",
+                "227:             throw new IllegalStateException(\"Command source not saved\");",
+                "228:         }",
+                "229:         // Idempotency filters and retry need this",
+                "230:         fineractRequestContextHolder.setAttribute(COMMAND_SOURCE_ID, savedCommandSource.getId());",
+                "231:     }",
+                "232: ",
+                "233:     private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {",
+                "234:         try {",
+                "235:             publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);",
+                "236:         } catch (Exception e) {",
+                "237:             log.error(\"Failed to publish hook error event for entity: {}, action: {}\", wrapper.entityName(), wrapper.actionName(), e);",
+                "238:         }",
+                "239:     }",
+                "240: ",
+                "241:     private void exceptionWhenTheRequestAlreadyProcessed(CommandWrapper wrapper, String idempotencyKey, boolean retry) {",
+                "242:         CommandSource command = commandSourceService.findCommandSource(wrapper, idempotencyKey);",
+                "243:         if (command == null) {"
+              ],
+              "occurrences": [
+                205
+              ]
+            }
+          },
+          {
+            "turn": 7,
+            "id": "toolu_01F5nHrjLRBoTyAwwQM7PKtD",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "needle": "void publishHookEvent("
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "374:         } else {",
+                "375:             handler = commandHandlerProvider.getHandler(wrapper.entityName(), wrapper.actionName());",
+                "376:         }",
+                "377: ",
+                "378:         return handler;",
+                "379:     }",
+                "380: ",
+                "381:     @Override",
+                "382:     public boolean validateRollbackCommand(final CommandWrapper commandWrapper, final AppUser user) {",
+                "383:         user.validateHasPermissionTo(commandWrapper.getTaskPermissionName());",
+                "384:         boolean isMakerChecker = configurationDomainService.isMakerCheckerEnabledForTask(commandWrapper.taskPermissionName());",
+                "385:         return isMakerChecker && !user.isCheckerSuperUser();",
+                "386:     }",
+                "387: ",
+                "388:     protected void publishHookEvent(final String entityName, final String actionName, JsonCommand command, final Object result) {",
+                "389:         try {",
+                "390:             final AppUser appUser = context.authenticatedUser(CommandWrapper.wrap(actionName, entityName, null, null));",
+                "391: ",
+                "392:             final HookEventSource hookEventSource = new HookEventSource(entityName, actionName);",
+                "393: ",
+                "394:             // TODO: Add support for publishing array events",
+                "395:             if (command.json() != null) {",
+                "396:                 Type type = new TypeToken<Map<String, Object>>() {",
+                "397: ",
+                "398:                 }.getType();",
+                "399: ",
+                "400:                 Map<String, Object> myMap;",
+                "401: ",
+                "402:                 try {",
+                "403:                     myMap = gson.fromJson(command.json(), type);",
+                "404:                 } catch (Exception e) {",
+                "405:                     throw new PlatformApiDataValidationException(\"error.msg.invalid.json\", \"The provided JSON is invalid.\",",
+                "406:                             new ArrayList<>(), e);",
+                "407:                 }",
+                "408: ",
+                "409:                 Map<String, Object> reqmap = new HashMap<>();",
+                "410:                 reqmap.put(\"entityName\", entityName);",
+                "411:                 reqmap.put(\"actionName\", actionName);",
+                "412:                 reqmap.put(\"createdBy\", context.authenticatedUser().getId());",
+                "413:                 reqmap.put(\"createdByName\", context.authenticatedUser().getUsername());",
+                "414:                 reqmap.put(\"createdByFullName\", context.authenticatedUser().getDisplayName());",
+                "415: ",
+                "416:                 reqmap.put(\"request\", myMap);",
+                "417:                 if (result instanceof CommandProcessingResult) {",
+                "418:                     CommandProcessingResult resultCopy = CommandProcessingResult",
+                "419:                             .fromCommandProcessingResult((CommandProcessingResult) result);",
+                "420: ",
+                "421:                     reqmap.put(\"officeId\", resultCopy.getOfficeId());",
+                "422:                     reqmap.put(\"clientId\", resultCopy.getClientId());",
+                "423:                     resultCopy.setOfficeId(null);",
+                "424:                     reqmap.put(\"response\", resultCopy);",
+                "425:                 } else if (result instanceof ErrorInfo ex) {",
+                "426:                     reqmap.put(\"status\", \"Exception\");"
+              ],
+              "occurrences": [
+                388
+              ]
+            }
+          },
+          {
+            "turn": 8,
+            "id": "toolu_01N3xXvR7bJaNCqbfdLigzZh",
+            "tool": "read",
+            "arguments": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 425
+            },
+            "error": false,
+            "result": {
+              "repository": "fineract",
+              "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+              "lines": [
+                "425:                 } else if (result instanceof ErrorInfo ex) {",
+                "426:                     reqmap.put(\"status\", \"Exception\");",
+                "427: ",
+                "428:                     Map<String, Object> errorMap = null;",
+                "429: ",
+                "430:                     try {",
+                "431:                         errorMap = gson.fromJson(ex.getMessage(), type);",
+                "432:                     } catch (Exception e) {",
+                "433:                         log.debug(\"Error message is not a JSON object, sending it as is\", e);",
+                "434:                     }",
+                "435: ",
+                "436:                     if (errorMap == null) {",
+                "437:                         errorMap = new HashMap<>();",
+                "438:                         errorMap.put(\"errorMessage\", ex.getMessage());",
+                "439:                     }",
+                "440: ",
+                "441:                     errorMap.put(\"errorCode\", ex.getErrorCode());",
+                "442:                     errorMap.put(\"statusCode\", ex.getStatusCode());",
+                "443: ",
+                "444:                     reqmap.put(\"response\", errorMap);",
+                "445:                 }",
+                "446: ",
+                "447:                 reqmap.put(\"timestamp\", Instant.now().toString());",
+                "448: ",
+                "449:                 final String serializedResult = toApiJsonSerializer.serialize(reqmap);",
+                "450: ",
+                "451:                 final HookEvent applicationEvent = new HookEvent(hookEventSource, serializedResult, appUser,",
+                "452:                         ThreadLocalContextUtil.getContext());",
+                "453: ",
+                "454:                 eventPublisher.publishEvent(applicationEvent);",
+                "455:             }",
+                "456:         } catch (Exception e) {",
+                "457:             log.error(\"Failed to publish hook event for entity: {}, action: {}\", entityName, actionName, e);",
+                "458:         }",
+                "459:     }",
+                "460: }",
+                "461: "
+              ],
+              "occurrences": []
+            }
+          }
+        ],
+        "search_receipts": [
+          {
+            "literal": "CommandSourceService",
+            "path_terms": "",
+            "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 5,
+            "result_sha256": "205b4af0395361e135a645447868a88b00de1f5a1610659dff4fd86ca42268db",
+            "r2_seconds": {
+              "search": 0.02429820003453642,
+              "checked_verification": 0.009807500056922436,
+              "comparison": 0.0006958999438211322
+            },
+            "seconds": 0.25031090003903955
+          },
+          {
+            "literal": "SynchronousCommandProcessingService",
+            "path_terms": "",
+            "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 17,
+            "result_sha256": "c88c65a2c88c91b592d68ae31238a2b697a44be972375dc832d009b92769eea8",
+            "r2_seconds": {
+              "search": 0.02273990004323423,
+              "checked_verification": 0.008573400089517236,
+              "comparison": 0.0006848999764770269
+            },
+            "seconds": 0.24701980000827461
+          },
+          {
+            "literal": "publishHookErrorEvent",
+            "path_terms": "",
+            "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "66759b5406f435ad27e48bad5ceaef9842805edcf638045c970c039f873e9fcd",
+            "r2_seconds": {
+              "search": 0.018467299989424646,
+              "checked_verification": 0.00549390004016459,
+              "comparison": 0.0007630999898537993
+            },
+            "seconds": 0.24434900004416704
+          },
+          {
+            "literal": "void publishHookErrorEvent",
+            "path_terms": "",
+            "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+            "operation": "query-checked",
+            "status": "VERIFIED",
+            "count": 1,
+            "result_sha256": "918c6fcede6f7ff642edba19cf017516f8c3f6c268e6e5fb545d87bb55b89d0a",
+            "r2_seconds": {
+              "search": 0.022188300034031272,
+              "checked_verification": 0.00773399998433888,
+              "comparison": 0.0008360000792890787
+            },
+            "seconds": 0.24971050000749528
+          }
+        ],
+        "first_submit": {
+          "answer_pl": "Nie, brak treści odpowiedzi HTTP nie powoduje pominięcia powiadomienia. W starszym trybie synchronicznym przy błędzie `persistFinalErrorResult` buduje `ErrorInfo` przez `generateErrorInfo` i woła `publishHookErrorEvent`, a ta metoda woła `publishHookEvent` z tym `ErrorInfo`. Zdarzenie nie jest tworzone tylko w trzech przypadkach: gdy nie ma `commandSource`, gdy JSON polecenia jest pusty albo gdy publikacja rzuci wyjątek, który jest tylko logowany. Zdarzenie powstaje, jeśli polecenie ma JSON, nawet gdy odpowiedź HTTP nie ma treści.\n\nBłąd można rozpoznać po danych zdarzenia. Pole `status` ma wartość „Exception”. W obiekcie `response` są pola `errorCode` (kod błędu) oraz `statusCode` (kod HTTP, np. 500). Jeśli komunikat błędu nie jest JSON-em, trafia do `response.errorMessage`.",
+          "verdict": "no",
+          "citations": [
+            {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 205,
+              "end": 223,
+              "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+            },
+            {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 425,
+              "end": 444,
+              "quote": "reqmap.put(\"status\", \"Exception\");"
+            },
+            {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 441,
+              "end": 442,
+              "quote": "errorMap.put(\"statusCode\", ex.getStatusCode());"
+            }
+          ]
+        },
+        "published_citations": [],
+        "source_span_coverage": {
+          "decisive_changed_production": [
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 425,
+              "end": 426,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                } else if (result instanceof ErrorInfo ex) {\n                    reqmap.put(\"status\", \"Exception\");",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L426",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                425,
+                426
+              ]
+            },
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 431,
+              "end": 431,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                        errorMap = gson.fromJson(ex.getMessage(), type);",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L431-L431",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                431
+              ]
+            },
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 436,
+              "end": 438,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                    if (errorMap == null) {\n                        errorMap = new HashMap<>();\n                        errorMap.put(\"errorMessage\", ex.getMessage());",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L436-L438",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                436,
+                437,
+                438
+              ]
+            },
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 441,
+              "end": 444,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                    errorMap.put(\"errorCode\", ex.getErrorCode());\n                    errorMap.put(\"statusCode\", ex.getStatusCode());\n\n                    reqmap.put(\"response\", errorMap);",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L441-L444",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": true,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                441,
+                442,
+                443,
+                444
+              ]
+            }
+          ],
+          "supplemental_upstream_regression": [
+            {
+              "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+              "start": 485,
+              "end": 490,
+              "blob_id": "eaf8388f05f3e742c5fba8c48a9edc4d6eb1b2a5",
+              "excerpt": "    public void failedCommandPublishesHookEventWhenErrorHasNoBody() {\n        // ErrorHandler serializes a response without an entity to the JSON literal null\n        Map<String, Object> payload = failCommandAndCaptureHookPayload(new ErrorInfo(500, null, \"null\", null));\n\n        assertEquals(\"Exception\", payload.get(\"status\"));\n        assertEquals(500, ((Map<?, ?>) payload.get(\"response\")).get(\"statusCode\"));",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java#L485-L490",
+              "path_returned_by_search": true,
+              "actually_read": false,
+              "first_submit_covers": false,
+              "published_citations_cover": false,
+              "actual_lines_read": []
+            }
+          ],
+          "supplemental_use_of_typed_error": [
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 233,
+              "end": 236,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "    private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {\n        try {\n            publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);\n        } catch (Exception e) {",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L233-L236",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": false,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                233,
+                234,
+                235,
+                236
+              ]
+            }
+          ],
+          "supplemental_internal_event_publication": [
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 447,
+              "end": 454,
+              "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+              "excerpt": "                reqmap.put(\"timestamp\", Instant.now().toString());\n\n                final String serializedResult = toApiJsonSerializer.serialize(reqmap);\n\n                final HookEvent applicationEvent = new HookEvent(hookEventSource, serializedResult, appUser,\n                        ThreadLocalContextUtil.getContext());\n\n                eventPublisher.publishEvent(applicationEvent);",
+              "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L447-L454",
+              "path_returned_by_search": true,
+              "actually_read": true,
+              "first_submit_covers": false,
+              "published_citations_cover": false,
+              "actual_lines_read": [
+                447,
+                448,
+                449,
+                450,
+                451,
+                452,
+                453,
+                454
+              ]
+            }
+          ]
+        },
+        "distinct_paths_read": [
+          "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+          "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandEventPublisher.java"
+        ],
+        "live_evidence_groups_read": {
+          "decisive_changed_production": true,
+          "supplemental_upstream_regression": false,
+          "supplemental_use_of_typed_error": true,
+          "supplemental_internal_event_publication": true
+        }
+      }
+    ],
+    "plan_sha256": "058c58048a170d46c8997372984f5d514a49f3bdb9ecfd9881f48ee79956f290",
+    "required_groups": [
+      "decisive_changed_production"
+    ],
+    "supplemental_groups": [
+      "supplemental_upstream_regression",
+      "supplemental_use_of_typed_error",
+      "supplemental_internal_event_publication"
+    ],
+    "total_live_messages": 17,
+    "total_estimated_usd": 0.291384
+  },
+  "semantic_assessment": {
+    "oracle_sha256": "24e78e579d6473a793abe7a95625d4b9b3ca946313b516b7a1f43b918492315d",
+    "basis": "Polish text evaluated against the predeclared reference, separately from discovery success, technical status and final publication. Production and test inspected in pinned Git; upstream JUnit was not executed.",
+    "grades": [
+      {
+        "attempt": "1",
+        "public_grade": "no_answer",
+        "draft_grade": "partial",
+        "all_requested_facts_correct": true,
+        "reason_pl": "Szkic poprawnie rozróżnia brak treści błędu i brak JSON polecenia. Podaje status równy Exception na najwyższym poziomie oraz response.statusCode równy 500. Nieuprawnione dopowiedzenie ogranicza wszystkie powody pominięcia powiadomienia do trzech. W wywołaniu generateErrorInfo przed publishHookErrorEvent także może wystąpić błąd, którego te warunki nie wykluczają. Fragment nie stanowi dowodu wyczerpującej enumeracji. W oddzielnej gałęzi linie 161–168 pokazują też, że zapis wyniku może nastąpić przed próbą publikacji."
+      },
+      {
+        "attempt": "2",
+        "public_grade": "no_answer",
+        "draft_grade": "partial",
+        "all_requested_facts_correct": true,
+        "reason_pl": "Szkic zawiera wszystkie trzy wymagane fakty. Twierdzenie, że zdarzenie nie zostaje utworzone tylko w trzech przypadkach, jest zbyt szerokie. Ponadto wyjątek podczas publishEvent nie musi oznaczać, że obiektu zdarzenia nie utworzono: konstrukcja następuje w linii 451 przed wywołaniem w linii 454. Błąd publikacji i brak utworzenia obiektu to różne sytuacje."
+      }
+    ],
+    "source_url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L454",
+    "totals": {
+      "published": 0,
+      "drafts_with_all_requested_facts": 2,
+      "fully_correct_drafts_including_unrequested_assertions": 0
+    }
+  },
+  "experiment_directory": "local/fineract-real-pr-01",
+  "discovery_timing_and_local_check": {
+    "method": "Discovery timings use the two Windows file modification times of the per-run marker saved just before CLI launch and the tool-results file for the first turn whose returned lines cumulatively cover all prefrozen changed production spans. End-to-end waiting times use the external monotonic clock. Java rule matcher re-run separately offline on the original pinned Git blob and first submitted Java citation.",
+    "rows": [
+      {
+        "trial": "1",
+        "full_decisive_source_returned_approx_seconds": 17.8718681,
+        "monotonic_cli_wall_seconds": 23.688775799935684,
+        "wall_from_file_timestamps": 23.690317,
+        "local_java_check_replay": {
+          "status": "BLOCKED",
+          "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+          "first_java_citation": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 205,
+            "end": 223,
+            "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+          }
+        }
+      },
+      {
+        "trial": "2",
+        "full_decisive_source_returned_approx_seconds": 21.4562076,
+        "monotonic_cli_wall_seconds": 27.216745699988678,
+        "wall_from_file_timestamps": 27.2176783,
+        "local_java_check_replay": {
+          "status": "BLOCKED",
+          "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+          "first_java_citation": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 205,
+            "end": 223,
+            "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+          }
+        }
+      }
+    ]
+  },
+  "artifact_sha256": {
+    "oracle.json": "24e78e579d6473a793abe7a95625d4b9b3ca946313b516b7a1f43b918492315d",
+    "prep.json": "3956eec914ba3bb3b2be42be559905a7d397ccaaf4bedcf7fc746fc4a4f6e412",
+    "live-plan.json": "058c58048a170d46c8997372984f5d514a49f3bdb9ecfd9881f48ee79956f290",
+    "live-audit.json": "ae1a2eb66e91dacc61236cbda1ecbe9d672f4d6f019fa292a9407708f5a4f175",
+    "live_trial.py": "615e786aa686889bae9598f5765a5b9ff545975d92e04a3c32d542780571b646",
+    "prep.py": "835a5aedf6975e1c03c8638a1b6862146e7bc22121e2b9c5644091bafa543e84",
+    "freeze-oracle.py": "52dc406ff9276ba6a2f670804909c69dd143f7101f0a79fdc8ce93896da10a6c",
+    "semantic-grades.json": "d4daa0b9fb2f6207806141730b34b9054e5ab35a47939259defdeea55df6c3bb",
+    "trace-timing.py": "479951fb6011f483a72206441bdff4c0a601cc885d497fd0578b5a849803cd33",
+    "trace-timing.json": "b43c2505b9a42744d710b3562dba30defef5c33097f129c672a535ad4f9e851b"
+  },
+  "limits_pl": "Jedno pytanie na jednym rzeczywistym, scalonym już PR-ze. Powtórzenia pokazują zachowanie na tym przykładzie. Kontrola odczytów sprawdza, jakie linie model faktycznie otrzymał; nie dowodzi sposobu rozumowania modelu. Ocena odnosi się do treści danych powiadomienia i lokalnej ścieżki w kodzie, a nie do rzeczywistego dostarczenia przez sieć."
+}

@@ -1,5 +1,6 @@
 """Experimental, single-request interpretation of a conversation question."""
 
+from contextlib import nullcontext
 import os
 import re
 from time import perf_counter
@@ -128,10 +129,11 @@ def dspy_decision(request, question):
     return decision
 
 
-def interpret_question(variant, question, evidence):
+def interpret_question(variant, question, evidence, *, get_client=None):
     if not question.strip() or len(question.encode("utf-8")) > 8000:
         raise InterpretationError("invalid_question", "Pytanie musi mieć od 1 do 8000 bajtów UTF-8.")
-    with anthropic_client() as client:
+    context = anthropic_client() if get_client is None else nullcontext(get_client())
+    with context as client:
         request = ClaudeRequest(client, evidence)
         if variant == "claude":
             return validate_decision(request.complete(RULES + "\nZwróć samą etykietę.", question).strip())

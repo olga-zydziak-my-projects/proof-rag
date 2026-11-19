@@ -1,0 +1,2689 @@
+{
+  "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+  "queries_sha256": "66e9bb3f58a2bf15e3ab25d2cfa9ba8c7cbcd69c1c694762c5b42865ea61a960",
+  "filesystem_cache": "enabled, not cleared; first means first timed trial",
+  "trials": [
+    {
+      "label": "single-01",
+      "literal": "BUILD=7339",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-01-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-01",
+        "--literal=BUILD=7339"
+      ],
+      "wall_seconds": 11.27005970000755,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "BUILD=7339",
+        "result_sha256": "623d5a145f1083b643ac34b3f973ae4ec1a52f1eda343accc87b188a5815ca79",
+        "count": 1,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 1
+          },
+          {
+            "repository": "electron/electron",
+            "count": 0
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.11584909999510273,
+          "git_scan": 10.920650499989279,
+          "git_scan_per_repository": [
+            5.790220700029749,
+            0.2924071999732405,
+            4.838022599986289
+          ],
+          "comparison": 0.0008924000430852175
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-01",
+        "publication_seconds": 0.003956299973651767
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-419dfcacdde740c8b8267a8f20ef24e2",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=BUILD=7339"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-419dfcacdde740c8b8267a8f20ef24e2",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10220630016,
+        "initial_disk_free": 334592843776,
+        "peak_tree_rss": 542605312,
+        "peak_tree_private": 248061952,
+        "peak_artifact_bytes": 3039162,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 11.13939179998124,
+        "max_sample_gap_seconds": 0.02454129996476695,
+        "final_artifact_bytes": 7275,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "many-01",
+      "literal": "electron::",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-01-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-01",
+        "--literal=electron::"
+      ],
+      "wall_seconds": 11.354019700025674,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "electron::",
+        "result_sha256": "1795cf97af39ee2e5720d078663bc19d5943bffbeb83e5ff6e988ea59e91d019",
+        "count": 277,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 0
+          },
+          {
+            "repository": "electron/electron",
+            "count": 277
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.2807528999983333,
+          "git_scan": 10.842586699931417,
+          "git_scan_per_repository": [
+            5.691594299976714,
+            0.3000916999881156,
+            4.850900699966587
+          ],
+          "comparison": 0.0019037000020034611
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-01",
+        "publication_seconds": 0.004053100012242794
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-4df643c9b13b4ada810997f997ff810c",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=electron::"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-4df643c9b13b4ada810997f997ff810c",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10151129088,
+        "initial_disk_free": 334592253952,
+        "peak_tree_rss": 542715904,
+        "peak_tree_private": 249135104,
+        "peak_artifact_bytes": 3104242,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 11.219399499997962,
+        "max_sample_gap_seconds": 0.023484600009396672,
+        "final_artifact_bytes": 72361,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "cross-01",
+      "literal": "chrome://",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-01-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-01",
+        "--literal=chrome://"
+      ],
+      "wall_seconds": 11.743426300003193,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "chrome://",
+        "result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.7973016999894753,
+          "git_scan": 10.696226999978535,
+          "git_scan_per_repository": [
+            5.624341299990192,
+            0.2918841000064276,
+            4.780001599981915
+          ],
+          "comparison": 0.024328399973455817
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-01",
+        "publication_seconds": 0.004618000006303191
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-5700495e82054d0cae0b50168b42b9de",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=chrome://"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-5700495e82054d0cae0b50168b42b9de",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10043985920,
+        "initial_disk_free": 334592077824,
+        "peak_tree_rss": 544366592,
+        "peak_tree_private": 251437056,
+        "peak_artifact_bytes": 4546329,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 11.616952300013509,
+        "max_sample_gap_seconds": 0.023812700004782528,
+        "final_artifact_bytes": 1514452,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "zero-01",
+      "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-01-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-01",
+        "--literal=R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6"
+      ],
+      "wall_seconds": 11.17668259999482,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+        "result_sha256": "0b47894421b2e3cf6da156d934bd1b7e422cd3db2270d1122ea1c681d97cd801",
+        "count": 0,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 0
+          },
+          {
+            "repository": "electron/electron",
+            "count": 0
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.11354329995810986,
+          "git_scan": 10.844155700004194,
+          "git_scan_per_repository": [
+            5.7599732000380754,
+            0.318044799962081,
+            4.7661377000040375
+          ],
+          "comparison": 0.0010713000083342195
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-01",
+        "publication_seconds": 0.0028784999740310013
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-39d5142955c44941a151ee002f95fc45",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-39d5142955c44941a151ee002f95fc45",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10173788160,
+        "initial_disk_free": 334590603264,
+        "peak_tree_rss": 542322688,
+        "peak_tree_private": 248451072,
+        "peak_artifact_bytes": 3039071,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 11.05483280000044,
+        "max_sample_gap_seconds": 0.02442149998387322,
+        "final_artifact_bytes": 7241,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "single-02",
+      "literal": "BUILD=7339",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-02-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-02",
+        "--literal=BUILD=7339"
+      ],
+      "wall_seconds": 11.682661500002723,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "BUILD=7339",
+        "result_sha256": "623d5a145f1083b643ac34b3f973ae4ec1a52f1eda343accc87b188a5815ca79",
+        "count": 1,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 1
+          },
+          {
+            "repository": "electron/electron",
+            "count": 0
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.11287770001217723,
+          "git_scan": 11.339973099995404,
+          "git_scan_per_repository": [
+            5.83295700000599,
+            0.3280568000045605,
+            5.178959299984854
+          ],
+          "comparison": 0.000979800010100007
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-02",
+        "publication_seconds": 0.004098800010979176
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-7dd3f5c02c184cc58d3dec0c751941d2",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=BUILD=7339"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-7dd3f5c02c184cc58d3dec0c751941d2",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10140753920,
+        "initial_disk_free": 334590337024,
+        "peak_tree_rss": 542724096,
+        "peak_tree_private": 249081856,
+        "peak_artifact_bytes": 3039162,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 11.552792099944782,
+        "max_sample_gap_seconds": 0.023987900000065565,
+        "final_artifact_bytes": 7275,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "many-02",
+      "literal": "electron::",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-02-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-02",
+        "--literal=electron::"
+      ],
+      "wall_seconds": 11.471600999997463,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "electron::",
+        "result_sha256": "1795cf97af39ee2e5720d078663bc19d5943bffbeb83e5ff6e988ea59e91d019",
+        "count": 277,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 0
+          },
+          {
+            "repository": "electron/electron",
+            "count": 277
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.29116749996319413,
+          "git_scan": 10.940391800017096,
+          "git_scan_per_repository": [
+            5.765056999982335,
+            0.2874583000084385,
+            4.887876500026323
+          ],
+          "comparison": 0.002160399977583438
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-02",
+        "publication_seconds": 0.003812599985394627
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-bbc2feeddb8e4a5ba395058e30c67cc3",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=electron::"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-bbc2feeddb8e4a5ba395058e30c67cc3",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10052390912,
+        "initial_disk_free": 334590365696,
+        "peak_tree_rss": 542720000,
+        "peak_tree_private": 249073664,
+        "peak_artifact_bytes": 3104242,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 11.334103100001812,
+        "max_sample_gap_seconds": 0.024182500026654452,
+        "final_artifact_bytes": 72361,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "cross-02",
+      "literal": "chrome://",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-02-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-02",
+        "--literal=chrome://"
+      ],
+      "wall_seconds": 11.659280199964996,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "chrome://",
+        "result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.7958786999806762,
+          "git_scan": 10.61789160000626,
+          "git_scan_per_repository": [
+            5.557874599995557,
+            0.2892697000061162,
+            4.770747300004587
+          ],
+          "comparison": 0.02584370004478842
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-02",
+        "publication_seconds": 0.0040692000184208155
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-30e5eafe3f224dd29329be8c2cc4a012",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=chrome://"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-30e5eafe3f224dd29329be8c2cc4a012",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10075779072,
+        "initial_disk_free": 334590263296,
+        "peak_tree_rss": 543010816,
+        "peak_tree_private": 249327616,
+        "peak_artifact_bytes": 4546329,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 11.538418199983425,
+        "max_sample_gap_seconds": 0.02356340002734214,
+        "final_artifact_bytes": 1514449,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "zero-02",
+      "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-02-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-02",
+        "--literal=R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6"
+      ],
+      "wall_seconds": 11.10260980000021,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+        "result_sha256": "0b47894421b2e3cf6da156d934bd1b7e422cd3db2270d1122ea1c681d97cd801",
+        "count": 0,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 0
+          },
+          {
+            "repository": "electron/electron",
+            "count": 0
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.11473590001696721,
+          "git_scan": 10.7731520999223,
+          "git_scan_per_repository": [
+            5.647158799984027,
+            0.2989203999750316,
+            4.827072899963241
+          ],
+          "comparison": 0.0008174999966286123
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-02",
+        "publication_seconds": 0.003117599990218878
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-7e52ae851e324890b521fad913826ce9",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-7e52ae851e324890b521fad913826ce9",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10154278912,
+        "initial_disk_free": 334588719104,
+        "peak_tree_rss": 541954048,
+        "peak_tree_private": 247726080,
+        "peak_artifact_bytes": 3039071,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 10.978288799989969,
+        "max_sample_gap_seconds": 0.023845600022468716,
+        "final_artifact_bytes": 7240,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "single-03",
+      "literal": "BUILD=7339",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-03-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-03",
+        "--literal=BUILD=7339"
+      ],
+      "wall_seconds": 11.013219699962065,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "BUILD=7339",
+        "result_sha256": "623d5a145f1083b643ac34b3f973ae4ec1a52f1eda343accc87b188a5815ca79",
+        "count": 1,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 1
+          },
+          {
+            "repository": "electron/electron",
+            "count": 0
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.11181609996128827,
+          "git_scan": 10.676238299987745,
+          "git_scan_per_repository": [
+            5.587099700002,
+            0.28512219997355714,
+            4.804016400012188
+          ],
+          "comparison": 0.0013664999860338867
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\single-03",
+        "publication_seconds": 0.0036007999442517757
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-6b976e177d814aaf8a4c44bee98bde7a",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=BUILD=7339"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-6b976e177d814aaf8a4c44bee98bde7a",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10071105536,
+        "initial_disk_free": 334588502016,
+        "peak_tree_rss": 542986240,
+        "peak_tree_private": 249712640,
+        "peak_artifact_bytes": 3039162,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 10.887506700004451,
+        "max_sample_gap_seconds": 0.024242699961178005,
+        "final_artifact_bytes": 7275,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "many-03",
+      "literal": "electron::",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-03-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-03",
+        "--literal=electron::"
+      ],
+      "wall_seconds": 12.199688399967272,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "electron::",
+        "result_sha256": "1795cf97af39ee2e5720d078663bc19d5943bffbeb83e5ff6e988ea59e91d019",
+        "count": 277,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 0
+          },
+          {
+            "repository": "electron/electron",
+            "count": 277
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.2688672000076622,
+          "git_scan": 11.70387310005026,
+          "git_scan_per_repository": [
+            6.02962640003534,
+            0.4058703000191599,
+            5.268376399995759
+          ],
+          "comparison": 0.0020508000161498785
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\many-03",
+        "publication_seconds": 0.0032414000015705824
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-5467bc16a1c44470a69dd528e92c3262",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=electron::"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-5467bc16a1c44470a69dd528e92c3262",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10131283968,
+        "initial_disk_free": 334588461056,
+        "peak_tree_rss": 543481856,
+        "peak_tree_private": 249405440,
+        "peak_artifact_bytes": 3104242,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 12.074483099975623,
+        "max_sample_gap_seconds": 0.02837290003662929,
+        "final_artifact_bytes": 72358,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "cross-03",
+      "literal": "chrome://",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-03-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-03",
+        "--literal=chrome://"
+      ],
+      "wall_seconds": 12.397985899995547,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "chrome://",
+        "result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.7602453999570571,
+          "git_scan": 11.390450400009286,
+          "git_scan_per_repository": [
+            5.937217300001066,
+            0.30438889999641106,
+            5.148844200011808
+          ],
+          "comparison": 0.025490200030617416
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\cross-03",
+        "publication_seconds": 0.004426700004842132
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-18d0e4c1a6cf43d1adfafb3d4303fc55",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=chrome://"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-18d0e4c1a6cf43d1adfafb3d4303fc55",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 9921519616,
+        "initial_disk_free": 334587920384,
+        "peak_tree_rss": 543027200,
+        "peak_tree_private": 249737216,
+        "peak_artifact_bytes": 4546329,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 12.26927450002404,
+        "max_sample_gap_seconds": 0.030222600034903735,
+        "final_artifact_bytes": 1514451,
+        "final_artifact_limit_exceeded": false
+      }
+    },
+    {
+      "label": "zero-03",
+      "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+      "argv": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "query-verified",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--log-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-03-log",
+        "--output-dir",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-03",
+        "--literal=R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6"
+      ],
+      "wall_seconds": 10.66346720000729,
+      "returncode": 0,
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+        "result_sha256": "0b47894421b2e3cf6da156d934bd1b7e422cd3db2270d1122ea1c681d97cd801",
+        "count": 0,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 0
+          },
+          {
+            "repository": "electron/electron",
+            "count": 0
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 0
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311171,
+            "regular_path_bytes": 26420423
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.10772269999142736,
+          "git_scan": 10.345938199956436,
+          "git_scan_per_repository": [
+            5.426574899989646,
+            0.28906839998671785,
+            4.630294899980072
+          ],
+          "comparison": 0.0008057000231929123
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\zero-03",
+        "publication_seconds": 0.003320900024846196
+      },
+      "stderr": "",
+      "published": true,
+      "resources": {
+        "status": "PROCESS_PASS",
+        "command": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "_stage",
+          "query-verified",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--manifest-hash",
+          "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+          "--scratch",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-80ce8a9c568d484ea53d9e5023b0bbd9",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+          "--literal=R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6"
+        ],
+        "limits": {
+          "timeout_seconds": 240,
+          "tree_memory_bytes": 3221225472,
+          "artifact_bytes": 17179869184,
+          "sample_seconds": 0.02
+        },
+        "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-80ce8a9c568d484ea53d9e5023b0bbd9",
+        "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+        "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+        "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+        "initial_ram_available": 10072760320,
+        "initial_disk_free": 334584205312,
+        "peak_tree_rss": 542367744,
+        "peak_tree_private": 249450496,
+        "peak_artifact_bytes": 3039071,
+        "sample_interval_requested_seconds": 0.02,
+        "exit_code": 0,
+        "members_before_cleanup": 0,
+        "remaining_job_processes": 0,
+        "elapsed_seconds": 10.543552699964494,
+        "max_sample_gap_seconds": 0.023515200009569526,
+        "final_artifact_bytes": 7243,
+        "final_artifact_limit_exceeded": false
+      }
+    }
+  ],
+  "summary": {
+    "single": {
+      "literal": "BUILD=7339",
+      "counts": [
+        1,
+        0,
+        0
+      ],
+      "first": 11.27005970000755,
+      "median": 11.27005970000755,
+      "min": 11.013219699962065,
+      "max": 11.682661500002723,
+      "search_median": 0.11287770001217723,
+      "git_scan_median": 10.920650499989279,
+      "comparison_median": 0.000979800010100007,
+      "publication_median": 0.003956299973651767
+    },
+    "many": {
+      "literal": "electron::",
+      "counts": [
+        0,
+        277,
+        0
+      ],
+      "first": 11.354019700025674,
+      "median": 11.471600999997463,
+      "min": 11.354019700025674,
+      "max": 12.199688399967272,
+      "search_median": 0.2807528999983333,
+      "git_scan_median": 10.940391800017096,
+      "comparison_median": 0.0020508000161498785,
+      "publication_median": 0.003812599985394627
+    },
+    "cross": {
+      "literal": "chrome://",
+      "counts": [
+        5098,
+        13,
+        755
+      ],
+      "first": 11.743426300003193,
+      "median": 11.743426300003193,
+      "min": 11.659280199964996,
+      "max": 12.397985899995547,
+      "search_median": 0.7958786999806762,
+      "git_scan_median": 10.696226999978535,
+      "comparison_median": 0.025490200030617416,
+      "publication_median": 0.004426700004842132
+    },
+    "zero": {
+      "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "first": 11.17668259999482,
+      "median": 11.10260980000021,
+      "min": 10.66346720000729,
+      "max": 11.17668259999482,
+      "search_median": 0.11354329995810986,
+      "git_scan_median": 10.7731520999223,
+      "comparison_median": 0.0008174999966286123,
+      "publication_median": 0.003117599990218878
+    }
+  }
+}

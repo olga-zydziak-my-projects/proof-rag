@@ -1,0 +1,53 @@
+{
+  "method": "index-only discovery; not timed trials",
+  "rows": [
+    {
+      "literal": "BUILD=7339",
+      "counts": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "literal": "electron::",
+      "counts": [
+        0,
+        277,
+        0
+      ]
+    },
+    {
+      "literal": "chrome://",
+      "counts": [
+        5098,
+        13,
+        755
+      ]
+    },
+    {
+      "literal": "IN_PROC_BROWSER_TEST_F",
+      "counts": [
+        2673,
+        1,
+        216
+      ]
+    },
+    {
+      "literal": "R2_SCALE_ABSENCE_SENTINEL_5F4C9029F1A6",
+      "counts": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "literal": "version https://git-lfs.github.com/spec/v1",
+      "counts": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

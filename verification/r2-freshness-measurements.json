@@ -1,0 +1,816 @@
+{
+  "literal": "140.0.7339.133",
+  "selected_before": {
+    "chromium/chromium": [
+      "chromium-pin",
+      "3927f129b801f969d4abdb1458d55174cc062723"
+    ],
+    "electron/electron": [
+      "38-x-y",
+      "8cd29d24b1be40bb598d909f2b5b808266fa5266"
+    ],
+    "brave/brave-core": [
+      "brave-pin",
+      "38bf45887ca5336841cddb4200e6deee32ce45a8"
+    ]
+  },
+  "selected_after": {
+    "chromium/chromium": [
+      "chromium-pin",
+      "3927f129b801f969d4abdb1458d55174cc062723"
+    ],
+    "electron/electron": [
+      "38-x-y",
+      "5e51c882ee25789183771c0173d01aafb9ee96dd"
+    ],
+    "brave/brave-core": [
+      "brave-pin",
+      "38bf45887ca5336841cddb4200e6deee32ce45a8"
+    ]
+  },
+  "agent_had_a3_before_question": false,
+  "server_had_a3_before_push": false,
+  "push": {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\author.git",
+      "push",
+      "--porcelain",
+      "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/electron.git",
+      "refs/heads/38-x-y:refs/heads/38-x-y"
+    ],
+    "stdout": "To file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/electron.git\n \trefs/heads/38-x-y:refs/heads/38-x-y\t8cd29d2..5e51c88\nDone\n",
+    "start_unix_ns": 1795037288515200500,
+    "ended_unix_ns": 1795037288738315500
+  },
+  "publication_unix_ns": 1795037290038478500,
+  "question_to_publication_seconds": 1.2411859,
+  "push_to_publication_seconds": 1.300163,
+  "initial": {
+    "argv": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_current.py",
+      "query",
+      "140.0.7339.133"
+    ],
+    "exit_code": 0,
+    "start_unix_ns": 1795037265524847400,
+    "ended_unix_ns": 1795037288514198500,
+    "wall_seconds": 22.988675999979023,
+    "stdout": {
+      "status": "VERIFIED",
+      "manifest_sha256": "71ed7f32e0a0173b49430371be8c24fae0fd21d7fa09da11954e4de932340452",
+      "literal": "140.0.7339.133",
+      "result_sha256": "e87b901f2eadbccf7e4bf09eee5a3370510b3a06c454a265fa11dba35ba5982f",
+      "count": 1,
+      "repositories": [
+        {
+          "repository": "chromium/chromium",
+          "count": 0
+        },
+        {
+          "repository": "electron/electron",
+          "count": 0
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 1
+        }
+      ],
+      "inventories": [
+        {
+          "repository": "chromium/chromium",
+          "regular_paths": 80782,
+          "blob_paths": 80785,
+          "symlinks": 3,
+          "gitlinks": 35,
+          "distinct_regular_blobs": 74089,
+          "excluded_symlinks": [
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+              "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+            },
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+              "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+            },
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+              "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+            }
+          ],
+          "distinct_regular_blob_bytes": 781713802,
+          "regular_path_bytes": 789787272
+        },
+        {
+          "repository": "electron/electron",
+          "regular_paths": 2699,
+          "blob_paths": 2699,
+          "symlinks": 0,
+          "gitlinks": 0,
+          "distinct_regular_blobs": 2661,
+          "excluded_symlinks": [],
+          "distinct_regular_blob_bytes": 26308387,
+          "regular_path_bytes": 26417639
+        },
+        {
+          "repository": "brave/brave-core",
+          "regular_paths": 50083,
+          "blob_paths": 50099,
+          "symlinks": 16,
+          "gitlinks": 0,
+          "distinct_regular_blobs": 44584,
+          "excluded_symlinks": [
+            {
+              "path": "build/mac/cross_compile/path/codesign",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/hdiutil",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/lipo",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/notarytool",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/pkgbuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/plutil",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/productbuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/productsign",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/security",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/spctl",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/sw_vers",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/xcodebuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/xcrun",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+              "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+            },
+            {
+              "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+              "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+            },
+            {
+              "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+              "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+            }
+          ],
+          "distinct_regular_blob_bytes": 979224260,
+          "regular_path_bytes": 1031524918
+        }
+      ],
+      "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+      "seconds": {
+        "search": 0.14545889996225014,
+        "git_scan": 11.686654600023758,
+        "git_scan_per_repository": [
+          11.68568310001865,
+          0.3318087999941781,
+          8.932645599998068
+        ],
+        "comparison": 0.0008787999977357686
+      },
+      "published_unix_ns": 1795037288491290200,
+      "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\agent\\runs\\80ed01b396614bd8a921f6087a7c4695\\answer",
+      "publication_seconds": 0.00314400001661852,
+      "operation": "query-verified",
+      "manifest": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\agent\\runs\\80ed01b396614bd8a921f6087a7c4695\\manifest.json",
+      "selection": {
+        "corpus": "default",
+        "literal": "140.0.7339.133",
+        "repositories": [
+          {
+            "id": "chromium",
+            "repository": "chromium/chromium",
+            "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/chromium.git",
+            "branch": "chromium-pin",
+            "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+            "resolved_unix_ns": 1795037265730658100
+          },
+          {
+            "id": "electron",
+            "repository": "electron/electron",
+            "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/electron.git",
+            "branch": "38-x-y",
+            "commit": "8cd29d24b1be40bb598d909f2b5b808266fa5266",
+            "resolved_unix_ns": 1795037265794632300
+          },
+          {
+            "id": "brave-core",
+            "repository": "brave/brave-core",
+            "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/brave-core.git",
+            "branch": "brave-pin",
+            "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+            "resolved_unix_ns": 1795037265857278000
+          }
+        ]
+      },
+      "downloads": [
+        {
+          "repository": "chromium/chromium",
+          "commit_present_before_fetch": true,
+          "fetches": 0,
+          "fetch_seconds": 0.0,
+          "local_preparation_seconds": 2.106469999998808
+        },
+        {
+          "repository": "electron/electron",
+          "commit_present_before_fetch": false,
+          "fetches": 1,
+          "fetch_seconds": 2.7179338000132702,
+          "local_preparation_seconds": 0.16819130000658333
+        },
+        {
+          "repository": "brave/brave-core",
+          "commit_present_before_fetch": true,
+          "fetches": 0,
+          "fetch_seconds": 0.0,
+          "local_preparation_seconds": 1.3846341000171378
+        }
+      ],
+      "answer": [
+        {
+          "format": "git-literal-corpus-v1",
+          "literal": "140.0.7339.133",
+          "manifest_sha256": "71ed7f32e0a0173b49430371be8c24fae0fd21d7fa09da11954e4de932340452",
+          "repositories": [
+            "chromium/chromium",
+            "electron/electron",
+            "brave/brave-core"
+          ],
+          "type": "corpus-result"
+        },
+        {
+          "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+          "format": "git-literal-search-v1",
+          "literal": "140.0.7339.133",
+          "repository": "chromium/chromium",
+          "root_tree": "9126a9192eb20fda7cc2e0f5a6b5163dfae53b4b",
+          "type": "result"
+        },
+        {
+          "count": 0,
+          "type": "complete"
+        },
+        {
+          "commit": "8cd29d24b1be40bb598d909f2b5b808266fa5266",
+          "format": "git-literal-search-v1",
+          "literal": "140.0.7339.133",
+          "repository": "electron/electron",
+          "root_tree": "07c8780732913c140071179ff7fe5027ac85c3cd",
+          "type": "result"
+        },
+        {
+          "count": 0,
+          "type": "complete"
+        },
+        {
+          "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+          "format": "git-literal-search-v1",
+          "literal": "140.0.7339.133",
+          "repository": "brave/brave-core",
+          "root_tree": "21f15cb35a06c819d080872a0c404a771a76efc1",
+          "type": "result"
+        },
+        {
+          "blob_id": "d9f22fd0b93200c49851b0533a01abcda90a9067",
+          "byte_offset": 4153,
+          "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+          "line": 75,
+          "path": "package.json",
+          "repository": "brave/brave-core",
+          "type": "hit"
+        },
+        {
+          "count": 1,
+          "type": "complete"
+        },
+        {
+          "count": 1,
+          "repositories": [
+            {
+              "count": 0,
+              "repository": "chromium/chromium"
+            },
+            {
+              "count": 0,
+              "repository": "electron/electron"
+            },
+            {
+              "count": 1,
+              "repository": "brave/brave-core"
+            }
+          ],
+          "type": "corpus-complete"
+        }
+      ],
+      "current_seconds": {
+        "resolve_branches": 0.18945979996351525,
+        "fetch": 2.7179338000132702,
+        "prepare_manifest": 3.6630571999703534,
+        "prepare_index": 4.172626100014895,
+        "query_and_publication": 12.089443799981382
+      }
+    },
+    "stderr": "chromium: 80782 regular paths, 74089 distinct blobs, 0 to fetch\r\nchromium: 781713802 unique blob bytes, 2.04 s\r\nelectron: 2699 regular paths, 2661 distinct blobs, 0 to fetch\r\nelectron: 26308387 unique blob bytes, 0.09 s\r\nbrave-core: 50083 regular paths, 44584 distinct blobs, 0 to fetch\r\nbrave-core: 979224260 unique blob bytes, 1.33 s\r\n"
+  },
+  "updated": {
+    "argv": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_current.py",
+      "query",
+      "140.0.7339.133"
+    ],
+    "exit_code": 0,
+    "start_unix_ns": 1795037288797292600,
+    "ended_unix_ns": 1795037290067892900,
+    "wall_seconds": 1.2694715000106953,
+    "stdout": {
+      "status": "VERIFIED",
+      "manifest_sha256": "1c00f1d38f6684b2d7f1449536e1f483537d9614bc0d57702ecaa1fdca7a6248",
+      "literal": "140.0.7339.133",
+      "result_sha256": "95d22087fbd1848225b535a918ab1f78cd241df2c99260f6f298be301e30dc54",
+      "count": 2,
+      "repositories": [
+        {
+          "repository": "chromium/chromium",
+          "count": 0
+        },
+        {
+          "repository": "electron/electron",
+          "count": 1
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 1
+        }
+      ],
+      "method": "Verified base plus SHA-1 checked pinned Git tree delta and new regular blobs",
+      "base_manifest_sha256": "71ed7f32e0a0173b49430371be8c24fae0fd21d7fa09da11954e4de932340452",
+      "base_result_sha256": "e87b901f2eadbccf7e4bf09eee5a3370510b3a06c454a265fa11dba35ba5982f",
+      "delta": [
+        {
+          "repository": "chromium/chromium",
+          "tree_entries_compared": 0,
+          "changed_regular_paths": 0,
+          "new_regular_paths_checked": 0,
+          "git_objects_read": {
+            "commit": {
+              "count": 0,
+              "bytes": 0
+            },
+            "tree": {
+              "count": 0,
+              "bytes": 0
+            },
+            "blob": {
+              "count": 0,
+              "bytes": 0
+            }
+          }
+        },
+        {
+          "repository": "electron/electron",
+          "tree_entries_compared": 203,
+          "changed_regular_paths": 3,
+          "new_regular_paths_checked": 3,
+          "git_objects_read": {
+            "commit": {
+              "count": 2,
+              "bytes": 2642
+            },
+            "tree": {
+              "count": 6,
+              "bytes": 25954
+            },
+            "blob": {
+              "count": 3,
+              "bytes": 25559
+            }
+          }
+        },
+        {
+          "repository": "brave/brave-core",
+          "tree_entries_compared": 0,
+          "changed_regular_paths": 0,
+          "new_regular_paths_checked": 0,
+          "git_objects_read": {
+            "commit": {
+              "count": 0,
+              "bytes": 0
+            },
+            "tree": {
+              "count": 0,
+              "bytes": 0
+            },
+            "blob": {
+              "count": 0,
+              "bytes": 0
+            }
+          }
+        }
+      ],
+      "seconds": {
+        "load_verified_base": 0.0010139999794773757,
+        "git_delta": 0.2453327000257559,
+        "serialization_and_comparison": 0.0014928000164218247
+      },
+      "published_unix_ns": 1795037290038478500,
+      "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\agent\\runs\\f9c1b3f025124b458d98f7ad493a93a5\\answer",
+      "publication_seconds": 0.003078100038692355,
+      "operation": "update-verified",
+      "manifest": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\agent\\runs\\f9c1b3f025124b458d98f7ad493a93a5\\manifest.json",
+      "selection": {
+        "corpus": "default",
+        "literal": "140.0.7339.133",
+        "repositories": [
+          {
+            "id": "chromium",
+            "repository": "chromium/chromium",
+            "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/chromium.git",
+            "branch": "chromium-pin",
+            "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+            "resolved_unix_ns": 1795037289012672500
+          },
+          {
+            "id": "electron",
+            "repository": "electron/electron",
+            "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/electron.git",
+            "branch": "38-x-y",
+            "commit": "5e51c882ee25789183771c0173d01aafb9ee96dd",
+            "resolved_unix_ns": 1795037289075659200
+          },
+          {
+            "id": "brave-core",
+            "repository": "brave/brave-core",
+            "remote": "file:///C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/brave-core.git",
+            "branch": "brave-pin",
+            "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+            "resolved_unix_ns": 1795037289143512800
+          }
+        ]
+      },
+      "downloads": [
+        {
+          "repository": "chromium/chromium",
+          "commit_present_before_fetch": true,
+          "fetches": 0,
+          "fetch_seconds": 0.0,
+          "local_preparation_seconds": 0.06096610001986846
+        },
+        {
+          "repository": "electron/electron",
+          "commit_present_before_fetch": false,
+          "fetches": 1,
+          "fetch_seconds": 0.1404319999855943,
+          "local_preparation_seconds": 0.15397380001377314
+        },
+        {
+          "repository": "brave/brave-core",
+          "commit_present_before_fetch": true,
+          "fetches": 0,
+          "fetch_seconds": 0.0,
+          "local_preparation_seconds": 0.05824209999991581
+        }
+      ],
+      "answer": [
+        {
+          "format": "git-literal-corpus-v1",
+          "literal": "140.0.7339.133",
+          "manifest_sha256": "1c00f1d38f6684b2d7f1449536e1f483537d9614bc0d57702ecaa1fdca7a6248",
+          "repositories": [
+            "chromium/chromium",
+            "electron/electron",
+            "brave/brave-core"
+          ],
+          "type": "corpus-result"
+        },
+        {
+          "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+          "format": "git-literal-search-v1",
+          "literal": "140.0.7339.133",
+          "repository": "chromium/chromium",
+          "root_tree": "9126a9192eb20fda7cc2e0f5a6b5163dfae53b4b",
+          "type": "result"
+        },
+        {
+          "count": 0,
+          "type": "complete"
+        },
+        {
+          "commit": "5e51c882ee25789183771c0173d01aafb9ee96dd",
+          "format": "git-literal-search-v1",
+          "literal": "140.0.7339.133",
+          "repository": "electron/electron",
+          "root_tree": "07aec82536905a3e425c332a61b3ebefa0b6f782",
+          "type": "result"
+        },
+        {
+          "blob_id": "709c8cf66e2ec3fa169e3ae57e35f5003be7afc3",
+          "byte_offset": 66,
+          "commit": "5e51c882ee25789183771c0173d01aafb9ee96dd",
+          "line": 5,
+          "path": "DEPS",
+          "repository": "electron/electron",
+          "type": "hit"
+        },
+        {
+          "count": 1,
+          "type": "complete"
+        },
+        {
+          "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+          "format": "git-literal-search-v1",
+          "literal": "140.0.7339.133",
+          "repository": "brave/brave-core",
+          "root_tree": "21f15cb35a06c819d080872a0c404a771a76efc1",
+          "type": "result"
+        },
+        {
+          "blob_id": "d9f22fd0b93200c49851b0533a01abcda90a9067",
+          "byte_offset": 4153,
+          "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+          "line": 75,
+          "path": "package.json",
+          "repository": "brave/brave-core",
+          "type": "hit"
+        },
+        {
+          "count": 1,
+          "type": "complete"
+        },
+        {
+          "count": 2,
+          "repositories": [
+            {
+              "count": 0,
+              "repository": "chromium/chromium"
+            },
+            {
+              "count": 1,
+              "repository": "electron/electron"
+            },
+            {
+              "count": 1,
+              "repository": "brave/brave-core"
+            }
+          ],
+          "type": "corpus-complete"
+        }
+      ],
+      "current_seconds": {
+        "resolve_branches": 0.1985660000354983,
+        "fetch": 0.1404319999855943,
+        "prepare_manifest": 0.27414609998231754,
+        "prepare_index": 0.0,
+        "query_and_publication": 0.49270659999456257
+      }
+    },
+    "stderr": "electron: 2699 regular paths, 2661 distinct blobs, 0 to fetch\r\nelectron: 26308388 unique blob bytes, 0.10 s\r\n"
+  },
+  "independent_full_scan": {
+    "argv": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+      "query-verified",
+      "--sources",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\history-study-01\\sources",
+      "--manifest",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\control.json",
+      "--index",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\history-study-01\\measure-01\\A3\\full\\index",
+      "--literal=140.0.7339.133",
+      "--output-dir",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\control",
+      "--log-dir",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\control-log"
+    ],
+    "exit_code": 0,
+    "start_unix_ns": 1795037290106146300,
+    "ended_unix_ns": 1795037296709885700,
+    "wall_seconds": 6.603359400003683,
+    "stdout": {
+      "status": "VERIFIED",
+      "manifest_sha256": "1c00f1d38f6684b2d7f1449536e1f483537d9614bc0d57702ecaa1fdca7a6248",
+      "literal": "140.0.7339.133",
+      "result_sha256": "95d22087fbd1848225b535a918ab1f78cd241df2c99260f6f298be301e30dc54",
+      "count": 2,
+      "repositories": [
+        {
+          "repository": "chromium/chromium",
+          "count": 0
+        },
+        {
+          "repository": "electron/electron",
+          "count": 1
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 1
+        }
+      ],
+      "inventories": [
+        {
+          "repository": "chromium/chromium",
+          "regular_paths": 80782,
+          "blob_paths": 80785,
+          "symlinks": 3,
+          "gitlinks": 35,
+          "distinct_regular_blobs": 74089,
+          "excluded_symlinks": [
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+              "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+            },
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+              "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+            },
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+              "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+            }
+          ],
+          "distinct_regular_blob_bytes": 781713802,
+          "regular_path_bytes": 789787272
+        },
+        {
+          "repository": "electron/electron",
+          "regular_paths": 2699,
+          "blob_paths": 2699,
+          "symlinks": 0,
+          "gitlinks": 0,
+          "distinct_regular_blobs": 2661,
+          "excluded_symlinks": [],
+          "distinct_regular_blob_bytes": 26308388,
+          "regular_path_bytes": 26417640
+        },
+        {
+          "repository": "brave/brave-core",
+          "regular_paths": 50083,
+          "blob_paths": 50099,
+          "symlinks": 16,
+          "gitlinks": 0,
+          "distinct_regular_blobs": 44584,
+          "excluded_symlinks": [
+            {
+              "path": "build/mac/cross_compile/path/codesign",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/hdiutil",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/lipo",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/notarytool",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/pkgbuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/plutil",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/productbuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/productsign",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/security",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/spctl",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/sw_vers",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/xcodebuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/xcrun",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+              "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+            },
+            {
+              "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+              "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+            },
+            {
+              "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+              "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+            }
+          ],
+          "distinct_regular_blob_bytes": 979224260,
+          "regular_path_bytes": 1031524918
+        }
+      ],
+      "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+      "seconds": {
+        "search": 0.15148070000577718,
+        "git_scan": 6.162267499952577,
+        "git_scan_per_repository": [
+          6.161064799991436,
+          0.4706775000086054,
+          5.688760499993805
+        ],
+        "comparison": 0.0016119999927468598
+      },
+      "published_unix_ns": 1795037296694947300,
+      "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\fresh-03\\control",
+      "publication_seconds": 0.00269799999659881
+    },
+    "stderr": ""
+  },
+  "byte_equal": true,
+  "independent_sha256": "95d22087fbd1848225b535a918ab1f78cd241df2c99260f6f298be301e30dc54",
+  "offline": {
+    "argv": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_current.py",
+      "query",
+      "140.0.7339.133"
+    ],
+    "exit_code": 3,
+    "start_unix_ns": 1795037296712893400,
+    "ended_unix_ns": 1795037296998842500,
+    "wall_seconds": 0.2855236000032164,
+    "stdout": {
+      "status": "BLOCKED",
+      "reason": "Nie mo\u017cna potwierdzi\u0107 bie\u017c\u0105cej wersji electron/electron (38-x-y): fatal: 'C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/r2-scale/fresh-03/server/electron.git' does not appear to be a git repository\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists."
+    },
+    "stderr": ""
+  },
+  "old_pointer_after_push": {
+    "run": "80ed01b396614bd8a921f6087a7c4695",
+    "manifest_sha256": "71ed7f32e0a0173b49430371be8c24fae0fd21d7fa09da11954e4de932340452",
+    "result_sha256": "e87b901f2eadbccf7e4bf09eee5a3370510b3a06c454a265fa11dba35ba5982f"
+  },
+  "latest_pointer_after_offline": {
+    "run": "f9c1b3f025124b458d98f7ad493a93a5",
+    "manifest_sha256": "1c00f1d38f6684b2d7f1449536e1f483537d9614bc0d57702ecaa1fdca7a6248",
+    "result_sha256": "95d22087fbd1848225b535a918ab1f78cd241df2c99260f6f298be301e30dc54"
+  },
+  "publication_utc": "2026-11-18T21:28:10.038479+00:00"
+}

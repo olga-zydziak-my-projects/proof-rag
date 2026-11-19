@@ -1,6 +1,6 @@
 """Fineract R2 fixtures exercise the public command and exact response format."""
 
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 from hashlib import sha256
 import io
 import json
@@ -20,7 +20,10 @@ from unittest.mock import patch
 PROJECT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT / "scripts"))
 import fineract_r2 as cli
+import fineract_r2_corpus as corpus_cli
 import stage8_supervise
+from repo_proof import git_search
+from repo_proof.corpus import encoded
 from repo_proof.fineract_oracle import ResultMismatch, SourceUnavailable, compare, scan_git
 
 
@@ -140,6 +143,160 @@ class FineractR2Tests(unittest.TestCase):
         code, report, _ = self.execute(*self.search_arguments(out, literal="NEEDLE"))
         self.assertEqual((code, report["status"], report["count"]), (0, "VERIFIED", 0))
         self.assertEqual(len((out / "answer.jsonl").read_bytes().splitlines()), 2)
+
+    def test_scoped_index_and_raw_git_exclude_other_paths(self):
+        scope = ["nested"]
+        pin = {**self.pin, "regular_paths": 1, "blob_paths": 1, "symlinks": 0}
+        index = self.folder / "scoped.sqlite"
+        search = self.folder / "scoped.jsonl"
+        git_search.build(self.git_store, pin, index, directories=scope)
+        git_search.query(index, pin, "Needle", search, 0, directories=scope)
+        expected, inventory = scan_git(self.git_store, pin, 1, "Needle", directories=scope, include_sizes=True)
+        self.assertEqual(expected, {"nested/end-\udcff.txt": (self.final, 5, 2)})
+        self.assertEqual(inventory["distinct_regular_blob_bytes"], len(b"row\r\nNeedle"))
+        self.assertEqual(compare(search, pin, "Needle", expected)["count"], 1)
+        with self.assertRaises(ValueError):
+            git_search.query(index, pin, "Needle", search, 0)
+
+    def test_corpus_requires_the_complete_zero_hit_section(self):
+        pin2 = {**self.pin, "repository": "local/empty"}
+        repos = [{"snapshot": self.pin}, {"snapshot": pin2}]
+        digest = "1" * 64
+        answer = self.folder / "corpus-answer.jsonl"
+        prefix = encoded(corpus_cli.header(repos, "Needle", digest)) + (self.canonical / "answer.jsonl").read_bytes()
+        empty_header = {**self.rows[0], "repository": pin2["repository"]}
+        empty_section = encoded(empty_header) + encoded({"type": "complete", "count": 0})
+        footer = encoded(corpus_cli.trailer(repos, [{"count": 3}, {"count": 0}]))
+        answer.write_bytes(prefix + empty_section + footer)
+        count, per_repo = corpus_cli.compare_corpus(answer, repos, "Needle", digest, [self.expected, {}])
+        self.assertEqual((count, [row["count"] for row in per_repo]), (3, [3, 0]))
+        answer.write_bytes(prefix + footer)
+        with self.assertRaises(ResultMismatch):
+            corpus_cli.compare_corpus(answer, repos, "Needle", digest, [self.expected, {}])
+
+    def test_corpus_cleanup_error_preserves_verified_publication(self):
+        folder = self.folder / "cln"
+        folder.mkdir()
+        out = folder / "answer"
+        manifest = folder / "manifest.json"
+        binary_bytes = len(b"Needle\r\n\x00Needle.")
+        nested_bytes = len(b"row\r\nNeedle")
+        manifest.write_bytes(encoded({
+            "format": "git-literal-corpus-manifest-v1",
+            "repositories": [{"id": "fixture", "snapshot": self.pin, "directories": [],
+                              "distinct_regular_blobs": 3, "distinct_regular_blob_bytes": binary_bytes + nested_bytes,
+                              "regular_path_bytes": 2 * binary_bytes + nested_bytes}],
+        }))
+        manifest_hash = sha256(manifest.read_bytes()).hexdigest()
+        repo = self.pin["repository"]
+        expected = (encoded({"type": "corpus-result", "format": "git-literal-corpus-v1", "literal": "Needle",
+                             "manifest_sha256": manifest_hash, "repositories": [repo]})
+                    + (self.canonical / "answer.jsonl").read_bytes()
+                    + encoded({"type": "corpus-complete", "count": 3,
+                               "repositories": [{"repository": repo, "count": 3}]}))
+
+        stdout, stderr = io.StringIO(), io.StringIO()
+        cleanup_attempts = []
+        rmtree = shutil.rmtree
+
+        def deny_scratch_cleanup(path, *args, **kwargs):
+            scratch = Path(path)
+            if scratch.parent == folder and scratch.name.startswith(".r2-corpus-stage-"):
+                self.assertTrue(out.is_dir())
+                self.assertTrue((out / "answer.jsonl").is_file())
+                self.assertTrue((out / "verification.json").is_file())
+                cleanup_attempts.append(scratch)
+                raise PermissionError("fixture scratch cleanup denied")
+            return rmtree(path, *args, **kwargs)
+
+        args = ["query-verified", "--literal", "Needle", "--manifest", str(manifest),
+                "--sources", str(self.folder), "--index", str(self.folder),
+                "--output-dir", str(out), "--log-dir", str(folder / "log")]
+        with patch.object(corpus_cli.shutil, "rmtree", side_effect=deny_scratch_cleanup), \
+                redirect_stdout(stdout), redirect_stderr(stderr):
+            code = corpus_cli.main(args)
+
+        self.assertEqual(len(cleanup_attempts), 1)
+        self.assertTrue(cleanup_attempts[0].is_dir())
+        report = json.loads(stdout.getvalue())
+        self.assertEqual((code, report["status"]), (0, "VERIFIED"), report)
+        self.assertIn("fixture scratch cleanup denied", stderr.getvalue())
+        receipt = json.loads((out / "verification.json").read_bytes())
+        self.assertEqual(receipt["status"], "VERIFIED")
+        answer = (out / "answer.jsonl").read_bytes()
+        self.assertEqual(answer, expected)
+        self.assertEqual(receipt["result_sha256"], sha256(answer).hexdigest())
+        self.assertEqual(report["result_sha256"], receipt["result_sha256"])
+
+    def test_corpus_update_matches_full_query_with_same_hit_count(self):
+        folder = self.folder / "upd"
+        folder.mkdir()
+        environment = dict(os.environ, GIT_INDEX_FILE=str(folder / "git.index"),
+                           GIT_AUTHOR_NAME="Fixture", GIT_COMMITTER_NAME="Fixture",
+                           GIT_AUTHOR_EMAIL="fixture@example.invalid", GIT_COMMITTER_EMAIL="fixture@example.invalid")
+
+        def git(*args, data=None):
+            return subprocess.run(["git", "-C", self.git_store, *args], input=data, check=True,
+                                  capture_output=True, env=environment).stdout.strip().decode("ascii")
+
+        git("read-tree", self.pin["commit"])
+        git("update-index", "-z", "--index-info", data=f"0 {'0' * 40}\tcopy & [x].bin\0".encode("ascii"))
+        newly_matching, no_match = b"prefix Needle\n", b"different bytes\n"
+        new_oid = git("hash-object", "-w", "--stdin", data=newly_matching)
+        no_match_oid = git("hash-object", "-w", "--stdin", data=no_match)
+        for mode, oid, path in [("100644", new_oid, "empty"), ("100644", no_match_oid, "binary.bin"),
+                                ("100755", self.binary, "renamed.bin")]:
+            git("update-index", "--add", "--cacheinfo", f"{mode},{oid},{path}")
+        tree_b = git("write-tree")
+        commit_b = git("commit-tree", tree_b, "-p", self.pin["commit"], "-m", "Update, remove and rename hits")
+        pin_b = {**self.pin, "commit": commit_b, "root_tree": tree_b}
+
+        def manifest(path, pin, distinct, blob_bytes, path_bytes):
+            path.write_bytes(encoded({"format": "git-literal-corpus-manifest-v1", "repositories": [{
+                "id": "fixture", "snapshot": pin, "directories": [], "distinct_regular_blobs": distinct,
+                "distinct_regular_blob_bytes": blob_bytes, "regular_path_bytes": path_bytes,
+            }]}))
+            return path
+
+        binary, nested = len(b"Needle\r\n\x00Needle."), len(b"row\r\nNeedle")
+        manifest_a = manifest(folder / "a.json", self.pin, 3, binary + nested, 2 * binary + nested)
+        bytes_b = binary + nested + len(newly_matching) + len(no_match)
+        manifest_b = manifest(folder / "b.json", pin_b, 4, bytes_b, bytes_b)
+
+        def run(operation, manifest_file, label, *args, code=0):
+            command = [sys.executable, "-B", str(PROJECT / "scripts/fineract_r2_corpus.py"), operation,
+                       "--sources", str(self.folder), "--manifest", str(manifest_file),
+                       "--log-dir", str(folder / f"{label}-log"), *map(str, args)]
+            result = subprocess.run(command, cwd=PROJECT, capture_output=True, timeout=30)
+            self.assertEqual(result.returncode, code, (result.stdout, result.stderr))
+            return json.loads(result.stdout)
+
+        a, updated, full = (folder / name for name in ("a", "updated", "full"))
+        a_receipt = run("query-verified", manifest_a, "a", "--index", self.folder,
+                        "--output-dir", a, "--literal=Needle")
+        base_args = ("--base-manifest", manifest_a, "--base-answer", a, "--literal=Needle")
+        delta = run("update-verified", manifest_b, "updated", *base_args, "--output-dir", updated)
+        index_b = folder / "index-b"
+        run("build", manifest_b, "build-b", "--index", index_b)
+        oracle = run("query-verified", manifest_b, "full", "--index", index_b,
+                     "--output-dir", full, "--literal=Needle")
+        self.assertEqual([row["count"] for row in (a_receipt, delta, oracle)], [3, 3, 3])
+        self.assertEqual(delta["result_sha256"], oracle["result_sha256"])
+        self.assertEqual(delta["delta"][0]["changed_regular_paths"], 4)
+        self.assertEqual(delta["delta"][0]["git_objects_read"]["blob"]["count"], 3)
+        answer = (updated / "answer.jsonl").read_bytes()
+        self.assertEqual(answer, (full / "answer.jsonl").read_bytes())
+        hits = [row for row in map(json.loads, answer.splitlines()) if row["type"] == "hit"]
+        self.assertEqual([(row["path"], row["byte_offset"], row["line"], row["commit"]) for row in hits], [
+            ("empty", 7, 1, commit_b), ("nested/end-\udcff.txt", 5, 2, commit_b), ("renamed.bin", 0, 1, commit_b),
+        ])
+
+        base_answer = a / "answer.jsonl"
+        base_answer.write_bytes(base_answer.read_bytes() + b"\n")
+        rejected = folder / "rejected"
+        failure = run("update-verified", manifest_b, "rejected", *base_args, "--output-dir", rejected, code=2)
+        self.assertEqual(failure["status"], "MISMATCH")
+        self.assertFalse(rejected.exists())
 
     def test_deleted_trigram_reproduces_false_empty_then_rejects(self):
         copy = self.changed_index("deleted-posting", "DELETE FROM postings WHERE gram=?", (b"Nee",))

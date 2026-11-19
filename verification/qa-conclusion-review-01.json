@@ -1,0 +1,1472 @@
+{
+  "model": "claude-sonnet-5-5",
+  "repository": "electron/electron",
+  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+  "files": 2700,
+  "design": "Single fresh public Sonnet CLI per variant per case, exact same question; known free-use accepts any actual caller serving the purpose. Grade core and factual extras separately from source checks and CLI. Reference answers are not in runtime prompts.",
+  "plan_sha256": "8903f0f90650457961b3246166e60c99bc27b987a5ea96b9ca0cba622171f7b0",
+  "raw_frozen_plan": "local/qa-conclusion-01/frozen.json",
+  "timing_note": "One observation per case per variant, executed in separate processes. Baseline first, then experimental review. Wall time includes startup, pinning, local tools and API. No repeated runs; load and model sampling can affect comparisons.",
+  "cost_basis": "Estimated at $2 per million uncached input tokens and $10 per million output tokens, standard global direct Sonnet per earlier same-day price record; no billing invoice.",
+  "rates_source": "https://platform.claude.com/docs/en/about-claude/pricing",
+  "excluded_pilot": {
+    "note": "Two exploratory treatment calls before the comparison code was frozen. Both blocked on review format. They ran consecutively, were retained, incurred real API charges, and are excluded from paired outcome/latency/cost. E-usage had an empty reason on a supported and sourced finding. The more specific capture question had supported incidental language/methodology statements without a Git line reference.",
+    "cases": [
+      {
+        "id": "E-usage",
+        "status": "BLOCKED",
+        "reason": "Niekompletne ustalenie recenzenta.",
+        "model_calls": 6,
+        "cost_usd": 0.080042,
+        "wall_seconds": 39.285321600036696,
+        "raw_cli": "local/qa-conclusion-01/review-E-usage.json"
+      },
+      {
+        "id": "capture-effect",
+        "status": "BLOCKED",
+        "reason": "Niekompletne ustalenie recenzenta.",
+        "model_calls": 7,
+        "cost_usd": 0.112112,
+        "wall_seconds": 50.25318629993126,
+        "raw_cli": "local/qa-conclusion-01/review-capture-effect.json"
+      }
+    ]
+  },
+  "estimated_total_including_pilot_usd": 0.55652,
+  "review_with_infrastructure_retry": {
+    "explanation": "First-attempt infrastructure errors remain in metrics.review; only WinError 5 before review qualified for a single fresh case-level retry. This row reports completeness after the retry.",
+    "delivered": 4,
+    "fully_correct": 4,
+    "primary_correct": 4,
+    "false_extras": 0,
+    "overcautious": 1,
+    "median_wall_conclusive_cli_attempts_including_block": 24.204138100030832,
+    "supplemental_retry_cost_usd": 0.056248,
+    "total_cost_with_retry_usd": 0.249932,
+    "cases": [
+      {
+        "id": "capture-effect",
+        "question": "Czy po zakończeniu przechwytywania ScreenCaptureKit na macOS desktopCapturer w Electronie skutecznie odtwarza każdemu oknu zapamiętaną wartość resizable? Wyjaśnij na podstawie implementacji.",
+        "question_type": "negative behavior",
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "expected": "Nie. Wpis jest zapisany pod tablicą [win.id], natomiast test has i odczyt get używają liczby win.id. Przypisanie nie wykona się w tej ścieżce.",
+        "reference_sources": [
+          {
+            "path": "lib/browser/api/desktop-capturer.ts",
+            "start": 22,
+            "end": 30,
+            "source": "  const resizableValues = new Map();\n  if (process.platform === 'darwin') {\n    // Fix for bug in ScreenCaptureKit that modifies a window's styleMask the first time\n    // it captures a non-resizable window. We record each non-resizable window's styleMask,\n    // and we restore modified styleMasks later, after the screen capture.\n    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }\n  }"
+          },
+          {
+            "path": "lib/browser/api/desktop-capturer.ts",
+            "start": 56,
+            "end": 69,
+            "source": "    const stopRunning = () => {\n      if (capturer) {\n        delete capturer._onerror;\n        delete capturer._onfinished;\n        capturer = null;\n\n        if (process.platform === 'darwin') {\n          for (const win of BrowserWindow.getAllWindows()) {\n            if (resizableValues.has(win.id)) {\n              win.resizable = resizableValues.get(win.id);\n            }\n          };\n        }\n      }"
+          }
+        ],
+        "status": "BLOCKED",
+        "cli_exit": 3,
+        "reason": "Niekompletne ustalenie recenzenta.",
+        "answer": null,
+        "verdict": null,
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "INCONCLUSIVE"
+        },
+        "citations_checked_against_git": [],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 24.204138100030832,
+          "api_seconds": 20.133852499886416,
+          "r2_search_seconds": 0.23108429997228086,
+          "api_calls": 5,
+          "verified_r2_searches": 1,
+          "input_tokens": 17314,
+          "output_tokens": 2162
+        },
+        "raw": "local/qa-conclusion-01/work-review/qa/cbf824cdcf9147c4",
+        "estimated_cost_usd": 0.056248,
+        "provider_message_ids": [
+          "msg_011ChCJFpJp8iy9wQPsp8bqt",
+          "msg_011ChCJG1GNnjY3vJmQvVhK7",
+          "msg_011ChCJG7ZeA9WaGdRv2MF63",
+          "msg_011ChCJGJD7KWgWe1aTVi6y2",
+          "msg_011ChCJGhoRmr3EYZJEyMe6D"
+        ],
+        "raw_cli": "local/qa-conclusion-01/retry-capture-effect.json",
+        "ask_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+        "conclusion_review": {
+          "disposition": "blocked",
+          "reviews": [],
+          "repair_attempted": false
+        },
+        "review_rounds": [],
+        "assessment": {
+          "grade": "FALSE_BLOCK",
+          "primary_correct": false,
+          "extra_false": false,
+          "overcautious": true,
+          "why": "No answer was delivered. Independent reading confirms that the unpublished draft correctly identified the mismatched keys and absent restoration. The draft's optional process disclosure (code was read, not executed) was marked supported, with an empty evidence array; all substantive findings had line references. The reviewer protocol rejected the report before attempting a correction."
+        }
+      }
+    ]
+  },
+  "public_cli": "scripts/fineract_r2_ask.py ask --config <electron-config.json> --corpus default [--review-conclusion] <exact question from cases>. The control used a byte-identical frozen copy of the public pre-change entry point, with source SHA-256 recorded in every row.",
+  "median_paired_delta_seconds": 9.628430600045249,
+  "first_attempt_shared_published_timing": {
+    "same_question_count": 4,
+    "median_wall_baseline": 10.81593934999546,
+    "median_wall_review": 22.007673499989323,
+    "median_paired_wall_delta": 11.390871599956881
+  },
+  "transitions": [
+    {
+      "id": "E-usage",
+      "from_grade": "CORE_CORRECT_EXTRA_INCORRECT",
+      "to_grade": "CORRECT",
+      "seconds_added": 22.99649410007987,
+      "cost_usd_added": 0.054832
+    },
+    {
+      "id": "capture-effect",
+      "from_grade": "CORRECT",
+      "to_grade": "INFRASTRUCTURE_ERROR",
+      "seconds_added": -8.213344099931419,
+      "cost_usd_added": -0.030902
+    },
+    {
+      "id": "cocoa-level",
+      "from_grade": "CORRECT",
+      "to_grade": "CORRECT",
+      "seconds_added": 13.153312599868514,
+      "cost_usd_added": 0.037612
+    },
+    {
+      "id": "updater",
+      "from_grade": "CORRECT",
+      "to_grade": "CORRECT",
+      "seconds_added": 5.304739800048992,
+      "cost_usd_added": 0.00653
+    },
+    {
+      "id": "netlog",
+      "from_grade": "CORRECT",
+      "to_grade": "CORRECT",
+      "seconds_added": 9.628430600045249,
+      "cost_usd_added": 0.011178
+    }
+  ],
+  "grading": "After the run both variants were manually compared to the pre-frozen reference and actual pinned source, including any unrequested factual claims. A reviewer verdict is not the grading oracle. A suitable alternate caller is valid for E-usage.",
+  "metrics": {
+    "baseline": {
+      "n": 5,
+      "published": 5,
+      "semantic_grades": {
+        "CORE_CORRECT_EXTRA_INCORRECT": 1,
+        "CORRECT": 4
+      },
+      "extra_false": 1,
+      "primary_correct": 5,
+      "overcautious": 0,
+      "median_wall_seconds": 11.554969900054857,
+      "wall_range": [
+        9.678633900010027,
+        14.317695999983698
+      ],
+      "model_calls": 16,
+      "input_tokens": 40887,
+      "output_tokens": 3266,
+      "estimated_cost_usd": 0.114434,
+      "trials_with_repair": 0
+    },
+    "review": {
+      "n": 5,
+      "published": 4,
+      "semantic_grades": {
+        "CORRECT": 4,
+        "INFRASTRUCTURE_ERROR": 1
+      },
+      "extra_false": 0,
+      "primary_correct": 4,
+      "overcautious": 0,
+      "median_wall_seconds": 19.307064500055276,
+      "wall_range": [
+        6.104351900052279,
+        34.65900400001556
+      ],
+      "model_calls": 21,
+      "input_tokens": 56587,
+      "output_tokens": 8051,
+      "estimated_cost_usd": 0.193684,
+      "trials_with_repair": 2
+    }
+  },
+  "cases": [
+    {
+      "id": "E-usage",
+      "question": "Podaj jeden przykład z działającego kodu samego Electrona, w którym wywoływana jest metoda BrowserWindow.getAllWindows(). Do czego w tym miejscu służy lista okien?",
+      "question_type": "usage",
+      "expected": "Np. BrowserWindow.getFocusedWindow() przechodzi przez listę okien, aby znaleźć okno z fokusem (również z aktywnymi DevTools). Alternatywnie desktopCapturer.getSources na macOS iteruje po oknach, by zapamiętać stan resizable. Inne rzeczywiste, wykonywane wywołania tej dokładnej metody w implementacji są dopuszczalne, jeśli opis celu odpowiada kodowi.",
+      "reference_sources": [
+        {
+          "path": "lib/browser/api/browser-window.ts",
+          "start": 114,
+          "end": 120,
+          "reason": "Wykonywane wywołanie z pętli getFocusedWindow, filtr i konkretny warunek wyboru.",
+          "source": "BrowserWindow.getFocusedWindow = () => {\n  for (const window of BrowserWindow.getAllWindows()) {\n    if (!window.isDestroyed() && window.webContents && !window.webContents.isDestroyed()) {\n      if (window.isFocused() || window.webContents.isDevToolsFocused()) return window;\n    }\n  }\n  return null;"
+        },
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 22,
+          "end": 29,
+          "reason": "Alternatywny rzeczywisty caller dla macOS; lista służy do zapisania stanu resizable okien.",
+          "source": "  const resizableValues = new Map();\n  if (process.platform === 'darwin') {\n    // Fix for bug in ScreenCaptureKit that modifies a window's styleMask the first time\n    // it captures a non-resizable window. We record each non-resizable window's styleMask,\n    // and we restore modified styleMasks later, after the screen capture.\n    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }"
+        },
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 62,
+          "end": 66,
+          "reason": "Drugi caller w module macOS: próba przywrócenia resizable na podstawie mapy. Dla tej alternatywy ważne odróżnienie intencji przywrócenia od gwarancji skuteczności.",
+          "source": "        if (process.platform === 'darwin') {\n          for (const win of BrowserWindow.getAllWindows()) {\n            if (resizableValues.has(win.id)) {\n              win.resizable = resizableValues.get(win.id);\n            }"
+        }
+      ],
+      "baseline": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS (process.platform === 'darwin') kod iteruje po BrowserWindow.getAllWindows() i dla każdego okna zapisuje w mapie resizableValues jego flagę `resizable` (klucz to id okna). Lista okien służy więc do zapamiętania stanu „resizable” wszystkich okien aplikacji przed przechwytywaniem ekranu. Komentarz w kodzie wyjaśnia, że ScreenCaptureKit przy pierwszym przechwyceniu nieresizowalnego okna zmienia jego styleMask. Zapamiętane wartości są potem używane do przywrócenia stanu po zakończeniu przechwytywania. Samo przywracanie wynika z komentarza i z gałęzi `darwin` w stopRunning. Jej treści nie czytałem.",
+        "verdict": "yes",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "lib/browser/api/desktop-capturer.ts",
+            "start": 23,
+            "end": 29,
+            "quote": "for (const win of BrowserWindow.getAllWindows()) {",
+            "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 11.662509899935685,
+          "api_seconds": 8.942990700015798,
+          "r2_search_seconds": 0.22872220003046095,
+          "api_calls": 3,
+          "verified_r2_searches": 1,
+          "input_tokens": 7773,
+          "output_tokens": 644
+        },
+        "raw": "local/qa-conclusion-01/work-baseline/qa/96f7c31df5b34381",
+        "estimated_cost_usd": 0.021986,
+        "provider_message_ids": [
+          "msg_011ChCHmifhxZsRnghFbywVf",
+          "msg_011ChCHmtT5VryxoogAe5ipr",
+          "msg_011ChCHn2jA1MUGNpZhU7GNC"
+        ],
+        "raw_cli": "local/qa-conclusion-01/baseline-E-usage.json",
+        "ask_sha256": "6219ba7bd41b4c47b79259097f90c99d63bf164c6d7d5272a28dda00314e3a62",
+        "conclusion_review": null,
+        "review_rounds": [],
+        "assessment": {
+          "grade": "CORE_CORRECT_EXTRA_INCORRECT",
+          "primary_correct": true,
+          "extra_false": true,
+          "overcautious": false,
+          "why": "The caller and recording purpose are correct. It incorrectly describes the Map key as the window ID and says stored values are used to restore the state. Acknowledging it did not inspect that branch does not cure the affirmative claim."
+        }
+      },
+      "review": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien służy do obejścia błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna zmienia jego styleMask. Przed przechwytywaniem kod zapamiętuje wartość `resizable` każdego okna w mapie resizableValues. Drugie wywołanie getAllWindows() w stopRunning ma po zakończeniu przechwytywania przywrócić zapisane wartości. Jest jednak błąd: zapis używa klucza w postaci tablicy `[win.id]`, a odczyt `resizableValues.has(win.id)` używa liczby. Map porównuje klucze przez tożsamość, więc `has` zwraca false i przypisanie `win.resizable` się nie wykonuje. Przywrócenie jest więc zamierzone, ale w praktyce nie zachodzi.",
+        "verdict": "yes",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "MODEL_REVIEWED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "lib/browser/api/desktop-capturer.ts",
+            "start": 27,
+            "end": 28,
+            "quote": "for (const win of BrowserWindow.getAllWindows()) {",
+            "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+          },
+          {
+            "path": "lib/browser/api/desktop-capturer.ts",
+            "start": 63,
+            "end": 65,
+            "quote": "if (resizableValues.has(win.id)) {",
+            "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 34.65900400001556,
+          "api_seconds": 31.115600100136362,
+          "r2_search_seconds": 0.2646061999257654,
+          "api_calls": 6,
+          "verified_r2_searches": 1,
+          "input_tokens": 20894,
+          "output_tokens": 3503
+        },
+        "raw": "local/qa-conclusion-01/work-review/qa/5a2eace45c5c4e6a",
+        "estimated_cost_usd": 0.076818,
+        "provider_message_ids": [
+          "msg_011ChCJ7nHK6NX3gPWxNZDZx",
+          "msg_011ChCJ7yk7uKDE6PA28dGfG",
+          "msg_011ChCJ87npajvB47xjHQozR",
+          "msg_011ChCJ8QPhEai9avxQUvkK2",
+          "msg_011ChCJ98ta6kAL6V5YE7WP5",
+          "msg_011ChCJ9UexoR6VaBL7KJVY9"
+        ],
+        "raw_cli": "local/qa-conclusion-01/final-E-usage.json",
+        "ask_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+        "conclusion_review": {
+          "disposition": "accepted_after_repair",
+          "reviews": [
+            {
+              "sources": [
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "lib/browser/api/desktop-capturer.ts",
+                  "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 1,
+                  "start": 1,
+                  "end": 59
+                },
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "lib/browser/api/desktop-capturer.ts",
+                  "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 2,
+                  "start": 32,
+                  "end": 94
+                }
+              ],
+              "findings": [
+                {
+                  "unit": 1,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 19,
+                      "end": 29
+                    }
+                  ]
+                },
+                {
+                  "unit": 2,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 23,
+                      "end": 29
+                    }
+                  ]
+                },
+                {
+                  "unit": 3,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 27,
+                      "end": 29
+                    }
+                  ]
+                },
+                {
+                  "unit": 4,
+                  "assessment": "contradicted",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 28,
+                      "end": 28
+                    },
+                    {
+                      "source": 2,
+                      "start": 62,
+                      "end": 67
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "sources": [
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "lib/browser/api/desktop-capturer.ts",
+                  "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 1,
+                  "start": 1,
+                  "end": 59
+                },
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "lib/browser/api/desktop-capturer.ts",
+                  "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 2,
+                  "start": 32,
+                  "end": 94
+                }
+              ],
+              "findings": [
+                {
+                  "unit": 1,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 19,
+                      "end": 29
+                    }
+                  ]
+                },
+                {
+                  "unit": 2,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 23,
+                      "end": 29
+                    }
+                  ]
+                },
+                {
+                  "unit": 3,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 22,
+                      "end": 29
+                    }
+                  ]
+                },
+                {
+                  "unit": 4,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 2,
+                      "start": 56,
+                      "end": 68
+                    },
+                    {
+                      "source": 2,
+                      "start": 74,
+                      "end": 82
+                    }
+                  ]
+                },
+                {
+                  "unit": 5,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 28,
+                      "end": 28
+                    },
+                    {
+                      "source": 2,
+                      "start": 64,
+                      "end": 65
+                    }
+                  ]
+                },
+                {
+                  "unit": 6,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 28,
+                      "end": 28
+                    },
+                    {
+                      "source": 2,
+                      "start": 64,
+                      "end": 66
+                    }
+                  ]
+                },
+                {
+                  "unit": 7,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 24,
+                      "end": 28
+                    },
+                    {
+                      "source": 2,
+                      "start": 62,
+                      "end": 68
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "repair_attempted": true
+        },
+        "review_rounds": [
+          {
+            "n": 1,
+            "findings": {
+              "supported": 3,
+              "contradicted": 1
+            },
+            "git_windows_verified": 2
+          },
+          {
+            "n": 2,
+            "findings": {
+              "supported": 7
+            },
+            "git_windows_verified": 2
+          }
+        ],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "The first draft described restoration; the review identified the array/number lookup discrepancy with source and a single correction preserves the caller, purpose and actual failed restoration."
+        }
+      }
+    },
+    {
+      "id": "capture-effect",
+      "question": "Czy po zakończeniu przechwytywania ScreenCaptureKit na macOS desktopCapturer w Electronie skutecznie odtwarza każdemu oknu zapamiętaną wartość resizable? Wyjaśnij na podstawie implementacji.",
+      "question_type": "negative behavior",
+      "expected": "Nie. Wpis jest zapisany pod tablicą [win.id], natomiast test has i odczyt get używają liczby win.id. Przypisanie nie wykona się w tej ścieżce.",
+      "reference_sources": [
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 22,
+          "end": 30,
+          "source": "  const resizableValues = new Map();\n  if (process.platform === 'darwin') {\n    // Fix for bug in ScreenCaptureKit that modifies a window's styleMask the first time\n    // it captures a non-resizable window. We record each non-resizable window's styleMask,\n    // and we restore modified styleMasks later, after the screen capture.\n    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }\n  }"
+        },
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 56,
+          "end": 69,
+          "source": "    const stopRunning = () => {\n      if (capturer) {\n        delete capturer._onerror;\n        delete capturer._onfinished;\n        capturer = null;\n\n        if (process.platform === 'darwin') {\n          for (const win of BrowserWindow.getAllWindows()) {\n            if (resizableValues.has(win.id)) {\n              win.resizable = resizableValues.get(win.id);\n            }\n          };\n        }\n      }"
+        }
+      ],
+      "baseline": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Nie – w tej implementacji przywracanie w praktyce nie działa. Przed przechwytywaniem (macOS) kod zapisuje wartości tak: `resizableValues.set([win.id], win.resizable)`. Kluczem mapy jest więc nowa tablica `[win.id]`, a nie samo `win.id`. Po zakończeniu lub błędzie przechwytywania `stopRunning` sprawdza `resizableValues.has(win.id)` z kluczem liczbowym i dopiero wtedy ustawia `win.resizable = resizableValues.get(win.id)`. Klucz tablicowy nigdy nie jest równy liczbie, a `Map` porównuje klucze obiektowe po referencji. Warunek `has` jest zatem zawsze fałszywy i `win.resizable` nie jest ustawiane. Zamierzony mechanizm obejścia błędu ScreenCaptureKit (komentarz w kodzie) jest przez to nieskuteczny. Wniosek wynika z lektury kodu. Nie uruchamiałem go.",
+        "verdict": "no",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "lib/browser/api/desktop-capturer.ts",
+            "start": 27,
+            "end": 29,
+            "quote": "resizableValues.set([win.id], win.resizable);",
+            "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+          },
+          {
+            "path": "lib/browser/api/desktop-capturer.ts",
+            "start": 63,
+            "end": 67,
+            "quote": "if (resizableValues.has(win.id)) {",
+            "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 14.317695999983698,
+          "api_seconds": 11.654876099899411,
+          "r2_search_seconds": 0.2285108999349177,
+          "api_calls": 4,
+          "verified_r2_searches": 1,
+          "input_tokens": 12684,
+          "output_tokens": 913
+        },
+        "raw": "local/qa-conclusion-01/work-baseline/qa/2535e5dd61ab4be3",
+        "estimated_cost_usd": 0.034498,
+        "provider_message_ids": [
+          "msg_011ChCHnZoS3KfrEGMG4bJya",
+          "msg_011ChCHnmCXmWjZMv7EH97eL",
+          "msg_011ChCHnwe6UCKVnP7mGSUjT",
+          "msg_011ChCHo3anLtffJYrYWqmrs"
+        ],
+        "raw_cli": "local/qa-conclusion-01/baseline-capture-effect.json",
+        "ask_sha256": "6219ba7bd41b4c47b79259097f90c99d63bf164c6d7d5272a28dda00314e3a62",
+        "conclusion_review": null,
+        "review_rounds": [],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "Correctly identifies the mismatched keys and unreachable assignment on this path. The static-vs-execution qualifier leaves the useful conclusion intact."
+        }
+      },
+      "review": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "ERROR",
+        "cli_exit": 4,
+        "reason": "[WinError 5] Odmowa dostępu: 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-conclusion-01\\\\work-review\\\\qa\\\\973c1f1f370e4f9d\\\\.r2-corpus-stage-dedf8491720043f2811aa04f5e0d63c2\\\\monitor' -> 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-conclusion-01\\\\work-review\\\\qa\\\\973c1f1f370e4f9d\\\\log-01'",
+        "answer": null,
+        "verdict": null,
+        "reported_checks": {
+          "citations": "NOT_CHECKED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "citations_checked_against_git": [],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 6.104351900052279,
+          "api_seconds": 2.569914400111884,
+          "r2_search_seconds": 0.23422360001131892,
+          "api_calls": 1,
+          "verified_r2_searches": 0,
+          "input_tokens": 1348,
+          "output_tokens": 90
+        },
+        "raw": "local/qa-conclusion-01/work-review/qa/973c1f1f370e4f9d",
+        "estimated_cost_usd": 0.003596,
+        "provider_message_ids": [
+          "msg_011ChCJAL9GgCcQVZDSrBDWA"
+        ],
+        "raw_cli": "local/qa-conclusion-01/final-capture-effect.json",
+        "ask_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+        "conclusion_review": null,
+        "review_rounds": [],
+        "assessment": {
+          "grade": "INFRASTRUCTURE_ERROR",
+          "primary_correct": false,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "No answer, even before conclusion review. Windows refused a move from the R2 monitor directory to log-01."
+        }
+      }
+    },
+    {
+      "id": "cocoa-level",
+      "question": "Kiedy w Electronie NativeWindowMac::AttachChildren dołącza widoczne jeszcze niedołączone okno potomne, czy poprzedni poziom okna nadrzędnego zostaje odtworzony po dołączeniu? Jak to robi?",
+      "question_type": "positive restoration",
+      "expected": "Tak. Odczytuje window_.level do lokalnego NSInteger level, dołącza dziecko, a potem ustawia na window_ zapamiętane level. Dziecko już dołączone albo nieprzeznaczone do wyświetlenia jest pomijane.",
+      "reference_sources": [
+        {
+          "path": "shell/browser/native_window_mac.mm",
+          "start": 602,
+          "end": 617,
+          "source": "void NativeWindowMac::AttachChildren() {\n  for (auto* child : child_windows_) {\n    if (!static_cast<NativeWindowMac*>(child)->wants_to_be_visible())\n      continue;\n\n    auto* child_nswindow = child->GetNativeWindow().GetNativeNSWindow();\n    if ([child_nswindow parentWindow] == window_)\n      continue;\n\n    // Attaching a window as a child window resets its window level, so\n    // save and restore it afterwards.\n    NSInteger level = window_.level;\n    [window_ addChildWindow:child_nswindow ordered:NSWindowAbove];\n    [window_ setLevel:level];\n  }\n}"
+        }
+      ],
+      "baseline": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Tak. Dla każdego dziecka, które chce być widoczne (wants_to_be_visible) i nie jest jeszcze dołączone do tego okna (parentWindow != window_), metoda najpierw zapisuje bieżący poziom okna nadrzędnego (`NSInteger level = window_.level`). Potem wywołuje `addChildWindow:ordered:NSWindowAbove`. Na końcu przywraca zapisany poziom przez `[window_ setLevel:level]`. Kod wyjaśnia to w komentarzu: dołączenie okna potomnego resetuje poziom okna.",
+        "verdict": "yes",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "shell/browser/native_window_mac.mm",
+            "start": 602,
+            "end": 617,
+            "quote": "[window_ setLevel:level];",
+            "blob_id": "46f40d516a4819ab6f42121df2d499a771480af3"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 11.554969900054857,
+          "api_seconds": 7.159283499931917,
+          "r2_search_seconds": 0.2239800998941064,
+          "api_calls": 3,
+          "verified_r2_searches": 1,
+          "input_tokens": 5655,
+          "output_tokens": 521
+        },
+        "raw": "local/qa-conclusion-01/work-baseline/qa/3734b9a5f0974f92",
+        "estimated_cost_usd": 0.01652,
+        "provider_message_ids": [
+          "msg_011ChCHokBZAya1QysmMr7sp",
+          "msg_011ChCHov9penQFwYvBUtYyU",
+          "msg_011ChCHp3ik4nagQsqah8XG9"
+        ],
+        "raw_cli": "local/qa-conclusion-01/baseline-cocoa-level.json",
+        "ask_sha256": "6219ba7bd41b4c47b79259097f90c99d63bf164c6d7d5272a28dda00314e3a62",
+        "conclusion_review": null,
+        "review_rounds": [],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "Correctly describes both skip guards, saving the parent level, adding the child and restoring the same level on the parent."
+        }
+      },
+      "review": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Tak. Dla każdego dziecka, które chce być widoczne (wants_to_be_visible) i nie ma jeszcze tego okna jako rodzica, kod zapisuje bieżący poziom okna nadrzędnego (`NSInteger level = window_.level`). Następnie wywołuje `addChildWindow:ordered:NSWindowAbove`, a potem przywraca zapisany poziom przez `[window_ setLevel:level]`. Komentarz w kodzie mówi tylko, że dołączenie okna jako potomnego resetuje „its window level”, więc nie precyzuje, czyj to poziom. Z kodu wynika jednak, że zapisywany i przywracany jest poziom okna nadrzędnego (`window_`).",
+        "verdict": "yes",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "MODEL_REVIEWED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "shell/browser/native_window_mac.mm",
+            "start": 611,
+            "end": 615,
+            "quote": "[window_ setLevel:level];",
+            "blob_id": "46f40d516a4819ab6f42121df2d499a771480af3"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 24.70828249992337,
+          "api_seconds": 21.889219300006516,
+          "r2_search_seconds": 0.22434419998899102,
+          "api_calls": 6,
+          "verified_r2_searches": 1,
+          "input_tokens": 15966,
+          "output_tokens": 2220
+        },
+        "raw": "local/qa-conclusion-01/work-review/qa/3f37cc3ea58841f1",
+        "estimated_cost_usd": 0.054132,
+        "provider_message_ids": [
+          "msg_011ChCJAioHwtnPSG1ruSyME",
+          "msg_011ChCJAsvy6d1BZUWEmHCdN",
+          "msg_011ChCJB2BZa6Y1dkAWvJ7rJ",
+          "msg_011ChCJBFLKYBmatxZrUc273",
+          "msg_011ChCJBcxLZZXov7VWuJmwv",
+          "msg_011ChCJBxDToCtmwWoq1pLA5"
+        ],
+        "raw_cli": "local/qa-conclusion-01/final-cocoa-level.json",
+        "ask_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+        "conclusion_review": {
+          "disposition": "accepted_after_repair",
+          "reviews": [
+            {
+              "sources": [
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "shell/browser/native_window_mac.mm",
+                  "blob_id": "46f40d516a4819ab6f42121df2d499a771480af3",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 1,
+                  "start": 572,
+                  "end": 647
+                }
+              ],
+              "findings": [
+                {
+                  "unit": 1,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 613,
+                      "end": 615
+                    }
+                  ]
+                },
+                {
+                  "unit": 2,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 603,
+                      "end": 613
+                    }
+                  ]
+                },
+                {
+                  "unit": 3,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 614,
+                      "end": 615
+                    }
+                  ]
+                },
+                {
+                  "unit": 4,
+                  "assessment": "contradicted",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 611,
+                      "end": 615
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "sources": [
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "shell/browser/native_window_mac.mm",
+                  "blob_id": "46f40d516a4819ab6f42121df2d499a771480af3",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 1,
+                  "start": 572,
+                  "end": 647
+                }
+              ],
+              "findings": [
+                {
+                  "unit": 1,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 613,
+                      "end": 615
+                    }
+                  ]
+                },
+                {
+                  "unit": 2,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 603,
+                      "end": 613
+                    }
+                  ]
+                },
+                {
+                  "unit": 3,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 614,
+                      "end": 615
+                    }
+                  ]
+                },
+                {
+                  "unit": 4,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 611,
+                      "end": 612
+                    }
+                  ]
+                },
+                {
+                  "unit": 5,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 613,
+                      "end": 615
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "repair_attempted": true
+        },
+        "review_rounds": [
+          {
+            "n": 1,
+            "findings": {
+              "supported": 3,
+              "contradicted": 1
+            },
+            "git_windows_verified": 1
+          },
+          {
+            "n": 2,
+            "findings": {
+              "supported": 5
+            },
+            "git_windows_verified": 1
+          }
+        ],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "Unambiguous yes with the right parent, local variable and method sequence; the caveat about a comment's pronoun does not weaken the actual conclusion."
+        }
+      }
+    },
+    {
+      "id": "updater",
+      "question": "Aplikacja na Windows woła w Electronie autoUpdater.quitAndInstall(), zanim aktualizacja stanie się dostępna. Jak reaguje implementacja Squirrel i czy w tej gałęzi zamyka aplikację?",
+      "question_type": "early return",
+      "expected": "Emituje zdarzenie error (No update available…) i wraca, nie uruchamia processStart ani app.quit().",
+      "reference_sources": [
+        {
+          "path": "lib/browser/api/auto-updater/auto-updater-win.ts",
+          "start": 11,
+          "end": 17,
+          "source": "  quitAndInstall () {\n    if (!this.updateAvailable) {\n      return this.emitError(new Error('No update available, can\\'t quit and install'));\n    }\n    squirrelUpdate.processStart();\n    app.quit();\n  }"
+        },
+        {
+          "path": "lib/browser/api/auto-updater/auto-updater-win.ts",
+          "start": 65,
+          "end": 72,
+          "source": "    }\n  }\n\n  // Private: Emit both error object and message, this is to keep compatibility\n  // with Old APIs.\n  emitError (error: Error) {\n    this.emit('error', error, error.message);\n  }"
+        }
+      ],
+      "baseline": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Na Windows, gdy `updateAvailable` jest false, `quitAndInstall()` nie uruchamia instalatora i nie zamyka aplikacji. Metoda zwraca `emitError(new Error(\"No update available, can't quit and install\"))`, czyli emituje zdarzenie `error`. Wywołania `squirrelUpdate.processStart()` i `app.quit()` następują dopiero po tym warunku, więc w tej gałęzi są pominięte. Flaga `updateAvailable` jest ustawiana na true dopiero po tym, jak `checkForUpdates` znajdzie aktualizację.",
+        "verdict": "yes",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "lib/browser/api/auto-updater/auto-updater-win.ts",
+            "start": 11,
+            "end": 17,
+            "quote": "return this.emitError(new Error('No update available, can\\'t quit and install'));",
+            "blob_id": "255049cec3f8a7ff56b89bae7b13f748fbd24025"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 10.076908799936064,
+          "api_seconds": 7.052171700168401,
+          "r2_search_seconds": 0.2296878999331966,
+          "api_calls": 3,
+          "verified_r2_searches": 1,
+          "input_tokens": 8071,
+          "output_tokens": 667
+        },
+        "raw": "local/qa-conclusion-01/work-baseline/qa/b5e17f30e8b4441e",
+        "estimated_cost_usd": 0.022812,
+        "provider_message_ids": [
+          "msg_011ChCHpVntdaz9Z7oREdVPJ",
+          "msg_011ChCHpfihRJNqpEM8kn36x",
+          "msg_011ChCHpp11cVWe7pfZiPzkM"
+        ],
+        "raw_cli": "local/qa-conclusion-01/baseline-updater.json",
+        "ask_sha256": "6219ba7bd41b4c47b79259097f90c99d63bf164c6d7d5272a28dda00314e3a62",
+        "conclusion_review": null,
+        "review_rounds": [],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "Correct early error return and skip of processStart and quit. checkForUpdates sets the flag after the null result branch."
+        }
+      },
+      "review": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Jeśli aktualizacja nie jest jeszcze dostępna (updateAvailable === false), quitAndInstall() na Windows nie uruchamia Squirrela i nie zamyka aplikacji. Metoda kończy się wcześniej i zwraca emitError z błędem „No update available, can't quit and install”. Wywołania processStart() i app.quit() są dopiero za tym warunkiem, więc w tej gałęzi aplikacja działa dalej.",
+        "verdict": "no",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "MODEL_REVIEWED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "lib/browser/api/auto-updater/auto-updater-win.ts",
+            "start": 11,
+            "end": 17,
+            "quote": "return this.emitError(new Error('No update available, can\\'t quit and install'));",
+            "blob_id": "255049cec3f8a7ff56b89bae7b13f748fbd24025"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 15.381648599985056,
+          "api_seconds": 10.657163699972443,
+          "r2_search_seconds": 0.22642810002435,
+          "api_calls": 4,
+          "verified_r2_searches": 1,
+          "input_tokens": 9431,
+          "output_tokens": 1048
+        },
+        "raw": "local/qa-conclusion-01/work-review/qa/7fa02932bf8f4dc2",
+        "estimated_cost_usd": 0.029342,
+        "provider_message_ids": [
+          "msg_011ChCJCghLg6K9UYVsGgdyy",
+          "msg_011ChCJCqLFnSdNz7hM1yzDk",
+          "msg_011ChCJCwBjURpGyqpovmpb3",
+          "msg_011ChCJD8Dk6UyKetLhaiSeV"
+        ],
+        "raw_cli": "local/qa-conclusion-01/final-updater.json",
+        "ask_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+        "conclusion_review": {
+          "disposition": "accepted",
+          "reviews": [
+            {
+              "sources": [
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "lib/browser/api/auto-updater/auto-updater-win.ts",
+                  "blob_id": "255049cec3f8a7ff56b89bae7b13f748fbd24025",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 1,
+                  "start": 1,
+                  "end": 47
+                }
+              ],
+              "findings": [
+                {
+                  "unit": 1,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 12,
+                      "end": 16
+                    }
+                  ]
+                },
+                {
+                  "unit": 2,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 12,
+                      "end": 14
+                    }
+                  ]
+                },
+                {
+                  "unit": 3,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 12,
+                      "end": 16
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "repair_attempted": false
+        },
+        "review_rounds": [
+          {
+            "n": 1,
+            "findings": {
+              "supported": 3
+            },
+            "git_windows_verified": 1
+          }
+        ],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "The early call to emitError and skipped processStart and app.quit directly answer the question for this updater branch."
+        }
+      }
+    },
+    {
+      "id": "netlog",
+      "question": "Aplikacja wywołuje w Electronie netLog.startLogging przed gotowością app. Czy ta prośba zostaje odłożona i automatycznie uruchomi zapis po uzyskaniu gotowości?",
+      "question_type": "absence of deferred effect",
+      "expected": "Nie. Jeżeli app.isReady() jest fałszywe, funkcja natychmiast wraca bez rejestracji dalszej pracy i bez wywołania startLogging sesji. Dopiero wywołanie po gotowości deleguje do sesji.",
+      "reference_sources": [
+        {
+          "path": "lib/browser/api/net-log.ts",
+          "start": 1,
+          "end": 8,
+          "source": "// TODO(deepak1556): Deprecate and remove standalone netLog module,\n// it is now a property of session module.\nimport { app, session } from 'electron/main';\n\nconst startLogging: typeof session.defaultSession.netLog.startLogging = async (path, options) => {\n  if (!app.isReady()) return;\n  return session.defaultSession.netLog.startLogging(path, options);\n};"
+        }
+      ],
+      "baseline": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Nie. Przy wywołaniu przez samodzielny moduł netLog przed gotowością app funkcja od razu kończy się przez `return`. Żądanie nie jest kolejkowane, a zapis nie uruchomi się później sam. Zwracana obietnica kończy się z wartością undefined, bez błędu. Trzeba wywołać startLogging ponownie po `app.whenReady()`.",
+        "verdict": "no",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "NOT_CHECKED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "lib/browser/api/net-log.ts",
+            "start": 5,
+            "end": 8,
+            "quote": "if (!app.isReady()) return;",
+            "blob_id": "031fec6f5164c8e4f0da6b1bae296c35fa6d8273"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 9.678633900010027,
+          "api_seconds": 7.513280100072734,
+          "r2_search_seconds": 0.23090329999104142,
+          "api_calls": 3,
+          "verified_r2_searches": 1,
+          "input_tokens": 6704,
+          "output_tokens": 521
+        },
+        "raw": "local/qa-conclusion-01/work-baseline/qa/130f3f6fb28c4d67",
+        "estimated_cost_usd": 0.018618,
+        "provider_message_ids": [
+          "msg_011ChCHqBAzD8BFWVy7U2GqQ",
+          "msg_011ChCHqLngHXyN4KYD9mnEJ",
+          "msg_011ChCHqWLR8j2uSZSWPqzcM"
+        ],
+        "raw_cli": "local/qa-conclusion-01/baseline-netlog.json",
+        "ask_sha256": "6219ba7bd41b4c47b79259097f90c99d63bf164c6d7d5272a28dda00314e3a62",
+        "conclusion_review": null,
+        "review_rounds": [],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "The async function resolves undefined when it returns early. There is no queue here, and calling again after ready is a valid way to start."
+        }
+      },
+      "review": {
+        "repository": "electron/electron",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "regular_files": 2700,
+        "status": "VERIFIED",
+        "cli_exit": 0,
+        "reason": null,
+        "answer": "Nie. W samodzielnym module netLog wywołanie startLogging przed gotowością app jest po cichu pomijane. Metoda wychodzi z `return`, więc nic nie jest kolejkowane, a zapis nie startuje po gotowości. Zwrócona obietnica kończy się bez wartości. Trzeba wywołać metodę ponownie, gdy app jest gotowa.",
+        "verdict": "no",
+        "reported_checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "MODEL_REVIEWED"
+        },
+        "citations_checked_against_git": [
+          {
+            "path": "lib/browser/api/net-log.ts",
+            "start": 5,
+            "end": 8,
+            "quote": "if (!app.isReady()) return;",
+            "blob_id": "031fec6f5164c8e4f0da6b1bae296c35fa6d8273"
+          }
+        ],
+        "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+        "measurements": {
+          "wall_seconds": 19.307064500055276,
+          "api_seconds": 13.80741480004508,
+          "r2_search_seconds": 0.23917489999439567,
+          "api_calls": 4,
+          "verified_r2_searches": 1,
+          "input_tokens": 8948,
+          "output_tokens": 1190
+        },
+        "raw": "local/qa-conclusion-01/work-review/qa/870140f97ca74367",
+        "estimated_cost_usd": 0.029796,
+        "provider_message_ids": [
+          "msg_011ChCJDsQnqLSUnNUHy6FJE",
+          "msg_011ChCJE46jdMsFW2i6jiRaA",
+          "msg_011ChCJEF4niRUUy8YeJVEXE",
+          "msg_011ChCJETdaXgGURJEf1Y8R3"
+        ],
+        "raw_cli": "local/qa-conclusion-01/final-netlog.json",
+        "ask_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+        "conclusion_review": {
+          "disposition": "accepted",
+          "reviews": [
+            {
+              "sources": [
+                {
+                  "repository": "electron",
+                  "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+                  "path": "lib/browser/api/net-log.ts",
+                  "blob_id": "031fec6f5164c8e4f0da6b1bae296c35fa6d8273",
+                  "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+                  "source": 1,
+                  "start": 1,
+                  "end": 23
+                }
+              ],
+              "findings": [
+                {
+                  "unit": 1,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 5,
+                      "end": 8
+                    }
+                  ]
+                },
+                {
+                  "unit": 2,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 5,
+                      "end": 7
+                    }
+                  ]
+                },
+                {
+                  "unit": 3,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 5,
+                      "end": 8
+                    }
+                  ]
+                },
+                {
+                  "unit": 4,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 5,
+                      "end": 6
+                    }
+                  ]
+                },
+                {
+                  "unit": 5,
+                  "assessment": "supported",
+                  "evidence": [
+                    {
+                      "source": 1,
+                      "start": 5,
+                      "end": 7
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "repair_attempted": false
+        },
+        "review_rounds": [
+          {
+            "n": 1,
+            "findings": {
+              "supported": 5
+            },
+            "git_windows_verified": 1
+          }
+        ],
+        "assessment": {
+          "grade": "CORRECT",
+          "primary_correct": true,
+          "extra_false": false,
+          "overcautious": false,
+          "why": "Correct early return and async resolution. It makes clear that later readiness alone does not start the log."
+        }
+      }
+    }
+  ],
+  "historical_replay": {
+    "method": "Reused the exact historical E-usage draft, verdict and citations. Replaced discovery only. Each replay independently resolved the same pinned Git view, ran checked search and revalidated both original citations and blob identities. Review, repair and re-review were fresh real Sonnet API calls. This diagnostic is separate from the fresh CLI pairs.",
+    "baseline_report": "verification/qa-transfer-03.json",
+    "baseline_answer": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien służy do obejścia błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna zmienia jego styleMask. Przed przechwyceniem kod zapisuje właściwość `resizable` każdego okna, a po zakończeniu przechwytywania (w stopRunning) znów iteruje po getAllWindows() i przywraca zapamiętane wartości.",
+    "oracle": {
+      "path": "lib/browser/api/desktop-capturer.ts",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "lines": [
+        28,
+        64,
+        65
+      ],
+      "behavior": "set([win.id], value) stores under an array; has(win.id) checks a numeric key, so the assignment is unreachable on this path. Verified separately in pinned Git and with a Node Map sanity check."
+    },
+    "preliminary_run": {
+      "implementation_sha256": "8e834e5ad63318d519aec3c6f3f4729e4e8e2bcb6a49cf8325bcc78d48efb7a8",
+      "raw_result_sha256": "6cae455915430710c0c70819db971939e0c9b77033fa3ae34e91c41cd32c3367",
+      "model": "claude-sonnet-5-5",
+      "fresh_message_ids": [
+        "msg_011ChCHvZdzcgc2xzToaD9co",
+        "msg_011ChCHw3RpoVgpBZnM9HcS9",
+        "msg_011ChCHwQxP7stP7mqGTLhoi"
+      ],
+      "phases": [
+        "conclusion_review",
+        "conclusion_repair",
+        "conclusion_review"
+      ],
+      "input_tokens": 13140,
+      "output_tokens": 2392,
+      "estimated_cost_usd": 0.0502,
+      "wall_seconds_including_pin_and_lookup": 23.39022549998481,
+      "disposition": "accepted_after_repair",
+      "checked_citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "start": 27,
+          "end": 29,
+          "quote": "for (const win of BrowserWindow.getAllWindows()) {"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "start": 63,
+          "end": 66,
+          "quote": "if (resizableValues.has(win.id)) {"
+        }
+      ],
+      "final_answer_pl": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien z BrowserWindow.getAllWindows() ma służyć do obejścia błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna zmienia jego styleMask. Przed przechwyceniem kod zapisuje właściwość `resizable` każdego okna w mapie resizableValues. Po zakończeniu (w stopRunning) ponownie iteruje po getAllWindows() i próbuje przywrócić zapamiętane wartości.\n\nJest jednak błąd w kodzie. Zapis używa klucza w postaci tablicy, `resizableValues.set([win.id], win.resizable)`. Odczyt robi `resizableValues.has(win.id)`, czyli szuka klucza liczbowego. Te klucze nigdy się nie zgadzają, więc warunek jest zawsze fałszywy i przywracanie w praktyce nie następuje. Zamierzony cel to przywrócenie resizable, ale w tym kodzie to nie działa."
+    },
+    "final_run": {
+      "implementation_sha256": "cf7228d95169d8eb1bc77ae2ea5bd0ebae98d164f21383ad6927bffd9fd4ce6a",
+      "raw_result_sha256": "deed6fd4db147881f12aecae494281d3c7c1fea81de8e193a436f3ab384567fe",
+      "model": "claude-sonnet-5-5",
+      "fresh_message_ids": [
+        "msg_011ChCHztPDZ7jk7xwDZGnkq",
+        "msg_011ChCJ1KCTnW88HStrUDy9F",
+        "msg_011ChCJ1jTEcbwuwwp2zRWZd"
+      ],
+      "phases": [
+        "conclusion_review",
+        "conclusion_repair",
+        "conclusion_review"
+      ],
+      "input_tokens": 13312,
+      "output_tokens": 2576,
+      "estimated_cost_usd": 0.052384,
+      "wall_seconds_including_pin_and_lookup": 24.70021259994246,
+      "disposition": "accepted_after_repair",
+      "checked_citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "start": 23,
+          "end": 30,
+          "quote": "for (const win of BrowserWindow.getAllWindows()) {"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "start": 62,
+          "end": 67,
+          "quote": "win.resizable = resizableValues.get(win.id);"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "start": 28,
+          "end": 28,
+          "quote": "resizableValues.set([win.id], win.resizable);"
+        }
+      ],
+      "final_answer_pl": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS kod wywołuje tam BrowserWindow.getAllWindows(), żeby obejść błąd ScreenCaptureKit. Błąd polega na tym, że przy pierwszym przechwyceniu nieresizowalnego okna zmienia on jego styleMask. Przed przechwyceniem kod zapisuje właściwość `resizable` każdego okna w mapie. Po zakończeniu przechwytywania, w stopRunning, ponownie iteruje po getAllWindows() i próbuje przywrócić zapamiętane wartości.\n\nPrzywracanie w praktyce prawdopodobnie nie działa. Zapis używa klucza `[win.id]`, czyli tablicy. Odczyt przez `has(win.id)` używa liczby. Dla Map to różne klucze, więc warunek najpewniej nigdy nie jest spełniony. Kod zamierza przywrócić wartości, ale zapis i odczyt się rozjeżdżają.",
+      "offline_revalidated_review_gate_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+      "version_note": "Live replay retained original source windows for both assessments. Both raw reviewer submissions also passed the final gate offline after it made the rationale optional on supported findings with valid evidence."
+    },
+    "independent_assessment": "Both replays corrected the initial false claim and preserved a real caller and its purpose. The final replay unnecessarily hedges the failed lookup with 'prawdopodobnie' and 'najpewniej'. The specific mismatch is conclusive in this branch."
+  },
+  "windows_offline_regressions": {
+    "passed": 73,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 143.595,
+    "api_key": "disabled",
+    "modules": [
+      "test_fineract_r2",
+      "test_project_memory",
+      "test_project_memory_intent",
+      "test_project_memory_session",
+      "test_r2_current",
+      "test_r2_checked",
+      "test_fineract_r2_ask"
+    ]
+  },
+  "estimated_cost_usd_historical_replays": 0.102584,
+  "estimated_whole_experiment_usd": 0.659104
+}

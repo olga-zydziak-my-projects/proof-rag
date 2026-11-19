@@ -1,0 +1,1269 @@
+{
+  "model": "claude-sonnet-5-5",
+  "windows_offline_regressions": {
+    "passed": 77,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 156.882,
+    "api_key": "disabled",
+    "modules": ["test_fineract_r2", "test_project_memory", "test_project_memory_intent", "test_project_memory_session", "test_r2_current", "test_r2_checked", "test_fineract_r2_ask"]
+  },
+  "repo": "electron/electron",
+  "pin": "d60ae179985685d75d238ee33e17c15a7b53d703",
+  "current_ask_sha256": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f",
+  "prior_ask_sha256": "502fef55f10ee683b68fc0eef659bccab93430f40f1a99d4986a91c6515e7332",
+  "input_plan_sha256": "e7d9d476d7dacff1ab6d428647150cd5e1799d664f363f59564e10c613333b36",
+  "previous_comparison": "verification/qa-conclusion-review-01.json",
+  "method": "Exactly reproduce the saved discovery requests and actual local tool results before a fresh API review; two additional real public CLI runs. The fresh positive question explicitly asks how the answer was obtained. No unrelated retuning, and original/extra runs are reported separately.",
+  "replay_method": "Substituted only the recorded discovery messages at the API transport. Production discover dispatched each recorded tool call again and each returned tool result was compared to its original before proceeding. No historical request was charged anew. The reviewer and correction (if needed) used the real API. Fresh CLI runs used no substitutions.",
+  "source_control": {
+    "path": "lib/browser/api/desktop-capturer.ts",
+    "git_blob": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+    "numbered_source": [
+      "28:       resizableValues.set([win.id], win.resizable);",
+      "64:             if (resizableValues.has(win.id)) {",
+      "65:               win.resizable = resizableValues.get(win.id);"
+    ],
+    "conclusion": "set stores an array key; has/get use a number. The recovery assignment is not reached on this path."
+  },
+  "frozen_drafts": {
+    "correct": {
+      "answer_pl": "Nie – według tej implementacji przywracanie w praktyce nie działa. W `getSources` (lib/browser/api/desktop-capturer.ts) na macOS zapamiętywane jest `resizable` każdego okna, ale kluczem w mapie jest tablica `[win.id]`, a nie samo `win.id`. Przy przywracaniu w `stopRunning` kod sprawdza `resizableValues.has(win.id)` i pobiera `resizableValues.get(win.id)`, czyli używa liczby. Mapa porównuje klucze przez identyfikator, a nie przez zawartość. Dlatego tablica i liczba nigdy się nie zrównają. Warunek `has` zawsze zwraca false, więc `win.resizable = ...` nigdy się nie wykonuje, ani po sukcesie (`_onfinished`), ani po błędzie (`_onerror`). Intencja kodu jest właściwa: ma obejść błąd ScreenCaptureKit, który zmienia styleMask. Błąd w kluczu sprawia jednak, że poprawka nie działa. Nie uruchamiałem kodu, wniosek wynika z samej lektury.",
+      "verdict": "no",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 27,
+          "end": 29,
+          "quote": "resizableValues.set([win.id], win.resizable);"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 63,
+          "end": 67,
+          "quote": "if (resizableValues.has(win.id)) {"
+        }
+      ]
+    },
+    "wrong": {
+      "answer_pl": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien służy do obejścia błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna zmienia jego styleMask. Przed przechwytywaniem kod zapamiętuje wartość `resizable` każdego okna. Po zakończeniu przechwytywania drugie wywołanie getAllWindows() służy do przywrócenia zapisanych wartości.",
+      "verdict": "yes",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 23,
+          "end": 29,
+          "quote": "for (const win of BrowserWindow.getAllWindows()) {"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 62,
+          "end": 67,
+          "quote": "for (const win of BrowserWindow.getAllWindows()) {"
+        }
+      ]
+    }
+  },
+  "cases": [
+    {
+      "mode": "fresh",
+      "case": "correct",
+      "raw": "local/qah01/fresh-correct.json",
+      "run_sha256": "d539e226acb1ed9ea5ffe12a79921a8900ed476b50f24f6fd19c29b43487fc38",
+      "live_ask_sha256": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f",
+      "final_revalidation": null,
+      "checked_dispatch": [
+        {
+          "id": "toolu_01Q3BENH7j6bSbTsUkKmqxwL",
+          "name": "search",
+          "is_error": false,
+          "returned_lines": null
+        },
+        {
+          "id": "toolu_01S7cHL4ErDPSPnMxeoQr9hw",
+          "name": "search",
+          "is_error": false,
+          "returned_lines": null
+        },
+        {
+          "id": "toolu_01XFpzMk6ztW83gSFuDuhdZH",
+          "name": "search",
+          "is_error": false,
+          "returned_lines": null
+        },
+        {
+          "id": "toolu_01LEyJTZGMmaGPSVY2oQkzV6",
+          "name": "read",
+          "is_error": false,
+          "returned_lines": 53
+        },
+        {
+          "id": "toolu_01CYXK5aU7qQZ7TqVHm2yS5J",
+          "name": "read",
+          "is_error": false,
+          "returned_lines": 42
+        }
+      ],
+      "question": "Czy po zakończeniu przechwytywania ScreenCaptureKit na macOS desktopCapturer w Electronie skutecznie odtwarza każdemu oknu zapamiętaną wartość resizable? Wyjaśnij na podstawie implementacji. Dopisz, czy uruchamiałeś badany kod, czy odpowiedź wynika z jego lektury.",
+      "historical_status": null,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "answer": "Nie, w tej wersji kodu przywracanie najpewniej nie działa. Wynika to z lektury kodu. Kodu nie uruchamiałem.\n\nPrzed przechwytywaniem, tylko na darwin, kod zapisuje wartość dla każdego okna: `resizableValues.set([win.id], win.resizable)`. Kluczem jest tu nowa tablica `[win.id]`, a nie liczba `win.id`.\n\nPo zakończeniu lub błędzie `stopRunning` przechodzi po oknach i sprawdza `resizableValues.has(win.id)`. `Map` porównuje klucze obiektowe przez referencję, więc liczba `win.id` nie pasuje do żadnego zapisanego klucza w postaci tablicy. Warunek jest więc fałszywy i linia `win.resizable = resizableValues.get(win.id)` się nie wykonuje.\n\nIntencja jest widoczna w komentarzu: przywrócić styleMask zmieniony przez ScreenCaptureKit. Błąd w kluczu uniemożliwia jednak odtworzenie wartości dla jakiegokolwiek okna.",
+      "checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "MODEL_REVIEWED"
+      },
+      "review_disposition": "accepted",
+      "repair_attempted": false,
+      "actual_discovery_tools": [
+        "search",
+        "search",
+        "search",
+        "read",
+        "read",
+        "submit"
+      ],
+      "tool_history": {
+        "complete": true,
+        "events": [
+          {
+            "id": "toolu_01Q3BENH7j6bSbTsUkKmqxwL",
+            "tool": "search",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_01S7cHL4ErDPSPnMxeoQr9hw",
+            "tool": "search",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_01XFpzMk6ztW83gSFuDuhdZH",
+            "tool": "search",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_01LEyJTZGMmaGPSVY2oQkzV6",
+            "tool": "read",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_01CYXK5aU7qQZ7TqVHm2yS5J",
+            "tool": "read",
+            "outcome": "ok"
+          }
+        ]
+      },
+      "published_citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 62,
+          "end": 68,
+          "quote": "if (resizableValues.has(win.id)) {",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "        if (process.platform === 'darwin') {\n          for (const win of BrowserWindow.getAllWindows()) {\n            if (resizableValues.has(win.id)) {\n              win.resizable = resizableValues.get(win.id);\n            }\n          };\n        }"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 27,
+          "end": 29,
+          "quote": "resizableValues.set([win.id], win.resizable);",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }"
+        }
+      ],
+      "review_rounds": [
+        {
+          "source_windows_verified": 2,
+          "initial_or_revised_proposal": "Nie, w tej wersji kodu przywracanie najpewniej nie działa. Wynika to z lektury kodu. Kodu nie uruchamiałem.\n\nPrzed przechwytywaniem, tylko na darwin, kod zapisuje wartość dla każdego okna: `resizableValues.set([win.id], win.resizable)`. Kluczem jest tu nowa tablica `[win.id]`, a nie liczba `win.id`.\n\nPo zakończeniu lub błędzie `stopRunning` przechodzi po oknach i sprawdza `resizableValues.has(win.id)`. `Map` porównuje klucze obiektowe przez referencję, więc liczba `win.id` nie pasuje do żadnego zapisanego klucza w postaci tablicy. Warunek jest więc fałszywy i linia `win.resizable = resizableValues.get(win.id)` się nie wykonuje.\n\nIntencja jest widoczna w komentarzu: przywrócić styleMask zmieniony przez ScreenCaptureKit. Błąd w kluczu uniemożliwia jednak odtworzenie wartości dla jakiegokolwiek okna.",
+          "findings": [
+            {
+              "unit": 1,
+              "claim": "Przywracanie najpewniej nie działa.",
+              "reason": "Klucz zapisany jako tablica [win.id], a odczyt przez liczbę win.id; Map używa referencji, więc has zwraca false. Wniosek zgodny z kodem.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 27,
+                  "end": 29
+                },
+                {
+                  "source": 1,
+                  "start": 62,
+                  "end": 68
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "claim": "Wniosek wynika z lektury kodu.",
+              "reason": "Odpowiedź opiera się na analizie podanych źródeł; historia narzędzi nie wskazuje uruchomienia.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 22,
+                  "end": 30
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "claim": "Na darwin kod zapisuje wartość dla każdego okna przez set([win.id], win.resizable).",
+              "reason": "Pętla w bloku darwin po wszystkich oknach wywołuje dokładnie tę instrukcję.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 23,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "claim": "Kluczem jest nowa tablica [win.id].",
+              "reason": "Literał tablicy tworzy nowy obiekt przy każdej iteracji.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 28,
+                  "end": 28
+                }
+              ]
+            },
+            {
+              "unit": 6,
+              "claim": "stopRunning po zakończeniu lub błędzie przechodzi po oknach i sprawdza has(win.id).",
+              "reason": "stopRunning jest wołane z _onerror i _onfinished; na darwin iteruje okna i sprawdza has(win.id) (o ile capturer nie jest null).",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 56,
+                  "end": 68
+                },
+                {
+                  "source": 1,
+                  "start": 74,
+                  "end": 82
+                }
+              ]
+            },
+            {
+              "unit": 7,
+              "claim": "Map porównuje klucze obiektowe przez referencję, więc liczba nie pasuje do klucza tablicowego.",
+              "reason": "Zgodnie z semantyką Map (SameValueZero) liczba nie równa się tablicy; klucze to tablice.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 22,
+                  "end": 28
+                },
+                {
+                  "source": 1,
+                  "start": 64,
+                  "end": 64
+                }
+              ]
+            },
+            {
+              "unit": 8,
+              "claim": "Warunek jest fałszywy i przypisanie się nie wykonuje.",
+              "reason": "has(win.id) zawsze false, więc linia 65 jest nieosiągalna w praktyce.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 64,
+                  "end": 66
+                },
+                {
+                  "source": 2,
+                  "start": 28,
+                  "end": 28
+                }
+              ]
+            },
+            {
+              "unit": 9,
+              "claim": "Komentarz wskazuje intencję przywrócenia styleMask zmienionego przez ScreenCaptureKit.",
+              "reason": "Komentarz mówi o błędzie ScreenCaptureKit modyfikującym styleMask i jego przywróceniu po przechwytywaniu.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 24,
+                  "end": 26
+                }
+              ]
+            },
+            {
+              "unit": 10,
+              "claim": "Błąd w kluczu uniemożliwia odtworzenie wartości dla jakiegokolwiek okna.",
+              "reason": "Żadne okno nie ma klucza liczbowego w mapie, więc has zawsze false dla wszystkich.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 27,
+                  "end": 29
+                },
+                {
+                  "source": 1,
+                  "start": 63,
+                  "end": 66
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "claim": "Kodu nie uruchamiałem.",
+              "assessment": "supported",
+              "reason": "Historia wywołań w tym pytaniu potwierdza brak uruchomienia kodu projektu.",
+              "evidence": [],
+              "basis": "tool_history",
+              "fact": "project_code_executed",
+              "claimed_value": false,
+              "observed_value": false
+            }
+          ]
+        }
+      ],
+      "public_history_findings": [
+        {
+          "unit": 3,
+          "assessment": "supported",
+          "evidence": [],
+          "basis": "tool_history",
+          "fact": "project_code_executed",
+          "claimed_value": false,
+          "observed_value": false
+        }
+      ],
+      "provider_calls_replayed_without_charge": 0,
+      "live_message_ids": [
+        "msg_011ChCKT3UWM5dekj75qmA34",
+        "msg_011ChCKTG43thjD158wQG4x6",
+        "msg_011ChCKTWHK8xSKuE8P9pPXa",
+        "msg_011ChCKTd5bJyiDFRxJK2s9R",
+        "msg_011ChCKTjVnrsE6HHX4m3ipt",
+        "msg_011ChCKU9jZjRLce6u5PCbEN"
+      ],
+      "unknown_charge_calls": 0,
+      "live_tokens": {
+        "input": 25473,
+        "output": 2330
+      },
+      "estimated_live_usd": 0.074246,
+      "wall_seconds": 28.233884699991904,
+      "independent_assessment": {
+        "pass": true,
+        "summary": "Fresh CLI retained the volunteered wording 'Kodu nie uruchamiałem' after the question asked for a process disclosure. Search and reads confirm the tool-history finding; the correct explanation with mismatched keys passed on the first review. Static reasoning suffices for this particular lookup."
+      }
+    },
+    {
+      "mode": "fresh",
+      "case": "wrong",
+      "raw": "local/qah01/fresh-wrong.json",
+      "run_sha256": "e787cde5b437740860774cb231472e0d948fb66f6ad26f531c68e0986608b311",
+      "live_ask_sha256": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f",
+      "final_revalidation": null,
+      "checked_dispatch": [
+        {
+          "id": "toolu_01HGK7fnKT962JQWXapjUid5",
+          "name": "search",
+          "is_error": false,
+          "returned_lines": null
+        },
+        {
+          "id": "toolu_01JpcFJPYjikomM4ztnAw2Go",
+          "name": "read",
+          "is_error": false,
+          "returned_lines": 53
+        }
+      ],
+      "question": "Podaj jeden przykład z działającego kodu samego Electrona, w którym wywoływana jest metoda BrowserWindow.getAllWindows(). Do czego w tym miejscu służy lista okien?",
+      "historical_status": null,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "answer": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS (process.platform === 'darwin') kod przechodzi pętlą po BrowserWindow.getAllWindows() i dla każdego okna zapisuje w mapie resizableValues wartość win.resizable (kluczem jest tablica z win.id). Lista okien służy więc do zapamiętania stanu „resizable” wszystkich okien przed przechwytywaniem ekranu. Komentarz w kodzie wyjaśnia, że to obejście błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna modyfikuje jego styleMask. Według komentarza zapisane wartości mają posłużyć do przywrócenia zmienionych styleMask po przechwyceniu. Samego przywracania nie widziałem, bo widoczny fragment kończy się na linii 60, więc opieram się tu na komentarzu.",
+      "checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "MODEL_REVIEWED"
+      },
+      "review_disposition": "accepted_after_repair",
+      "repair_attempted": true,
+      "actual_discovery_tools": [
+        "search",
+        "read",
+        "submit"
+      ],
+      "tool_history": {
+        "complete": true,
+        "events": [
+          {
+            "id": "toolu_01HGK7fnKT962JQWXapjUid5",
+            "tool": "search",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_01JpcFJPYjikomM4ztnAw2Go",
+            "tool": "read",
+            "outcome": "ok"
+          }
+        ]
+      },
+      "published_citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 23,
+          "end": 30,
+          "quote": "for (const win of BrowserWindow.getAllWindows()) {",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "  if (process.platform === 'darwin') {\n    // Fix for bug in ScreenCaptureKit that modifies a window's styleMask the first time\n    // it captures a non-resizable window. We record each non-resizable window's styleMask,\n    // and we restore modified styleMasks later, after the screen capture.\n    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }\n  }"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 24,
+          "end": 26,
+          "quote": "we restore modified styleMasks later, after the screen capture.",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "    // Fix for bug in ScreenCaptureKit that modifies a window's styleMask the first time\n    // it captures a non-resizable window. We record each non-resizable window's styleMask,\n    // and we restore modified styleMasks later, after the screen capture."
+        }
+      ],
+      "review_rounds": [
+        {
+          "source_windows_verified": 1,
+          "initial_or_revised_proposal": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS (process.platform === 'darwin') kod przechodzi pętlą po BrowserWindow.getAllWindows() i dla każdego okna zapisuje w mapie resizableValues jego flagę win.resizable. Lista okien służy więc do zapamiętania, które okna były zmienianej wielkości, przed przechwytywaniem ekranu. Komentarz w kodzie mówi, że chodzi o obejście błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna modyfikuje jego styleMask. Zapisane wartości pozwalają przywrócić zmienione ustawienia po zakończeniu przechwytywania. Samo przywracanie jest dalej w kodzie i nie czytałem go.",
+          "findings": [
+            {
+              "unit": 1,
+              "claim": "Przykład w lib/browser/api/desktop-capturer.ts, funkcja getSources.",
+              "reason": "Linia 19 definiuje getSources, a wywołanie getAllWindows jest w linii 27 w jej ciele.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 19,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "claim": "Na macOS pętla po getAllWindows() zapisuje w mapie resizableValues flagę win.resizable dla każdego okna.",
+              "reason": "Kod jest w bloku if (process.platform === 'darwin'). Pętla wywołuje resizableValues.set([win.id], win.resizable). Klucz jest tablicą, ale to nie zmienia opisu.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 22,
+                  "end": 30
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "claim": "Lista okien służy do zapamiętania, które okna były zmienianej wielkości, przed przechwytywaniem.",
+              "reason": "Kod zapisuje wartość win.resizable każdego okna przed przechwytywaniem. Sformułowanie „które okna były zmienianej wielkości” jest nieprecyzyjne, ale sens zapamiętania stanu resizable się zgadza.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 24,
+                  "end": 28
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "claim": "Komentarz mówi o obejściu błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna modyfikuje jego styleMask.",
+              "reason": "Komentarz w liniach 24-26 mówi dokładnie to.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 24,
+                  "end": 26
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "claim": "Zapisane wartości pozwalają przywrócić zmienione ustawienia po zakończeniu przechwytywania.",
+              "reason": "Komentarz zapowiada przywracanie styleMask po przechwyceniu. Widoczny fragment kończy się na linii 60 i nie zawiera samego przywracania. Zapisane wartości mają ten cel tylko według komentarza.",
+              "assessment": "insufficient",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 24,
+                  "end": 28
+                }
+              ]
+            },
+            {
+              "unit": 6,
+              "claim": "Samo przywracanie jest dalej w kodzie i nie czytałem go.",
+              "reason": "Wycinek kończy się na linii 60, a komentarz mówi o późniejszym przywracaniu. Druga część to uwaga o sposobie pracy, a nie twierdzenie o kodzie, które można sprawdzić.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 26,
+                  "end": 26
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source_windows_verified": 1,
+          "initial_or_revised_proposal": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS (process.platform === 'darwin') kod przechodzi pętlą po BrowserWindow.getAllWindows() i dla każdego okna zapisuje w mapie resizableValues wartość win.resizable (kluczem jest tablica z win.id). Lista okien służy więc do zapamiętania stanu „resizable” wszystkich okien przed przechwytywaniem ekranu. Komentarz w kodzie wyjaśnia, że to obejście błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna modyfikuje jego styleMask. Według komentarza zapisane wartości mają posłużyć do przywrócenia zmienionych styleMask po przechwyceniu. Samego przywracania nie widziałem, bo widoczny fragment kończy się na linii 60, więc opieram się tu na komentarzu.",
+          "findings": [
+            {
+              "unit": 1,
+              "claim": "Przykład w lib/browser/api/desktop-capturer.ts, funkcja getSources.",
+              "reason": "",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 19,
+                  "end": 27
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "claim": "Na macOS pętla po getAllWindows zapisuje win.resizable w mapie z kluczem [win.id].",
+              "reason": "Linie 23-29 dokładnie to pokazują.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 22,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "claim": "Lista służy do zapamiętania stanu resizable wszystkich okien przed przechwytywaniem.",
+              "reason": "Pętla obejmuje wszystkie okna i zapisuje resizable, przed uruchomieniem capturera; komentarz potwierdza cel.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 24,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "claim": "Komentarz opisuje obejście błędu ScreenCaptureKit modyfikującego styleMask przy pierwszym przechwyceniu nieresizowalnego okna.",
+              "reason": "Komentarz mówi dokładnie to.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 24,
+                  "end": 26
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "claim": "Według komentarza zapisane wartości mają posłużyć do przywrócenia styleMask po przechwyceniu.",
+              "reason": "Komentarz: 'we restore modified styleMasks later, after the screen capture'.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 25,
+                  "end": 26
+                }
+              ]
+            },
+            {
+              "unit": 6,
+              "claim": "Przywracania nie widziano, fragment kończy się na linii 60.",
+              "reason": "Źródło kończy się na linii 60 i nie zawiera przywracania; stwierdzenie zgodne ze stanem.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 53,
+                  "end": 60
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "public_history_findings": [],
+      "provider_calls_replayed_without_charge": 0,
+      "live_message_ids": [
+        "msg_011ChCKUvSQ2Cyu8zmshHVie",
+        "msg_011ChCKV5PehsqhXCkjXFUrE",
+        "msg_011ChCKVDpf4nuVTKuGN2LwV",
+        "msg_011ChCKVYDSt99mrEsc3xDgx",
+        "msg_011ChCKW23GKWkmBbH7ttBaE",
+        "msg_011ChCKWPV7DMoxFFzmtgR5o"
+      ],
+      "unknown_charge_calls": 0,
+      "live_tokens": {
+        "input": 18883,
+        "output": 2916
+      },
+      "estimated_live_usd": 0.066926,
+      "wall_seconds": 27.631560700014234,
+      "independent_assessment": {
+        "pass": true,
+        "summary": "Fresh discovery again made an unsupported inference that stored values allow the window to recover. The review window ended at line 60, before the recovery conditional, so the reviewer flagged insufficient evidence. Repair retained the real caller and its purpose and described intended restoration only as the source comment's explanation. The final answer does not claim restoration succeeds; it does not diagnose the key mismatch, which the open question did not require. Its stated last line applies to the repair's supplied source window; initial discovery saw as far as line 62."
+      }
+    },
+    {
+      "mode": "replay",
+      "case": "correct",
+      "raw": "local/qah01/replay-correct.json",
+      "run_sha256": "c39f30cc1dc1a35392e18031937037e9116f1f8f12f63d4d80c424f9df3d6065",
+      "live_ask_sha256": "00d7148f0500612d4b09e272f6396863caddd0b3f18130b76e8394893ad5829e",
+      "final_revalidation": {
+        "sha256": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f",
+        "identical_public_result": true,
+        "identical_review_inputs": true,
+        "offline_calls_replayed": 5,
+        "review_rounds": 1,
+        "tool_history": {
+          "complete": true,
+          "events": [
+            {
+              "id": "toolu_01SWjmtwfsTmwm4oNGUNCgut",
+              "tool": "search",
+              "outcome": "ok"
+            },
+            {
+              "id": "toolu_01HeaJC3FmBtbnLuoLmxbgQw",
+              "tool": "read",
+              "outcome": "ok"
+            },
+            {
+              "id": "toolu_018Ez4PQxGuoE51mfspXqXu2",
+              "tool": "read",
+              "outcome": "ok"
+            }
+          ]
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qah01\\w\\qa\\a00afbb2cbff425d",
+        "actual_paid_messages": 0
+      },
+      "checked_dispatch": [
+        {
+          "id": "toolu_01SWjmtwfsTmwm4oNGUNCgut",
+          "name": "search",
+          "is_error": false,
+          "returned_lines": null
+        },
+        {
+          "id": "toolu_01HeaJC3FmBtbnLuoLmxbgQw",
+          "name": "read",
+          "is_error": false,
+          "returned_lines": 53
+        },
+        {
+          "id": "toolu_018Ez4PQxGuoE51mfspXqXu2",
+          "name": "read",
+          "is_error": false,
+          "returned_lines": 42
+        }
+      ],
+      "question": "Czy po zakończeniu przechwytywania ScreenCaptureKit na macOS desktopCapturer w Electronie skutecznie odtwarza każdemu oknu zapamiętaną wartość resizable? Wyjaśnij na podstawie implementacji.",
+      "historical_status": "BLOCKED",
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "answer": "Nie – według tej implementacji przywracanie w praktyce nie działa. W `getSources` (lib/browser/api/desktop-capturer.ts) na macOS zapamiętywane jest `resizable` każdego okna, ale kluczem w mapie jest tablica `[win.id]`, a nie samo `win.id`. Przy przywracaniu w `stopRunning` kod sprawdza `resizableValues.has(win.id)` i pobiera `resizableValues.get(win.id)`, czyli używa liczby. Mapa porównuje klucze przez identyfikator, a nie przez zawartość. Dlatego tablica i liczba nigdy się nie zrównają. Warunek `has` zawsze zwraca false, więc `win.resizable = ...` nigdy się nie wykonuje, ani po sukcesie (`_onfinished`), ani po błędzie (`_onerror`). Intencja kodu jest właściwa: ma obejść błąd ScreenCaptureKit, który zmienia styleMask. Błąd w kluczu sprawia jednak, że poprawka nie działa. Nie uruchamiałem kodu, wniosek wynika z samej lektury.",
+      "checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "MODEL_REVIEWED"
+      },
+      "review_disposition": "accepted",
+      "repair_attempted": false,
+      "actual_discovery_tools": [
+        "search",
+        "read",
+        "read",
+        "submit"
+      ],
+      "tool_history": {
+        "complete": true,
+        "events": [
+          {
+            "id": "toolu_01SWjmtwfsTmwm4oNGUNCgut",
+            "tool": "search",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_01HeaJC3FmBtbnLuoLmxbgQw",
+            "tool": "read",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_018Ez4PQxGuoE51mfspXqXu2",
+            "tool": "read",
+            "outcome": "ok"
+          }
+        ]
+      },
+      "published_citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 27,
+          "end": 29,
+          "quote": "resizableValues.set([win.id], win.resizable);",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 63,
+          "end": 67,
+          "quote": "if (resizableValues.has(win.id)) {",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "          for (const win of BrowserWindow.getAllWindows()) {\n            if (resizableValues.has(win.id)) {\n              win.resizable = resizableValues.get(win.id);\n            }\n          };"
+        }
+      ],
+      "review_rounds": [
+        {
+          "source_windows_verified": 2,
+          "initial_or_revised_proposal": "Nie – według tej implementacji przywracanie w praktyce nie działa. W `getSources` (lib/browser/api/desktop-capturer.ts) na macOS zapamiętywane jest `resizable` każdego okna, ale kluczem w mapie jest tablica `[win.id]`, a nie samo `win.id`. Przy przywracaniu w `stopRunning` kod sprawdza `resizableValues.has(win.id)` i pobiera `resizableValues.get(win.id)`, czyli używa liczby. Mapa porównuje klucze przez identyfikator, a nie przez zawartość. Dlatego tablica i liczba nigdy się nie zrównają. Warunek `has` zawsze zwraca false, więc `win.resizable = ...` nigdy się nie wykonuje, ani po sukcesie (`_onfinished`), ani po błędzie (`_onerror`). Intencja kodu jest właściwa: ma obejść błąd ScreenCaptureKit, który zmienia styleMask. Błąd w kluczu sprawia jednak, że poprawka nie działa. Nie uruchamiałem kodu, wniosek wynika z samej lektury.",
+          "findings": [
+            {
+              "unit": 1,
+              "claim": "Przywracanie resizable w praktyce nie działa.",
+              "reason": "Zapis używa klucza [win.id], odczyt win.id; Map używa tożsamości/SameValueZero, więc has zawsze false. Wniosek zgodny z kodem.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 28,
+                  "end": 28
+                },
+                {
+                  "source": 2,
+                  "start": 64,
+                  "end": 66
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "claim": "Na macOS zapamiętywane jest resizable każdego okna, kluczem jest tablica [win.id].",
+              "reason": "Pętla po BrowserWindow.getAllWindows() wywołuje resizableValues.set([win.id], win.resizable) na darwin.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 22,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "claim": "stopRunning sprawdza has(win.id) i pobiera get(win.id).",
+              "reason": "Kod w stopRunning używa win.id (liczby) do has i get.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 62,
+                  "end": 67
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "claim": "Mapa porównuje klucze przez identyfikator, a nie zawartość.",
+              "reason": "Map w JS porównuje klucze SameValueZero; dla obiektów (tablic) to tożsamość referencji, nie zawartość. To zachowanie języka, a nie pokazane w wycinkach, ale poprawne i kod się na nim opiera. Uproszczone sformułowanie „identyfikator” jest akceptowalne.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 22,
+                  "end": 28
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "claim": "Tablica i liczba nigdy się nie zrównają.",
+              "reason": "Tablica [id] nigdy nie jest SameValueZero równa liczbie win.id.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 28,
+                  "end": 28
+                },
+                {
+                  "source": 2,
+                  "start": 64,
+                  "end": 65
+                }
+              ]
+            },
+            {
+              "unit": 6,
+              "claim": "has zawsze zwraca false, więc win.resizable nie jest ustawiane ani po sukcesie, ani po błędzie.",
+              "reason": "Mapa zawiera tylko klucze tablicowe, więc gałąź przypisania jest nieosiągalna. Zarówno _onerror, jak i _onfinished wywołują stopRunning, ale przypisanie nigdy się nie wykona.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 62,
+                  "end": 67
+                },
+                {
+                  "source": 2,
+                  "start": 74,
+                  "end": 82
+                }
+              ]
+            },
+            {
+              "unit": 7,
+              "claim": "Intencja kodu: obejść błąd ScreenCaptureKit zmieniający styleMask.",
+              "reason": "Komentarz opisuje dokładnie ten zamiar.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 24,
+                  "end": 26
+                }
+              ]
+            },
+            {
+              "unit": 8,
+              "claim": "Błąd w kluczu sprawia, że poprawka nie działa.",
+              "reason": "Niezgodność kluczy uniemożliwia przywrócenie wartości.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 28,
+                  "end": 28
+                },
+                {
+                  "source": 2,
+                  "start": 64,
+                  "end": 66
+                }
+              ]
+            },
+            {
+              "unit": 9,
+              "claim": "Nie uruchamiałem kodu, wniosek wynika z samej lektury.",
+              "assessment": "supported",
+              "reason": "Historia wywołań w tym pytaniu potwierdza brak uruchomienia kodu projektu.",
+              "evidence": [],
+              "basis": "tool_history",
+              "fact": "project_code_executed",
+              "claimed_value": false,
+              "observed_value": false
+            }
+          ]
+        }
+      ],
+      "public_history_findings": [
+        {
+          "unit": 9,
+          "assessment": "supported",
+          "evidence": [],
+          "basis": "tool_history",
+          "fact": "project_code_executed",
+          "claimed_value": false,
+          "observed_value": false
+        }
+      ],
+      "provider_calls_replayed_without_charge": 4,
+      "live_message_ids": [
+        "msg_011ChCKNTrordSu72xQ47xLA"
+      ],
+      "unknown_charge_calls": 0,
+      "live_tokens": {
+        "input": 4897,
+        "output": 1154
+      },
+      "estimated_live_usd": 0.021334,
+      "wall_seconds": 13.961997300037183,
+      "independent_assessment": {
+        "pass": true,
+        "summary": "The exact previously blocked draft was accepted unchanged in one real review. Historical unit 9 explicitly discloses no execution and reasoning from source; actual recorded and replayed tool outputs confirm search/read/read. The conclusion agrees with the independent pinned Git lookup."
+      }
+    },
+    {
+      "mode": "replay",
+      "case": "wrong",
+      "raw": "local/qah01/replay-wrong.json",
+      "run_sha256": "1bb3648f05117a195011ea6f1172db10f992bb92151986feb7ad1da79f3ca811",
+      "live_ask_sha256": "00d7148f0500612d4b09e272f6396863caddd0b3f18130b76e8394893ad5829e",
+      "final_revalidation": {
+        "sha256": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f",
+        "identical_public_result": true,
+        "identical_review_inputs": true,
+        "offline_calls_replayed": 6,
+        "review_rounds": 2,
+        "tool_history": {
+          "complete": true,
+          "events": [
+            {
+              "id": "toolu_01VMz6xaxr87H1E5nEgxz1vA",
+              "tool": "search",
+              "outcome": "ok"
+            },
+            {
+              "id": "toolu_01MpaYZdNk1X7bnSyCTGcQ1z",
+              "tool": "read",
+              "outcome": "ok"
+            }
+          ]
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qah01\\w\\qa\\b06b9de74c1a4c0d",
+        "actual_paid_messages": 0
+      },
+      "checked_dispatch": [
+        {
+          "id": "toolu_01VMz6xaxr87H1E5nEgxz1vA",
+          "name": "search",
+          "is_error": false,
+          "returned_lines": null
+        },
+        {
+          "id": "toolu_01MpaYZdNk1X7bnSyCTGcQ1z",
+          "name": "read",
+          "is_error": false,
+          "returned_lines": 53
+        }
+      ],
+      "question": "Podaj jeden przykład z działającego kodu samego Electrona, w którym wywoływana jest metoda BrowserWindow.getAllWindows(). Do czego w tym miejscu służy lista okien?",
+      "historical_status": "VERIFIED",
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "answer": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien z BrowserWindow.getAllWindows() ma pomóc obejść błąd ScreenCaptureKit. Według komentarza błąd zmienia styleMask nieresizowalnego okna przy pierwszym przechwyceniu. Przed przechwytywaniem kod zapisuje wartość `resizable` każdego okna w mapie resizableValues. Po zakończeniu przechwytywania, w stopRunning, drugie wywołanie getAllWindows() ma przywrócić zapisane wartości.\n\nZapis i odczyt używają jednak różnych kluczy. Zapis robi `resizableValues.set([win.id], ...)`, czyli używa nowej tablicy jako klucza. Odczyt robi `resizableValues.has(win.id)` z kluczem liczbowym. Map porównuje klucze przez tożsamość, więc `has` najpewniej zawsze zwróci false, a przypisanie `win.resizable` się nie wykona. Kod próbuje przywracać wartości, ale w tej postaci raczej tego nie osiąga.",
+      "checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "MODEL_REVIEWED"
+      },
+      "review_disposition": "accepted_after_repair",
+      "repair_attempted": true,
+      "actual_discovery_tools": [
+        "search",
+        "read",
+        "submit"
+      ],
+      "tool_history": {
+        "complete": true,
+        "events": [
+          {
+            "id": "toolu_01VMz6xaxr87H1E5nEgxz1vA",
+            "tool": "search",
+            "outcome": "ok"
+          },
+          {
+            "id": "toolu_01MpaYZdNk1X7bnSyCTGcQ1z",
+            "tool": "read",
+            "outcome": "ok"
+          }
+        ]
+      },
+      "published_citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 27,
+          "end": 29,
+          "quote": "for (const win of BrowserWindow.getAllWindows()) {",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 62,
+          "end": 67,
+          "quote": "if (resizableValues.has(win.id)) {",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+          "excerpt": "        if (process.platform === 'darwin') {\n          for (const win of BrowserWindow.getAllWindows()) {\n            if (resizableValues.has(win.id)) {\n              win.resizable = resizableValues.get(win.id);\n            }\n          };"
+        }
+      ],
+      "review_rounds": [
+        {
+          "source_windows_verified": 2,
+          "initial_or_revised_proposal": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien służy do obejścia błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna zmienia jego styleMask. Przed przechwytywaniem kod zapamiętuje wartość `resizable` każdego okna. Po zakończeniu przechwytywania drugie wywołanie getAllWindows() służy do przywrócenia zapisanych wartości.",
+          "findings": [
+            {
+              "unit": 1,
+              "claim": "Przykład to lib/browser/api/desktop-capturer.ts, funkcja getSources.",
+              "reason": "getSources w tym pliku wywołuje BrowserWindow.getAllWindows() (linie 27 i 63).",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 19,
+                  "end": 27
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "claim": "Na macOS lista okien służy do obejścia błędu ScreenCaptureKit zmieniającego styleMask nieresizowalnego okna.",
+              "reason": "Blok jest ograniczony do darwin, a komentarz opisuje dokładnie ten błąd ScreenCaptureKit. Zamiar jest potwierdzony. Skuteczność obejścia jest jednak wątpliwa z powodu niezgodnych kluczy Map (patrz unit 4).",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 23,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "claim": "Przed przechwytywaniem kod zapamiętuje wartość resizable każdego okna.",
+              "reason": "Pętla po getAllWindows() zapisuje win.resizable w resizableValues przed startem przechwytywania. Kluczem jest tablica [win.id], ale wartość jest zapamiętana.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 27,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "claim": "Po zakończeniu przechwytywania drugie wywołanie getAllWindows() służy do przywrócenia zapisanych wartości.",
+              "reason": "Zapis używa klucza `[win.id]`, czyli nowej tablicy. Odczyt używa `resizableValues.has(win.id)` z kluczem liczbowym. Map porównuje klucze przez tożsamość, więc has() zawsze zwraca false i przypisanie win.resizable nigdy się nie wykona. Kod próbuje przywracać, ale nie osiąga tego skutku.",
+              "assessment": "contradicted",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 27,
+                  "end": 29
+                },
+                {
+                  "source": 2,
+                  "start": 62,
+                  "end": 67
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source_windows_verified": 2,
+          "initial_or_revised_proposal": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien z BrowserWindow.getAllWindows() ma pomóc obejść błąd ScreenCaptureKit. Według komentarza błąd zmienia styleMask nieresizowalnego okna przy pierwszym przechwyceniu. Przed przechwytywaniem kod zapisuje wartość `resizable` każdego okna w mapie resizableValues. Po zakończeniu przechwytywania, w stopRunning, drugie wywołanie getAllWindows() ma przywrócić zapisane wartości.\n\nZapis i odczyt używają jednak różnych kluczy. Zapis robi `resizableValues.set([win.id], ...)`, czyli używa nowej tablicy jako klucza. Odczyt robi `resizableValues.has(win.id)` z kluczem liczbowym. Map porównuje klucze przez tożsamość, więc `has` najpewniej zawsze zwróci false, a przypisanie `win.resizable` się nie wykona. Kod próbuje przywracać wartości, ale w tej postaci raczej tego nie osiąga.",
+          "findings": [
+            {
+              "unit": 1,
+              "claim": "Przykład w lib/browser/api/desktop-capturer.ts, funkcja getSources.",
+              "reason": "Plik zawiera wywołania BrowserWindow.getAllWindows() w funkcji getSources.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 19,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "claim": "Na macOS lista okien ma pomóc obejść błąd ScreenCaptureKit.",
+              "reason": "Blok jest warunkowany darwin, a komentarz opisuje obejście błędu ScreenCaptureKit.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 23,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "claim": "Według komentarza błąd zmienia styleMask nieresizowalnego okna przy pierwszym przechwyceniu.",
+              "reason": "Komentarz mówi dokładnie o tym.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 24,
+                  "end": 26
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "claim": "Przed przechwytywaniem kod zapisuje wartość resizable każdego okna w resizableValues.",
+              "reason": "Pętla na darwin zapisuje win.resizable dla każdego okna przed utworzeniem capturera (choć z kluczem tablicowym).",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 22,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "claim": "W stopRunning drugie wywołanie getAllWindows() ma przywrócić zapisane wartości.",
+              "reason": "stopRunning na darwin iteruje okna i ustawia win.resizable z mapy.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 56,
+                  "end": 68
+                }
+              ]
+            },
+            {
+              "unit": 6,
+              "claim": "Zapis i odczyt używają różnych kluczy.",
+              "reason": "Zapis używa [win.id], odczyt win.id.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 28,
+                  "end": 28
+                },
+                {
+                  "source": 2,
+                  "start": 64,
+                  "end": 65
+                }
+              ]
+            },
+            {
+              "unit": 7,
+              "claim": "Zapis robi resizableValues.set([win.id], ...) z nową tablicą jako kluczem.",
+              "reason": "Dokładnie widoczne w linii 28.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 28,
+                  "end": 28
+                }
+              ]
+            },
+            {
+              "unit": 8,
+              "claim": "Odczyt robi resizableValues.has(win.id) z kluczem liczbowym.",
+              "reason": "Linia 64 używa win.id; id okna jest liczbą (zgodnie z użyciem).",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 64,
+                  "end": 65
+                }
+              ]
+            },
+            {
+              "unit": 9,
+              "claim": "Map porównuje klucze przez tożsamość, więc has zwróci false i przypisanie się nie wykona.",
+              "reason": "Klucz tablicowy nie zgadza się z liczbą (SameValueZero), więc has(win.id) jest false, a przypisanie pomijane.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 28,
+                  "end": 28
+                },
+                {
+                  "source": 2,
+                  "start": 64,
+                  "end": 66
+                }
+              ]
+            },
+            {
+              "unit": 10,
+              "claim": "Kod próbuje przywracać wartości, ale raczej tego nie osiąga.",
+              "reason": "Próba w stopRunning jest, lecz warunek has nie zajdzie, więc przywrócenie nie następuje.",
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 62,
+                  "end": 68
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "public_history_findings": [],
+      "provider_calls_replayed_without_charge": 3,
+      "live_message_ids": [
+        "msg_011ChCKPUbkNEUW9Zza4AhSZ",
+        "msg_011ChCKQ7w4Hgieiup3tGT4R",
+        "msg_011ChCKQUxrSWjWZWfPc13Dp"
+      ],
+      "unknown_charge_calls": 0,
+      "live_tokens": {
+        "input": 13771,
+        "output": 2997
+      },
+      "estimated_live_usd": 0.057512,
+      "wall_seconds": 26.668524499982595,
+      "independent_assessment": {
+        "pass": true,
+        "summary": "Fresh review of the recorded false claim flagged a source contradiction. The correction separates the attempted restoration from the ineffective lookup, with the differing keys. A second real review accepted the correction. The hedge 'najpewniej' is unnecessarily cautious but the substantive outcome is correct."
+      }
+    }
+  ],
+  "summed_live_messages": 16,
+  "estimated_cost_usd": 0.220018,
+  "pricing": "Direct Sonnet standard $2/M uncached input tokens and $10/M output tokens, as in previous comparison; excludes credits/tax. Recorded offline discovery messages do not contribute.",
+  "limitations": "Two cases from one pinned Electron version. Fresh answers can vary. The reviewer is Sonnet; the Git checks and host history facts are independently checked. Wall time for a replay includes local source lookup but no network time for historical discovery messages."
+}

@@ -89,3 +89,58 @@ przejściu rozwojowym i końcowym.
 ```
 
 [Raport pomiarów](fineract-r2-results.md)
+
+## Pytanie o kod bieżącej gałęzi lub PR-a
+
+`ask` korzysta z konfiguracji `fineract_r2_current.py` i rejestracji
+`fineract_r2_pr.py`. Wymaga SDK `anthropic`, klucza w `ANTHROPIC_API_KEY`
+i konfiguracji korpusu z publicznym kodem. Pytanie i potrzebne fragmenty źródła
+otrzymuje Claude Sonnet 5.5 (`claude-sonnet-5-5`) z poziomem wysiłku `medium`.
+
+```powershell
+$qaConfig = 'local/r2-current/config.json'
+$qaQuestion = 'Klient złożył wniosek 12 maja. Czy według reguły daty można go zatwierdzić również 12 maja?'
+& $pilotPython -B -X utf8 scripts/fineract_r2_ask.py ask --config $qaConfig $qaQuestion
+& $pilotPython -B -X utf8 scripts/fineract_r2_ask.py ask --config $qaConfig --repo fineract --pr 1 $qaQuestion
+& $pilotPython -B -X utf8 scripts/fineract_r2_ask.py ask --config $qaConfig --review-conclusion $qaQuestion
+```
+
+Każde pytanie pobiera aktualne commity i przypina manifest. Wyszukiwania R2,
+odczyty metod, wywołania i sprawdzenie cytatów korzystają z tej samej wersji.
+Jeśli gotowy indeks poświadczony dotyczy innego commitu, R2 używa pełnej
+weryfikacji wyszukiwania przypiętej wersji. Kolejne pytanie ponownie pyta źródło.
+
+Wynik JSON zawiera widok, commity, skrót manifestu, cytaty i czasy. Pole
+`checks.citations` opisuje kontrolę cytatów. Pole `checks.business_conclusion`
+ma w trybie domyślnym wartość `NOT_CHECKED`.
+
+Opcja `--review-conclusion` uruchamia dodatkową kontrolę przed wydaniem odpowiedzi.
+Sonnet dostaje pytanie, proponowaną odpowiedź i fragmenty przypiętego kodu.
+Sprawdza, czy opisane zachowanie wynika z tych fragmentów. Jeśli zgłasza
+zastrzeżenie, autor odpowiedzi dostaje jego uzasadnienie i ma jedną próbę
+poprawy. Recenzent ponownie sprawdza poprawioną odpowiedź, widząc
+również te fragmenty, których autor już nie cytuje. Jeśli nadal brakuje
+dowodu lub recenzent nie dostarczy kompletnej oceny, CLI zwraca `BLOCKED`.
+Niezgodność cytatu z Git daje `MISMATCH`.
+
+W opublikowanej odpowiedzi pole `checks.citations` ma wartość `VERIFIED`,
+a `checks.business_conclusion` ma wartość `MODEL_REVIEWED`. Drugie pole
+oznacza ocenę modelu na podstawie pokazanych fragmentów. Pole
+`conclusion_review` zawiera zakresy, wynik oceny i informację o próbie poprawy.
+[Porównanie obu trybów na pięciu pytaniach o Electron](../verification/qa-conclusion-review-01.json).
+
+Dla samodzielnych deklaracji takich jak „Nie uruchamiałem kodu” i „Kodu
+nie uruchamiałem” bramka korzysta z historii narzędzi bieżącego pytania.
+W polu `tool_history.events` zapisuje wywołania wyszukiwania i odczytu
+oraz ich wyniki. Przy kompletnej historii samych odczytów ocena tej deklaracji
+wskazuje `basis: tool_history` i `observed_value: false`. Gdy agent dodaje
+„wniosek wynika z samej lektury”, potrzebny jest odczyt, który zwrócił
+treść. Przy niepełnej historii bramka nie może potwierdzić takiej deklaracji.
+Zdania opisujące również skutek działania programu nadal przechodzą ocenę
+na podstawie przypiętego kodu.
+[Próby z Claude’em dla obu rodzajów dowodu](../verification/qa-conclusion-history-01.json).
+
+`tests/fineract_approval_demo.py` odtwarza próbę na lokalnej kopii Apache
+Fineracta. Wskaż nowe `--work-dir` i `--measurements`. Skrypt wykona lokalny
+push testowy i zapisze przebieg, w tym błędy oraz czasy pytań liczone od
+uruchomienia procesu CLI do odebrania odpowiedzi.

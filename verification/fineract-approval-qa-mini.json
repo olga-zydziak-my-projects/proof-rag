@@ -1,0 +1,273 @@
+{
+  "date": "2026-11-19",
+  "repository": "apache/fineract",
+  "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+  "regular_git_files": 8635,
+  "method": "Trzy osobne sesje Codexa uruchomione równolegle, po jednej na sformułowanie pytania. Bez podpowiedzi o klasach i plikach. Dostęp do kodu przez publiczne wyszukiwanie literałów R2 query-verified oraz odczyt wskazanych przez agenta plików z przypiętego commitu Git. Odpowiedź wzorcową ustalono niezależnie przed startem. Ocena objaśnień na podstawie kodu, bez uruchamiania serwera Fineract.",
+  "timing": "Od rozpoczęcia próby bezpośrednio przed przekazaniem pytania do zgłoszenia gotowości odpowiedzi przez agenta. Czas pojedynczego wyszukania dotyczy wywołania procesu R2. Jedna obserwacja na pytanie.",
+  "criteria": [
+    "Wcześniejsza data zatwierdzenia powoduje odrzucenie operacji.",
+    "Wniosek oczekujący na decyzję pozostaje w dotychczasowym stanie, ponieważ walidacja poprzedza zatwierdzenie.",
+    "Wskazane linie kodu na przypiętym commicie potwierdzają porównanie dat oraz kolejność operacji w ścieżce zatwierdzenia."
+  ],
+  "passed": 3,
+  "median_seconds": 54.713,
+  "sources": {
+    "validator": "https://github.com/apache/fineract/blob/d63beed7ccfeadaffa0c7842b1011bc88451376f/fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java#L2144-L2148",
+    "service": "https://github.com/apache/fineract/blob/d63beed7ccfeadaffa0c7842b1011bc88451376f/fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java#L585-L598",
+    "exception": "https://github.com/apache/fineract/blob/d63beed7ccfeadaffa0c7842b1011bc88451376f/fineract-loan/src/main/java/org/apache/fineract/portfolio/loanaccount/exception/InvalidLoanStateTransitionException.java#L27-L31",
+    "http": "https://github.com/apache/fineract/blob/d63beed7ccfeadaffa0c7842b1011bc88451376f/fineract-core/src/main/java/org/apache/fineract/infrastructure/core/exceptionmapper/PlatformDomainRuleExceptionMapper.java#L47-L53",
+    "handler": "https://github.com/apache/fineract/blob/d63beed7ccfeadaffa0c7842b1011bc88451376f/fineract-loan/src/main/java/org/apache/fineract/portfolio/loanaccount/handler/LoanApplicationApprovalCommandHandler.java#L32-L41",
+    "state": "https://github.com/apache/fineract/blob/d63beed7ccfeadaffa0c7842b1011bc88451376f/fineract-loan/src/main/java/org/apache/fineract/portfolio/loanaccount/domain/DefaultLoanLifecycleStateMachine.java#L137-L140"
+  },
+  "cases": [
+    {
+      "id": "A",
+      "question": "Co się stanie, jeśli pracownik spróbuje zatwierdzić wniosek o pożyczkę z datą wcześniejszą niż data jego złożenia?",
+      "answer": "Wniosek pozostanie w statusie „złożony, oczekuje na zatwierdzenie”. Fineract odrzuci próbę zatwierdzenia i zwróci HTTP 403 z komunikatem zawierającym obie daty. Kod błędu to error.msg.loan.approval.cannot.be.before.submittal.date. Pracownik może ponowić próbę z datą złożenia wniosku lub późniejszą. Polecenie LOAN/APPROVE wywołuje approveApplication. Ta metoda sprawdza datę przed zmianą statusu i wysłaniem zdarzenia LoanApprovedBusinessEvent.",
+      "cited_sources": [
+        "validator",
+        "exception",
+        "http",
+        "handler",
+        "service"
+      ],
+      "all_criteria_met": true,
+      "seconds": 53.248,
+      "verified_lookups": 9,
+      "lookups": [
+        {
+          "literal": "ExceptionMapper<AbstractPlatformDomainRuleException>",
+          "count": 1,
+          "seconds": 1.152,
+          "sha256": "8e86916d8f0fb98fa74f627ce79537b763a6ec43cfcb3609a666c4667d5060b3"
+        },
+        {
+          "literal": "approveApplication(command",
+          "count": 5,
+          "seconds": 1.07,
+          "sha256": "623d13e78ce5f1377f952dbf3118b9213061b14dbd9ac05b4e916698fb6eeef7"
+        },
+        {
+          "literal": "approveLoanApplication",
+          "count": 4,
+          "seconds": 1.03,
+          "sha256": "a6ea9a30a9637fa0d5208c9ba7648be3600eb99d1410eecb59d5c770911ac595"
+        },
+        {
+          "literal": "approvedOnDate",
+          "count": 119,
+          "seconds": 1.127,
+          "sha256": "305ccbd8af16ad4097a67c1b9b90479ea6aef67ec9960948072f462e5908ae0a"
+        },
+        {
+          "literal": "cannot.be.before.submittal.date",
+          "count": 9,
+          "seconds": 1.227,
+          "sha256": "5f34bb2dfc3d3bd8cfdc096fbd6b44a3eedada69e47899fb0776b1e4108da00c"
+        },
+        {
+          "literal": "class ApproveLoanApplicationCommandHandler",
+          "count": 0,
+          "seconds": 1.232,
+          "sha256": "21706faba91cbf2aceb924be19dfd13fe2d8d849b9b7f534d45d319bc79f0088"
+        },
+        {
+          "literal": "class InvalidLoanStateTransitionException",
+          "count": 1,
+          "seconds": 1.221,
+          "sha256": "f7c5c3e8b16af885fe5cef8725a13bc1db30018382bc7fcc139b5a2c58cfea71"
+        },
+        {
+          "literal": "class PlatformDomainRuleExceptionMapper",
+          "count": 1,
+          "seconds": 1.17,
+          "sha256": "5bcadc9ad7a4a61c3167b62cd17ae8128b062e0249ad2c5e52b1a7eff90abbab"
+        },
+        {
+          "literal": "validateApproval(command",
+          "count": 4,
+          "seconds": 1.218,
+          "sha256": "21d991dbdad87388d9839af9d5d3e63c18f4c311c6bfe012e44de7fba60a4ed8"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "question": "Klient złożył wniosek o pożyczkę 12 maja. Wpisuję 11 maja jako dzień zatwierdzenia tego wniosku. Czy mogę go tak zatwierdzić i co zrobi system?",
+      "answer": "Nie. 11 maja przypada przed datą złożenia wniosku, więc Fineract przerwie zatwierdzanie. Wniosek nadal będzie oczekiwał na zatwierdzenie. Najwcześniejszą datą spełniającą tę regułę jest 12 maja. API zwróci HTTP 403 z kodem error.msg.loan.approval.cannot.be.before.submittal.date. Komunikat poda obie daty i wyjaśni, że zatwierdzenie nie może poprzedzać złożenia wniosku.",
+      "cited_sources": [
+        "validator",
+        "service",
+        "exception",
+        "http"
+      ],
+      "all_criteria_met": true,
+      "seconds": 54.713,
+      "verified_lookups": 13,
+      "lookups": [
+        {
+          "literal": "ApproveLoanApplicationCommandHandler",
+          "count": 0,
+          "seconds": 1.454,
+          "sha256": "365dc964a832c0f8b77a0ba0e8852873d1a98bca5d0c4cd35ffeff35faae7616"
+        },
+        {
+          "literal": "ExceptionMapper<AbstractPlatformDomainRuleException>",
+          "count": 1,
+          "seconds": 1.067,
+          "sha256": "8e86916d8f0fb98fa74f627ce79537b763a6ec43cfcb3609a666c4667d5060b3"
+        },
+        {
+          "literal": "approval date",
+          "count": 7,
+          "seconds": 1.428,
+          "sha256": "01f204061bbc12d3bfa64852d57d82fb6de09aca646ade340988c85ae4c6a9b0"
+        },
+        {
+          "literal": "approval.date.cannot",
+          "count": 0,
+          "seconds": 1.487,
+          "sha256": "f17fbe64a9547088a8bfb4cb5dd4aa726ae12d5623538347f94a3d87d08eb392"
+        },
+        {
+          "literal": "approveLoanApplication(",
+          "count": 4,
+          "seconds": 1.475,
+          "sha256": "7e3be044c157de8f27f2cd3bf890cd888c2f8d9cd43da1b5ce5b7b5bdf58180d"
+        },
+        {
+          "literal": "approved.on.date.cannot",
+          "count": 0,
+          "seconds": 1.475,
+          "sha256": "a33874afbe83512dfd7920e8c436a5ace6989fcdf1e88a32ee42966e66aa1563"
+        },
+        {
+          "literal": "approvedondate.cannot.be.before",
+          "count": 0,
+          "seconds": 1.068,
+          "sha256": "77bd64d75ee1e8c60f62a18d04b7acb52597363c399d229c532a88d868650c3d"
+        },
+        {
+          "literal": "before submittal",
+          "count": 0,
+          "seconds": 1.459,
+          "sha256": "75df1e879f4b5796f8ff07d0e1cd8148b6aa861fb8f16298bc0f49ef2ce79664"
+        },
+        {
+          "literal": "cannot be before the submitted",
+          "count": 1,
+          "seconds": 1.12,
+          "sha256": "a9b9601541377fcf25876e323fd47eb6c87da81ef6e075af3c1e62f6cbfaeea9"
+        },
+        {
+          "literal": "class InvalidLoanStateTransitionException",
+          "count": 1,
+          "seconds": 1.372,
+          "sha256": "f7c5c3e8b16af885fe5cef8725a13bc1db30018382bc7fcc139b5a2c58cfea71"
+        },
+        {
+          "literal": "loanApplicationValidator.validateForApproval",
+          "count": 0,
+          "seconds": 1.387,
+          "sha256": "9218ae0a042724f514090d4583602ec3c66c830a683c43aeb934f4d142cf4854"
+        },
+        {
+          "literal": "processLoanApplicationApproval",
+          "count": 0,
+          "seconds": 1.371,
+          "sha256": "544a99f53557d74bc4b2a7640aedbb5df21984dedf81026828b34c97391482bd"
+        },
+        {
+          "literal": "validateApproval(command",
+          "count": 4,
+          "seconds": 1.065,
+          "sha256": "21d991dbdad87388d9839af9d5d3e63c18f4c311c6bfe012e44de7fba60a4ed8"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "question": "Czy w Finerakcie zaakceptuję pożyczkę wstecz, jeżeli dzień decyzji wypada jeszcze przed wpłynięciem wniosku? Co stanie się z wnioskiem po takiej próbie?",
+      "answer": "Nie. Najwcześniejszą datą decyzji dopuszczalną przez tę regułę jest dzień złożenia wniosku. Jeśli podasz wcześniejszą datę, operacja approve zwróci HTTP 403 z kodem error.msg.loan.approval.cannot.be.before.submittal.date. Wniosek nadal czeka na decyzję (SUBMITTED_AND_PENDING_APPROVAL). Fineract sprawdza datę przed zmianą statusu, więc po poprawieniu daty możesz ponowić zatwierdzenie tego samego wniosku.",
+      "cited_sources": [
+        "validator",
+        "exception",
+        "http",
+        "service",
+        "state"
+      ],
+      "all_criteria_met": true,
+      "seconds": 57.127,
+      "verified_lookups": 11,
+      "lookups": [
+        {
+          "literal": "approval date cannot be before",
+          "count": 0,
+          "seconds": 1.351,
+          "sha256": "6378e32b02a71fcad53050d61a7c2b391ad9f646b55f754fc2066d60e9a06a4b"
+        },
+        {
+          "literal": "approveApplication(",
+          "count": 14,
+          "seconds": 1.14,
+          "sha256": "557dacc43fce69b5ec883e71dfe040801585164afab38611a629ed6edcb9f960"
+        },
+        {
+          "literal": "approveLoan(",
+          "count": 143,
+          "seconds": 1.351,
+          "sha256": "fc2282c3249decc8a9206f1493f12c6529cc83b9fc5113ec722f445653856bec"
+        },
+        {
+          "literal": "approveLoanApplication(",
+          "count": 4,
+          "seconds": 1.156,
+          "sha256": "7e3be044c157de8f27f2cd3bf890cd888c2f8d9cd43da1b5ce5b7b5bdf58180d"
+        },
+        {
+          "literal": "before.submittal.date",
+          "count": 9,
+          "seconds": 1.205,
+          "sha256": "95ffb2af65e403917f30f8c6fd64acad02006d9c2f8556d9fa70658e47a143ae"
+        },
+        {
+          "literal": "before.submitted.on.date",
+          "count": 0,
+          "seconds": 1.215,
+          "sha256": "42d44941158b74faef2db193fc9d5420c13002c67fc39c3be8be8666488ed033"
+        },
+        {
+          "literal": "class ApproveLoanApplicationCommandHandler",
+          "count": 0,
+          "seconds": 1.216,
+          "sha256": "21706faba91cbf2aceb924be19dfd13fe2d8d849b9b7f534d45d319bc79f0088"
+        },
+        {
+          "literal": "class DefaultLoanLifecycleStateMachine",
+          "count": 3,
+          "seconds": 1.105,
+          "sha256": "b6ec6fc85514a946e9aeb99b5debbdd5ff0dbd0ac8ba9780406182364db44e3f"
+        },
+        {
+          "literal": "class InvalidLoanStateTransitionException",
+          "count": 1,
+          "seconds": 1.072,
+          "sha256": "f7c5c3e8b16af885fe5cef8725a13bc1db30018382bc7fcc139b5a2c58cfea71"
+        },
+        {
+          "literal": "class LoanScheduleAssembler",
+          "count": 1,
+          "seconds": 1.099,
+          "sha256": "c186526d1b22892d0af78b94a80ae53e9e2867104097742cf88ad50bebe002c6"
+        },
+        {
+          "literal": "class PlatformDomainRuleExceptionMapper",
+          "count": 1,
+          "seconds": 1.07,
+          "sha256": "5bcadc9ad7a4a61c3167b62cd17ae8128b062e0249ad2c5e52b1a7eff90abbab"
+        }
+      ]
+    }
+  ]
+}

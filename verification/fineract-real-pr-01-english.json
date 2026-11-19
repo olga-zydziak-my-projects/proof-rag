@@ -1,0 +1,724 @@
+{
+  "experiment": "English vs Polish input, Apache Fineract PR #6834",
+  "plan": {
+    "question": "In Fineract's legacy synchronous mode, a command fails with HTTP 500 and no response body. Does the application skip the notification for an external integration because that body is missing? If it prepares the notification, how can you tell from its data that there was an error and what its HTTP status code was?",
+    "number": 6834,
+    "head": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934",
+    "regular_files": 8623,
+    "repo": "apache/fineract",
+    "alias": "fineract",
+    "corpus": "default",
+    "model": "claude-sonnet-5-5",
+    "prepared_manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+    "input_sha256": {
+      "oracle.json": "24e78e579d6473a793abe7a95625d4b9b3ca946313b516b7a1f43b918492315d",
+      "config.json": "ff6f3ed2987c0b970e946774b1a649104c4f6ff3642171154b2537380005bbf9",
+      "prep.json": "3956eec914ba3bb3b2be42be559905a7d397ccaaf4bedcf7fc746fc4a4f6e412",
+      "fineract_r2_ask.py": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f"
+    },
+    "protocol": "Two independent sequential public CLI calls on one frozen authentic PR head and prepared whole-repository index. Identical English translation of the Polish question, model defaults, no prompt hints or gold or prior answers. Measure from process launch through exit and full stdout. Do not retry model insufficiency or a wrong answer. Allow one separate fresh retry per Windows I/O or transient provider failure after the two first attempts. Paid calls use only production ask. Verify all decisive source in model-selected read responses before first submit. Report any source obtained only after that moment separately.",
+    "baseline_plan_sha256": "058c58048a170d46c8997372984f5d514a49f3bdb9ecfd9881f48ee79956f290"
+  },
+  "question_polish": "W starszym, synchronicznym trybie Fineracta polecenie kończy się błędem HTTP 500 bez treści odpowiedzi. Czy z powodu braku tej treści aplikacja pomija powiadomienie dla zewnętrznej integracji? Jeśli je przygotowuje, po czym w jego danych można poznać błąd i jego kod HTTP?",
+  "output_language_both": "Polish",
+  "english_runs": [
+    {
+      "label": "en-1",
+      "status": "BLOCKED",
+      "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+      "code": 3,
+      "view": {
+        "corpus": "default",
+        "kind": "pull_request",
+        "repositories": [
+          {
+            "id": "fineract",
+            "repository": "apache/fineract",
+            "branch": "FINERACT-3197-legacy-failure-webhook-payload",
+            "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934"
+          }
+        ],
+        "number": 6834,
+        "repository": "fineract"
+      },
+      "wall_seconds": 21.55571909993887,
+      "model": "claude-sonnet-5-5",
+      "live_ids": [
+        "msg_011ChCUXDQU2TaWRgpiBV2RB",
+        "msg_011ChCUXRGqXaWN44YJeW5GJ",
+        "msg_011ChCUXpMQoxxRea8d7NPqJ",
+        "msg_011ChCUXyv8CqpHDzqsRjrKz",
+        "msg_011ChCUY8P7ouR4iqqX3PAfJ"
+      ],
+      "model_calls": 5,
+      "input_tokens": 24791,
+      "output_tokens": 1362,
+      "estimated_usd": 0.063202,
+      "uncosted_calls": 0,
+      "answer": null,
+      "verdict": null,
+      "checks": {
+        "citations": "INCOMPLETE",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "conclusion_review": null,
+      "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\fineract-real-pr-01\\p\\p-23d156d03008eb559fa31caaa577c699\\agent\\qa\\b86adf71e7f04567",
+      "raw_sha256": "aa1b9bb26dd351f838ccee3e8e40ec042893d9246443b47b1547e853563b90bf",
+      "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+      "search_receipts": [
+        {
+          "literal": "SynchronousCommandProcessingService",
+          "path_terms": "",
+          "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+          "operation": "query-checked",
+          "status": "VERIFIED",
+          "count": 17,
+          "result_sha256": "c88c65a2c88c91b592d68ae31238a2b697a44be972375dc832d009b92769eea8",
+          "r2_seconds": {
+            "search": 0.022666400065645576,
+            "checked_verification": 0.009567700093612075,
+            "comparison": 0.0007306999759748578
+          },
+          "seconds": 0.2509612999856472
+        }
+      ],
+      "first_submit": {
+        "answer_pl": "Nie, brak treści odpowiedzi nie powoduje pominięcia powiadomienia. W starym trybie synchronicznym błąd komendy (persistFinalErrorResult) i tak wywołuje publishHookErrorEvent, a ta metoda wywołuje publishHookEvent z obiektem ErrorInfo wygenerowanym z wyjątku. Powiadomienie nie zależy więc od ciała odpowiedzi HTTP. Sam błąd poznaje się po danych zdarzenia: ma ono pole \"status\" = \"Exception\", a w \"response\" jest mapa błędu. Mapa zawiera \"errorCode\" oraz \"statusCode\", czyli kod HTTP, np. 500. Jeśli komunikat błędu nie jest JSON-em, trafia do pola \"errorMessage\". Kod pomija publikację tylko wtedy, gdy commandSource == null, a w transakcji zewnętrznej (batch) publikacja jest odroczona do commitu tylko dla przypadku sukcesu. Błąd jest publikowany od razu. Wyjątki przy samej publikacji są tylko logowane.",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 425,
+            "end": 445,
+            "quote": "errorMap.put(\"statusCode\", ex.getStatusCode());"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 210,
+            "end": 211,
+            "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+          }
+        ]
+      },
+      "published_citations": [],
+      "source_span_coverage": {
+        "decisive_changed_production": [
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 425,
+            "end": 426,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                } else if (result instanceof ErrorInfo ex) {\n                    reqmap.put(\"status\", \"Exception\");",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L426",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              425,
+              426
+            ]
+          },
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 431,
+            "end": 431,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                        errorMap = gson.fromJson(ex.getMessage(), type);",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L431-L431",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              431
+            ]
+          },
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 436,
+            "end": 438,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                    if (errorMap == null) {\n                        errorMap = new HashMap<>();\n                        errorMap.put(\"errorMessage\", ex.getMessage());",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L436-L438",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              436,
+              437,
+              438
+            ]
+          },
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 441,
+            "end": 444,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                    errorMap.put(\"errorCode\", ex.getErrorCode());\n                    errorMap.put(\"statusCode\", ex.getStatusCode());\n\n                    reqmap.put(\"response\", errorMap);",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L441-L444",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              441,
+              442,
+              443,
+              444
+            ]
+          }
+        ],
+        "supplemental_upstream_regression": [
+          {
+            "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+            "start": 485,
+            "end": 490,
+            "blob_id": "eaf8388f05f3e742c5fba8c48a9edc4d6eb1b2a5",
+            "excerpt": "    public void failedCommandPublishesHookEventWhenErrorHasNoBody() {\n        // ErrorHandler serializes a response without an entity to the JSON literal null\n        Map<String, Object> payload = failCommandAndCaptureHookPayload(new ErrorInfo(500, null, \"null\", null));\n\n        assertEquals(\"Exception\", payload.get(\"status\"));\n        assertEquals(500, ((Map<?, ?>) payload.get(\"response\")).get(\"statusCode\"));",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java#L485-L490",
+            "path_returned_by_search": true,
+            "actually_read": false,
+            "first_submit_covers": false,
+            "published_citations_cover": false,
+            "actual_lines_read": []
+          }
+        ],
+        "supplemental_use_of_typed_error": [
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 233,
+            "end": 236,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "    private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {\n        try {\n            publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);\n        } catch (Exception e) {",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L233-L236",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": false,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              233,
+              234,
+              235,
+              236
+            ]
+          }
+        ],
+        "supplemental_internal_event_publication": [
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 447,
+            "end": 454,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                reqmap.put(\"timestamp\", Instant.now().toString());\n\n                final String serializedResult = toApiJsonSerializer.serialize(reqmap);\n\n                final HookEvent applicationEvent = new HookEvent(hookEventSource, serializedResult, appUser,\n                        ThreadLocalContextUtil.getContext());\n\n                eventPublisher.publishEvent(applicationEvent);",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L447-L454",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": false,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              447,
+              448,
+              449,
+              450,
+              451,
+              452,
+              453,
+              454
+            ]
+          }
+        ]
+      },
+      "distinct_paths_read": [
+        "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+        "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandEventPublisher.java"
+      ],
+      "live_evidence_groups_read": {
+        "decisive_changed_production": true,
+        "supplemental_upstream_regression": false,
+        "supplemental_use_of_typed_error": true,
+        "supplemental_internal_event_publication": true
+      },
+      "full_decisive_source_returned_approx_seconds": 16.0730797,
+      "first_java_citation_local_replay": {
+        "status": "BLOCKED",
+        "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git."
+      },
+      "tools_before_first_submit": [
+        {
+          "turn": 1,
+          "tool": "search",
+          "arguments": {
+            "literal": "SynchronousCommandProcessingService"
+          },
+          "error": false
+        },
+        {
+          "turn": 2,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 90,
+            "needle": "publishHookEvent"
+          },
+          "error": false
+        },
+        {
+          "turn": 3,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 225
+          },
+          "error": false
+        },
+        {
+          "turn": 3,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/hooks/command/WebhookCommandEventPublisher.java",
+            "start": 40
+          },
+          "error": false
+        },
+        {
+          "turn": 4,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 340,
+            "needle": "ErrorInfo"
+          },
+          "error": false
+        }
+      ]
+    },
+    {
+      "label": "en-2",
+      "status": "BLOCKED",
+      "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+      "code": 3,
+      "view": {
+        "corpus": "default",
+        "kind": "pull_request",
+        "repositories": [
+          {
+            "id": "fineract",
+            "repository": "apache/fineract",
+            "branch": "FINERACT-3197-legacy-failure-webhook-payload",
+            "commit": "4b11c479d801b45fa2ee285cd85b3e0dc2e11934"
+          }
+        ],
+        "number": 6834,
+        "repository": "fineract"
+      },
+      "wall_seconds": 15.25394620001316,
+      "model": "claude-sonnet-5-5",
+      "live_ids": [
+        "msg_011ChCUYjZTBEmE42zzckdWy",
+        "msg_011ChCUYqsU7FDbscyUtE9aU",
+        "msg_011ChCUYxnSeau8H69vWkSGZ",
+        "msg_011ChCUZ8gkypHbxtNergEBW",
+        "msg_011ChCUZF1m4aVyxRpssLUn3"
+      ],
+      "model_calls": 5,
+      "input_tokens": 24430,
+      "output_tokens": 1332,
+      "estimated_usd": 0.06218,
+      "uncosted_calls": 0,
+      "answer": null,
+      "verdict": null,
+      "checks": {
+        "citations": "INCOMPLETE",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "conclusion_review": null,
+      "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\fineract-real-pr-01\\p\\p-23d156d03008eb559fa31caaa577c699\\agent\\qa\\7049789c2a5149c8",
+      "raw_sha256": "deb1502c57a40ddd7071660532ed203d720293d4bed1687295876a13715f8ed2",
+      "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+      "search_receipts": [
+        {
+          "literal": "SynchronousCommandProcessingService",
+          "path_terms": "",
+          "manifest_sha256": "21b671812cdf309df5a7498f4fd1e0e8cdaf54011b21318fe1c04fc9d184a628",
+          "operation": "query-checked",
+          "status": "VERIFIED",
+          "count": 17,
+          "result_sha256": "c88c65a2c88c91b592d68ae31238a2b697a44be972375dc832d009b92769eea8",
+          "r2_seconds": {
+            "search": 0.02379190002102405,
+            "checked_verification": 0.00957280001603067,
+            "comparison": 0.0007194000063464046
+          },
+          "seconds": 0.25334230007138103
+        }
+      ],
+      "first_submit": {
+        "answer_pl": "Nie, brak treści odpowiedzi HTTP nie powoduje pominięcia powiadomienia. Przy błędzie komenda przechodzi przez persistFinalErrorResult. Ta metoda generuje ErrorInfo i wywołuje publishHookErrorEvent, a ono wywołuje publishHookEvent z ErrorInfo zamiast wyniku. Zdarzenie jest budowane i publikowane tylko wtedy, gdy command.json() nie jest null, czyli gdy samo żądanie komendy zawiera JSON. Zależy to od treści żądania, a nie odpowiedzi. Wyjątki przy publikowaniu są tylko logowane.\n\nBłąd widać w danych zdarzenia: pole \"status\" ma wartość \"Exception\", a w obiekcie \"response\" są \"errorCode\" i \"statusCode\" (np. 500). Jeśli komunikat błędu nie jest JSON-em, trafia do \"errorMessage\".",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 205,
+            "end": 223,
+            "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 425,
+            "end": 445,
+            "quote": "reqmap.put(\"status\", \"Exception\");"
+          },
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 441,
+            "end": 442,
+            "quote": "errorMap.put(\"statusCode\", ex.getStatusCode());"
+          }
+        ]
+      },
+      "published_citations": [],
+      "source_span_coverage": {
+        "decisive_changed_production": [
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 425,
+            "end": 426,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                } else if (result instanceof ErrorInfo ex) {\n                    reqmap.put(\"status\", \"Exception\");",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L426",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              425,
+              426
+            ]
+          },
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 431,
+            "end": 431,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                        errorMap = gson.fromJson(ex.getMessage(), type);",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L431-L431",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              431
+            ]
+          },
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 436,
+            "end": 438,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                    if (errorMap == null) {\n                        errorMap = new HashMap<>();\n                        errorMap.put(\"errorMessage\", ex.getMessage());",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L436-L438",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              436,
+              437,
+              438
+            ]
+          },
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 441,
+            "end": 444,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                    errorMap.put(\"errorCode\", ex.getErrorCode());\n                    errorMap.put(\"statusCode\", ex.getStatusCode());\n\n                    reqmap.put(\"response\", errorMap);",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L441-L444",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": true,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              441,
+              442,
+              443,
+              444
+            ]
+          }
+        ],
+        "supplemental_upstream_regression": [
+          {
+            "path": "fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java",
+            "start": 485,
+            "end": 490,
+            "blob_id": "eaf8388f05f3e742c5fba8c48a9edc4d6eb1b2a5",
+            "excerpt": "    public void failedCommandPublishesHookEventWhenErrorHasNoBody() {\n        // ErrorHandler serializes a response without an entity to the JSON literal null\n        Map<String, Object> payload = failCommandAndCaptureHookPayload(new ErrorInfo(500, null, \"null\", null));\n\n        assertEquals(\"Exception\", payload.get(\"status\"));\n        assertEquals(500, ((Map<?, ?>) payload.get(\"response\")).get(\"statusCode\"));",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-provider/src/test/java/org/apache/fineract/commands/service/SynchronousCommandProcessingServiceTest.java#L485-L490",
+            "path_returned_by_search": true,
+            "actually_read": false,
+            "first_submit_covers": false,
+            "published_citations_cover": false,
+            "actual_lines_read": []
+          }
+        ],
+        "supplemental_use_of_typed_error": [
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 233,
+            "end": 236,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "    private void publishHookErrorEvent(CommandWrapper wrapper, JsonCommand command, ErrorInfo errorInfo) {\n        try {\n            publishHookEvent(wrapper.entityName(), wrapper.actionName(), command, errorInfo);\n        } catch (Exception e) {",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L233-L236",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": false,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              233,
+              234,
+              235,
+              236
+            ]
+          }
+        ],
+        "supplemental_internal_event_publication": [
+          {
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 447,
+            "end": 454,
+            "blob_id": "c15b923e102bd8d0e3cf0d3f646d9633d1d739c4",
+            "excerpt": "                reqmap.put(\"timestamp\", Instant.now().toString());\n\n                final String serializedResult = toApiJsonSerializer.serialize(reqmap);\n\n                final HookEvent applicationEvent = new HookEvent(hookEventSource, serializedResult, appUser,\n                        ThreadLocalContextUtil.getContext());\n\n                eventPublisher.publishEvent(applicationEvent);",
+            "url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L447-L454",
+            "path_returned_by_search": true,
+            "actually_read": true,
+            "first_submit_covers": false,
+            "published_citations_cover": false,
+            "actual_lines_read": [
+              447,
+              448,
+              449,
+              450,
+              451,
+              452,
+              453,
+              454
+            ]
+          }
+        ]
+      },
+      "distinct_paths_read": [
+        "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java"
+      ],
+      "live_evidence_groups_read": {
+        "decisive_changed_production": true,
+        "supplemental_upstream_regression": false,
+        "supplemental_use_of_typed_error": true,
+        "supplemental_internal_event_publication": true
+      },
+      "full_decisive_source_returned_approx_seconds": 9.6483107,
+      "first_java_citation_local_replay": {
+        "status": "BLOCKED",
+        "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git."
+      },
+      "tools_before_first_submit": [
+        {
+          "turn": 1,
+          "tool": "search",
+          "arguments": {
+            "literal": "SynchronousCommandProcessingService"
+          },
+          "error": false
+        },
+        {
+          "turn": 2,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "needle": "publishHookEvent"
+          },
+          "error": false
+        },
+        {
+          "turn": 3,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 225,
+            "needle": "publishHookErrorEvent"
+          },
+          "error": false
+        },
+        {
+          "turn": 3,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 375
+          },
+          "error": false
+        },
+        {
+          "turn": 4,
+          "tool": "read",
+          "arguments": {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+            "start": 425
+          },
+          "error": false
+        }
+      ]
+    }
+  ],
+  "english_grades": {
+    "oracle_sha256": "24e78e579d6473a793abe7a95625d4b9b3ca946313b516b7a1f43b918492315d",
+    "basis": "Independent reading of the first submit and validation of numbered pre-submit read results against the pinned Git. Used the same frozen rubric as Polish trials. Graded the user's three required facts and separately any additional material assertion. The upstream JUnit assertions were read, not executed.",
+    "grades": [
+      {
+        "attempt": "en-1",
+        "public_grade": "no_answer",
+        "public_status": "BLOCKED",
+        "draft_grade": "partial",
+        "all_requested_facts_correct": true,
+        "required_production_spans_read_before_first_submit": 4,
+        "required_production_spans_cited_in_first_submit": 4,
+        "upstream_regression_read_before_first_submit": false,
+        "draft_citation_ranges": [
+          [
+            425,
+            445
+          ],
+          [
+            210,
+            211
+          ]
+        ],
+        "reason_pl": "Szkic poprawnie stwierdza, że sam brak treści błędu nie blokuje przygotowania danych, rozróżnia status Exception i liczbowy response.statusCode równy 500. Dopowiedzenie o jedynym powodzie pominięcia jest błędne. Nawet przy obecnym commandSource zdarzenie nie zostaje zbudowane, jeśli command.json() zwróci null (linia 395). Szkic myli też wywołanie metody publikującej z chwilą publikacji. TransactionBoundApplicationEventPublisher przy aktywnej transakcji i synchronizacji wykonuje doPublish dopiero w afterCommit. Zdanie «Błąd jest publikowany od razu» jest zbyt szerokie.",
+        "references": [
+          "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L390-L405",
+          "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L454",
+          "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/infrastructure/core/service/TransactionBoundApplicationEventPublisher.java#L35-L50"
+        ]
+      },
+      {
+        "attempt": "en-2",
+        "public_grade": "no_answer",
+        "public_status": "BLOCKED",
+        "draft_grade": "full",
+        "all_requested_facts_correct": true,
+        "required_production_spans_read_before_first_submit": 4,
+        "required_production_spans_cited_in_first_submit": 4,
+        "upstream_regression_read_before_first_submit": false,
+        "draft_citation_ranges": [
+          [
+            205,
+            223
+          ],
+          [
+            425,
+            445
+          ],
+          [
+            441,
+            442
+          ]
+        ],
+        "reason_pl": "Szkic poprawnie opisuje wymagane trzy fakty i odróżnia treść żądania od treści odpowiedzi. Sformułowanie «tylko wtedy, gdy command.json() nie jest null» podaje warunek konieczny dla tego miejsca budowania zdarzenia. Nie obiecuje, że obecność JSON-u wystarczy do dostarczenia powiadomienia. Dodatkowe informacje o mapie błędu i obsłudze wyjątków zgadzają się z kodem. Ocena pełna dotyczy konkretnego pytania o HTTP 500 bez treści, a nie każdego możliwego wyjątku.",
+        "references": [
+          "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L204-L223",
+          "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L390-L405",
+          "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L458"
+        ]
+      }
+    ],
+    "totals": {
+      "published": 0,
+      "drafts_with_all_requested_facts": 2,
+      "fully_correct_drafts_including_unrequested_assertions": 1
+    }
+  },
+  "polish_baseline": {
+    "report": "verification\\fineract-real-pr-01.json",
+    "report_sha256": "0f6bea5daf3a9d24333a2d009acdb718681e4e302b973ffe1a7a422e47ac6abd",
+    "timings": {
+      "method": "Discovery timings use the two Windows file modification times of the per-run marker saved just before CLI launch and the tool-results file for the first turn whose returned lines cumulatively cover all prefrozen changed production spans. End-to-end waiting times use the external monotonic clock. Java rule matcher re-run separately offline on the original pinned Git blob and first submitted Java citation.",
+      "rows": [
+        {
+          "trial": "1",
+          "full_decisive_source_returned_approx_seconds": 17.8718681,
+          "monotonic_cli_wall_seconds": 23.688775799935684,
+          "wall_from_file_timestamps": 23.690317,
+          "local_java_check_replay": {
+            "status": "BLOCKED",
+            "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+            "first_java_citation": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 205,
+              "end": 223,
+              "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+            }
+          }
+        },
+        {
+          "trial": "2",
+          "full_decisive_source_returned_approx_seconds": 21.4562076,
+          "monotonic_cli_wall_seconds": 27.216745699988678,
+          "wall_from_file_timestamps": 27.2176783,
+          "local_java_check_replay": {
+            "status": "BLOCKED",
+            "reason": "Nie można ustalić warunku i skutku wybranej reguły w przypiętym Git.",
+            "first_java_citation": {
+              "repository": "fineract",
+              "path": "fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java",
+              "start": 205,
+              "end": 223,
+              "quote": "publishHookErrorEvent(executionContext.wrapper(), executionContext.command(), errorInfo);"
+            }
+          }
+        }
+      ]
+    },
+    "grades": {
+      "oracle_sha256": "24e78e579d6473a793abe7a95625d4b9b3ca946313b516b7a1f43b918492315d",
+      "basis": "Polish text evaluated against the predeclared reference, separately from discovery success, technical status and final publication. Production and test inspected in pinned Git; upstream JUnit was not executed.",
+      "grades": [
+        {
+          "attempt": "1",
+          "public_grade": "no_answer",
+          "draft_grade": "partial",
+          "all_requested_facts_correct": true,
+          "reason_pl": "Szkic poprawnie rozróżnia brak treści błędu i brak JSON polecenia. Podaje status równy Exception na najwyższym poziomie oraz response.statusCode równy 500. Nieuprawnione dopowiedzenie ogranicza wszystkie powody pominięcia powiadomienia do trzech. W wywołaniu generateErrorInfo przed publishHookErrorEvent także może wystąpić błąd, którego te warunki nie wykluczają. Fragment nie stanowi dowodu wyczerpującej enumeracji. W oddzielnej gałęzi linie 161–168 pokazują też, że zapis wyniku może nastąpić przed próbą publikacji."
+        },
+        {
+          "attempt": "2",
+          "public_grade": "no_answer",
+          "draft_grade": "partial",
+          "all_requested_facts_correct": true,
+          "reason_pl": "Szkic zawiera wszystkie trzy wymagane fakty. Twierdzenie, że zdarzenie nie zostaje utworzone tylko w trzech przypadkach, jest zbyt szerokie. Ponadto wyjątek podczas publishEvent nie musi oznaczać, że obiektu zdarzenia nie utworzono: konstrukcja następuje w linii 451 przed wywołaniem w linii 454. Błąd publikacji i brak utworzenia obiektu to różne sytuacje."
+        }
+      ],
+      "source_url": "https://github.com/apache/fineract/blob/4b11c479d801b45fa2ee285cd85b3e0dc2e11934/fineract-core/src/main/java/org/apache/fineract/commands/service/SynchronousCommandProcessingService.java#L425-L454",
+      "totals": {
+        "published": 0,
+        "drafts_with_all_requested_facts": 2,
+        "fully_correct_drafts_including_unrequested_assertions": 0
+      }
+    }
+  },
+  "limits": "One question, two earlier Polish runs followed by two English runs. Same ready index. End-to-end time measured by external monotonic clock. Time to complete source coverage estimated from archived tool result timestamps. English timing excludes one-time index preparation."
+}

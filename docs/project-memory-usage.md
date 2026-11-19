@@ -66,6 +66,44 @@ plików R2. Pliki zostają w katalogu wyniku. Jeśli zapamiętany wynik jest
 niedostępny albo jego pliki się zmieniły, użyj ponownie `otwórz-wynik` w tej
 rozmowie i wskaż zweryfikowany katalog.
 
+## Sesja w jednym procesie
+
+Po otwarciu wyników w rozmowach A i B uruchom sesję z tą samą bazą.
+
+```powershell
+& $projectPython -B -X utf8 $memoryCli --db $memoryDb sesja --rozmowa A
+```
+
+Wpisz kolejno pytania i polecenia przełączania rozmowy.
+
+```text
+a które z tych plików są testami?
+/rozmowa B
+a które z tych plików są testami?
+/rozmowa A
+a które z tych plików są testami?
+/koniec
+```
+
+`/koniec` i koniec wejścia zamykają sesję. Przed wyświetleniem listy program
+ponownie czyta aktywny wynik z SQLite i weryfikuje oba pliki R2. Zmiana
+aktywnego wyniku przez drugi proces jest widoczna przy następnym pytaniu.
+Po błędzie można nadal pytać i przełączać rozmowy.
+
+Opcja `sesja --rozmowa A --interpreter claude` pozwala zadawać pytania
+własnymi słowami. Oba znane sformułowania działają lokalnie. Przy pierwszym
+innym pytaniu sesja tworzy klienta Anthropic i używa go do końca sesji.
+
+Pomiar można odtworzyć poleceniem poniżej z zainstalowanym SDK `anthropic==2.8.0`.
+Skrypt porównuje całe odpowiedzi z opublikowanymi wynikami na osobnej bazie.
+Odtwarza zapisane odpowiedzi dostawcy w lokalnym transporcie SDK bez połączenia
+z API. Mierzy pierwszą odpowiedź od startu procesu oraz 16 kolejnych do
+odebrania ostatniego wiersza.
+
+```powershell
+& $projectPython -B -X utf8 scripts/measure_project_memory_session.py
+```
+
 ## Pytania własnymi słowami
 
 Domyślnie `zapytaj` działa lokalnie i obsługuje dwa ustalone sformułowania.

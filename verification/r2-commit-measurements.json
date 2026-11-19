@@ -1,0 +1,1250 @@
+{
+  "scenario": {
+    "repository": "electron/electron",
+    "id": "electron",
+    "commit_a": "d60ae179985685d75d238ee33e17c15a7b53d703",
+    "tree_a": "fa2587baa940913befc5d539afef827a695dfb73",
+    "commit_b": "a02e699e313706bceb6ed97219d30d825d73597d",
+    "tree_b": "ecf75fcf93ce54516b0929965facccae5fc2d0e4",
+    "changes": [
+      [
+        "M",
+        "docs/README.md"
+      ],
+      [
+        "M",
+        "docs/api/content-tracing.md"
+      ],
+      [
+        "R100",
+        "docs/tutorial/debugging-main-process.md",
+        "docs/tutorial/debugging-main-process-r2-experiment.md"
+      ]
+    ],
+    "rename_blob": "811c87a20057839f6dfd9446ac8729b564fb4da8",
+    "base_result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+    "base_manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9"
+  },
+  "filesystem_cache": "enabled, not cleared",
+  "trials": [
+    {
+      "repeat": 1,
+      "variant": "delta",
+      "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-delta",
+      "commit_to_answer_seconds": 1.3720431999536231,
+      "manifest_seconds": 0.8485528999590315,
+      "index_preparation_seconds": 0.0,
+      "query_seconds": 0.5234135999926366,
+      "manifest_subprocess": {
+        "seconds": 0.8202085000229999,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\prepare_r2_corpus.py",
+          "--scope",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-delta\\scope.json",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-delta\\manifest.json"
+        ],
+        "stdout": "Free bytes before acquisition: 325349785600\nelectron: 2700 regular paths, 2662 distinct blobs, 0 to fetch\nelectron: 26311211 unique blob bytes, 0.09 s\nbrave-core: 50083 regular paths, 44584 distinct blobs, 0 to fetch\nbrave-core: 979224260 unique blob bytes, 0.57 s\nchromium: 80782 regular paths, 74089 distinct blobs, 0 to fetch\nchromium: 781713802 unique blob bytes, 0.73 s\n",
+        "stderr": ""
+      },
+      "index_subprocess": null,
+      "query_subprocess": {
+        "seconds": 0.5234135999926366,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "update-verified",
+          "--base-manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--base-answer",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\profile-study-01\\after\\cross-01",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-delta\\manifest.json",
+          "--literal=chrome://",
+          "--output-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-delta\\answer",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-delta\\query-log"
+        ],
+        "stdout": "{\"status\": \"VERIFIED\", \"manifest_sha256\": \"3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b\", \"literal\": \"chrome://\", \"result_sha256\": \"3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f\", \"count\": 5866, \"repositories\": [{\"repository\": \"chromium/chromium\", \"count\": 5098}, {\"repository\": \"electron/electron\", \"count\": 13}, {\"repository\": \"brave/brave-core\", \"count\": 755}], \"method\": \"Verified base plus SHA-1 checked pinned Git tree delta and new regular blobs\", \"base_manifest_sha256\": \"94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9\", \"base_result_sha256\": \"9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced\", \"delta\": [{\"repository\": \"chromium/chromium\", \"tree_entries_compared\": 0, \"changed_regular_paths\": 0, \"new_regular_paths_checked\": 0, \"git_objects_read\": {\"commit\": {\"count\": 0, \"bytes\": 0}, \"tree\": {\"count\": 0, \"bytes\": 0}, \"blob\": {\"count\": 0, \"bytes\": 0}}}, {\"repository\": \"electron/electron\", \"tree_entries_compared\": 212, \"changed_regular_paths\": 4, \"new_regular_paths_checked\": 3, \"git_objects_read\": {\"commit\": {\"count\": 2, \"bytes\": 1467}, \"tree\": {\"count\": 8, \"bytes\": 18618}, \"blob\": {\"count\": 3, \"bytes\": 10445}}}, {\"repository\": \"brave/brave-core\", \"tree_entries_compared\": 0, \"changed_regular_paths\": 0, \"new_regular_paths_checked\": 0, \"git_objects_read\": {\"commit\": {\"count\": 0, \"bytes\": 0}, \"tree\": {\"count\": 0, \"bytes\": 0}, \"blob\": {\"count\": 0, \"bytes\": 0}}}], \"seconds\": {\"load_verified_base\": 0.03517930000089109, \"git_delta\": 0.2558197999605909, \"serialization_and_comparison\": 0.03654820000519976}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\01-delta\\\\answer\", \"publication_seconds\": 0.003114699968136847}\n",
+        "stderr": ""
+      },
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b",
+        "literal": "chrome://",
+        "result_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "method": "Verified base plus SHA-1 checked pinned Git tree delta and new regular blobs",
+        "base_manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "base_result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+        "delta": [
+          {
+            "repository": "chromium/chromium",
+            "tree_entries_compared": 0,
+            "changed_regular_paths": 0,
+            "new_regular_paths_checked": 0,
+            "git_objects_read": {
+              "commit": {
+                "count": 0,
+                "bytes": 0
+              },
+              "tree": {
+                "count": 0,
+                "bytes": 0
+              },
+              "blob": {
+                "count": 0,
+                "bytes": 0
+              }
+            }
+          },
+          {
+            "repository": "electron/electron",
+            "tree_entries_compared": 212,
+            "changed_regular_paths": 4,
+            "new_regular_paths_checked": 3,
+            "git_objects_read": {
+              "commit": {
+                "count": 2,
+                "bytes": 1467
+              },
+              "tree": {
+                "count": 8,
+                "bytes": 18618
+              },
+              "blob": {
+                "count": 3,
+                "bytes": 10445
+              }
+            }
+          },
+          {
+            "repository": "brave/brave-core",
+            "tree_entries_compared": 0,
+            "changed_regular_paths": 0,
+            "new_regular_paths_checked": 0,
+            "git_objects_read": {
+              "commit": {
+                "count": 0,
+                "bytes": 0
+              },
+              "tree": {
+                "count": 0,
+                "bytes": 0
+              },
+              "blob": {
+                "count": 0,
+                "bytes": 0
+              }
+            }
+          }
+        ],
+        "seconds": {
+          "load_verified_base": 0.03517930000089109,
+          "git_delta": 0.2558197999605909,
+          "serialization_and_comparison": 0.03654820000519976
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-delta\\answer",
+        "publication_seconds": 0.003114699968136847
+      }
+    },
+    {
+      "repeat": 1,
+      "variant": "full",
+      "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full",
+      "commit_to_answer_seconds": 11.261306100001093,
+      "manifest_seconds": 0.8198430000338703,
+      "index_preparation_seconds": 3.6376413999823853,
+      "query_seconds": 6.803784599993378,
+      "manifest_subprocess": {
+        "seconds": 0.7958080999669619,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\prepare_r2_corpus.py",
+          "--scope",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\scope.json",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\manifest.json"
+        ],
+        "stdout": "Free bytes before acquisition: 325348241408\nelectron: 2700 regular paths, 2662 distinct blobs, 0 to fetch\nelectron: 26311211 unique blob bytes, 0.10 s\nbrave-core: 50083 regular paths, 44584 distinct blobs, 0 to fetch\nbrave-core: 979224260 unique blob bytes, 0.56 s\nchromium: 80782 regular paths, 74089 distinct blobs, 0 to fetch\nchromium: 781713802 unique blob bytes, 0.71 s\n",
+        "stderr": ""
+      },
+      "index_subprocess": {
+        "seconds": 3.634120999951847,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "build",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\electron-manifest.json",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\index",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\build-log"
+        ],
+        "stdout": "{\"status\": \"BUILT\", \"manifest_sha256\": \"262c6c9fc7b1c84f7737924dcf188c33eabb4a189e528e39317c911fa0246d23\", \"shards\": {\"electron\": {\"complete\": true, \"schema\": 1, \"snapshot\": {\"repository\": \"electron/electron\", \"url\": \"https://github.com/electron/electron.git\", \"commit\": \"a02e699e313706bceb6ed97219d30d825d73597d\", \"root_tree\": \"ecf75fcf93ce54516b0929965facccae5fc2d0e4\", \"object_format\": \"sha1\", \"regular_paths\": 2700, \"blob_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0}, \"regular_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0, \"blob_paths\": 2700, \"distinct_regular_blobs\": 2662, \"raw_blob_bytes\": 26311211, \"distinct_trigrams\": 496479, \"excluded_symlinks\": [], \"path_and_blob_sets_reconciled\": true, \"build_seconds\": 3.311185900005512, \"index_bytes\": 51535872, \"peak_rss_bytes\": 165343232, \"sha256\": \"5258b7cef479aec0de3acc546e5ab7139297def46f9a525b83c6e5f0ab94ed26\"}}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\01-full\\\\index\", \"publication_seconds\": 0.03999559994554147}\n",
+        "stderr": ""
+      },
+      "query_subprocess": {
+        "seconds": 6.803784599993378,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "query-verified",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\index",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\manifest.json",
+          "--literal=chrome://",
+          "--output-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\answer",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\query-log"
+        ],
+        "stdout": "{\"status\": \"VERIFIED\", \"manifest_sha256\": \"3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b\", \"literal\": \"chrome://\", \"result_sha256\": \"3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f\", \"count\": 5866, \"repositories\": [{\"repository\": \"chromium/chromium\", \"count\": 5098}, {\"repository\": \"electron/electron\", \"count\": 13}, {\"repository\": \"brave/brave-core\", \"count\": 755}], \"inventories\": [{\"repository\": \"chromium/chromium\", \"regular_paths\": 80782, \"blob_paths\": 80785, \"symlinks\": 3, \"gitlinks\": 35, \"distinct_regular_blobs\": 74089, \"excluded_symlinks\": [{\"path\": \"chrome/test/data/ash/clipboard_history/icon128.png\", \"blob_id\": \"b48bcc3be97970b1483a205c8877d57c81fa6e9d\"}, {\"path\": \"chrome/test/data/ash/clipboard_history/icon16.png\", \"blob_id\": \"3d2b3c08841e319e7d0427af893c31c6b2c65314\"}, {\"path\": \"chrome/test/data/ash/clipboard_history/icon2050.png\", \"blob_id\": \"e3ec10f53579dc7a19fb4d53bd555961354f6032\"}], \"distinct_regular_blob_bytes\": 781713802, \"regular_path_bytes\": 789787272}, {\"repository\": \"electron/electron\", \"regular_paths\": 2700, \"blob_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0, \"distinct_regular_blobs\": 2662, \"excluded_symlinks\": [], \"distinct_regular_blob_bytes\": 26311211, \"regular_path_bytes\": 26420463}, {\"repository\": \"brave/brave-core\", \"regular_paths\": 50083, \"blob_paths\": 50099, \"symlinks\": 16, \"gitlinks\": 0, \"distinct_regular_blobs\": 44584, \"excluded_symlinks\": [{\"path\": \"build/mac/cross_compile/path/codesign\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/hdiutil\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/lipo\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/notarytool\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/pkgbuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/plutil\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/productbuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/productsign\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/security\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/spctl\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/sw_vers\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/xcodebuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/xcrun\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js\", \"blob_id\": \"90dc571f145f4a0e4d2659eb66c0236a0f290c21\"}, {\"path\": \"ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition\", \"blob_id\": \"de23ff59f70f7edc1b628ff14db738129fe366e5\"}, {\"path\": \"ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition\", \"blob_id\": \"564b39b55a513419a3f97f38c89c6b8cc031eb1b\"}], \"distinct_regular_blob_bytes\": 979224260, \"regular_path_bytes\": 1031524918}], \"method\": \"SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison\", \"seconds\": {\"search\": 0.7109104000264779, \"git_scan\": 5.834051899961196, \"git_scan_per_repository\": [5.832952100026887, 0.4528199000051245, 5.401453600032255], \"comparison\": 0.02165529999183491}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\01-full\\\\answer\", \"publication_seconds\": 0.006567500007804483}\n",
+        "stderr": ""
+      },
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b",
+        "literal": "chrome://",
+        "result_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311211,
+            "regular_path_bytes": 26420463
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.7109104000264779,
+          "git_scan": 5.834051899961196,
+          "git_scan_per_repository": [
+            5.832952100026887,
+            0.4528199000051245,
+            5.401453600032255
+          ],
+          "comparison": 0.02165529999183491
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\01-full\\answer",
+        "publication_seconds": 0.006567500007804483
+      }
+    },
+    {
+      "repeat": 2,
+      "variant": "full",
+      "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full",
+      "commit_to_answer_seconds": 11.17482110002311,
+      "manifest_seconds": 0.858267400006298,
+      "index_preparation_seconds": 3.607738899998367,
+      "query_seconds": 6.7087333999807015,
+      "manifest_subprocess": {
+        "seconds": 0.8320490999612957,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\prepare_r2_corpus.py",
+          "--scope",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\scope.json",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\manifest.json"
+        ],
+        "stdout": "Free bytes before acquisition: 325294997504\nelectron: 2700 regular paths, 2662 distinct blobs, 0 to fetch\nelectron: 26311211 unique blob bytes, 0.09 s\nbrave-core: 50083 regular paths, 44584 distinct blobs, 0 to fetch\nbrave-core: 979224260 unique blob bytes, 0.57 s\nchromium: 80782 regular paths, 74089 distinct blobs, 0 to fetch\nchromium: 781713802 unique blob bytes, 0.71 s\n",
+        "stderr": ""
+      },
+      "index_subprocess": {
+        "seconds": 3.6035941999871284,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "build",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\electron-manifest.json",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\index",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\build-log"
+        ],
+        "stdout": "{\"status\": \"BUILT\", \"manifest_sha256\": \"262c6c9fc7b1c84f7737924dcf188c33eabb4a189e528e39317c911fa0246d23\", \"shards\": {\"electron\": {\"complete\": true, \"schema\": 1, \"snapshot\": {\"repository\": \"electron/electron\", \"url\": \"https://github.com/electron/electron.git\", \"commit\": \"a02e699e313706bceb6ed97219d30d825d73597d\", \"root_tree\": \"ecf75fcf93ce54516b0929965facccae5fc2d0e4\", \"object_format\": \"sha1\", \"regular_paths\": 2700, \"blob_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0}, \"regular_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0, \"blob_paths\": 2700, \"distinct_regular_blobs\": 2662, \"raw_blob_bytes\": 26311211, \"distinct_trigrams\": 496479, \"excluded_symlinks\": [], \"path_and_blob_sets_reconciled\": true, \"build_seconds\": 3.27940130000934, \"index_bytes\": 51535872, \"peak_rss_bytes\": 165011456, \"sha256\": \"5258b7cef479aec0de3acc546e5ab7139297def46f9a525b83c6e5f0ab94ed26\"}}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\02-full\\\\index\", \"publication_seconds\": 0.03198790003079921}\n",
+        "stderr": ""
+      },
+      "query_subprocess": {
+        "seconds": 6.7087333999807015,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "query-verified",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\index",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\manifest.json",
+          "--literal=chrome://",
+          "--output-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\answer",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\query-log"
+        ],
+        "stdout": "{\"status\": \"VERIFIED\", \"manifest_sha256\": \"3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b\", \"literal\": \"chrome://\", \"result_sha256\": \"3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f\", \"count\": 5866, \"repositories\": [{\"repository\": \"chromium/chromium\", \"count\": 5098}, {\"repository\": \"electron/electron\", \"count\": 13}, {\"repository\": \"brave/brave-core\", \"count\": 755}], \"inventories\": [{\"repository\": \"chromium/chromium\", \"regular_paths\": 80782, \"blob_paths\": 80785, \"symlinks\": 3, \"gitlinks\": 35, \"distinct_regular_blobs\": 74089, \"excluded_symlinks\": [{\"path\": \"chrome/test/data/ash/clipboard_history/icon128.png\", \"blob_id\": \"b48bcc3be97970b1483a205c8877d57c81fa6e9d\"}, {\"path\": \"chrome/test/data/ash/clipboard_history/icon16.png\", \"blob_id\": \"3d2b3c08841e319e7d0427af893c31c6b2c65314\"}, {\"path\": \"chrome/test/data/ash/clipboard_history/icon2050.png\", \"blob_id\": \"e3ec10f53579dc7a19fb4d53bd555961354f6032\"}], \"distinct_regular_blob_bytes\": 781713802, \"regular_path_bytes\": 789787272}, {\"repository\": \"electron/electron\", \"regular_paths\": 2700, \"blob_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0, \"distinct_regular_blobs\": 2662, \"excluded_symlinks\": [], \"distinct_regular_blob_bytes\": 26311211, \"regular_path_bytes\": 26420463}, {\"repository\": \"brave/brave-core\", \"regular_paths\": 50083, \"blob_paths\": 50099, \"symlinks\": 16, \"gitlinks\": 0, \"distinct_regular_blobs\": 44584, \"excluded_symlinks\": [{\"path\": \"build/mac/cross_compile/path/codesign\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/hdiutil\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/lipo\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/notarytool\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/pkgbuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/plutil\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/productbuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/productsign\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/security\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/spctl\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/sw_vers\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/xcodebuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/xcrun\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js\", \"blob_id\": \"90dc571f145f4a0e4d2659eb66c0236a0f290c21\"}, {\"path\": \"ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition\", \"blob_id\": \"de23ff59f70f7edc1b628ff14db738129fe366e5\"}, {\"path\": \"ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition\", \"blob_id\": \"564b39b55a513419a3f97f38c89c6b8cc031eb1b\"}], \"distinct_regular_blob_bytes\": 979224260, \"regular_path_bytes\": 1031524918}], \"method\": \"SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison\", \"seconds\": {\"search\": 0.6946925999945961, \"git_scan\": 5.772200800012797, \"git_scan_per_repository\": [5.771174900000915, 0.42618640000000596, 5.466476900037378], \"comparison\": 0.022864600003231317}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\02-full\\\\answer\", \"publication_seconds\": 0.004189200000837445}\n",
+        "stderr": ""
+      },
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b",
+        "literal": "chrome://",
+        "result_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311211,
+            "regular_path_bytes": 26420463
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.6946925999945961,
+          "git_scan": 5.772200800012797,
+          "git_scan_per_repository": [
+            5.771174900000915,
+            0.42618640000000596,
+            5.466476900037378
+          ],
+          "comparison": 0.022864600003231317
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-full\\answer",
+        "publication_seconds": 0.004189200000837445
+      }
+    },
+    {
+      "repeat": 2,
+      "variant": "delta",
+      "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-delta",
+      "commit_to_answer_seconds": 1.3675274000270292,
+      "manifest_seconds": 0.827236500044819,
+      "index_preparation_seconds": 0.0,
+      "query_seconds": 0.5402355000260286,
+      "manifest_subprocess": {
+        "seconds": 0.8028027999680489,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\prepare_r2_corpus.py",
+          "--scope",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-delta\\scope.json",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-delta\\manifest.json"
+        ],
+        "stdout": "Free bytes before acquisition: 325241597952\nelectron: 2700 regular paths, 2662 distinct blobs, 0 to fetch\nelectron: 26311211 unique blob bytes, 0.10 s\nbrave-core: 50083 regular paths, 44584 distinct blobs, 0 to fetch\nbrave-core: 979224260 unique blob bytes, 0.56 s\nchromium: 80782 regular paths, 74089 distinct blobs, 0 to fetch\nchromium: 781713802 unique blob bytes, 0.72 s\n",
+        "stderr": ""
+      },
+      "index_subprocess": null,
+      "query_subprocess": {
+        "seconds": 0.5402355000260286,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "update-verified",
+          "--base-manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--base-answer",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\profile-study-01\\after\\cross-01",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-delta\\manifest.json",
+          "--literal=chrome://",
+          "--output-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-delta\\answer",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-delta\\query-log"
+        ],
+        "stdout": "{\"status\": \"VERIFIED\", \"manifest_sha256\": \"3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b\", \"literal\": \"chrome://\", \"result_sha256\": \"3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f\", \"count\": 5866, \"repositories\": [{\"repository\": \"chromium/chromium\", \"count\": 5098}, {\"repository\": \"electron/electron\", \"count\": 13}, {\"repository\": \"brave/brave-core\", \"count\": 755}], \"method\": \"Verified base plus SHA-1 checked pinned Git tree delta and new regular blobs\", \"base_manifest_sha256\": \"94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9\", \"base_result_sha256\": \"9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced\", \"delta\": [{\"repository\": \"chromium/chromium\", \"tree_entries_compared\": 0, \"changed_regular_paths\": 0, \"new_regular_paths_checked\": 0, \"git_objects_read\": {\"commit\": {\"count\": 0, \"bytes\": 0}, \"tree\": {\"count\": 0, \"bytes\": 0}, \"blob\": {\"count\": 0, \"bytes\": 0}}}, {\"repository\": \"electron/electron\", \"tree_entries_compared\": 212, \"changed_regular_paths\": 4, \"new_regular_paths_checked\": 3, \"git_objects_read\": {\"commit\": {\"count\": 2, \"bytes\": 1467}, \"tree\": {\"count\": 8, \"bytes\": 18618}, \"blob\": {\"count\": 3, \"bytes\": 10445}}}, {\"repository\": \"brave/brave-core\", \"tree_entries_compared\": 0, \"changed_regular_paths\": 0, \"new_regular_paths_checked\": 0, \"git_objects_read\": {\"commit\": {\"count\": 0, \"bytes\": 0}, \"tree\": {\"count\": 0, \"bytes\": 0}, \"blob\": {\"count\": 0, \"bytes\": 0}}}], \"seconds\": {\"load_verified_base\": 0.03752050001639873, \"git_delta\": 0.2586222999962047, \"serialization_and_comparison\": 0.03820220002671704}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\02-delta\\\\answer\", \"publication_seconds\": 0.003080700000282377}\n",
+        "stderr": ""
+      },
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b",
+        "literal": "chrome://",
+        "result_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "method": "Verified base plus SHA-1 checked pinned Git tree delta and new regular blobs",
+        "base_manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "base_result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+        "delta": [
+          {
+            "repository": "chromium/chromium",
+            "tree_entries_compared": 0,
+            "changed_regular_paths": 0,
+            "new_regular_paths_checked": 0,
+            "git_objects_read": {
+              "commit": {
+                "count": 0,
+                "bytes": 0
+              },
+              "tree": {
+                "count": 0,
+                "bytes": 0
+              },
+              "blob": {
+                "count": 0,
+                "bytes": 0
+              }
+            }
+          },
+          {
+            "repository": "electron/electron",
+            "tree_entries_compared": 212,
+            "changed_regular_paths": 4,
+            "new_regular_paths_checked": 3,
+            "git_objects_read": {
+              "commit": {
+                "count": 2,
+                "bytes": 1467
+              },
+              "tree": {
+                "count": 8,
+                "bytes": 18618
+              },
+              "blob": {
+                "count": 3,
+                "bytes": 10445
+              }
+            }
+          },
+          {
+            "repository": "brave/brave-core",
+            "tree_entries_compared": 0,
+            "changed_regular_paths": 0,
+            "new_regular_paths_checked": 0,
+            "git_objects_read": {
+              "commit": {
+                "count": 0,
+                "bytes": 0
+              },
+              "tree": {
+                "count": 0,
+                "bytes": 0
+              },
+              "blob": {
+                "count": 0,
+                "bytes": 0
+              }
+            }
+          }
+        ],
+        "seconds": {
+          "load_verified_base": 0.03752050001639873,
+          "git_delta": 0.2586222999962047,
+          "serialization_and_comparison": 0.03820220002671704
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\02-delta\\answer",
+        "publication_seconds": 0.003080700000282377
+      }
+    },
+    {
+      "repeat": 3,
+      "variant": "delta",
+      "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-delta",
+      "commit_to_answer_seconds": 1.397331000014674,
+      "manifest_seconds": 0.8296617000014521,
+      "index_preparation_seconds": 0.0,
+      "query_seconds": 0.5676111999782734,
+      "manifest_subprocess": {
+        "seconds": 0.802802000020165,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\prepare_r2_corpus.py",
+          "--scope",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-delta\\scope.json",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-delta\\manifest.json"
+        ],
+        "stdout": "Free bytes before acquisition: 325240053760\nelectron: 2700 regular paths, 2662 distinct blobs, 0 to fetch\nelectron: 26311211 unique blob bytes, 0.10 s\nbrave-core: 50083 regular paths, 44584 distinct blobs, 0 to fetch\nbrave-core: 979224260 unique blob bytes, 0.55 s\nchromium: 80782 regular paths, 74089 distinct blobs, 0 to fetch\nchromium: 781713802 unique blob bytes, 0.72 s\n",
+        "stderr": ""
+      },
+      "index_subprocess": null,
+      "query_subprocess": {
+        "seconds": 0.5676111999782734,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "update-verified",
+          "--base-manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+          "--base-answer",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\profile-study-01\\after\\cross-01",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-delta\\manifest.json",
+          "--literal=chrome://",
+          "--output-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-delta\\answer",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-delta\\query-log"
+        ],
+        "stdout": "{\"status\": \"VERIFIED\", \"manifest_sha256\": \"3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b\", \"literal\": \"chrome://\", \"result_sha256\": \"3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f\", \"count\": 5866, \"repositories\": [{\"repository\": \"chromium/chromium\", \"count\": 5098}, {\"repository\": \"electron/electron\", \"count\": 13}, {\"repository\": \"brave/brave-core\", \"count\": 755}], \"method\": \"Verified base plus SHA-1 checked pinned Git tree delta and new regular blobs\", \"base_manifest_sha256\": \"94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9\", \"base_result_sha256\": \"9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced\", \"delta\": [{\"repository\": \"chromium/chromium\", \"tree_entries_compared\": 0, \"changed_regular_paths\": 0, \"new_regular_paths_checked\": 0, \"git_objects_read\": {\"commit\": {\"count\": 0, \"bytes\": 0}, \"tree\": {\"count\": 0, \"bytes\": 0}, \"blob\": {\"count\": 0, \"bytes\": 0}}}, {\"repository\": \"electron/electron\", \"tree_entries_compared\": 212, \"changed_regular_paths\": 4, \"new_regular_paths_checked\": 3, \"git_objects_read\": {\"commit\": {\"count\": 2, \"bytes\": 1467}, \"tree\": {\"count\": 8, \"bytes\": 18618}, \"blob\": {\"count\": 3, \"bytes\": 10445}}}, {\"repository\": \"brave/brave-core\", \"tree_entries_compared\": 0, \"changed_regular_paths\": 0, \"new_regular_paths_checked\": 0, \"git_objects_read\": {\"commit\": {\"count\": 0, \"bytes\": 0}, \"tree\": {\"count\": 0, \"bytes\": 0}, \"blob\": {\"count\": 0, \"bytes\": 0}}}], \"seconds\": {\"load_verified_base\": 0.04013499995926395, \"git_delta\": 0.2645660000271164, \"serialization_and_comparison\": 0.03788449999410659}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\03-delta\\\\answer\", \"publication_seconds\": 0.0038056999910622835}\n",
+        "stderr": ""
+      },
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b",
+        "literal": "chrome://",
+        "result_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "method": "Verified base plus SHA-1 checked pinned Git tree delta and new regular blobs",
+        "base_manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "base_result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+        "delta": [
+          {
+            "repository": "chromium/chromium",
+            "tree_entries_compared": 0,
+            "changed_regular_paths": 0,
+            "new_regular_paths_checked": 0,
+            "git_objects_read": {
+              "commit": {
+                "count": 0,
+                "bytes": 0
+              },
+              "tree": {
+                "count": 0,
+                "bytes": 0
+              },
+              "blob": {
+                "count": 0,
+                "bytes": 0
+              }
+            }
+          },
+          {
+            "repository": "electron/electron",
+            "tree_entries_compared": 212,
+            "changed_regular_paths": 4,
+            "new_regular_paths_checked": 3,
+            "git_objects_read": {
+              "commit": {
+                "count": 2,
+                "bytes": 1467
+              },
+              "tree": {
+                "count": 8,
+                "bytes": 18618
+              },
+              "blob": {
+                "count": 3,
+                "bytes": 10445
+              }
+            }
+          },
+          {
+            "repository": "brave/brave-core",
+            "tree_entries_compared": 0,
+            "changed_regular_paths": 0,
+            "new_regular_paths_checked": 0,
+            "git_objects_read": {
+              "commit": {
+                "count": 0,
+                "bytes": 0
+              },
+              "tree": {
+                "count": 0,
+                "bytes": 0
+              },
+              "blob": {
+                "count": 0,
+                "bytes": 0
+              }
+            }
+          }
+        ],
+        "seconds": {
+          "load_verified_base": 0.04013499995926395,
+          "git_delta": 0.2645660000271164,
+          "serialization_and_comparison": 0.03788449999410659
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-delta\\answer",
+        "publication_seconds": 0.0038056999910622835
+      }
+    },
+    {
+      "repeat": 3,
+      "variant": "full",
+      "directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full",
+      "commit_to_answer_seconds": 11.341074399999343,
+      "manifest_seconds": 0.8391491000074893,
+      "index_preparation_seconds": 3.7829913000459783,
+      "query_seconds": 6.718891599972267,
+      "manifest_subprocess": {
+        "seconds": 0.8150432999827899,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\prepare_r2_corpus.py",
+          "--scope",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\scope.json",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\manifest.json"
+        ],
+        "stdout": "Free bytes before acquisition: 325238509568\nelectron: 2700 regular paths, 2662 distinct blobs, 0 to fetch\nelectron: 26311211 unique blob bytes, 0.10 s\nbrave-core: 50083 regular paths, 44584 distinct blobs, 0 to fetch\nbrave-core: 979224260 unique blob bytes, 0.56 s\nchromium: 80782 regular paths, 74089 distinct blobs, 0 to fetch\nchromium: 781713802 unique blob bytes, 0.72 s\n",
+        "stderr": ""
+      },
+      "index_subprocess": {
+        "seconds": 3.7793878000229597,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "build",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\electron-manifest.json",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\index",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\build-log"
+        ],
+        "stdout": "{\"status\": \"BUILT\", \"manifest_sha256\": \"262c6c9fc7b1c84f7737924dcf188c33eabb4a189e528e39317c911fa0246d23\", \"shards\": {\"electron\": {\"complete\": true, \"schema\": 1, \"snapshot\": {\"repository\": \"electron/electron\", \"url\": \"https://github.com/electron/electron.git\", \"commit\": \"a02e699e313706bceb6ed97219d30d825d73597d\", \"root_tree\": \"ecf75fcf93ce54516b0929965facccae5fc2d0e4\", \"object_format\": \"sha1\", \"regular_paths\": 2700, \"blob_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0}, \"regular_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0, \"blob_paths\": 2700, \"distinct_regular_blobs\": 2662, \"raw_blob_bytes\": 26311211, \"distinct_trigrams\": 496479, \"excluded_symlinks\": [], \"path_and_blob_sets_reconciled\": true, \"build_seconds\": 3.450708799995482, \"index_bytes\": 51535872, \"peak_rss_bytes\": 165330944, \"sha256\": \"5258b7cef479aec0de3acc546e5ab7139297def46f9a525b83c6e5f0ab94ed26\"}}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\03-full\\\\index\", \"publication_seconds\": 0.03328669996699318}\n",
+        "stderr": ""
+      },
+      "query_subprocess": {
+        "seconds": 6.718891599972267,
+        "argv": [
+          "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+          "query-verified",
+          "--index",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\index",
+          "--sources",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\sources",
+          "--manifest",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\manifest.json",
+          "--literal=chrome://",
+          "--output-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\answer",
+          "--log-dir",
+          "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\query-log"
+        ],
+        "stdout": "{\"status\": \"VERIFIED\", \"manifest_sha256\": \"3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b\", \"literal\": \"chrome://\", \"result_sha256\": \"3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f\", \"count\": 5866, \"repositories\": [{\"repository\": \"chromium/chromium\", \"count\": 5098}, {\"repository\": \"electron/electron\", \"count\": 13}, {\"repository\": \"brave/brave-core\", \"count\": 755}], \"inventories\": [{\"repository\": \"chromium/chromium\", \"regular_paths\": 80782, \"blob_paths\": 80785, \"symlinks\": 3, \"gitlinks\": 35, \"distinct_regular_blobs\": 74089, \"excluded_symlinks\": [{\"path\": \"chrome/test/data/ash/clipboard_history/icon128.png\", \"blob_id\": \"b48bcc3be97970b1483a205c8877d57c81fa6e9d\"}, {\"path\": \"chrome/test/data/ash/clipboard_history/icon16.png\", \"blob_id\": \"3d2b3c08841e319e7d0427af893c31c6b2c65314\"}, {\"path\": \"chrome/test/data/ash/clipboard_history/icon2050.png\", \"blob_id\": \"e3ec10f53579dc7a19fb4d53bd555961354f6032\"}], \"distinct_regular_blob_bytes\": 781713802, \"regular_path_bytes\": 789787272}, {\"repository\": \"electron/electron\", \"regular_paths\": 2700, \"blob_paths\": 2700, \"symlinks\": 0, \"gitlinks\": 0, \"distinct_regular_blobs\": 2662, \"excluded_symlinks\": [], \"distinct_regular_blob_bytes\": 26311211, \"regular_path_bytes\": 26420463}, {\"repository\": \"brave/brave-core\", \"regular_paths\": 50083, \"blob_paths\": 50099, \"symlinks\": 16, \"gitlinks\": 0, \"distinct_regular_blobs\": 44584, \"excluded_symlinks\": [{\"path\": \"build/mac/cross_compile/path/codesign\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/hdiutil\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/lipo\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/notarytool\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/pkgbuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/plutil\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/productbuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/productsign\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/security\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/spctl\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/sw_vers\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/xcodebuild\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"build/mac/cross_compile/path/xcrun\", \"blob_id\": \"2942085a4b390c7f6c7aef7d13d2ec80121f5af9\"}, {\"path\": \"ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js\", \"blob_id\": \"90dc571f145f4a0e4d2659eb66c0236a0f290c21\"}, {\"path\": \"ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition\", \"blob_id\": \"de23ff59f70f7edc1b628ff14db738129fe366e5\"}, {\"path\": \"ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition\", \"blob_id\": \"564b39b55a513419a3f97f38c89c6b8cc031eb1b\"}], \"distinct_regular_blob_bytes\": 979224260, \"regular_path_bytes\": 1031524918}], \"method\": \"SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison\", \"seconds\": {\"search\": 0.698417600011453, \"git_scan\": 5.759158700006083, \"git_scan_per_repository\": [5.758071399992332, 0.421393700002227, 5.4720538999536075], \"comparison\": 0.027082799992058426}, \"output_directory\": \"C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\r2-scale\\\\commit-study-03\\\\measure-01\\\\03-full\\\\answer\", \"publication_seconds\": 0.005550500005483627}\n",
+        "stderr": ""
+      },
+      "response": {
+        "status": "VERIFIED",
+        "manifest_sha256": "3e40b14efc0687e8b5d1ab65db374b01f7eadec67a2d333aff2ef7a9c925e04b",
+        "literal": "chrome://",
+        "result_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+        "count": 5866,
+        "repositories": [
+          {
+            "repository": "chromium/chromium",
+            "count": 5098
+          },
+          {
+            "repository": "electron/electron",
+            "count": 13
+          },
+          {
+            "repository": "brave/brave-core",
+            "count": 755
+          }
+        ],
+        "inventories": [
+          {
+            "repository": "chromium/chromium",
+            "regular_paths": 80782,
+            "blob_paths": 80785,
+            "symlinks": 3,
+            "gitlinks": 35,
+            "distinct_regular_blobs": 74089,
+            "excluded_symlinks": [
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+                "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+                "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+              },
+              {
+                "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+                "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+              }
+            ],
+            "distinct_regular_blob_bytes": 781713802,
+            "regular_path_bytes": 789787272
+          },
+          {
+            "repository": "electron/electron",
+            "regular_paths": 2700,
+            "blob_paths": 2700,
+            "symlinks": 0,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 2662,
+            "excluded_symlinks": [],
+            "distinct_regular_blob_bytes": 26311211,
+            "regular_path_bytes": 26420463
+          },
+          {
+            "repository": "brave/brave-core",
+            "regular_paths": 50083,
+            "blob_paths": 50099,
+            "symlinks": 16,
+            "gitlinks": 0,
+            "distinct_regular_blobs": 44584,
+            "excluded_symlinks": [
+              {
+                "path": "build/mac/cross_compile/path/codesign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/hdiutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/lipo",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/notarytool",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/pkgbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/plutil",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productbuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/productsign",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/security",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/spctl",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/sw_vers",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcodebuild",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "build/mac/cross_compile/path/xcrun",
+                "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+              },
+              {
+                "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+                "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+                "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+              },
+              {
+                "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+                "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+              }
+            ],
+            "distinct_regular_blob_bytes": 979224260,
+            "regular_path_bytes": 1031524918
+          }
+        ],
+        "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+        "seconds": {
+          "search": 0.698417600011453,
+          "git_scan": 5.759158700006083,
+          "git_scan_per_repository": [
+            5.758071399992332,
+            0.421393700002227,
+            5.4720538999536075
+          ],
+          "comparison": 0.027082799992058426
+        },
+        "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\commit-study-03\\measure-01\\03-full\\answer",
+        "publication_seconds": 0.005550500005483627
+      }
+    }
+  ],
+  "checks": [
+    {
+      "repeat": 1,
+      "answers_byte_identical": true,
+      "answer_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+      "full_answer_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+      "expected_full_hit_map": true,
+      "new_name_occurrences": 1,
+      "removed_hits_absent": true,
+      "added_hits_present": true,
+      "retained_hits": 5864
+    },
+    {
+      "repeat": 2,
+      "answers_byte_identical": true,
+      "answer_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+      "full_answer_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+      "expected_full_hit_map": true,
+      "new_name_occurrences": 1,
+      "removed_hits_absent": true,
+      "added_hits_present": true,
+      "retained_hits": 5864
+    },
+    {
+      "repeat": 3,
+      "answers_byte_identical": true,
+      "answer_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+      "full_answer_sha256": "3e98fa0a2fbe7c7eae87944ae0c49f0098c3b1500cb80ba4b44d9d131525834f",
+      "expected_full_hit_map": true,
+      "new_name_occurrences": 1,
+      "removed_hits_absent": true,
+      "added_hits_present": true,
+      "retained_hits": 5864
+    }
+  ],
+  "summary": {
+    "delta": {
+      "commit_to_answer_seconds": {
+        "seconds": [
+          1.3720431999536231,
+          1.3675274000270292,
+          1.397331000014674
+        ],
+        "median": 1.3720431999536231,
+        "min": 1.3675274000270292,
+        "max": 1.397331000014674
+      },
+      "manifest_seconds": {
+        "seconds": [
+          0.8485528999590315,
+          0.827236500044819,
+          0.8296617000014521
+        ],
+        "median": 0.8296617000014521,
+        "min": 0.827236500044819,
+        "max": 0.8485528999590315
+      },
+      "index_preparation_seconds": {
+        "seconds": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "query_seconds": {
+        "seconds": [
+          0.5234135999926366,
+          0.5402355000260286,
+          0.5676111999782734
+        ],
+        "median": 0.5402355000260286,
+        "min": 0.5234135999926366,
+        "max": 0.5676111999782734
+      }
+    },
+    "full": {
+      "commit_to_answer_seconds": {
+        "seconds": [
+          11.261306100001093,
+          11.17482110002311,
+          11.341074399999343
+        ],
+        "median": 11.261306100001093,
+        "min": 11.17482110002311,
+        "max": 11.341074399999343
+      },
+      "manifest_seconds": {
+        "seconds": [
+          0.8198430000338703,
+          0.858267400006298,
+          0.8391491000074893
+        ],
+        "median": 0.8391491000074893,
+        "min": 0.8198430000338703,
+        "max": 0.858267400006298
+      },
+      "index_preparation_seconds": {
+        "seconds": [
+          3.6376413999823853,
+          3.607738899998367,
+          3.7829913000459783
+        ],
+        "median": 3.6376413999823853,
+        "min": 3.607738899998367,
+        "max": 3.7829913000459783
+      },
+      "query_seconds": {
+        "seconds": [
+          6.803784599993378,
+          6.7087333999807015,
+          6.718891599972267
+        ],
+        "median": 6.718891599972267,
+        "min": 6.7087333999807015,
+        "max": 6.803784599993378
+      }
+    }
+  }
+}

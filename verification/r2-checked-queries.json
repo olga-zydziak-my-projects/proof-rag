@@ -1,0 +1,173 @@
+{
+  "checked_index_sha256": "0e4d35e67f0180af690929b07becdd61e548a87e4d44f507ef8ddc065a6059d9",
+  "receipt_written_utc": "2026-11-18T22:36:23.914223+00:00",
+  "selected_utc": "2026-11-18T22:36:56.834529+00:00",
+  "selection": "After the shared index was published, exact index-only reconnaissance for ASCII identifiers and URL/header fragments spanning the corpus. Order: WebContents, absence sentinel, rarest positive, then the first 17 other positive literals in reconnaissance order.",
+  "repositories": [
+    "chromium/chromium",
+    "electron/electron",
+    "brave/brave-core"
+  ],
+  "queries": [
+    {
+      "literal": "content::WebContents",
+      "expected_counts_from_reconnaissance": [
+        5042,
+        110,
+        513
+      ]
+    },
+    {
+      "literal": "R2_CHECKED_ABSENCE_48C7DE962EBB",
+      "expected_counts_from_reconnaissance": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "literal": "Electron is built on",
+      "expected_counts_from_reconnaissance": [
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "literal": "mojo::PendingReceiver",
+      "expected_counts_from_reconnaissance": [
+        1187,
+        43,
+        231
+      ]
+    },
+    {
+      "literal": "node::Environment",
+      "expected_counts_from_reconnaissance": [
+        0,
+        18,
+        0
+      ]
+    },
+    {
+      "literal": "v8::Isolate",
+      "expected_counts_from_reconnaissance": [
+        41,
+        280,
+        47
+      ]
+    },
+    {
+      "literal": "WebContentsObserver",
+      "expected_counts_from_reconnaissance": [
+        874,
+        36,
+        102
+      ]
+    },
+    {
+      "literal": "BraveWallet",
+      "expected_counts_from_reconnaissance": [
+        0,
+        0,
+        940
+      ]
+    },
+    {
+      "literal": "chrome-untrusted://",
+      "expected_counts_from_reconnaissance": [
+        246,
+        2,
+        61
+      ]
+    },
+    {
+      "literal": "ExtensionHost",
+      "expected_counts_from_reconnaissance": [
+        161,
+        7,
+        1
+      ]
+    },
+    {
+      "literal": "base::BindOnce",
+      "expected_counts_from_reconnaissance": [
+        4653,
+        125,
+        632
+      ]
+    },
+    {
+      "literal": "WeakPtrFactory",
+      "expected_counts_from_reconnaissance": [
+        2984,
+        66,
+        410
+      ]
+    },
+    {
+      "literal": "SkBitmap",
+      "expected_counts_from_reconnaissance": [
+        684,
+        39,
+        55
+      ]
+    },
+    {
+      "literal": "GetBrowserContext",
+      "expected_counts_from_reconnaissance": [
+        1114,
+        46,
+        153
+      ]
+    },
+    {
+      "literal": "navigator.userAgent",
+      "expected_counts_from_reconnaissance": [
+        34,
+        5,
+        88
+      ]
+    },
+    {
+      "literal": "X-Content-Type-Options",
+      "expected_counts_from_reconnaissance": [
+        16,
+        0,
+        4
+      ]
+    },
+    {
+      "literal": "ELECTRON_ENABLE_LOGGING",
+      "expected_counts_from_reconnaissance": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "literal": "BrowserMainParts",
+      "expected_counts_from_reconnaissance": [
+        118,
+        11,
+        11
+      ]
+    },
+    {
+      "literal": "ChromeContentBrowserClient",
+      "expected_counts_from_reconnaissance": [
+        111,
+        0,
+        9
+      ]
+    },
+    {
+      "literal": "BRAVE_SHIELDS",
+      "expected_counts_from_reconnaissance": [
+        0,
+        0,
+        116
+      ]
+    }
+  ]
+}

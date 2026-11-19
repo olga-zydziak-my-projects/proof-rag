@@ -1,0 +1,3818 @@
+{
+  "date": "2026-11-19",
+  "model": "claude-sonnet-5-5",
+  "program_sha256": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f",
+  "methodology_pl": "Sześć nowych pytań (trzy na repozytorium), każde dwukrotnie w obu trybach. Te same pytania i commity, gotowe indeksy na rozgrzanym hoście. Procesy CLI uruchamiane kolejno, odwrócona kolejność w drugiej parze tego samego pytania. Zmierzono od uruchomienia procesu do końca wyjścia z odpowiedzią lub błędem. Wszystkie pierwsze próby wliczone. Model widział pytanie i kod. Wzorce i kolejność zamknięto przed pomiarami. Dwóch oceniających, po jednym na repozytorium, porównało teksty i werdykty z wcześniej ustalonym wzorcem oraz wersją Git, bez informacji o trybie, wyniku bramki i fazie. Identyczny tekst i werdykt dla tego samego pytania oceniano raz. Sprawdzenie tożsamości publikowanych cytatów i skrótów wyników wyszukiwania wykonano oddzielnie.",
+  "limits_pl": "Mała celowa próba, dwie obserwacje na pytanie i tryb, jeden host, jedno konto i jeden model. Czasy zależą od obciążenia API i losowości generacji. Wydrukowane przez CLI VERIFIED potwierdza sprawdzenie techniczne. Ocenę merytoryczną pokazuje final_grade. Tabela przejść dotyczy rzeczywistego szkicu tej samej odpowiedzi, która trafiła do bramki. Przebiegi bez bramki i z nią generowały odpowiedzi od nowa.",
+  "grades": {
+    "correct": "Cały wymagany wniosek zgodny ze źródłem, bez istotnego błędnego dopowiedzenia.",
+    "partial": "Poprawna część odpowiedzi, lecz niepełny wymagany wniosek lub istotne błędne dopowiedzenie.",
+    "wrong": "Główny wniosek sprzeczny ze źródłem.",
+    "not_available": "Brak opublikowanej odpowiedzi lub szkicu przekazanego do bramki."
+  },
+  "grading_design_pl": "Oceny przeprowadzili dwaj agenci Codex, po jednym na repozytorium. Każdy przygotował wcześniej wzorzec z przypiętych źródeł i oceniał anonimowe teksty swojego repozytorium. Nie było oceny ludzkiej ani drugiego niezależnego oceniającego dla każdej odpowiedzi.",
+  "frozen_protocol_sha256": "1358fd0e73954823bb6665a011feedaafe03e85cb6db64bb4725c79ea0108a41",
+  "frozen_protocol": {
+    "seed": 46273,
+    "commits_and_files": {
+      "fineract": {
+        "gold_sha256": "99253ee3b4da55ddd99a32e9c4c5fdd73ed4008c93afec298a22d576c78d438c",
+        "config_sha256": "226541ae1e62faa4b711841721e48ee8b0f1c010b7c080d048ccc760cf5401b8",
+        "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f"
+      },
+      "electron": {
+        "gold_sha256": "d07e8664616be50c17c7def6738b70bf1fd79b626ffad71bd8b7bdd11c0bf446",
+        "config_sha256": "c4142d783410871b52447373d71efb32e116491d42dd0f30b49473813011dd63",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703"
+      }
+    },
+    "ask_sha256": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f",
+    "script_sha256": "74820d21c2c7df8069f7f6ae975d3173f2fef4f110eee3addee2a60517bbe0c7",
+    "design": [
+      {
+        "number": 1,
+        "repeat": 1,
+        "mode": "base",
+        "repo": "fineract",
+        "case": "F-lookup",
+        "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?"
+      },
+      {
+        "number": 2,
+        "repeat": 1,
+        "mode": "review",
+        "repo": "fineract",
+        "case": "F-lookup",
+        "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?"
+      },
+      {
+        "number": 3,
+        "repeat": 1,
+        "mode": "review",
+        "repo": "electron",
+        "case": "E-menu-fallback",
+        "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?"
+      },
+      {
+        "number": 4,
+        "repeat": 1,
+        "mode": "base",
+        "repo": "electron",
+        "case": "E-menu-fallback",
+        "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?"
+      },
+      {
+        "number": 5,
+        "repeat": 1,
+        "mode": "base",
+        "repo": "electron",
+        "case": "E-crash-metadata",
+        "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?"
+      },
+      {
+        "number": 6,
+        "repeat": 1,
+        "mode": "review",
+        "repo": "electron",
+        "case": "E-crash-metadata",
+        "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?"
+      },
+      {
+        "number": 7,
+        "repeat": 1,
+        "mode": "review",
+        "repo": "fineract",
+        "case": "F-purge",
+        "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?"
+      },
+      {
+        "number": 8,
+        "repeat": 1,
+        "mode": "base",
+        "repo": "fineract",
+        "case": "F-purge",
+        "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?"
+      },
+      {
+        "number": 9,
+        "repeat": 1,
+        "mode": "base",
+        "repo": "fineract",
+        "case": "F-standing",
+        "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?"
+      },
+      {
+        "number": 10,
+        "repeat": 1,
+        "mode": "review",
+        "repo": "fineract",
+        "case": "F-standing",
+        "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?"
+      },
+      {
+        "number": 11,
+        "repeat": 1,
+        "mode": "review",
+        "repo": "electron",
+        "case": "E-utility-stdio",
+        "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?"
+      },
+      {
+        "number": 12,
+        "repeat": 1,
+        "mode": "base",
+        "repo": "electron",
+        "case": "E-utility-stdio",
+        "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?"
+      },
+      {
+        "number": 13,
+        "repeat": 2,
+        "mode": "review",
+        "repo": "electron",
+        "case": "E-crash-metadata",
+        "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?"
+      },
+      {
+        "number": 14,
+        "repeat": 2,
+        "mode": "base",
+        "repo": "electron",
+        "case": "E-crash-metadata",
+        "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?"
+      },
+      {
+        "number": 15,
+        "repeat": 2,
+        "mode": "base",
+        "repo": "electron",
+        "case": "E-menu-fallback",
+        "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?"
+      },
+      {
+        "number": 16,
+        "repeat": 2,
+        "mode": "review",
+        "repo": "electron",
+        "case": "E-menu-fallback",
+        "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?"
+      },
+      {
+        "number": 17,
+        "repeat": 2,
+        "mode": "review",
+        "repo": "fineract",
+        "case": "F-standing",
+        "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?"
+      },
+      {
+        "number": 18,
+        "repeat": 2,
+        "mode": "base",
+        "repo": "fineract",
+        "case": "F-standing",
+        "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?"
+      },
+      {
+        "number": 19,
+        "repeat": 2,
+        "mode": "base",
+        "repo": "fineract",
+        "case": "F-purge",
+        "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?"
+      },
+      {
+        "number": 20,
+        "repeat": 2,
+        "mode": "review",
+        "repo": "fineract",
+        "case": "F-purge",
+        "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?"
+      },
+      {
+        "number": 21,
+        "repeat": 2,
+        "mode": "review",
+        "repo": "fineract",
+        "case": "F-lookup",
+        "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?"
+      },
+      {
+        "number": 22,
+        "repeat": 2,
+        "mode": "base",
+        "repo": "fineract",
+        "case": "F-lookup",
+        "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?"
+      },
+      {
+        "number": 23,
+        "repeat": 2,
+        "mode": "base",
+        "repo": "electron",
+        "case": "E-utility-stdio",
+        "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?"
+      },
+      {
+        "number": 24,
+        "repeat": 2,
+        "mode": "review",
+        "repo": "electron",
+        "case": "E-utility-stdio",
+        "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?"
+      }
+    ],
+    "policy": "Two fresh processes per question and variant, run serially. Each matched pair uses the same unmodified question and snapshot. Mode order counterbalanced per case, three review-first in each round, no candidate, rubric, transcript or previous answer supplied. First attempts include all errors; no silent retries. Wall times are CLI startup through exit. Shared warm prepared indexes, OS cache and provider sampling uncontrolled. Compare coding assertions, abstentions, and unexpected extra claims in blinded individual outputs; identical answer and verdict per question are graded once."
+  },
+  "reference_plans": {
+    "fineract": {
+      "repo": "apache/fineract",
+      "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+      "config": "local/qa-transfer-03/f-config.json",
+      "corpus": "default",
+      "cases": [
+        {
+          "id": "F-purge",
+          "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+          "expected_pl": "Tasklet przechwytuje wyjątek i loguje błąd. Następnie execute zwraca RepeatStatus.FINISHED.",
+          "required": [
+            "Wyjątek z usuwania jest przechwytywany i rejestrowany jako błąd.",
+            "Metoda execute wraca normalnie ze statusem FINISHED."
+          ],
+          "forbidden": [
+            "Wyjątek jest propagowany do Spring Batch przez tę metodę.",
+            "Obsługiwany wyjątek sam w sobie sprawia, że execute zwraca błąd, żąda powtórki lub ponawia usuwanie.",
+            "FINISHED dowodzi, że usuwanie lub całe zadanie zakończyło się sukcesem."
+          ],
+          "allowed": [
+            "Dopuszczalny opis FINISHED bez pełnej nazwy typu.",
+            "Można odróżnić rezultat taskletu od statusu całego joba, którego ten fragment nie przesądza."
+          ],
+          "sources": [
+            {
+              "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+              "blob_id": "d70b83241c0785880bfaabb6c6c4a6285a493344",
+              "start": 43,
+              "end": 51,
+              "quote": "log.error(\"Error occurred while purging external events: \", e);",
+              "search_literal": "Error occurred while purging external events",
+              "reason": "Usuwanie w try, obsługa Exception i wspólna ścieżka z końcowym return."
+            }
+          ],
+          "controls": {
+            "correct": {
+              "answer_pl": "PurgeExternalEventsTasklet przechwytuje wyjątek i zapisuje błąd w logu. Następnie execute wraca normalnie z RepeatStatus.FINISHED.",
+              "verdict": "not_applicable",
+              "citations": [
+                {
+                  "repository": "fineract",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+                  "start": 43,
+                  "end": 51,
+                  "quote": "log.error(\"Error occurred while purging external events: \", e);"
+                }
+              ]
+            },
+            "wrong": {
+              "answer_pl": "PurgeExternalEventsTasklet przechwytuje wyjątek i zapisuje błąd w logu. Następnie przekazuje wyjątek do Spring Batch, więc execute nie zwraca RepeatStatus.FINISHED.",
+              "verdict": "not_applicable",
+              "citations": [
+                {
+                  "repository": "fineract",
+                  "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+                  "start": 43,
+                  "end": 51,
+                  "quote": "log.error(\"Error occurred while purging external events: \", e);"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "F-standing",
+          "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+          "expected_pl": "StandingInstructionSkipPolicy pozwala pominąć instrukcję przy IllegalStateException, ale odmawia pominięcia wyjątku utworzenia transakcji (błąd infrastruktury). Nie sprawdza licznika skipCount.",
+          "required": [
+            "IllegalStateException z błędnych danych kwalifikuje się do pominięcia.",
+            "CannotCreateTransactionException nie kwalifikuje się do pominięcia.",
+            "Liczba poprzednich pominięć nie wpływa na wynik tej polityki."
+          ],
+          "forbidden": [
+            "Polityka ma liczbowy limit pominięć.",
+            "Oba wyjątki są pomijane, bo oba są wyjątkami.",
+            "Polityka nigdy nie pomija IllegalStateException lub pomija CannotCreateTransactionException."
+          ],
+          "allowed": [
+            "Dopuszczalny opis zachowania shouldSkip przez true/false albo równoważne słowa.",
+            "Nie jest wymagany opis innych klas wyjątków ani globalnych gwarancji wykonania zadania."
+          ],
+          "sources": [
+            {
+              "path": "fineract-account-transfer/src/main/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicy.java",
+              "blob_id": "86d1515d1a2dfe0aa03204f1c23847df4c11e6db",
+              "start": 54,
+              "end": 62,
+              "quote": "|| t instanceof RecoverableDataAccessException || t instanceof CannotCreateTransactionException;",
+              "search_literal": "class StandingInstructionSkipPolicy ",
+              "reason": "Predykat dla bieżącego wyjątku, brak użycia skipCount i jawne wykluczenia infrastrukturalne."
+            }
+          ]
+        },
+        {
+          "id": "F-lookup",
+          "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+          "expected_pl": "Konfiguracja tenantContextLookup ustawia max-attempts na 2 i wait-duration na jedną sekundę.",
+          "required": [
+            "Maksymalna liczba prób to 2.",
+            "Skonfigurowany czas oczekiwania to 1 sekunda."
+          ],
+          "forbidden": [
+            "2 ponowienia oprócz pierwszej próby.",
+            "3 próby lub 50 ms przez pomylenie konfiguracji z inlineCob.",
+            "1 s na tę wartość oznacza gwarantowany limit czasu obsługi żądania."
+          ],
+          "allowed": [
+            "Dozwolone 1000 ms lub 1s.",
+            "Nie wymaga podawania nazw zmiennych, parametrów wykładniczych ani klas wyjątków."
+          ],
+          "sources": [
+            {
+              "path": "fineract-provider/src/main/resources/application.properties",
+              "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72",
+              "start": 922,
+              "end": 923,
+              "quote": "resilience4j.retry.instances.tenantContextLookup.max-attempts=${FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS:2}",
+              "search_literal": "tenantContextLookup.max-attempts",
+              "reason": "Domyślne wartości zastępcze obu właściwości w dystrybuowanej bazowej konfiguracji."
+            }
+          ]
+        }
+      ]
+    },
+    "electron": {
+      "repo": "electron/electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "cases": [
+        {
+          "id": "E-menu-fallback",
+          "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+          "expected_pl": "Przy braku fokusu wybierane jest pierwsze okno z listy BaseWindow.getAllWindows() i jest przekazywane do popupAt. Jeśli nie ma już okna, metoda rzuca wyjątek przed popupAt.",
+          "required": [
+            "Przy braku fokusu i przy istniejących oknach wybrany zostaje element o indeksie 0 z bieżącej listy, a metoda przechodzi do wyświetlenia menu dla tego okna.",
+            "Przy pustej liście i braku fokusu metoda rzuca błąd zamiast wyświetlać menu."
+          ],
+          "forbidden": [
+            "Brak fokusu zawsze powoduje wyjątek lub otwarcie menu bez powiązania z oknem.",
+            "Pierwsze na liście jest gwarantowanie najstarszym, najnowszym lub ostatnio aktywnym oknem bez odrębnego dowodu.",
+            "Gdy wszystkie okna zamknięto, menu spokojnie się nie otwiera i metoda kończy się bez błędu."
+          ],
+          "allowed": [
+            "Nie trzeba podawać tekstu wyjątku ani typu wartości zwracanej.",
+            "Wywołanie popupAt oznacza próbę otwarcia; nie wymagamy gwarancji wyświetlenia przez system."
+          ],
+          "sources": [
+            {
+              "path": "lib/browser/api/menu.ts",
+              "start": 84,
+              "end": 97,
+              "quote": "window = wins[0] as any;",
+              "search_literal": "Cannot open Menu without a BaseWindow present",
+              "blob_id": "10cad67f10c43f2633b0c456a3d2c9b7906d3fef",
+              "excerpt": "  // find which window to use\n  const wins = BaseWindow.getAllWindows();\n  if (!wins || !wins.includes(window as any)) {\n    window = BaseWindow.getFocusedWindow() as any;\n    if (!window && wins && wins.length > 0) {\n      window = wins[0] as any;\n    }\n    if (!window) {\n      throw new Error('Cannot open Menu without a BaseWindow present');\n    }\n  }\n\n  this.popupAt(window as unknown as BaseWindow, options.frame, x, y, positioningItem, sourceType, callback);\n  return { browserWindow: window, x, y, position: positioningItem };"
+            }
+          ]
+        },
+        {
+          "id": "E-utility-stdio",
+          "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+          "expected_pl": "Nie. Napis 'pipe' tworzy strumienie stdout i stderr, a stdin w przekazanej konfiguracji ma 'ignore'. Tablica z 'pipe' na pierwszej pozycji jest odrzucana wyjątkiem, zanim uruchomiony zostanie natywny fork.",
+          "required": [
+            "Dla wartości tekstowej 'pipe' stdin pozostaje 'ignore', więc ten tryb nie zapewnia zapisywalnego standardowego wejścia (stdout i stderr mają 'pipe').",
+            "Podana tablica zostaje odrzucona błędem za pierwszy element inny niż 'ignore', bez uruchamiania procesu przez ten fork."
+          ],
+          "forbidden": [
+            "'pipe' w postaci napisu otwiera potoki dla wszystkich trzech deskryptorów.",
+            "Tablica z pierwszym elementem 'pipe' jest po cichu normalizowana lub akceptowana.",
+            "Odrzucenie wynika z konfiguracji stdout lub stderr."
+          ],
+          "allowed": [
+            "Można zwięźle opisać walidację bez tekstu błędu lub nazwy klasy strumienia.",
+            "Nie trzeba opisywać alternatywnych kanałów IPC."
+          ],
+          "sources": [
+            {
+              "path": "lib/browser/api/utility-process.ts",
+              "start": 62,
+              "end": 75,
+              "quote": "stdio.push('ignore', options.stdio, options.stdio);",
+              "search_literal": "stdin value other than ignore is not supported.",
+              "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+              "excerpt": "        case 'pipe':\n          this.#stderr = new PassThrough();\n          this.#stdout = new PassThrough();\n          stdio.push('ignore', options.stdio, options.stdio);\n          break;\n        default:\n          throw new Error('stdio must be of the following values: inherit, pipe, ignore');\n      }\n      options.stdio = stdio;\n    } else if (Array.isArray(options.stdio)) {\n      if (options.stdio.length >= 3) {\n        if (options.stdio[0] !== 'ignore') {\n          throw new Error('stdin value other than ignore is not supported.');\n        }"
+            },
+            {
+              "path": "lib/browser/api/utility-process.ts",
+              "start": 88,
+              "end": 94,
+              "quote": "this.#handle = _fork({ options, modulePath, args });",
+              "search_literal": "stdin value other than ignore is not supported.",
+              "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+              "excerpt": "      } else {\n        throw new Error('configuration missing for stdin, stdout or stderr.');\n      }\n    }\n\n    this.#handle = _fork({ options, modulePath, args });\n    this.#handle!.emit = (channel: string | symbol, ...args: any[]) => {"
+            }
+          ],
+          "controls": {
+            "correct": {
+              "answer_pl": "Nie. Napis 'pipe' daje konfigurację ['ignore', 'pipe', 'pipe'], więc stdin helpera nie jest dostępne do zapisu. Przy tablicy ['pipe', 'pipe', 'pipe'] wrapper rzuca błąd ze względu na pierwszy element i nie wywołuje natywnego fork.",
+              "verdict": "no",
+              "citations": [
+                {
+                  "repository": "electron",
+                  "path": "lib/browser/api/utility-process.ts",
+                  "start": 62,
+                  "end": 75,
+                  "quote": "stdio.push('ignore', options.stdio, options.stdio);"
+                },
+                {
+                  "repository": "electron",
+                  "path": "lib/browser/api/utility-process.ts",
+                  "start": 88,
+                  "end": 94,
+                  "quote": "this.#handle = _fork({ options, modulePath, args });"
+                }
+              ]
+            },
+            "wrong": {
+              "answer_pl": "Nie. Napis 'pipe' daje konfigurację ['ignore', 'pipe', 'pipe'], więc stdin helpera nie jest dostępne do zapisu. Przy tablicy ['pipe', 'pipe', 'pipe'] wrapper podmienia pierwszy element na 'ignore' i uruchamia helper tak samo jak przy napisie.",
+              "verdict": "no",
+              "citations": [
+                {
+                  "repository": "electron",
+                  "path": "lib/browser/api/utility-process.ts",
+                  "start": 62,
+                  "end": 75,
+                  "quote": "stdio.push('ignore', options.stdio, options.stdio);"
+                },
+                {
+                  "repository": "electron",
+                  "path": "lib/browser/api/utility-process.ts",
+                  "start": 88,
+                  "end": 94,
+                  "quote": "this.#handle = _fork({ options, modulePath, args });"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "E-crash-metadata",
+          "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+          "expected_pl": "Natywne start otrzymuje _productName 'Kiosk' i _companyName 'Firma B'. Istniejąca firma w globalExtra nie jest nadpisana przez companyName. globalExtra jest rozwijany po wpisie productName, więc jego _productName wygrywa.",
+          "required": [
+            "W globalnych metadanych przekazanych do natywnego wywołania _productName ma wartość Kiosk, a _companyName ma wartość Firma B."
+          ],
+          "forbidden": [
+            "Wygrywa productName 'Sklep' lub companyName 'Firma A'.",
+            "uploadToServer:false wyłącza wywołanie natywnego start, więc żadnych nazw nie przekaże.",
+            "Kod nadpisuje przekazaną firmę bezwarunkowo albo nazwy są pobierane z per-crash extra."
+          ],
+          "allowed": [
+            "W pytaniu nie wnioskować o późniejszym serwerze raportów.",
+            "Poprawne uzasadnienie może wyjaśnić kolejność rozpakowania i warunkowe ustawienie firmy; samo podanie obu prawidłowych nazw odpowiada na pytanie."
+          ],
+          "sources": [
+            {
+              "path": "lib/browser/api/crash-reporter.ts",
+              "start": 27,
+              "end": 38,
+              "quote": "if (companyName && globalExtra._companyName == null) globalExtra._companyName = companyName;",
+              "search_literal": "globalExtraAmended",
+              "blob_id": "ae7744d5c60a21e2e7589b5832717a221e2725d3",
+              "excerpt": "    const appVersion = app.getVersion();\n\n    if (companyName && globalExtra._companyName == null) globalExtra._companyName = companyName;\n\n    const globalExtraAmended = {\n      _productName: productName,\n      _version: appVersion,\n      ...globalExtra\n    };\n\n    binding.start(submitURL, uploadToServer,\n      ignoreSystemCrashHandler, rateLimit, compress, globalExtraAmended, extra, false);"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "blind_grade_hashes": {
+    "fineract": "5a012f80e30d71785b59bf7b0d4f10517691b3111c16b0e52849ab8f42952773",
+    "electron": "cc0496160ae51879903a459b9a315a77aab7c534f364df155c26efd8b63bacce"
+  },
+  "summary": {
+    "base": {
+      "attempts": 12,
+      "statuses": {
+        "ERROR": 1,
+        "VERIFIED": 11
+      },
+      "published": 11,
+      "fully_correct": 10,
+      "published_grade_counts": {
+        "correct": 10,
+        "partial": 1
+      },
+      "all_request_time": {
+        "n": 12,
+        "median_seconds": 13.174001550010871,
+        "min_seconds": 10.107396599953063,
+        "max_seconds": 21.25271279993467
+      },
+      "published_time": {
+        "n": 11,
+        "median_seconds": 13.514685200061649,
+        "min_seconds": 10.107396599953063,
+        "max_seconds": 21.25271279993467
+      },
+      "fully_correct_time": {
+        "n": 10,
+        "median_seconds": 13.174001550010871,
+        "min_seconds": 10.107396599953063,
+        "max_seconds": 20.516153099946678
+      },
+      "estimated_cost_usd": 0.33036,
+      "reported_api_messages": 42
+    },
+    "review": {
+      "attempts": 12,
+      "statuses": {
+        "ERROR": 1,
+        "VERIFIED": 11
+      },
+      "published": 11,
+      "fully_correct": 8,
+      "published_grade_counts": {
+        "correct": 8,
+        "partial": 3
+      },
+      "all_request_time": {
+        "n": 12,
+        "median_seconds": 20.140868499991484,
+        "min_seconds": 7.361379700014368,
+        "max_seconds": 26.332625399925746
+      },
+      "published_time": {
+        "n": 11,
+        "median_seconds": 20.256396600045264,
+        "min_seconds": 13.692869999911636,
+        "max_seconds": 26.332625399925746
+      },
+      "fully_correct_time": {
+        "n": 8,
+        "median_seconds": 19.624869149993174,
+        "min_seconds": 13.692869999911636,
+        "max_seconds": 26.332625399925746
+      },
+      "estimated_cost_usd": 0.492742,
+      "reported_api_messages": 53
+    }
+  },
+  "per_question": {
+    "F-purge": {
+      "base": {
+        "attempts": 2,
+        "statuses": {
+          "ERROR": 1,
+          "VERIFIED": 1
+        },
+        "published": 1,
+        "fully_correct": 0,
+        "published_grade_counts": {
+          "partial": 1
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 16.57700179994572,
+          "min_seconds": 11.901290799956769,
+          "max_seconds": 21.25271279993467
+        },
+        "published_time": {
+          "n": 1,
+          "median_seconds": 21.25271279993467,
+          "min_seconds": 21.25271279993467,
+          "max_seconds": 21.25271279993467
+        },
+        "fully_correct_time": {
+          "n": 0,
+          "median_seconds": null,
+          "min_seconds": null,
+          "max_seconds": null
+        },
+        "estimated_cost_usd": 0.048636,
+        "reported_api_messages": 7
+      },
+      "review": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 0,
+        "published_grade_counts": {
+          "partial": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 21.588288700033445,
+          "min_seconds": 20.256396600045264,
+          "max_seconds": 22.920180800021626
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 21.588288700033445,
+          "min_seconds": 20.256396600045264,
+          "max_seconds": 22.920180800021626
+        },
+        "fully_correct_time": {
+          "n": 0,
+          "median_seconds": null,
+          "min_seconds": null,
+          "max_seconds": null
+        },
+        "estimated_cost_usd": 0.0921,
+        "reported_api_messages": 10
+      }
+    },
+    "F-standing": {
+      "base": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 20.450848800013773,
+          "min_seconds": 20.38554450008087,
+          "max_seconds": 20.516153099946678
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 20.450848800013773,
+          "min_seconds": 20.38554450008087,
+          "max_seconds": 20.516153099946678
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 20.450848800013773,
+          "min_seconds": 20.38554450008087,
+          "max_seconds": 20.516153099946678
+        },
+        "estimated_cost_usd": 0.099608,
+        "reported_api_messages": 10
+      },
+      "review": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 24.463231899950188,
+          "min_seconds": 22.59383839997463,
+          "max_seconds": 26.332625399925746
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 24.463231899950188,
+          "min_seconds": 22.59383839997463,
+          "max_seconds": 26.332625399925746
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 24.463231899950188,
+          "min_seconds": 22.59383839997463,
+          "max_seconds": 26.332625399925746
+        },
+        "estimated_cost_usd": 0.131324,
+        "reported_api_messages": 12
+      }
+    },
+    "F-lookup": {
+      "base": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 11.338185599946883,
+          "min_seconds": 10.107396599953063,
+          "max_seconds": 12.568974599940702
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 11.338185599946883,
+          "min_seconds": 10.107396599953063,
+          "max_seconds": 12.568974599940702
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 11.338185599946883,
+          "min_seconds": 10.107396599953063,
+          "max_seconds": 12.568974599940702
+        },
+        "estimated_cost_usd": 0.038596,
+        "reported_api_messages": 6
+      },
+      "review": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 14.230490949994419,
+          "min_seconds": 13.692869999911636,
+          "max_seconds": 14.768111900077201
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 14.230490949994419,
+          "min_seconds": 13.692869999911636,
+          "max_seconds": 14.768111900077201
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 14.230490949994419,
+          "min_seconds": 13.692869999911636,
+          "max_seconds": 14.768111900077201
+        },
+        "estimated_cost_usd": 0.063704,
+        "reported_api_messages": 8
+      }
+    },
+    "E-menu-fallback": {
+      "base": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 14.960275050019845,
+          "min_seconds": 12.277148699969985,
+          "max_seconds": 17.643401400069706
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 14.960275050019845,
+          "min_seconds": 12.277148699969985,
+          "max_seconds": 17.643401400069706
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 14.960275050019845,
+          "min_seconds": 12.277148699969985,
+          "max_seconds": 17.643401400069706
+        },
+        "estimated_cost_usd": 0.058082,
+        "reported_api_messages": 7
+      },
+      "review": {
+        "attempts": 2,
+        "statuses": {
+          "ERROR": 1,
+          "VERIFIED": 1
+        },
+        "published": 1,
+        "fully_correct": 1,
+        "published_grade_counts": {
+          "correct": 1
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 15.540448500018101,
+          "min_seconds": 7.361379700014368,
+          "max_seconds": 23.719517300021835
+        },
+        "published_time": {
+          "n": 1,
+          "median_seconds": 23.719517300021835,
+          "min_seconds": 23.719517300021835,
+          "max_seconds": 23.719517300021835
+        },
+        "fully_correct_time": {
+          "n": 1,
+          "median_seconds": 23.719517300021835,
+          "min_seconds": 23.719517300021835,
+          "max_seconds": 23.719517300021835
+        },
+        "estimated_cost_usd": 0.057222,
+        "reported_api_messages": 7
+      }
+    },
+    "E-utility-stdio": {
+      "base": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 13.654568600060884,
+          "min_seconds": 13.514685200061649,
+          "max_seconds": 13.794452000060119
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 13.654568600060884,
+          "min_seconds": 13.514685200061649,
+          "max_seconds": 13.794452000060119
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 13.654568600060884,
+          "min_seconds": 13.514685200061649,
+          "max_seconds": 13.794452000060119
+        },
+        "estimated_cost_usd": 0.051286,
+        "reported_api_messages": 6
+      },
+      "review": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 19.502583550056443,
+          "min_seconds": 18.111628300044686,
+          "max_seconds": 20.8935388000682
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 19.502583550056443,
+          "min_seconds": 18.111628300044686,
+          "max_seconds": 20.8935388000682
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 19.502583550056443,
+          "min_seconds": 18.111628300044686,
+          "max_seconds": 20.8935388000682
+        },
+        "estimated_cost_usd": 0.08516,
+        "reported_api_messages": 8
+      }
+    },
+    "E-crash-metadata": {
+      "base": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 2,
+        "published_grade_counts": {
+          "correct": 2
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 11.560634649998974,
+          "min_seconds": 10.287951400037855,
+          "max_seconds": 12.833317899960093
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 11.560634649998974,
+          "min_seconds": 10.287951400037855,
+          "max_seconds": 12.833317899960093
+        },
+        "fully_correct_time": {
+          "n": 2,
+          "median_seconds": 11.560634649998974,
+          "min_seconds": 10.287951400037855,
+          "max_seconds": 12.833317899960093
+        },
+        "estimated_cost_usd": 0.034152,
+        "reported_api_messages": 6
+      },
+      "review": {
+        "attempts": 2,
+        "statuses": {
+          "VERIFIED": 2
+        },
+        "published": 2,
+        "fully_correct": 1,
+        "published_grade_counts": {
+          "correct": 1,
+          "partial": 1
+        },
+        "all_request_time": {
+          "n": 2,
+          "median_seconds": 19.190769949927926,
+          "min_seconds": 18.356199499918148,
+          "max_seconds": 20.025340399937704
+        },
+        "published_time": {
+          "n": 2,
+          "median_seconds": 19.190769949927926,
+          "min_seconds": 18.356199499918148,
+          "max_seconds": 20.025340399937704
+        },
+        "fully_correct_time": {
+          "n": 1,
+          "median_seconds": 18.356199499918148,
+          "min_seconds": 18.356199499918148,
+          "max_seconds": 18.356199499918148
+        },
+        "estimated_cost_usd": 0.063232,
+        "reported_api_messages": 8
+      }
+    }
+  },
+  "receipt_audit": {
+    "checks": {
+      "manifests": 24,
+      "r2_receipts": 47,
+      "published_citations": 31,
+      "review_windows": 17,
+      "review_rounds_with_saved_report": 11
+    },
+    "protocol_sha256": "1358fd0e73954823bb6665a011feedaafe03e85cb6db64bb4725c79ea0108a41"
+  },
+  "paired_timing": {
+    "all": {
+      "pairs": 12,
+      "base": {
+        "n": 12,
+        "median_seconds": 13.174001550010871,
+        "min_seconds": 10.107396599953063,
+        "max_seconds": 21.25271279993467
+      },
+      "review": {
+        "n": 12,
+        "median_seconds": 20.140868499991484,
+        "min_seconds": 7.361379700014368,
+        "max_seconds": 26.332625399925746
+      },
+      "paired_review_minus_base": {
+        "n": 12,
+        "median_seconds": 5.059912349970546,
+        "min_seconds": -10.282021700055338,
+        "max_seconds": 11.44236860005185
+      }
+    },
+    "both_published": {
+      "pairs": 10,
+      "base": {
+        "n": 10,
+        "median_seconds": 13.174001550010871,
+        "min_seconds": 10.107396599953063,
+        "max_seconds": 21.25271279993467
+      },
+      "review": {
+        "n": 10,
+        "median_seconds": 20.140868499991484,
+        "min_seconds": 13.692869999911636,
+        "max_seconds": 26.332625399925746
+      },
+      "paired_review_minus_base": {
+        "n": 10,
+        "median_seconds": 5.059912349970546,
+        "min_seconds": -0.9963161998894066,
+        "max_seconds": 11.44236860005185
+      }
+    },
+    "both_fully_correct": {
+      "pairs": 8,
+      "base": {
+        "n": 8,
+        "median_seconds": 13.174001550010871,
+        "min_seconds": 10.107396599953063,
+        "max_seconds": 20.516153099946678
+      },
+      "review": {
+        "n": 8,
+        "median_seconds": 19.624869149993174,
+        "min_seconds": 13.692869999911636,
+        "max_seconds": 26.332625399925746
+      },
+      "paired_review_minus_base": {
+        "n": 8,
+        "median_seconds": 5.059912349970546,
+        "min_seconds": 2.199137300136499,
+        "max_seconds": 11.44236860005185
+      }
+    }
+  },
+  "natural_gate": {
+    "drafts_reaching_review": 11,
+    "failures_before_review": [
+      {
+        "number": 3,
+        "status": "ERROR",
+        "reason": "[WinError 5] Odmowa dostępu: 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-gate-eval-02\\\\ew\\\\qa\\\\84d0f94f79fc40ac\\\\.r2-corpus-stage-e5ae1724b5f4442085503417b81e7a6c\\\\bundle' -> 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-gate-eval-02\\\\ew\\\\qa\\\\84d0f94f79fc40ac\\\\search-01'"
+      }
+    ],
+    "transitions": [
+      {
+        "initial_grade": "correct",
+        "final_grade": "correct",
+        "n": 8
+      },
+      {
+        "initial_grade": "partial",
+        "final_grade": "partial",
+        "n": 3
+      }
+    ],
+    "repair_attempts": 0,
+    "median_gate_api_time": {
+      "n": 11,
+      "median_seconds": 4.91527340002358,
+      "min_seconds": 2.5603797999210656,
+      "max_seconds": 7.244001299957745
+    }
+  },
+  "controls_design_pl": "Dwie dodatkowe pary z wcześniej przygotowanymi odpowiedziami, po jednej na repozytorium. W każdej parze poprawny i błędny szkic miały identyczne autentyczne cytaty. Izolowana bramka produkcyjna otrzymała pytanie, szkic i źródła. W tych próbach nie mierzono czasu całego CLI i nie oceniano jakości wyszukiwania. Po poprawce stosowano zwykłe kontrole cytatów. Kontrole wykonano przed serią czasową.",
+  "controls": [
+    {
+      "id": "E-utility-stdio",
+      "repo": "electron",
+      "controlled_input": "correct",
+      "input": {
+        "answer_pl": "Nie. Napis 'pipe' daje konfigurację ['ignore', 'pipe', 'pipe'], więc stdin helpera nie jest dostępne do zapisu. Przy tablicy ['pipe', 'pipe', 'pipe'] wrapper rzuca błąd ze względu na pierwszy element i nie wywołuje natywnego fork.",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 62,
+            "end": 75,
+            "quote": "stdio.push('ignore', options.stdio, options.stdio);"
+          },
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 88,
+            "end": 94,
+            "quote": "this.#handle = _fork({ options, modulePath, args });"
+          }
+        ]
+      },
+      "status": "VERIFIED",
+      "reason": null,
+      "answer": {
+        "answer_pl": "Nie. Napis 'pipe' daje konfigurację ['ignore', 'pipe', 'pipe'], więc stdin helpera nie jest dostępne do zapisu. Przy tablicy ['pipe', 'pipe', 'pipe'] wrapper rzuca błąd ze względu na pierwszy element i nie wywołuje natywnego fork.",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 62,
+            "end": 75,
+            "quote": "stdio.push('ignore', options.stdio, options.stdio);"
+          },
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 88,
+            "end": 94,
+            "quote": "this.#handle = _fork({ options, modulePath, args });"
+          }
+        ]
+      },
+      "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "review_wall_seconds": 4.66436789999716,
+      "first_review": [
+        {
+          "unit": 1,
+          "claim": "Nie (nie można zapisywać do stdin przez stdio 'pipe').",
+          "reason": "Dla napisu 'pipe' stdin jest ustawiane na 'ignore', więc zapis do stdin helpera tym sposobem nie jest możliwy.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 62,
+              "end": 65
+            }
+          ]
+        },
+        {
+          "unit": 2,
+          "claim": "Napis 'pipe' daje ['ignore','pipe','pipe'], stdin niedostępne do zapisu.",
+          "reason": "Kod robi stdio.push('ignore', 'pipe', 'pipe') i podstawia to do options.stdio. Pierwszy element 'ignore' oznacza brak stdin.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 62,
+              "end": 70
+            }
+          ]
+        },
+        {
+          "unit": 3,
+          "claim": "Dla ['pipe','pipe','pipe'] wrapper rzuca błąd z powodu pierwszego elementu i nie wywołuje natywnego fork.",
+          "reason": "Tablica ma długość 3, a stdio[0] to 'pipe', więc !== 'ignore' i rzucany jest błąd 'stdin value other than ignore is not supported.'. Wyjątek następuje przed _fork w linii 93.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 71,
+              "end": 75
+            },
+            {
+              "source": 1,
+              "start": 93,
+              "end": 93
+            }
+          ]
+        }
+      ],
+      "reviews": 1,
+      "source_window_sha256": "bc9f9c1bc70b7d6b03e0d313c7a294cf581583de5c3d6082c580388ead586c2e",
+      "repair_attempted": false,
+      "estimated_cost_usd": 0.014582,
+      "fresh_api_ids": [
+        "msg_011ChCRq4rRCpiei2WrHnM4W"
+      ],
+      "file_sha256": "fe2b999bc57b87baad0ca648f8c5bcf4a6f906a2fa5351b2b1528bc04cf824b9"
+    },
+    {
+      "id": "E-utility-stdio",
+      "repo": "electron",
+      "controlled_input": "wrong",
+      "input": {
+        "answer_pl": "Nie. Napis 'pipe' daje konfigurację ['ignore', 'pipe', 'pipe'], więc stdin helpera nie jest dostępne do zapisu. Przy tablicy ['pipe', 'pipe', 'pipe'] wrapper podmienia pierwszy element na 'ignore' i uruchamia helper tak samo jak przy napisie.",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 62,
+            "end": 75,
+            "quote": "stdio.push('ignore', options.stdio, options.stdio);"
+          },
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 88,
+            "end": 94,
+            "quote": "this.#handle = _fork({ options, modulePath, args });"
+          }
+        ]
+      },
+      "status": "VERIFIED",
+      "reason": null,
+      "answer": {
+        "answer_pl": "Nie, nie da się w ten sposób pisać do stdin helpera. Dla napisu 'pipe' kod buduje konfigurację ['ignore', 'pipe', 'pipe']. PassThrough powstaje tylko dla stdout i stderr, więc stdin jest ignorowane.\n\nTablica ['pipe', 'pipe', 'pipe'] nie jest podmieniana na ['ignore', ...]. Fork sprawdza pierwszy element i gdy nie jest to 'ignore', rzuca błąd 'stdin value other than ignore is not supported.'. Dzieje się to przed wywołaniem _fork, więc helper w ogóle się nie uruchamia. Poprawna tablica ma 'ignore' na pierwszym miejscu, np. ['ignore', 'pipe', 'pipe'].",
+        "verdict": "no",
+        "citations": [
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 62,
+            "end": 66,
+            "quote": "stdio.push('ignore', options.stdio, options.stdio);"
+          },
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 71,
+            "end": 75,
+            "quote": "throw new Error('stdin value other than ignore is not supported.');"
+          },
+          {
+            "repository": "electron",
+            "path": "lib/browser/api/utility-process.ts",
+            "start": 93,
+            "end": 93,
+            "quote": "this.#handle = _fork({ options, modulePath, args });"
+          }
+        ]
+      },
+      "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "review_wall_seconds": 18.422067899955437,
+      "first_review": [
+        {
+          "unit": 1,
+          "claim": "Nie – nie można zapisywać do stdin przez stdio 'pipe'.",
+          "reason": "Dla napisu 'pipe' stdin jest ustawiane na 'ignore'; brak strumienia stdin w wrapperze.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 62,
+              "end": 66
+            }
+          ]
+        },
+        {
+          "unit": 2,
+          "claim": "Napis 'pipe' daje ['ignore','pipe','pipe'], stdin niedostępne do zapisu.",
+          "reason": "Kod wykonuje stdio.push('ignore', 'pipe', 'pipe') i tworzy PassThrough tylko dla stdout/stderr.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 62,
+              "end": 70
+            }
+          ]
+        },
+        {
+          "unit": 3,
+          "claim": "Dla ['pipe','pipe','pipe'] wrapper podmienia pierwszy element na 'ignore' i uruchamia helper.",
+          "reason": "Kod w takim przypadku rzuca błąd 'stdin value other than ignore is not supported.' przed _fork; nic nie jest podmieniane ani uruchamiane.",
+          "assessment": "contradicted",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 71,
+              "end": 75
+            },
+            {
+              "source": 1,
+              "start": 93,
+              "end": 93
+            }
+          ]
+        }
+      ],
+      "reviews": 2,
+      "source_window_sha256": "bc9f9c1bc70b7d6b03e0d313c7a294cf581583de5c3d6082c580388ead586c2e",
+      "repair_attempted": true,
+      "estimated_cost_usd": 0.049646,
+      "fresh_api_ids": [
+        "msg_011ChCRnm819Pppz7pLCpkRj",
+        "msg_011ChCRo5HQpaF9852EMMA15",
+        "msg_011ChCRocPvHPdYdA5wW8vw9"
+      ],
+      "file_sha256": "76237ead1e8f72e91f7d7773dcdd959887a401d1a1f06651c8a1e54ea2055fbd"
+    },
+    {
+      "id": "F-purge",
+      "repo": "fineract",
+      "controlled_input": "correct",
+      "input": {
+        "answer_pl": "PurgeExternalEventsTasklet przechwytuje wyjątek i zapisuje błąd w logu. Następnie execute wraca normalnie z RepeatStatus.FINISHED.",
+        "verdict": "not_applicable",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+            "start": 43,
+            "end": 51,
+            "quote": "log.error(\"Error occurred while purging external events: \", e);"
+          }
+        ]
+      },
+      "status": "VERIFIED",
+      "reason": null,
+      "answer": {
+        "answer_pl": "PurgeExternalEventsTasklet przechwytuje wyjątek i zapisuje błąd w logu. Następnie execute wraca normalnie z RepeatStatus.FINISHED.",
+        "verdict": "not_applicable",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+            "start": 43,
+            "end": 51,
+            "quote": "log.error(\"Error occurred while purging external events: \", e);"
+          }
+        ]
+      },
+      "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "review_wall_seconds": 5.276144000003114,
+      "first_review": [
+        {
+          "unit": 1,
+          "claim": "PurgeExternalEventsTasklet przechwytuje wyjątek i zapisuje błąd w logu.",
+          "reason": "Wywołanie repository.deleteOlderEventsWithSentStatus jest w bloku try, a catch (Exception e) loguje błąd przez log.error i nie rzuca go dalej.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 44,
+              "end": 50
+            }
+          ]
+        },
+        {
+          "unit": 2,
+          "claim": "Następnie execute wraca normalnie z RepeatStatus.FINISHED.",
+          "reason": "Po bloku catch, który nie rzuca wyjątku ponownie, wykonanie dochodzi do return RepeatStatus.FINISHED, więc metoda kończy się normalnie.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 48,
+              "end": 51
+            }
+          ]
+        }
+      ],
+      "reviews": 1,
+      "source_window_sha256": "491b67258956233930a9bb39302f21663ca853bd835aefa07c987bf15a28baed",
+      "repair_attempted": false,
+      "estimated_cost_usd": 0.00927,
+      "fresh_api_ids": [
+        "msg_011ChCRnEU2N9s1VeDYfaMBm"
+      ],
+      "file_sha256": "e3583545cf3f65c7daa9137706dee7c26f32c5e16665626800600137e52db7be"
+    },
+    {
+      "id": "F-purge",
+      "repo": "fineract",
+      "controlled_input": "wrong",
+      "input": {
+        "answer_pl": "PurgeExternalEventsTasklet przechwytuje wyjątek i zapisuje błąd w logu. Następnie przekazuje wyjątek do Spring Batch, więc execute nie zwraca RepeatStatus.FINISHED.",
+        "verdict": "not_applicable",
+        "citations": [
+          {
+            "repository": "fineract",
+            "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+            "start": 43,
+            "end": 51,
+            "quote": "log.error(\"Error occurred while purging external events: \", e);"
+          }
+        ]
+      },
+      "status": "BLOCKED",
+      "reason": "Brakuje dowodu wywołania metody w wymaganym zakresie.",
+      "answer": null,
+      "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "review_wall_seconds": 8.12739869998768,
+      "first_review": [
+        {
+          "unit": 1,
+          "claim": "PurgeExternalEventsTasklet przechwytuje wyjątek i zapisuje błąd w logu.",
+          "reason": "Blok try/catch(Exception) obejmuje wywołanie repozytorium, a catch loguje błąd przez log.error.",
+          "assessment": "supported",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 44,
+              "end": 50
+            }
+          ]
+        },
+        {
+          "unit": 2,
+          "claim": "Następnie przekazuje wyjątek do Spring Batch, więc execute nie zwraca RepeatStatus.FINISHED.",
+          "reason": "Catch nie rzuca ponownie wyjątku, a po bloku metoda zawsze zwraca RepeatStatus.FINISHED. Wyjątek jest połknięty.",
+          "assessment": "contradicted",
+          "evidence": [
+            {
+              "source": 1,
+              "start": 48,
+              "end": 51
+            }
+          ]
+        }
+      ],
+      "reviews": 1,
+      "source_window_sha256": "491b67258956233930a9bb39302f21663ca853bd835aefa07c987bf15a28baed",
+      "repair_attempted": true,
+      "estimated_cost_usd": 0.019936,
+      "fresh_api_ids": [
+        "msg_011ChCRpBoM4GYGU2u4xxLYL",
+        "msg_011ChCRpRyduwZ4AQcN4p2xF"
+      ],
+      "file_sha256": "7a8c874f1dd23125bd9c92264449c3a2928a0fbdc5a0c92f021aecdf865e0c40"
+    }
+  ],
+  "controls_estimated_usd": 0.093434,
+  "estimated_total_usd": 0.916536,
+  "pricing": "USD 2/M uncached input and 10/M output, standard direct price; estimate from returned usage, not invoice.",
+  "pricing_source": "https://platform.claude.com/docs/en/about-claude/pricing",
+  "unique_live_ids": 102,
+  "blind_answers": {
+    "765f2c7440": {
+      "id": "765f2c7440",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "answer": "IllegalStateException z błędnymi danymi instrukcji zostanie pominięty (shouldSkip zwraca true). Jest to Exception, nie StandingInstructionReadException i nie awaria infrastruktury. CannotCreateTransactionException nie zostanie pominięty (false), bo jest uznany za awarię infrastruktury, więc krok zakończy się błędem. Decyzja nie zależy od liczby wcześniejszych pominięć. Parametr skipCount nie jest używany w warunku.",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Prawidłowo rozróżnia dwa przekazane wyjątki i wskazuje brak użycia skipCount. Opis zatrzymania kroku przy odrzuconym pominięciu odpowiada kontraktowi tej polityki.",
+      "false_claims": [],
+      "source": "StandingInstructionSkipPolicy.java:27–61"
+    },
+    "0f41dbf3c4": {
+      "id": "0f41dbf3c4",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "answer": "IllegalStateException z błędnych danych instrukcji zostanie pominięty (shouldSkip zwraca true): jest to Exception, nie StandingInstructionReadException i nie awaria infrastruktury. CannotCreateTransactionException nie zostanie pominięty (false), bo jest uznany za awarię infrastruktury (baza/połączenie niedostępne), więc krok ma się nie powieść. Decyzja nie zależy od liczby wcześniejszych pominięć: parametr skipCount nie jest użyty, a wynik zależy tylko od typu wyjątku.",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Prawidłowo rozróżnia dwa przekazane wyjątki i wskazuje brak użycia skipCount. Opis zatrzymania kroku przy odrzuconym pominięciu odpowiada kontraktowi tej polityki.",
+      "false_claims": [],
+      "source": "StandingInstructionSkipPolicy.java:27–61"
+    },
+    "22b3807cc0": {
+      "id": "22b3807cc0",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "answer": "Bez nadpisań Fineract ustawia dla tenantContextLookup maksymalnie 2 próby (max-attempts, zmienna FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS) i czas oczekiwania 1 s między próbami (wait-duration, zmienna FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_WAIT_DURATION). Dodatkowo włączony jest wykładniczy backoff z mnożnikiem 2.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Trafnie podaje 2 próby i czas oczekiwania 1 s. Dodatkowa informacja o domyślnym backoffie wykładniczym z mnożnikiem 2 jest zgodna z kolejnymi dwoma właściwościami.",
+      "false_claims": [],
+      "source": "fineract-provider/src/main/resources/application.properties:922–925"
+    },
+    "6c5b25de78": {
+      "id": "6c5b25de78",
+      "case": "F-purge",
+      "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+      "answer": "Tasklet przechwytuje wyjątek z repozytorium (blok catch Exception), loguje go jako błąd przez log.error i go nie propaguje. Wywołanie execute kończy się normalnie, zwracając RepeatStatus.FINISHED, więc krok/zadanie nie kończy się błędem. Potwierdza to test, w którym repozytorium rzuca RuntimeException, a wynik to FINISHED.",
+      "verdict": "yes",
+      "grade": "partial",
+      "primary_correct": true,
+      "false_extra": true,
+      "overcautious": false,
+      "reason_pl": "Poprawnie opisuje przechwycenie, logowanie i FINISHED oraz istniejący test. Dodaje kategoryczny wniosek o braku błędu całego zadania. Metoda i test sprawdzają tylko wykonanie taskletu. Wcześniej zamrożona reguła oceny jawnie odróżnia ten zakres.",
+      "false_claims": [
+        "Z normalnego zakończenia samego execute wyprowadza wynik całego zadania lub kroku."
+      ],
+      "source": "PurgeExternalEventsTasklet.java:43–51; PurgeExternalEventsTaskletTest.java:98–102"
+    },
+    "3420198b22": {
+      "id": "3420198b22",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "answer": "Domyślnie (bez nadpisania zmiennymi środowiskowymi) tenantContextLookup ma maksymalnie 2 próby (FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS:2) i czas oczekiwania między próbami 1 s (FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_WAIT_DURATION:1s). Dodatkowo włączony jest wykładniczy backoff z mnożnikiem 2.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Trafnie podaje 2 próby i czas oczekiwania 1 s. Dodatkowa informacja o domyślnym backoffie wykładniczym z mnożnikiem 2 jest zgodna z kolejnymi dwoma właściwościami.",
+      "false_claims": [],
+      "source": "fineract-provider/src/main/resources/application.properties:922–925"
+    },
+    "1c1c555d80": {
+      "id": "1c1c555d80",
+      "case": "F-purge",
+      "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+      "answer": "Tasklet przechwytuje wyjątek z repozytorium (blok catch Exception), loguje go przez log.error i go nie propaguje. Wywołanie execute kończy się normalnie, zwracając RepeatStatus.FINISHED, więc zadanie nie kończy się błędem. Potwierdza to test, w którym repozytorium rzuca RuntimeException, a wynikiem jest FINISHED.",
+      "verdict": "yes",
+      "grade": "partial",
+      "primary_correct": true,
+      "false_extra": true,
+      "overcautious": false,
+      "reason_pl": "Poprawnie opisuje przechwycenie, logowanie i FINISHED oraz istniejący test. Dodaje kategoryczny wniosek o braku błędu całego zadania. Metoda i test sprawdzają tylko wykonanie taskletu. Wcześniej zamrożona reguła oceny jawnie odróżnia ten zakres.",
+      "false_claims": [
+        "Z normalnego zakończenia samego execute wyprowadza wynik całego zadania lub kroku."
+      ],
+      "source": "PurgeExternalEventsTasklet.java:43–51; PurgeExternalEventsTaskletTest.java:98–102"
+    },
+    "b185b194b0": {
+      "id": "b185b194b0",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "answer": "Bez nadpisania przez operatora: maksymalna liczba prób to 2 (FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS), a czas oczekiwania między próbami to 1s (FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_WAIT_DURATION). Domyślnie włączony jest też wykładniczy backoff z mnożnikiem 2.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Trafnie podaje 2 próby i czas oczekiwania 1 s. Dodatkowa informacja o domyślnym backoffie wykładniczym z mnożnikiem 2 jest zgodna z kolejnymi dwoma właściwościami.",
+      "false_claims": [],
+      "source": "fineract-provider/src/main/resources/application.properties:922–925"
+    },
+    "7ef46a6d52": {
+      "id": "7ef46a6d52",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "answer": "IllegalStateException z powodu błędnych danych instrukcji zostanie pominięty (shouldSkip zwraca true), bo jest Exception, nie jest StandingInstructionReadException ani awarią infrastruktury. CannotCreateTransactionException nie zostanie pominięty (false), bo jest uznany za awarię infrastruktury (baza/połączenie niedostępne) i krok ma się wtedy nie powieść. Decyzja nie zależy od liczby wcześniejszych pominięć: parametr skipCount jest ignorowany.",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Prawidłowo rozróżnia dwa przekazane wyjątki i wskazuje brak użycia skipCount. Opis zatrzymania kroku przy odrzuconym pominięciu odpowiada kontraktowi tej polityki.",
+      "false_claims": [],
+      "source": "StandingInstructionSkipPolicy.java:27–61"
+    },
+    "9c0e4fc37a": {
+      "id": "9c0e4fc37a",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "answer": "IllegalStateException z błędnych danych instrukcji zostanie pominięty (shouldSkip zwraca true): jest to Exception, nie jest StandingInstructionReadException ani awarią infrastruktury. CannotCreateTransactionException nie zostanie pominięty (false), bo isInfrastructureFailure traktuje go jako niedostępność bazy lub połączenia, więc krok ma się nie powieść. Decyzja nie zależy od liczby wcześniejszych pominięć: parametr skipCount nie jest używany w warunku. Zależy tylko od typu wyjątku. Uwaga: IllegalStateException opakowany w StandingInstructionReadException (błąd odczytu strony) nie byłby pomijany.",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Prawidłowo rozróżnia dwa przekazane wyjątki i wskazuje brak użycia skipCount. Opis zatrzymania kroku przy odrzuconym pominięciu odpowiada kontraktowi tej polityki. Uwaga o opakowaniu jest prawidłowa: liczy się zewnętrzny typ przekazany do shouldSkip.",
+      "false_claims": [],
+      "source": "StandingInstructionSkipPolicy.java:27–61"
+    },
+    "e80a036db6": {
+      "id": "e80a036db6",
+      "case": "F-purge",
+      "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+      "answer": "Tasklet przechwytuje wyjątek z repozytorium (blok catch Exception), loguje go jako błąd (log.error) i go nie propaguje. Metoda execute kończy się normalnie, zwracając RepeatStatus.FINISHED, więc krok/zadanie nie kończy się błędem. Potwierdza to test z doThrow(RuntimeException), który oczekuje FINISHED.",
+      "verdict": "yes",
+      "grade": "partial",
+      "primary_correct": true,
+      "false_extra": true,
+      "overcautious": false,
+      "reason_pl": "Poprawnie opisuje przechwycenie, logowanie i FINISHED oraz istniejący test. Dodaje kategoryczny wniosek o braku błędu całego zadania. Metoda i test sprawdzają tylko wykonanie taskletu. Wcześniej zamrożona reguła oceny jawnie odróżnia ten zakres.",
+      "false_claims": [
+        "Z normalnego zakończenia samego execute wyprowadza wynik całego zadania lub kroku."
+      ],
+      "source": "PurgeExternalEventsTasklet.java:43–51; PurgeExternalEventsTaskletTest.java:98–102"
+    },
+    "7ab33a1834": {
+      "id": "7ab33a1834",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "answer": "Domyślnie (bez nadpisania zmiennymi środowiskowymi) tenantContextLookup ma max-attempts = 2 (FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS) oraz wait-duration = 1s (FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_WAIT_DURATION). Dodatkowo włączony jest wykładniczy backoff z mnożnikiem 2.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Trafnie podaje 2 próby i czas oczekiwania 1 s. Dodatkowa informacja o domyślnym backoffie wykładniczym z mnożnikiem 2 jest zgodna z kolejnymi dwoma właściwościami.",
+      "false_claims": [],
+      "source": "fineract-provider/src/main/resources/application.properties:922–925"
+    },
+    "f3e0fcf36c": {
+      "id": "f3e0fcf36c",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "answer": "Natywne start dostanie _productName: 'Kiosk' i _companyName: 'Firma B'. Wartości z globalExtra wygrywają. _companyName z companyName jest dopisywane tylko wtedy, gdy globalExtra._companyName jest równe null lub undefined. _productName jest ustawiane jako pierwsze, ale rozwinięcie ...globalExtra je nadpisuje. uploadToServer: false nie zmienia tego zachowania.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Obie nazwy są prawidłowe. Wyjaśnienie trafnie rozróżnia podstawienie firmy przy null/undefined i kolejność rozpakowania obiektu produktu."
+    },
+    "836fa825a0": {
+      "id": "836fa825a0",
+      "case": "E-menu-fallback",
+      "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+      "answer": "Tak, menu może się otworzyć. Gdy nie podasz `window` (albo podane okno nie jest na liście otwartych okien), `Menu.popup` najpierw próbuje użyć okna z fokusem (`BaseWindow.getFocusedWindow()`). Jeśli żadne okno nie ma fokusu, a istnieją otwarte okna, wybierze pierwsze okno z listy `BaseWindow.getAllWindows()`, czyli `wins[0]`. Jeśli oba okna zostaną zamknięte, nie będzie ani okna z fokusem, ani żadnego innego. Metoda rzuci wtedy błąd `Cannot open Menu without a BaseWindow present`, a menu się nie otworzy.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Prawidłowo podaje pierwsze otwarte okno po nieudanej próbie uzyskania fokusu, a przy pustej liście wyjątek przed otwarciem."
+    },
+    "55ebb3ddfb": {
+      "id": "55ebb3ddfb",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "answer": "Natywne start dostanie w globalnych metadanych: _productName = 'Kiosk' i _companyName = 'Firma B'. Wartości z globalExtra wygrywają z productName i companyName. Firma A jest wpisywana do _companyName tylko wtedy, gdy globalExtra._companyName jest null lub undefined. Tu jest ustawione, więc zostaje 'Firma B'. Wartość _productName z domyślnego 'Sklep' jest nadpisywana przez rozwinięcie ...globalExtra. Ustawienie uploadToServer: false nie zmienia tych nazw.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Prawidłowe nazwy i mechanizmy. Określenie „domyślnego 'Sklep'” odczytuję jako początkową wartość w tworzonym obiekcie w podanym scenariuszu; 'Sklep' jest w pytaniu przekazane jawnie."
+    },
+    "b6ceca5132": {
+      "id": "b6ceca5132",
+      "case": "E-menu-fallback",
+      "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+      "answer": "Tak, menu może się otworzyć. Jeśli nie podasz `window` albo podane okno nie jest na liście otwartych okien, `popup` najpierw próbuje użyć okna z fokusem (`BaseWindow.getFocusedWindow()`). Gdy żadne okno nie ma fokusu, a istnieją otwarte okna, bierze pierwsze okno z `BaseWindow.getAllWindows()` (`wins[0]`). W twoim przypadku będzie to więc pierwsze okno z listy otwartych okien. Kod nie sortuje tej listy, więc to, które okno jest pierwsze, zależy od kolejności zwracanej przez `getAllWindows()`. Jeśli oba okna zostaną zamknięte, nie ma ani okna z fokusem, ani żadnego innego. `popup` rzuca wtedy błąd `Error: Cannot open Menu without a BaseWindow present` i menu się nie otwiera.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Pokrywa obie gałęzie wyboru okna. Menu.popup bierze wins[0] z otrzymanej listy i samo jej nie sortuje. Trafny wyjątek dla braku okna."
+    },
+    "3139811ee6": {
+      "id": "3139811ee6",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "answer": "Natywne start dostanie _productName = 'Kiosk' i _companyName = 'Firma B'. Wartości z globalExtra wygrywają, bo companyName jest wpisywane do _companyName tylko wtedy, gdy globalExtra._companyName jest null lub undefined. _productName z productName jest w obiekcie wcześniej, a rozwinięcie ...globalExtra nadpisuje je przez 'Kiosk'. Wartość uploadToServer: false nie zmienia tego zachowania.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Zgadza się przekazanie _productName='Kiosk' i _companyName='Firma B', nullish check firmy, kolejność spread i brak wpływu opcji wysyłania na nazwy."
+    },
+    "3275f82ec7": {
+      "id": "3275f82ec7",
+      "case": "E-menu-fallback",
+      "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+      "answer": "Tak, menu się otworzy. Jeśli nie podasz `window` albo podane okno nie jest na liście otwartych okien, `Menu.popup` próbuje najpierw użyć okna z fokusem (`BaseWindow.getFocusedWindow()`). Gdy żadne okno nie ma fokusu, a otwarte okna istnieją, bierze pierwsze okno z `BaseWindow.getAllWindows()`, czyli `wins[0]`. Następnie wywołuje `popupAt` dla tego okna. Gdy oba okna zostaną zamknięte, nie ma ani okna z fokusem, ani żadnego innego. Wtedy metoda rzuca błąd: `Cannot open Menu without a BaseWindow present`.",
+      "verdict": "yes",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Poprawnie mówi, że popup użyje pierwszego dostępnego okna i wywoła popupAt; dla pustej listy podaje właściwy wyjątek. To opis zwykłego zachowania podanych gałęzi."
+    },
+    "778d139091": {
+      "id": "778d139091",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "answer": "Nie. Przy stdio: 'pipe' stdin jest ustawiany na 'ignore', więc nie zapiszesz do standardowego wejścia helpera. Tylko stdout i stderr dostają potoki (PassThrough). Przy ['pipe','pipe','pipe'] fork zgłosi błąd 'stdin value other than ignore is not supported.', bo pierwszy element tablicy musi mieć wartość 'ignore'. Poprawna tablica to np. ['ignore','pipe','pipe'].",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Trafnie podaje niedostępne stdin dla wartości tekstowej, potoki wyjściowe, wyjątek dla tablicy i prawidłowy przykład tablicy."
+    },
+    "b1799a4194": {
+      "id": "b1799a4194",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "answer": "Nie. Przy stdio: 'pipe' fork zamienia napis na tablicę ['ignore', 'pipe', 'pipe']. Stdin jest więc ignorowany, a rura powstaje tylko dla stdout i stderr (tworzone są dla nich PassThrough). Do standardowego wejścia helpera nie zapiszesz.\n\nPrzy ['pipe', 'pipe', 'pipe'] fork rzuci błędem 'stdin value other than ignore is not supported.'. Pierwszy element tablicy (stdin) musi mieć wartość 'ignore'. Tablica krótsza niż 3 elementy też kończy się błędem. Poprawna postać to np. ['ignore', 'pipe', 'pipe'].",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Wyjaśnia oba przypadki i prawidłową konfigurację. Dodatkowa informacja o wyjątku przy tablicy krótszej niż 3 wynika z linii 72 i 88–90."
+    },
+    "f7b0f9f9d1": {
+      "id": "f7b0f9f9d1",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "answer": "Nie. Przy stdio: 'pipe' stdin helpera jest ustawiany na 'ignore', więc nie zapiszesz do jego standardowego wejścia. Na 'pipe' ustawione są tylko stdout i stderr (tworzone są dla nich strumienie PassThrough). Jeśli podasz ['pipe','pipe','pipe'], fork zgłosi błąd: 'stdin value other than ignore is not supported.', bo pierwszy element tablicy (stdin) musi mieć wartość 'ignore'. Zadziała np. ['ignore','pipe','pipe'].",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Poprawnie odróżnia konfigurację dla napisu od walidacji pierwszej pozycji tablicy; podany poprawny przykład zgadza się z kodem."
+    },
+    "e023367e63": {
+      "id": "e023367e63",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "answer": "Natywne start dostanie w globalnych metadanych _productName = 'Kiosk' i _companyName = 'Firma B'. Wartości z globalExtra wygrywają nad productName i companyName. Powód: _companyName z companyName jest ustawiane tylko wtedy, gdy globalExtra._companyName jest null lub undefined. _productName z productName jest rozpakowywany przed ...globalExtra, więc jest nadpisywany. uploadToServer=false tylko pomija wymóg submitURL i nie zmienia tych nazw.",
+      "verdict": "yes",
+      "grade": "partial",
+      "primary_correct": true,
+      "false_extra": true,
+      "overcautious": false,
+      "reason_pl": "Obie nazwy i przyczyny ich wyboru są prawidłowe. Dopowiedzenie „uploadToServer=false tylko pomija wymóg submitURL” zbyt szeroko opisuje skutki flagi. TS 37 przekazuje ją również do natywnego start, a shell/browser/api/electron_api_crash_reporter.cc:145 ustawia na jej podstawie zgodę przez SetCollectStatsConsent. Przy ocenie ograniczonej do dwóch nazw odpowiedź byłaby poprawna.",
+      "false_claims": [
+        "uploadToServer=false tylko pomija wymóg submitURL"
+      ]
+    },
+    "f00cd41d2c": {
+      "id": "f00cd41d2c",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "answer": "Nie. Przy stdio='pipe' stdin jest ustawiany na 'ignore', a tylko stdout i stderr dostają 'pipe' (z PassThrough). Zapis do stdin helpera tą drogą nie jest więc możliwy. Przy ['pipe','pipe','pipe'] fork rzuci błąd 'stdin value other than ignore is not supported.', bo pierwszy element tablicy musi być 'ignore'.",
+      "verdict": "no",
+      "grade": "correct",
+      "primary_correct": true,
+      "false_extra": false,
+      "overcautious": false,
+      "reason_pl": "Obie części są kompletne i prawdziwe. 'pipe' ignoruje stdin, a pierwszy element tablicy inny niż 'ignore' powoduje wyjątek."
+    }
+  },
+  "attempts": [
+    {
+      "number": 1,
+      "repeat": 1,
+      "mode": "base",
+      "repo": "fineract",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "wall_seconds": 10.107396599953063,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 3,
+      "api_seconds": 7.985174800036475,
+      "usage": {
+        "input": 6957,
+        "output": 539,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.019304,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "b185b194b0",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-01.json",
+      "raw_sha256": "adf1e1ecac978dc2893fb2fecb287e0e8ac8a767a8bc225a8a18b25dd9040880",
+      "received_provider_ids": [
+        "msg_011ChCRsc2D7yeXiNNULfwSD",
+        "msg_011ChCRsnPnxrQHD9Sd1RqY9",
+        "msg_011ChCRsxCABu3oATgRXqrhG"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-provider/src/main/resources/application.properties",
+          "start": 922,
+          "end": 923,
+          "quote": "resilience4j.retry.instances.tenantContextLookup.max-attempts=${FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS:2}",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "repeat": 1,
+      "mode": "review",
+      "repo": "fineract",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "wall_seconds": 13.692869999911636,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 4,
+      "api_seconds": 10.998812300036661,
+      "usage": {
+        "input": 11559,
+        "output": 886,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.031978,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-provider/src/main/resources/application.properties",
+              "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 1,
+              "start": 892,
+              "end": 941
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 922,
+                  "end": 923
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 924,
+                  "end": 925
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "22b3807cc0",
+      "pre_gate_id": "22b3807cc0",
+      "checked_citations": 1,
+      "raw_file": "timed-02.json",
+      "raw_sha256": "1c16afcddc33e5aa49c9fca1c02800e24abdedfcb300ebefbd55fd4e6099f029",
+      "received_provider_ids": [
+        "msg_011ChCRtPgLYcA8zJdmYSLY7",
+        "msg_011ChCRtZZQ8r984iW2189s6",
+        "msg_011ChCRtivU75z37DQeFDwvP",
+        "msg_011ChCRtzXKsHsmDViF68xPs"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-provider/src/main/resources/application.properties",
+          "start": 922,
+          "end": 923,
+          "quote": "resilience4j.retry.instances.tenantContextLookup.max-attempts=${FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS:2}",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ],
+      "gate_api_seconds": 3.081527200061828,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 2
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "repeat": 1,
+      "mode": "review",
+      "repo": "electron",
+      "case": "E-menu-fallback",
+      "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+      "wall_seconds": 7.361379700014368,
+      "status": "ERROR",
+      "exit_code": 4,
+      "reason": "[WinError 5] Odmowa dostępu: 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-gate-eval-02\\\\ew\\\\qa\\\\84d0f94f79fc40ac\\\\.r2-corpus-stage-e5ae1724b5f4442085503417b81e7a6c\\\\bundle' -> 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-gate-eval-02\\\\ew\\\\qa\\\\84d0f94f79fc40ac\\\\search-01'",
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 1,
+      "api_seconds": 2.5927076999796554,
+      "usage": {
+        "input": 1364,
+        "output": 150,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.004228,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": null,
+      "pre_gate_id": null,
+      "checked_citations": 0,
+      "raw_file": "timed-03.json",
+      "raw_sha256": "5e75be540423a9b700cd2904b189a196fabebc9c4ab6b6243d04cb663c5b3e07",
+      "received_provider_ids": [
+        "msg_011ChCRuZL3P3kPQkTGYibgu"
+      ],
+      "final_grade": "not_available",
+      "initial_gate_grade": "not_available",
+      "citations": []
+    },
+    {
+      "number": 4,
+      "repeat": 1,
+      "mode": "base",
+      "repo": "electron",
+      "case": "E-menu-fallback",
+      "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+      "wall_seconds": 17.643401400069706,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 4,
+      "api_seconds": 13.180998399970122,
+      "usage": {
+        "input": 10331,
+        "output": 936,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.030022,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "b6ceca5132",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-04.json",
+      "raw_sha256": "d4a66a3fc23f274407b952ef921ea94f88f06e179fbb98cba6de494eaefa63b6",
+      "received_provider_ids": [
+        "msg_011ChCRv3GoqkRfkdsc21AEJ",
+        "msg_011ChCRvFTnTZHtaJuHTX2H1",
+        "msg_011ChCRvTWpJSVJ2hNvhuQdG",
+        "msg_011ChCRvgnmt7PMKHUYm6END"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/menu.ts",
+          "start": 85,
+          "end": 94,
+          "quote": "window = wins[0] as any;",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "10cad67f10c43f2633b0c456a3d2c9b7906d3fef",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "repeat": 1,
+      "mode": "base",
+      "repo": "electron",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "wall_seconds": 10.287951400037855,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 3,
+      "api_seconds": 8.29515830008313,
+      "usage": {
+        "input": 5939,
+        "output": 503,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.016908,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "3139811ee6",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-05.json",
+      "raw_sha256": "55bca28a53b4d9d2da2b696b3ea89a0cb2882e7367a2f5b1d4567e124b2d85ef",
+      "received_provider_ids": [
+        "msg_011ChCRwCZSJoPmMEVBQ7Cq9",
+        "msg_011ChCRwNQm2K22j1dFYrsbS",
+        "msg_011ChCRwXvFnwLP4kvpQk2SP"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/crash-reporter.ts",
+          "start": 29,
+          "end": 38,
+          "quote": "if (companyName && globalExtra._companyName == null) globalExtra._companyName = companyName;",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "ae7744d5c60a21e2e7589b5832717a221e2725d3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "repeat": 1,
+      "mode": "review",
+      "repo": "electron",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "wall_seconds": 20.025340399937704,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 4,
+      "api_seconds": 15.202837399905547,
+      "usage": {
+        "input": 9273,
+        "output": 1371,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.032256,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "electron",
+              "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+              "path": "lib/browser/api/crash-reporter.ts",
+              "blob_id": "ae7744d5c60a21e2e7589b5832717a221e2725d3",
+              "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+              "source": 1,
+              "start": 1,
+              "end": 68
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 29,
+                  "end": 38
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 29,
+                  "end": 35
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 29,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 31,
+                  "end": 35
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 21,
+                  "end": 38
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "e023367e63",
+      "pre_gate_id": "e023367e63",
+      "checked_citations": 1,
+      "raw_file": "timed-06.json",
+      "raw_sha256": "51cea321f7bf1d4c84f82fe2c7f2ba3555f8ee75dbacd5e3763db47c78c64774",
+      "received_provider_ids": [
+        "msg_011ChCRxAG3jrK1TxPK5UDhE",
+        "msg_011ChCRxLkqAVu8HMmohtAVR",
+        "msg_011ChCRxVcd76j6rZhXjfuyL",
+        "msg_011ChCRxmEyhoCJ7F1vZn5P8"
+      ],
+      "final_grade": "partial",
+      "initial_gate_grade": "partial",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/crash-reporter.ts",
+          "start": 29,
+          "end": 38,
+          "quote": "if (companyName && globalExtra._companyName == null) globalExtra._companyName = companyName;",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "ae7744d5c60a21e2e7589b5832717a221e2725d3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ],
+      "gate_api_seconds": 7.244001299957745,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 5
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "repeat": 1,
+      "mode": "review",
+      "repo": "fineract",
+      "case": "F-purge",
+      "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+      "wall_seconds": 22.920180800021626,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 5,
+      "api_seconds": 16.84858290012926,
+      "usage": {
+        "input": 15658,
+        "output": 1482,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.046136,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+              "blob_id": "d70b83241c0785880bfaabb6c6c4a6285a493344",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 1,
+              "start": 14,
+              "end": 55
+            },
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-provider/src/test/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTaskletTest.java",
+              "blob_id": "bc944cade292b46b3c4d5b5c6a9113ac80eb369f",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 2,
+              "start": 54,
+              "end": 105
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 44,
+                  "end": 50
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 48,
+                  "end": 51
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 95,
+                  "end": 102
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "6c5b25de78",
+      "pre_gate_id": "6c5b25de78",
+      "checked_citations": 2,
+      "raw_file": "timed-07.json",
+      "raw_sha256": "4f9ed0349bb741c88abbbc92acb5853975a3967fae608e164177d9e2b0c12434",
+      "received_provider_ids": [
+        "msg_011ChCRyfeAKQaewhdBgkqqf",
+        "msg_011ChCRyqVjmGafmqAsZ5FP3",
+        "msg_011ChCRz1mP4KvMh3dm3Y5WY",
+        "msg_011ChCRzMW2de7FhT6tetbqd",
+        "msg_011ChCRzdi7AXnrbKo4vfZRm"
+      ],
+      "final_grade": "partial",
+      "initial_gate_grade": "partial",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+          "start": 44,
+          "end": 51,
+          "quote": "log.error(\"Error occurred while purging external events: \", e);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "d70b83241c0785880bfaabb6c6c4a6285a493344",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        },
+        {
+          "repository": "fineract",
+          "path": "fineract-provider/src/test/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTaskletTest.java",
+          "start": 84,
+          "end": 85,
+          "quote": "resultStatus = underTest.execute(stepContribution, chunkContext);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "bc944cade292b46b3c4d5b5c6a9113ac80eb369f",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ],
+      "gate_api_seconds": 4.822329599992372,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 3
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "repeat": 1,
+      "mode": "base",
+      "repo": "fineract",
+      "case": "F-purge",
+      "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+      "wall_seconds": 11.901290799956769,
+      "status": "ERROR",
+      "exit_code": 4,
+      "reason": "[WinError 5] Odmowa dostępu: 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-gate-eval-02\\\\fw\\\\qa\\\\1f3ee04dc5f94dcd\\\\.r2-corpus-stage-399296b4baf747da86f94bee11dfc210\\\\monitor' -> 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa-gate-eval-02\\\\fw\\\\qa\\\\1f3ee04dc5f94dcd\\\\log-03'",
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 3,
+      "api_seconds": 8.038112499867566,
+      "usage": {
+        "input": 5815,
+        "output": 533,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.01696,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": null,
+      "pre_gate_id": null,
+      "checked_citations": 0,
+      "raw_file": "timed-08.json",
+      "raw_sha256": "b18858e4532a5ecdfba402146836212bb4c0f71bba20c9d546a645db2b3bf44a",
+      "received_provider_ids": [
+        "msg_011ChCS1DTchCU4gjSKSZmEA",
+        "msg_011ChCS1P3psVkZKiBJZh3ZK",
+        "msg_011ChCS1ZB2q3PUDG39D3NW4"
+      ],
+      "final_grade": "not_available",
+      "initial_gate_grade": "not_available",
+      "citations": []
+    },
+    {
+      "number": 9,
+      "repeat": 1,
+      "mode": "base",
+      "repo": "fineract",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "wall_seconds": 20.38554450008087,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 5,
+      "api_seconds": 16.007681199815124,
+      "usage": {
+        "input": 17930,
+        "output": 1427,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.05013,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "9c0e4fc37a",
+      "pre_gate_id": null,
+      "checked_citations": 2,
+      "raw_file": "timed-09.json",
+      "raw_sha256": "f7185488a227f3fca38f15b506f807e04eb5804be50fe28f826d0560c778c934",
+      "received_provider_ids": [
+        "msg_011ChCS27t2pu9r2TJMgzuan",
+        "msg_011ChCS2JWFNRBaYq87h7TKc",
+        "msg_011ChCS2UF9FCiTJz4r4a1SN",
+        "msg_011ChCS2ewpqUfKY3oRCg88c",
+        "msg_011ChCS2zuN5tGcBnhhZE23w"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/main/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicy.java",
+          "start": 55,
+          "end": 62,
+          "quote": "return t instanceof Exception && !(t instanceof StandingInstructionReadException) && !isInfrastructureFailure(t);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "86d1515d1a2dfe0aa03204f1c23847df4c11e6db",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        },
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/test/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicyTest.java",
+          "start": 45,
+          "end": 46,
+          "quote": ".shouldSkip(new InsufficientAccountBalanceException(\"savingsaccount\", BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.TEN), 0))",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "a68bc70fe57247ab226e8112bb4198dbd199a339",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "repeat": 1,
+      "mode": "review",
+      "repo": "fineract",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "wall_seconds": 22.59383839997463,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 6,
+      "api_seconds": 19.48066000000108,
+      "usage": {
+        "input": 22877,
+        "output": 1957,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.065324,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-account-transfer/src/main/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicy.java",
+              "blob_id": "86d1515d1a2dfe0aa03204f1c23847df4c11e6db",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 1,
+              "start": 25,
+              "end": 64
+            },
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-account-transfer/src/test/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicyTest.java",
+              "blob_id": "a68bc70fe57247ab226e8112bb4198dbd199a339",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 2,
+              "start": 15,
+              "end": 76
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 55,
+                  "end": 62
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 41,
+                  "end": 47
+                },
+                {
+                  "source": 1,
+                  "start": 59,
+                  "end": 62
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 55,
+                  "end": 57
+                },
+                {
+                  "source": 1,
+                  "start": 35,
+                  "end": 37
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "0f41dbf3c4",
+      "pre_gate_id": "0f41dbf3c4",
+      "checked_citations": 2,
+      "raw_file": "timed-10.json",
+      "raw_sha256": "2bbc72035f2dc0b5e9b767917357710555485662871838895c2dd1219c3ae6b7",
+      "received_provider_ids": [
+        "msg_011ChCS3XztKu7hqvuknTHhg",
+        "msg_011ChCS3iDJvcmJAJA4NwoxB",
+        "msg_011ChCS3tTwfrDdczXSq43UE",
+        "msg_011ChCS44kaFQvJg2CHyWsGK",
+        "msg_011ChCS4P7sTWbehid8n6qJL",
+        "msg_011ChCS4io42aWfdhfNwNVcQ"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/main/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicy.java",
+          "start": 55,
+          "end": 62,
+          "quote": "return t instanceof Exception && !(t instanceof StandingInstructionReadException) && !isInfrastructureFailure(t);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "86d1515d1a2dfe0aa03204f1c23847df4c11e6db",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        },
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/test/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicyTest.java",
+          "start": 45,
+          "end": 46,
+          "quote": ".shouldSkip(new InsufficientAccountBalanceException(\"savingsaccount\", BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.TEN), 0))",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "a68bc70fe57247ab226e8112bb4198dbd199a339",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ],
+      "gate_api_seconds": 4.225503199966624,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 3
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "repeat": 1,
+      "mode": "review",
+      "repo": "electron",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "wall_seconds": 18.111628300044686,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 4,
+      "api_seconds": 13.563586700125597,
+      "usage": {
+        "input": 14255,
+        "output": 1247,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.04098,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "electron",
+              "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+              "path": "lib/browser/api/utility-process.ts",
+              "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+              "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+              "source": 1,
+              "start": 32,
+              "end": 95
+            },
+            {
+              "repository": "electron",
+              "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+              "path": "lib/browser/api/utility-process.ts",
+              "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+              "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+              "source": 2,
+              "start": 42,
+              "end": 105
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 62,
+                  "end": 65
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 62,
+                  "end": 66
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 60,
+                  "end": 70
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 71,
+                  "end": 75
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "f00cd41d2c",
+      "pre_gate_id": "f00cd41d2c",
+      "checked_citations": 2,
+      "raw_file": "timed-11.json",
+      "raw_sha256": "99a57787d7e38aa30ceed8b31e744e83bbfb3739ae0f48d59f652f73e63c9ef0",
+      "received_provider_ids": [
+        "msg_011ChCS5LWPwxJ4WFkGCdujZ",
+        "msg_011ChCS5ZN45GwseXDK1ZXBZ",
+        "msg_011ChCS5izVmmUN6duFxmWSa",
+        "msg_011ChCS61EYyM4bgVDESKjhp"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/utility-process.ts",
+          "start": 62,
+          "end": 65,
+          "quote": "stdio.push('ignore', options.stdio, options.stdio);",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/utility-process.ts",
+          "start": 72,
+          "end": 75,
+          "quote": "throw new Error('stdin value other than ignore is not supported.');",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ],
+      "gate_api_seconds": 4.91527340002358,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 4
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "repeat": 1,
+      "mode": "base",
+      "repo": "electron",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "wall_seconds": 13.514685200061649,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 3,
+      "api_seconds": 8.363533800002187,
+      "usage": {
+        "input": 9523,
+        "output": 621,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.025256,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "778d139091",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-12.json",
+      "raw_sha256": "d66c5af56ee86285b095f48dd7855d0e6e78dfa06ff3e53783b6da1a7861ffde",
+      "received_provider_ids": [
+        "msg_011ChCS6ijtAqxVjh4F7tJKR",
+        "msg_011ChCS6wKvFbR6ytdkZo3g1",
+        "msg_011ChCS76w8EXashFBcvKL43"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/utility-process.ts",
+          "start": 55,
+          "end": 75,
+          "quote": "stdio.push('ignore', options.stdio, options.stdio);",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "repeat": 2,
+      "mode": "review",
+      "repo": "electron",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "wall_seconds": 18.356199499918148,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 4,
+      "api_seconds": 12.94678220001515,
+      "usage": {
+        "input": 9198,
+        "output": 1258,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.030976,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "electron",
+              "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+              "path": "lib/browser/api/crash-reporter.ts",
+              "blob_id": "ae7744d5c60a21e2e7589b5832717a221e2725d3",
+              "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+              "source": 1,
+              "start": 1,
+              "end": 68
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 21,
+                  "end": 21
+                },
+                {
+                  "source": 1,
+                  "start": 29,
+                  "end": 38
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 29,
+                  "end": 35
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 29,
+                  "end": 29
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 31,
+                  "end": 35
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 21,
+                  "end": 38
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "f3e0fcf36c",
+      "pre_gate_id": "f3e0fcf36c",
+      "checked_citations": 1,
+      "raw_file": "timed-13.json",
+      "raw_sha256": "f6e30a04799c66729657b875d9a99042a743972ed1ad5cc6405282f822598c24",
+      "received_provider_ids": [
+        "msg_011ChCS7kGCZRYGB1JteScpk",
+        "msg_011ChCS7u4X4Js9jznbp2mba",
+        "msg_011ChCS82AucTgV7UM6tRm8L",
+        "msg_011ChCS8GWN5JfFXqgnRZmA7"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/crash-reporter.ts",
+          "start": 29,
+          "end": 38,
+          "quote": "if (companyName && globalExtra._companyName == null) globalExtra._companyName = companyName;",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "ae7744d5c60a21e2e7589b5832717a221e2725d3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ],
+      "gate_api_seconds": 6.117009800043888,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 5
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "repeat": 2,
+      "mode": "base",
+      "repo": "electron",
+      "case": "E-crash-metadata",
+      "question": "W procesie głównym Electrona wywołuję crashReporter.start z uploadToServer ustawionym na false, productName równym 'Sklep' i companyName równym 'Firma A'. W globalExtra podaję też _productName: 'Kiosk' oraz _companyName: 'Firma B'. Jakie dwie nazwy dostanie natywne start w globalnych metadanych?",
+      "wall_seconds": 12.833317899960093,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 3,
+      "api_seconds": 8.159985800040886,
+      "usage": {
+        "input": 5947,
+        "output": 535,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.017244,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "55ebb3ddfb",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-14.json",
+      "raw_sha256": "b18775e2fedca5692c367395d7ae8925dca8e54816b7228a6ba8a859f0d90a6a",
+      "received_provider_ids": [
+        "msg_011ChCS93hxLpvgcNAYPZNB3",
+        "msg_011ChCS9CwL9itbisrMMbRkP",
+        "msg_011ChCS9Nrtp95tpbz8iQn2r"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/crash-reporter.ts",
+          "start": 29,
+          "end": 38,
+          "quote": "if (companyName && globalExtra._companyName == null) globalExtra._companyName = companyName;",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "ae7744d5c60a21e2e7589b5832717a221e2725d3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "repeat": 2,
+      "mode": "base",
+      "repo": "electron",
+      "case": "E-menu-fallback",
+      "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+      "wall_seconds": 12.277148699969985,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 3,
+      "api_seconds": 9.060080499853939,
+      "usage": {
+        "input": 10055,
+        "output": 795,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.02806,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "836fa825a0",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-15.json",
+      "raw_sha256": "186067f749dfe6c0cdfa5ea4d628b030290a3ac61e5679b156d9e88fa587fab4",
+      "received_provider_ids": [
+        "msg_011ChCS9sDxTZNTwNRQnanCp",
+        "msg_011ChCSA5Jjaxwtr7p9HHwY2",
+        "msg_011ChCSAGVBobjY1FQycbLjq"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/menu.ts",
+          "start": 85,
+          "end": 94,
+          "quote": "window = BaseWindow.getFocusedWindow() as any;",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "10cad67f10c43f2633b0c456a3d2c9b7906d3fef",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "repeat": 2,
+      "mode": "review",
+      "repo": "electron",
+      "case": "E-menu-fallback",
+      "question": "Wywołuję w Electronie Menu.popup bez wskazania okna. Są otwarte dwa okna, ale żadne nie ma fokusu. Czy menu może się wtedy otworzyć i które okno wybierze? Co się stanie, jeśli oba okna zostaną wcześniej zamknięte?",
+      "wall_seconds": 23.719517300021835,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 6,
+      "api_seconds": 18.7364469995955,
+      "usage": {
+        "input": 18262,
+        "output": 1647,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.052994,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "electron",
+              "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+              "path": "lib/browser/api/menu.ts",
+              "blob_id": "10cad67f10c43f2633b0c456a3d2c9b7906d3fef",
+              "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+              "source": 1,
+              "start": 55,
+              "end": 126
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 85,
+                  "end": 96
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 85,
+                  "end": 87
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 88,
+                  "end": 90
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 96,
+                  "end": 96
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 85,
+                  "end": 91
+                }
+              ]
+            },
+            {
+              "unit": 6,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 91,
+                  "end": 93
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "3275f82ec7",
+      "pre_gate_id": "3275f82ec7",
+      "checked_citations": 1,
+      "raw_file": "timed-16.json",
+      "raw_sha256": "30360ca712974e16df451e2bcc4c94d140f4f9fdb32fe0172fbb67f29494547c",
+      "received_provider_ids": [
+        "msg_011ChCSAt7ZSNXUMpC6Bb6TY",
+        "msg_011ChCSB4pzJUiGmsF1vgSoL",
+        "msg_011ChCSBBseMtahxnXrukaJ1",
+        "msg_011ChCSBLeyy5Q1743k5BrhU",
+        "msg_011ChCSBXpT6BqTKvPvFxKhH",
+        "msg_011ChCSBrcnv2J8ddW4M6FS7"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/menu.ts",
+          "start": 85,
+          "end": 96,
+          "quote": "window = wins[0] as any;",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "10cad67f10c43f2633b0c456a3d2c9b7906d3fef",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ],
+      "gate_api_seconds": 6.268811399932019,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 6
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "repeat": 2,
+      "mode": "review",
+      "repo": "fineract",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "wall_seconds": 26.332625399925746,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 6,
+      "api_seconds": 21.8487546001561,
+      "usage": {
+        "input": 22855,
+        "output": 2029,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.066,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-account-transfer/src/main/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicy.java",
+              "blob_id": "86d1515d1a2dfe0aa03204f1c23847df4c11e6db",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 1,
+              "start": 25,
+              "end": 64
+            },
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-account-transfer/src/test/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicyTest.java",
+              "blob_id": "a68bc70fe57247ab226e8112bb4198dbd199a339",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 2,
+              "start": 15,
+              "end": 76
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 55,
+                  "end": 62
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 41,
+                  "end": 47
+                },
+                {
+                  "source": 1,
+                  "start": 55,
+                  "end": 62
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 35,
+                  "end": 37
+                },
+                {
+                  "source": 1,
+                  "start": 55,
+                  "end": 57
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "7ef46a6d52",
+      "pre_gate_id": "7ef46a6d52",
+      "checked_citations": 2,
+      "raw_file": "timed-17.json",
+      "raw_sha256": "1a94ab6089e74a55cf7d79d3cb86697cdaa2bc858600f92212edefd0c5e0cb7e",
+      "received_provider_ids": [
+        "msg_011ChCSCamaJtMQNV854JJgZ",
+        "msg_011ChCSCkyVtMzZfUsqqGS3Z",
+        "msg_011ChCSCw2VTR7E9X3r3DoNH",
+        "msg_011ChCSD7wZuN5DsS9zBV8jW",
+        "msg_011ChCSDTCwfvmTrr9paPCR4",
+        "msg_011ChCSDpaZkFcMfQVFM9Z2J"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/main/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicy.java",
+          "start": 55,
+          "end": 62,
+          "quote": "return t instanceof Exception && !(t instanceof StandingInstructionReadException) && !isInfrastructureFailure(t);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "86d1515d1a2dfe0aa03204f1c23847df4c11e6db",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        },
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/test/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicyTest.java",
+          "start": 45,
+          "end": 46,
+          "quote": ".shouldSkip(new InsufficientAccountBalanceException(\"savingsaccount\", BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.TEN), 0))",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "a68bc70fe57247ab226e8112bb4198dbd199a339",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ],
+      "gate_api_seconds": 5.940127199981362,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 3
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "repeat": 2,
+      "mode": "base",
+      "repo": "fineract",
+      "case": "F-standing",
+      "question": "Jak polityka pomijania błędów w zadaniu zleceń stałych Fineracta potraktuje IllegalStateException z powodu błędnych danych instrukcji, a jak CannotCreateTransactionException? Czy decyzja zależy od liczby wcześniejszych pominięć?",
+      "wall_seconds": 20.516153099946678,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 5,
+      "api_seconds": 15.796272499952465,
+      "usage": {
+        "input": 17939,
+        "output": 1360,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.049478,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "765f2c7440",
+      "pre_gate_id": null,
+      "checked_citations": 2,
+      "raw_file": "timed-18.json",
+      "raw_sha256": "472565822973c616a7fcf325a15307975f534e78f51ea86d9be3403da9c22a33",
+      "received_provider_ids": [
+        "msg_011ChCSEYWCz5qFKAejYaMcY",
+        "msg_011ChCSEjAuYsWXbaKSkAxGN",
+        "msg_011ChCSEu1VgE8BCUgnJSwVL",
+        "msg_011ChCSF5hvZkjuTRWk93kfC",
+        "msg_011ChCSFRPcQhi6xp3FPyWAe"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/main/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicy.java",
+          "start": 55,
+          "end": 62,
+          "quote": "return t instanceof Exception && !(t instanceof StandingInstructionReadException) && !isInfrastructureFailure(t);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "86d1515d1a2dfe0aa03204f1c23847df4c11e6db",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        },
+        {
+          "repository": "fineract",
+          "path": "fineract-account-transfer/src/test/java/org/apache/fineract/portfolio/account/jobs/executestandinginstructions/StandingInstructionSkipPolicyTest.java",
+          "start": 45,
+          "end": 46,
+          "quote": ".shouldSkip(new InsufficientAccountBalanceException(\"savingsaccount\", BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.TEN), 0))",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "a68bc70fe57247ab226e8112bb4198dbd199a339",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "repeat": 2,
+      "mode": "base",
+      "repo": "fineract",
+      "case": "F-purge",
+      "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+      "wall_seconds": 21.25271279993467,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 4,
+      "api_seconds": 15.947820200002752,
+      "usage": {
+        "input": 10848,
+        "output": 998,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.031676,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "1c1c555d80",
+      "pre_gate_id": null,
+      "checked_citations": 2,
+      "raw_file": "timed-19.json",
+      "raw_sha256": "fec75c209d3e03cea7633ae3beb82fa31ccbac817a17b374c31fb92351cf1989",
+      "received_provider_ids": [
+        "msg_011ChCSG6ETa9jJsoRiWDbeQ",
+        "msg_011ChCSGHQAWhfLQQQuxXdST",
+        "msg_011ChCSGTbqq72VCqjezZF17",
+        "msg_011ChCSGnsCvxmHnMxNhUiPG"
+      ],
+      "final_grade": "partial",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+          "start": 44,
+          "end": 51,
+          "quote": "log.error(\"Error occurred while purging external events: \", e);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "d70b83241c0785880bfaabb6c6c4a6285a493344",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        },
+        {
+          "repository": "fineract",
+          "path": "fineract-provider/src/test/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTaskletTest.java",
+          "start": 84,
+          "end": 85,
+          "quote": "resultStatus = underTest.execute(stepContribution, chunkContext);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "bc944cade292b46b3c4d5b5c6a9113ac80eb369f",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "repeat": 2,
+      "mode": "review",
+      "repo": "fineract",
+      "case": "F-purge",
+      "question": "W zadaniu Fineracta do czyszczenia zewnętrznych zdarzeń repozytorium rzuca wyjątek podczas usuwania starych wpisów. Jak zareaguje PurgeExternalEventsTasklet i jak zakończy się samo wywołanie execute?",
+      "wall_seconds": 20.256396600045264,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 5,
+      "api_seconds": 15.705093000084162,
+      "usage": {
+        "input": 15642,
+        "output": 1468,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.045964,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+              "blob_id": "d70b83241c0785880bfaabb6c6c4a6285a493344",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 1,
+              "start": 14,
+              "end": 55
+            },
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-provider/src/test/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTaskletTest.java",
+              "blob_id": "bc944cade292b46b3c4d5b5c6a9113ac80eb369f",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 2,
+              "start": 54,
+              "end": 105
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 44,
+                  "end": 50
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 47,
+                  "end": 51
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 2,
+                  "start": 98,
+                  "end": 102
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "e80a036db6",
+      "pre_gate_id": "e80a036db6",
+      "checked_citations": 2,
+      "raw_file": "timed-20.json",
+      "raw_sha256": "221ac1d904d12ccdd2c6779b942ea43ca4ad2da9c627d8b8b9f04c604100966d",
+      "received_provider_ids": [
+        "msg_011ChCSHc66GyvBbSKoLWp6U",
+        "msg_011ChCSHmnzw7fW65k23qsXB",
+        "msg_011ChCSHwpFZBm7RAtqrZMCF",
+        "msg_011ChCSJGhZX5j4pPsa7b6oH",
+        "msg_011ChCSJYVaZQh9rh6HBnVYZ"
+      ],
+      "final_grade": "partial",
+      "initial_gate_grade": "partial",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-core/src/main/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTasklet.java",
+          "start": 44,
+          "end": 51,
+          "quote": "log.error(\"Error occurred while purging external events: \", e);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "d70b83241c0785880bfaabb6c6c4a6285a493344",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        },
+        {
+          "repository": "fineract",
+          "path": "fineract-provider/src/test/java/org/apache/fineract/infrastructure/event/external/jobs/PurgeExternalEventsTaskletTest.java",
+          "start": 84,
+          "end": 85,
+          "quote": "resultStatus = underTest.execute(stepContribution, chunkContext);",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "bc944cade292b46b3c4d5b5c6a9113ac80eb369f",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ],
+      "gate_api_seconds": 3.9064374999143183,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 3
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "repeat": 2,
+      "mode": "review",
+      "repo": "fineract",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "wall_seconds": 14.768111900077201,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 4,
+      "api_seconds": 10.354553899960592,
+      "usage": {
+        "input": 11553,
+        "output": 862,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.031726,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "fineract",
+              "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+              "path": "fineract-provider/src/main/resources/application.properties",
+              "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72",
+              "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+              "source": 1,
+              "start": 892,
+              "end": 941
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 922,
+                  "end": 923
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 924,
+                  "end": 925
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "3420198b22",
+      "pre_gate_id": "3420198b22",
+      "checked_citations": 1,
+      "raw_file": "timed-21.json",
+      "raw_sha256": "b1f9d5f473dccce2dc91e495c91039ba537ab030110b9e868003d7216d54e976",
+      "received_provider_ids": [
+        "msg_011ChCSK9DNqx8rVC4iXCjqA",
+        "msg_011ChCSKJk7KTnka121ifqxr",
+        "msg_011ChCSKU1UfQSYa7ytpnFRQ",
+        "msg_011ChCSKjY8SKWc7mYhNgHiT"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-provider/src/main/resources/application.properties",
+          "start": 922,
+          "end": 923,
+          "quote": "resilience4j.retry.instances.tenantContextLookup.max-attempts=${FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS:2}",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ],
+      "gate_api_seconds": 2.5603797999210656,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 2
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "repeat": 2,
+      "mode": "base",
+      "repo": "fineract",
+      "case": "F-lookup",
+      "question": "Jakie domyślne wartości Fineract ustawia w konfiguracji ponowień tenantContextLookup dla maksymalnej liczby prób i czasu oczekiwania pomiędzy próbami, jeśli operator niczego nie nadpisał?",
+      "wall_seconds": 12.568974599940702,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "model_calls": 3,
+      "api_seconds": 8.048203899990767,
+      "usage": {
+        "input": 6881,
+        "output": 553,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.019292,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "7ab33a1834",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-22.json",
+      "raw_sha256": "d2f14e81a614d5166684fcc8a82af79dfc6c2dc3716f068b8f2c7c67d3112ce8",
+      "received_provider_ids": [
+        "msg_011ChCSLEdLpiQ3qKTzgrFoj",
+        "msg_011ChCSLQMVKjiuNhK6M4MUd",
+        "msg_011ChCSLaKWsTmTdycwK4iVY"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "fineract",
+          "path": "fineract-provider/src/main/resources/application.properties",
+          "start": 922,
+          "end": 925,
+          "quote": "resilience4j.retry.instances.tenantContextLookup.max-attempts=${FINERACT_TENANT_CONTEXT_LOOKUP_RETRY_MAX_ATTEMPTS:2}",
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72",
+          "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "repeat": 2,
+      "mode": "base",
+      "repo": "electron",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "wall_seconds": 13.794452000060119,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 3,
+      "api_seconds": 9.118772400077432,
+      "usage": {
+        "input": 9525,
+        "output": 698,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.02603,
+      "reviews": [],
+      "disposition": null,
+      "repair": null,
+      "published_id": "b1799a4194",
+      "pre_gate_id": null,
+      "checked_citations": 1,
+      "raw_file": "timed-23.json",
+      "raw_sha256": "840d5e94a83eee3ad67b1d5d68dece9e41e02fa576696b71da3a779c58bdd689",
+      "received_provider_ids": [
+        "msg_011ChCSMAAVHgxjvG5okGGgK",
+        "msg_011ChCSMNoVWeVVxM4VZL9GU",
+        "msg_011ChCSMYYPZT5Fyo4agkuTJ"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "not_available",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/utility-process.ts",
+          "start": 55,
+          "end": 75,
+          "quote": "stdio.push('ignore', options.stdio, options.stdio);",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "repeat": 2,
+      "mode": "review",
+      "repo": "electron",
+      "case": "E-utility-stdio",
+      "question": "W Electronie uruchamiam helper przez utilityProcess.fork ze stdio ustawionym na napis 'pipe'. Czy tym sposobem mogę też zapisywać do jego standardowego wejścia? Co zrobi fork, jeśli zamiast napisu podam ['pipe', 'pipe', 'pipe']?",
+      "wall_seconds": 20.8935388000682,
+      "status": "VERIFIED",
+      "exit_code": 0,
+      "reason": null,
+      "manifest": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "model_calls": 4,
+      "api_seconds": 15.27154770004563,
+      "usage": {
+        "input": 14190,
+        "output": 1580,
+        "cached_read": 0,
+        "cached_write": 0
+      },
+      "estimated_cost_usd": 0.04418,
+      "reviews": [
+        {
+          "sources": [
+            {
+              "repository": "electron",
+              "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+              "path": "lib/browser/api/utility-process.ts",
+              "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+              "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+              "source": 1,
+              "start": 32,
+              "end": 96
+            },
+            {
+              "repository": "electron",
+              "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+              "path": "lib/browser/api/utility-process.ts",
+              "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+              "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+              "source": 2,
+              "start": 42,
+              "end": 105
+            }
+          ],
+          "findings": [
+            {
+              "unit": 1,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 62,
+                  "end": 66
+                },
+                {
+                  "source": 1,
+                  "start": 73,
+                  "end": 75
+                }
+              ]
+            },
+            {
+              "unit": 2,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 62,
+                  "end": 70
+                }
+              ]
+            },
+            {
+              "unit": 3,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 62,
+                  "end": 66
+                }
+              ]
+            },
+            {
+              "unit": 4,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 71,
+                  "end": 75
+                }
+              ]
+            },
+            {
+              "unit": 5,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 72,
+                  "end": 87
+                }
+              ]
+            },
+            {
+              "unit": 6,
+              "assessment": "supported",
+              "evidence": [
+                {
+                  "source": 1,
+                  "start": 72,
+                  "end": 93
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition": "accepted",
+      "repair": false,
+      "published_id": "f7b0f9f9d1",
+      "pre_gate_id": "f7b0f9f9d1",
+      "checked_citations": 2,
+      "raw_file": "timed-24.json",
+      "raw_sha256": "04188581da61dfdfdadf82c7a0d99a6fabab218088b5c7a956a664c0966e3609",
+      "received_provider_ids": [
+        "msg_011ChCSNEuWhHeLTKLY2yEjr",
+        "msg_011ChCSNTeEGix36Pa8BVgQZ",
+        "msg_011ChCSNdBy4dUSCMpNCEhz8",
+        "msg_011ChCSNwdya9b3hAAFusWn3"
+      ],
+      "final_grade": "correct",
+      "initial_gate_grade": "correct",
+      "citations": [
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/utility-process.ts",
+          "start": 62,
+          "end": 66,
+          "quote": "stdio.push('ignore', options.stdio, options.stdio);",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        },
+        {
+          "repository": "electron",
+          "path": "lib/browser/api/utility-process.ts",
+          "start": 72,
+          "end": 75,
+          "quote": "throw new Error('stdin value other than ignore is not supported.');",
+          "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+          "blob_id": "626ba1643cd5bf2c7be2db28395478693c2439a3",
+          "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc"
+        }
+      ],
+      "gate_api_seconds": 6.266387699986808,
+      "gate_api_calls": 1,
+      "review_evidence_audit": [
+        {
+          "adverse_findings": [],
+          "n_findings": 6
+        }
+      ]
+    }
+  ],
+  "artifacts_directory": "local/qa-gate-eval-02",
+  "commands": [
+    "paired.py freeze",
+    "challenge.py preflight",
+    "challenge.py run",
+    "paired.py run",
+    "paired.py audit",
+    "blind grading of both shuffled packets against frozen references",
+    "summarize.py"
+  ]
+}

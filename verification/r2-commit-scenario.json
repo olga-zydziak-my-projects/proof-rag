@@ -1,0 +1,26 @@
+{
+  "repository": "electron/electron",
+  "id": "electron",
+  "commit_a": "d60ae179985685d75d238ee33e17c15a7b53d703",
+  "tree_a": "fa2587baa940913befc5d539afef827a695dfb73",
+  "commit_b": "a02e699e313706bceb6ed97219d30d825d73597d",
+  "tree_b": "ecf75fcf93ce54516b0929965facccae5fc2d0e4",
+  "changes": [
+    [
+      "M",
+      "docs/README.md"
+    ],
+    [
+      "M",
+      "docs/api/content-tracing.md"
+    ],
+    [
+      "R100",
+      "docs/tutorial/debugging-main-process.md",
+      "docs/tutorial/debugging-main-process-r2-experiment.md"
+    ]
+  ],
+  "rename_blob": "811c87a20057839f6dfd9446ac8729b564fb4da8",
+  "base_result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+  "base_manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9"
+}

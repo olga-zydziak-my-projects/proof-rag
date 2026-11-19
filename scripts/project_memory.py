@@ -1,7 +1,7 @@
 """Zapamiętaj preferencję projektu i aktywny wynik Fineract R2 w rozmowie."""
 
 import argparse
-from contextlib import closing
+from contextlib import ExitStack, closing
 from dataclasses import dataclass
 from hashlib import sha256
 import json
@@ -16,12 +16,13 @@ sys.path.insert(0, str(PROJECT / "src"))
 
 from repo_proof.fineract_oracle import strict_json
 from repo_proof.git_search import RESULT_FORMAT
-from repo_proof.memory_intent import InterpretationError, interpret_question
+from repo_proof.memory_intent import InterpretationError, anthropic_client, interpret_question
 
 
 DEFAULT_DB = PROJECT / "local/project-memory/preferences.sqlite3"
 PREFERENCE = "pokazuj pliki testowe osobno"
 TEST_QUESTION = "które z tych plików są testami?"
+COMMAND_ERRORS = (OSError, ValueError, TypeError, KeyError, RecursionError, sqlite3.Error)
 
 
 @dataclass
@@ -201,13 +202,17 @@ def nonempty_conversation(value):
     return value
 
 
-def ask_question(args, evidence):
-    if args.interpreter == "local":
-        if args.pytanie.strip().casefold() not in (TEST_QUESTION, f"a {TEST_QUESTION}"):
+def is_known_question(question):
+    return question.strip().casefold() in (TEST_QUESTION, f"a {TEST_QUESTION}")
+
+
+def ask_question(db_path, conversation, question, interpreter, evidence, *, get_client=None):
+    if interpreter == "local":
+        if not is_known_question(question):
             raise ValueError(f"Obsługiwane pytanie: {TEST_QUESTION}")
         decision = "show_test_paths"
     else:
-        decision = interpret_question(args.interpreter, args.pytanie, evidence)
+        decision = interpret_question(interpreter, question, evidence, get_client=get_client)
     evidence["decision"] = decision
     if decision == "clarify":
         print("Czy chodzi o listę plików testowych z aktywnego wyniku rozmowy?")
@@ -221,13 +226,49 @@ def ask_question(args, evidence):
     started = perf_counter()
     evidence["application"] = "active_result_error"
     try:
-        result = resume_result(args.db, args.rozmowa)
+        result = resume_result(db_path, conversation)
         tests = [path for path in result.paths if is_test_path(path)]
     finally:
         evidence["local_seconds"] = perf_counter() - started
     print(f"Repozytorium: {result.repository}\nCommit: {result.commit}\nLiterał: {result.literal}")
     print_paths("Pliki pod src/test/", tests, total=len(result.paths))
     evidence["application"] = "showed_paths"
+
+
+def run_session(db_path, conversation, interpreter):
+    interactive = sys.stdin.isatty() and sys.stdout.isatty()
+    with ExitStack() as resources:
+        client = None
+
+        def get_client():
+            nonlocal client
+            if client is None:
+                client = resources.enter_context(anthropic_client())
+            return client
+
+        while True:
+            try:
+                question = input(f"{conversation}> " if interactive else "").strip()
+            except EOFError:
+                return
+            if question == "/koniec":
+                return
+            if not question:
+                continue
+            if question.startswith("/"):
+                command, *identifier = question.split(maxsplit=1)
+                if command == "/rozmowa" and identifier:
+                    conversation = identifier[0]
+                else:
+                    print("Błąd: użyj `/rozmowa ID` lub `/koniec`.", file=sys.stderr, flush=True)
+                continue
+
+            selected = "local" if is_known_question(question) else interpreter
+            try:
+                ask_question(db_path, conversation, question, selected, {}, get_client=get_client)
+                sys.stdout.flush()
+            except COMMAND_ERRORS as exc:
+                print(f"Błąd: {exc}", file=sys.stderr, flush=True)
 
 
 def main(argv=None):
@@ -245,13 +286,16 @@ def main(argv=None):
     result.add_argument("katalog", type=Path)
     open_result = commands.add_parser("otwórz-wynik", help="ustaw zweryfikowany wynik R2 dla rozmowy")
     ask = commands.add_parser("zapytaj", help="zapytaj o pliki testowe z aktywnego wyniku rozmowy")
-    for command in (open_result, ask):
+    session = commands.add_parser("sesja", help="zadawaj pytania i przełączaj rozmowy w jednym procesie")
+    for command in (open_result, ask, session):
         command.add_argument("--rozmowa", type=nonempty_conversation, required=True)
     open_result.add_argument("katalog", type=Path)
     ask.add_argument("pytanie")
     ask.add_argument("--interpreter", choices=("local", "claude", "dspy"), default="local",
                      help="opcjonalny tryb Claude lub DSPy wysyła pytanie do Anthropic API")
     ask.add_argument("--measurement", type=Path, help="nowy plik JSON z pomiarem próby")
+    session.add_argument("--interpreter", choices=("local", "claude"), default="local",
+                         help="opcjonalny Claude klasyfikuje pytania spoza znanych sformułowań")
     args = parser.parse_args(argv)
 
     evidence = {}
@@ -268,7 +312,9 @@ def main(argv=None):
         elif args.command == "zapytaj":
             if args.measurement:
                 measurement = args.measurement.open("x", encoding="utf-8")
-            ask_question(args, evidence)
+            ask_question(args.db, args.rozmowa, args.pytanie, args.interpreter, evidence)
+        elif args.command == "sesja":
+            run_session(args.db, args.rozmowa, args.interpreter)
         else:
             enabled = {"zapamiętaj": True, "zapomnij": False}.get(args.command)
             remembered = project_preference(args.db, args.project, enabled)
@@ -282,7 +328,7 @@ def main(argv=None):
         evidence["application"] = exc.kind
         print(f"Błąd: {exc}", file=sys.stderr)
         return 1
-    except (OSError, ValueError, TypeError, KeyError, RecursionError, sqlite3.Error) as exc:
+    except COMMAND_ERRORS as exc:
         evidence.setdefault("application", "error")
         print(f"Błąd: {exc}", file=sys.stderr)
         return 1

@@ -1,0 +1,255 @@
+{
+  "acquisition": {
+    "base_manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+    "electron_origin": "https://github.com/electron/electron.git",
+    "objects_available_utc": "2026-11-18T21:01:33+00:00",
+    "requested_missing_blobs": 35,
+    "distinct_electron_blobs_in_six_versions": 2697,
+    "versions": [
+      {
+        "id": "A0",
+        "commit": "2d397883a5459557448e6b86cecc1359919cda76",
+        "root_tree": "341e9d2c74dbf911459e6bb6d795f6d1531d454a",
+        "first_parent": "79433861fe10e4f7841153461fd3778b400a4c0b",
+        "electron_regular_paths": 2699,
+        "corpus_regular_paths": 133564,
+        "subject": "chore: bump chromium to 140.0.7339.80 (38-x-y) (#48249)"
+      },
+      {
+        "id": "A1",
+        "commit": "35639ad8015e1c2dd5cdbf51031dd27ca13a4546",
+        "root_tree": "f71d8c7047aa5ea6c3e58e0ff89eefe9b69ea23f",
+        "first_parent": "2d397883a5459557448e6b86cecc1359919cda76",
+        "electron_regular_paths": 2699,
+        "corpus_regular_paths": 133564,
+        "subject": "chore: bump node to v22.19.0 (38-x-y) (#48221)"
+      },
+      {
+        "id": "A2",
+        "commit": "8cd29d24b1be40bb598d909f2b5b808266fa5266",
+        "root_tree": "07c8780732913c140071179ff7fe5027ac85c3cd",
+        "first_parent": "35639ad8015e1c2dd5cdbf51031dd27ca13a4546",
+        "electron_regular_paths": 2699,
+        "corpus_regular_paths": 133564,
+        "subject": "docs: update release timeline for unsupported v35 (#48286)"
+      },
+      {
+        "id": "A3",
+        "commit": "5e51c882ee25789183771c0173d01aafb9ee96dd",
+        "root_tree": "07aec82536905a3e425c332a61b3ebefa0b6f782",
+        "first_parent": "8cd29d24b1be40bb598d909f2b5b808266fa5266",
+        "electron_regular_paths": 2699,
+        "corpus_regular_paths": 133564,
+        "subject": "chore: bump chromium to 140.0.7339.133 (38-x-y) (#48287)"
+      },
+      {
+        "id": "A4",
+        "commit": "f43348e75cf220daec81a7448e6983af88951fdb",
+        "root_tree": "c7c68ec382f1c1e6526a70fafd57f06c885afd49",
+        "first_parent": "5e51c882ee25789183771c0173d01aafb9ee96dd",
+        "electron_regular_paths": 2699,
+        "corpus_regular_paths": 133564,
+        "subject": "ci: Use Local Execution, Remote Caching (LERC) for fork PRS (#48323)"
+      },
+      {
+        "id": "A5",
+        "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+        "root_tree": "fa2587baa940913befc5d539afef827a695dfb73",
+        "first_parent": "f43348e75cf220daec81a7448e6983af88951fdb",
+        "electron_regular_paths": 2700,
+        "corpus_regular_paths": 133565,
+        "subject": "chore: cherry-pick ec6c18478382 from v8 (#48337)"
+      }
+    ]
+  },
+  "frozen_utc": "2026-11-18T21:03:37+00:00",
+  "literals": [
+    {
+      "id": "many",
+      "literal": "chrome://",
+      "fixed_repository_counts": {
+        "chromium": 5098,
+        "brave-core": 755
+      },
+      "electron_paths": {
+        "A0": [
+          "docs/api/app.md",
+          "docs/api/content-tracing.md",
+          "docs/tutorial/debugging-main-process.md",
+          "docs/tutorial/devtools-extension.md",
+          "patches/chromium/adjust_accessibility_ui_for_electron.patch",
+          "shell/browser/electron_browser_client.cc",
+          "shell/browser/extensions/api/tabs/tabs_api.cc",
+          "shell/browser/ui/devtools_ui_theme_data_source.cc",
+          "shell/browser/ui/webui/accessibility_ui.cc",
+          "shell/common/extensions/api/_api_features.json",
+          "spec/api-browser-window-spec.ts",
+          "spec/chromium-spec.ts",
+          "spec/extensions-spec.ts"
+        ],
+        "A1": [
+          "docs/api/app.md",
+          "docs/api/content-tracing.md",
+          "docs/tutorial/debugging-main-process.md",
+          "docs/tutorial/devtools-extension.md",
+          "patches/chromium/adjust_accessibility_ui_for_electron.patch",
+          "shell/browser/electron_browser_client.cc",
+          "shell/browser/extensions/api/tabs/tabs_api.cc",
+          "shell/browser/ui/devtools_ui_theme_data_source.cc",
+          "shell/browser/ui/webui/accessibility_ui.cc",
+          "shell/common/extensions/api/_api_features.json",
+          "spec/api-browser-window-spec.ts",
+          "spec/chromium-spec.ts",
+          "spec/extensions-spec.ts"
+        ],
+        "A2": [
+          "docs/api/app.md",
+          "docs/api/content-tracing.md",
+          "docs/tutorial/debugging-main-process.md",
+          "docs/tutorial/devtools-extension.md",
+          "patches/chromium/adjust_accessibility_ui_for_electron.patch",
+          "shell/browser/electron_browser_client.cc",
+          "shell/browser/extensions/api/tabs/tabs_api.cc",
+          "shell/browser/ui/devtools_ui_theme_data_source.cc",
+          "shell/browser/ui/webui/accessibility_ui.cc",
+          "shell/common/extensions/api/_api_features.json",
+          "spec/api-browser-window-spec.ts",
+          "spec/chromium-spec.ts",
+          "spec/extensions-spec.ts"
+        ],
+        "A3": [
+          "docs/api/app.md",
+          "docs/api/content-tracing.md",
+          "docs/tutorial/debugging-main-process.md",
+          "docs/tutorial/devtools-extension.md",
+          "patches/chromium/adjust_accessibility_ui_for_electron.patch",
+          "shell/browser/electron_browser_client.cc",
+          "shell/browser/extensions/api/tabs/tabs_api.cc",
+          "shell/browser/ui/devtools_ui_theme_data_source.cc",
+          "shell/browser/ui/webui/accessibility_ui.cc",
+          "shell/common/extensions/api/_api_features.json",
+          "spec/api-browser-window-spec.ts",
+          "spec/chromium-spec.ts",
+          "spec/extensions-spec.ts"
+        ],
+        "A4": [
+          "docs/api/app.md",
+          "docs/api/content-tracing.md",
+          "docs/tutorial/debugging-main-process.md",
+          "docs/tutorial/devtools-extension.md",
+          "patches/chromium/adjust_accessibility_ui_for_electron.patch",
+          "shell/browser/electron_browser_client.cc",
+          "shell/browser/extensions/api/tabs/tabs_api.cc",
+          "shell/browser/ui/devtools_ui_theme_data_source.cc",
+          "shell/browser/ui/webui/accessibility_ui.cc",
+          "shell/common/extensions/api/_api_features.json",
+          "spec/api-browser-window-spec.ts",
+          "spec/chromium-spec.ts",
+          "spec/extensions-spec.ts"
+        ],
+        "A5": [
+          "docs/api/app.md",
+          "docs/api/content-tracing.md",
+          "docs/tutorial/debugging-main-process.md",
+          "docs/tutorial/devtools-extension.md",
+          "patches/chromium/adjust_accessibility_ui_for_electron.patch",
+          "shell/browser/electron_browser_client.cc",
+          "shell/browser/extensions/api/tabs/tabs_api.cc",
+          "shell/browser/ui/devtools_ui_theme_data_source.cc",
+          "shell/browser/ui/webui/accessibility_ui.cc",
+          "shell/common/extensions/api/_api_features.json",
+          "spec/api-browser-window-spec.ts",
+          "spec/chromium-spec.ts",
+          "spec/extensions-spec.ts"
+        ]
+      },
+      "expected_totals": {
+        "A0": 5866,
+        "A1": 5866,
+        "A2": 5866,
+        "A3": 5866,
+        "A4": 5866,
+        "A5": 5866
+      }
+    },
+    {
+      "id": "few",
+      "literal": "140.0.7339.133",
+      "fixed_repository_counts": {
+        "chromium": 0,
+        "brave-core": 1
+      },
+      "electron_paths": {
+        "A0": [],
+        "A1": [],
+        "A2": [],
+        "A3": [
+          "DEPS"
+        ],
+        "A4": [
+          "DEPS"
+        ],
+        "A5": [
+          "DEPS"
+        ]
+      },
+      "expected_totals": {
+        "A0": 1,
+        "A1": 1,
+        "A2": 1,
+        "A3": 2,
+        "A4": 2,
+        "A5": 2
+      }
+    }
+  ],
+  "first_parent_changed_paths": {
+    "A1": [
+      "DEPS",
+      "patches/node/.patches",
+      "patches/node/build_add_gn_build_files.patch",
+      "patches/node/build_compile_with_c_20_support.patch",
+      "patches/node/build_enable_perfetto.patch",
+      "patches/node/build_ensure_native_module_compilation_fails_if_not_using_a_new.patch",
+      "patches/node/build_modify_js2c_py_to_allow_injection_of_original-fs_and_custom_embedder_js.patch",
+      "patches/node/build_restore_clang_as_default_compiler_on_macos.patch",
+      "patches/node/chore_allow_the_node_entrypoint_to_be_a_builtin_module.patch",
+      "patches/node/cli_move_--trace-atomics-wait_to_eol.patch",
+      "patches/node/cli_remove_deprecated_v8_flag.patch",
+      "patches/node/fix_add_default_values_for_variables_in_common_gypi.patch",
+      "patches/node/fix_allow_passing_fileexists_fn_to_legacymainresolve.patch",
+      "patches/node/fix_assert_module_in_the_renderer_process.patch",
+      "patches/node/fix_cppgc_initializing_twice.patch",
+      "patches/node/fix_crypto_tests_to_run_with_bssl.patch",
+      "patches/node/fix_do_not_resolve_electron_entrypoints.patch",
+      "patches/node/fix_expose_readfilesync_override_for_modules.patch",
+      "patches/node/fix_expose_the_built-in_electron_module_via_the_esm_loader.patch",
+      "patches/node/fix_handle_boringssl_and_openssl_incompatibilities.patch",
+      "patches/node/fix_lazyload_fs_in_esm_loaders_to_apply_asar_patches.patch",
+      "patches/node/fix_remove_fastapitypedarray_usage.patch",
+      "patches/node/fix_remove_harmony-import-assertions_from_node_cc.patch",
+      "patches/node/fix_remove_outdated_v8_flags_from_node_cc.patch",
+      "patches/node/pass_all_globals_through_require.patch",
+      "patches/node/refactor_allow_embedder_overriding_of_internal_fs_calls.patch",
+      "patches/node/refactor_attach_cppgc_heap_on_v8_isolate_creation.patch",
+      "patches/node/test_formally_mark_some_tests_as_flaky.patch",
+      "patches/node/test_use_static_method_names_in_call_stacks.patch",
+      "script/node-disabled-tests.json"
+    ],
+    "A2": [
+      "docs/tutorial/electron-timelines.md"
+    ],
+    "A3": [
+      "DEPS",
+      "patches/chromium/build_do_not_depend_on_packed_resource_integrity.patch",
+      "patches/chromium/feat_corner_smoothing_css_rule_and_blink_painting.patch"
+    ],
+    "A4": [
+      ".github/actions/build-electron/action.yml"
+    ],
+    "A5": [
+      "patches/v8/.patches",
+      "patches/v8/cherry-pick-ec6c18478382.patch"
+    ]
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "literal": "chrome://",
+  "omitted_hit": {
+    "blob_id": "a20fdfc1a64b006b55c3f5c0413ad54583487461",
+    "byte_offset": 184,
+    "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+    "line": 6,
+    "path": "chrome/android/features/dev_ui/dev_ui_module.gni",
+    "repository": "chromium/chromium",
+    "type": "hit"
+  },
+  "replacement_indexed_blob": "000238c0c261a456bbb93bd48bf382809b78d5ae",
+  "complete_count": 5866,
+  "candidate_count": 5865,
+  "remaining_hit_records_identical_in_order": true,
+  "candidate_sections_and_counts_valid": true,
+  "rejection": {
+    "label": "omission-rejected",
+    "literal": "chrome://",
+    "argv": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+      "query-verified",
+      "--sources",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+      "--manifest",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+      "--index",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\omission-index",
+      "--log-dir",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\omission-rejected-log",
+      "--output-dir",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\omission-rejected",
+      "--literal=chrome://"
+    ],
+    "wall_seconds": 11.34906909998972,
+    "returncode": 2,
+    "response": {
+      "status": "MISMATCH",
+      "reason": "chromium/chromium: result omits 1 Git path(s)",
+      "candidate_sha256": "dbf25fd0bdc54b9b77cda94beb2ea638dfdb1c10646787bdcb827db15e639486",
+      "candidate_counts": [
+        {
+          "repository": "chromium/chromium",
+          "count": 5097
+        },
+        {
+          "repository": "electron/electron",
+          "count": 13
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 755
+        }
+      ],
+      "git_counts": [
+        {
+          "repository": "chromium/chromium",
+          "count": 5098
+        },
+        {
+          "repository": "electron/electron",
+          "count": 13
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 755
+        }
+      ]
+    },
+    "stderr": "",
+    "published": false,
+    "resources": {
+      "status": "FAILED",
+      "command": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "_stage",
+        "query-verified",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--manifest-hash",
+        "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--scratch",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-a6796c54c2484ed481e0879b2a9e717f",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\omission-index",
+        "--literal=chrome://"
+      ],
+      "limits": {
+        "timeout_seconds": 240,
+        "tree_memory_bytes": 3221225472,
+        "artifact_bytes": 17179869184,
+        "sample_seconds": 0.02
+      },
+      "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-a6796c54c2484ed481e0879b2a9e717f",
+      "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+      "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+      "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+      "initial_ram_available": 9860800512,
+      "initial_disk_free": 332009738240,
+      "peak_tree_rss": 543240192,
+      "peak_tree_private": 250253312,
+      "peak_artifact_bytes": 4546091,
+      "sample_interval_requested_seconds": 0.02,
+      "exit_code": 2,
+      "members_before_cleanup": 0,
+      "remaining_job_processes": 0,
+      "elapsed_seconds": 11.235342199972365,
+      "max_sample_gap_seconds": 0.023616299964487553,
+      "final_artifact_bytes": 1511056,
+      "final_artifact_limit_exceeded": false
+    }
+  },
+  "candidate_sha256": "dbf25fd0bdc54b9b77cda94beb2ea638dfdb1c10646787bdcb827db15e639486",
+  "original_index_sha256": "aef9f1c67011d7831d09fd3ca1527d05323f850412df5735a5305d85c28f04cc",
+  "source_pack_sha256": {
+    "brave-core.git/objects/pack/pack-23a20a99c4077e4dea48df33765bd50ad11ed00e.pack": "f364bda6f843ffaf15be9146198eacb60a8716b02a59f4297b809b7c49d585f5",
+    "brave-core.git/objects/pack/pack-3acff9ecbecb2997846f80142d2cb0c7762d6d17.pack": "399938e9531e2ef5568ad53549cb29f458f1cdb105de5c63bcd66813778e996a",
+    "brave-core.git/objects/pack/pack-42f7fd359e3a19e5f2d9ffa5cc34c2c6a11e61d0.pack": "7698995f03c92a208eb06cd623e4481d27fd1dd12ae10ec6c6f1c16bcee328cc",
+    "brave-core.git/objects/pack/pack-49ca74be16fc6ffdc908cf3870eeb9801392d6b1.pack": "1cc9a565a9f0d3fdcb6fd789a1ab66e5239c940b4bc37624b247312a9aaf489f",
+    "brave-core.git/objects/pack/pack-6496c3596fc55c70451b2d66cc80e07d2d1ed11f.pack": "7349fbf638d6f5bc1ff3ac6e0bfb0d5d4a7648de2cb212a50837cb53193025a5",
+    "brave-core.git/objects/pack/pack-7abaaf0992a4200f3c3018801f2b837d002c3c14.pack": "21dddc8ada62a0c70ae2be47a534460c6a078b229e2f9ce9c9e0ee4ad257f31f",
+    "brave-core.git/objects/pack/pack-b57d2e2157b61a5af96ff1737402579d3977557b.pack": "0171d81dd76fb6c4f854ce3879491de14ca302b1998e9ea54a81848e92a2ded8",
+    "brave-core.git/objects/pack/pack-f0837293ebb1b1ea08273695b17d94f54f6cc7b2.pack": "8c994c1858eb4748403d46a7b81074979592e6f7cac3ae7d93bda772220e8444",
+    "brave-core.git/objects/pack/pack-f94842f0b48187dc27b18bcf2e9e1efe8b2c5e31.pack": "38997b2d0cfde1ba439defc1475c79373cd3f45ec094b35d4b52acb5339b4678",
+    "chromium.git/objects/pack/pack-09f95bac9546eb9afbfedf0a11d148cc5ad3027b.pack": "b11b26ccc430bf2f0da114d4e12f5d8c2247a2fa729ba17f6704d96f321ced65",
+    "chromium.git/objects/pack/pack-237b0a63fe718f25ccf7d0179e48991f54004928.pack": "788b2f9c6cd7d1d09a0487cf506b92e9c19caa0266e805b4bc2bf084c473de3c",
+    "chromium.git/objects/pack/pack-4879f1b2e5c6596d4846b97a6b544ecaee1ad180.pack": "5fc3f14dc8639ecbb057001b8b479dd67c2a888b908ef7f61315c04c804ba33e",
+    "chromium.git/objects/pack/pack-5d8c42ee8e0928dee97d63985f8f58c9ac1d0762.pack": "abe59f1c7a1ddedd59934669cccb748f2e85bd264c9362e151289f2318def07d",
+    "chromium.git/objects/pack/pack-6a31b26e430703bfd2841aecbfd67309b79184ec.pack": "48536594902c3c6e4dc235bd89143f638ac20da93330394a951eb40622096fe3",
+    "chromium.git/objects/pack/pack-7dad6429ed94a29ac89574004d2da640beaa8d9b.pack": "46543c702f1f97c14f68085dc8ac53840049d73d456f85d83c66e88d881ef02f",
+    "chromium.git/objects/pack/pack-7fd9c74c207e8abfda30c72ce73a0b24bae557ec.pack": "04558066c68099f46653b8e3f69c24c8782dc1599d3611b04b1ffd9aa875e6de",
+    "chromium.git/objects/pack/pack-906314f690f46e1e9eaa00bfcba341717f214226.pack": "0e805b358646b1a89c142eea0ad9ce846cc62088fce6ee65e863310d50bf2b5e",
+    "chromium.git/objects/pack/pack-c90c0066210d67fe7f042e84cd25c9f6eb51008e.pack": "f0f45137da1083123a761d2222be901a00788d5ad031ecc15ec5f6922c457dc3",
+    "chromium.git/objects/pack/pack-cec8c1b9fd96e1b5e6d515e5ee9900a2cebe6c73.pack": "810cd732c8b20c44f80c9b83fffe5c6281bf597b39580335c8728b065ac24aff",
+    "chromium.git/objects/pack/pack-db77eb1684086c04c2d1591a649ccfc6f640330d.pack": "0c316c3d0f8ee77067269e2715bd0e9dbf3add3112f91b3552d52a22435d341b",
+    "chromium.git/objects/pack/pack-dba1b00c186bc1e5bcb0006e08afb096bf17878d.pack": "2f54b58ab589bfaada76586b1e45dc862f09e5a055b524ad9cb51df326f7c494",
+    "chromium.git/objects/pack/pack-f19225527537fde6cd00388dc72484c05571bedc.pack": "d2385e312fdcadbec1bfa0ce8341b085493fa99cd18858248b6457858f4e3e91",
+    "chromium.git/objects/pack/pack-f85255314dd359682ff315eb2cc5ecad8088a8aa.pack": "1940a9b8e2fb8f3005410bbbe2e5da0a56eea9ecd47ad54feb4dbeca47acc216",
+    "electron.git/objects/pack/pack-00c95373aae67eb8344e0d8cbcf86b601e597006.pack": "1213d3d1ea492e42939466dd558f49fb4086a1b1beda42be808b91813d4bbf9d",
+    "electron.git/objects/pack/pack-a2c993a50a4a75367cf989331f9c972adf6c454d.pack": "6fa17c32620c3e620bcc39f11f49fdcc5a2644aa32c80d425ddc56b800cc20d6"
+  },
+  "source_pack_hashes_unchanged": true,
+  "recovery": {
+    "label": "omission-recovery",
+    "literal": "chrome://",
+    "argv": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+      "query-verified",
+      "--sources",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+      "--manifest",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+      "--index",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+      "--log-dir",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\omission-recovery-log",
+      "--output-dir",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\omission-recovery",
+      "--literal=chrome://"
+    ],
+    "wall_seconds": 11.904809600033332,
+    "returncode": 0,
+    "response": {
+      "status": "VERIFIED",
+      "manifest_sha256": "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+      "literal": "chrome://",
+      "result_sha256": "9e975031b6e3a6c72f3130f3f69248ae328e14a65046aa4591bf6ccda9a79ced",
+      "count": 5866,
+      "repositories": [
+        {
+          "repository": "chromium/chromium",
+          "count": 5098
+        },
+        {
+          "repository": "electron/electron",
+          "count": 13
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 755
+        }
+      ],
+      "inventories": [
+        {
+          "repository": "chromium/chromium",
+          "regular_paths": 80782,
+          "blob_paths": 80785,
+          "symlinks": 3,
+          "gitlinks": 35,
+          "distinct_regular_blobs": 74089,
+          "excluded_symlinks": [
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon128.png",
+              "blob_id": "b48bcc3be97970b1483a205c8877d57c81fa6e9d"
+            },
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon16.png",
+              "blob_id": "3d2b3c08841e319e7d0427af893c31c6b2c65314"
+            },
+            {
+              "path": "chrome/test/data/ash/clipboard_history/icon2050.png",
+              "blob_id": "e3ec10f53579dc7a19fb4d53bd555961354f6032"
+            }
+          ],
+          "distinct_regular_blob_bytes": 781713802,
+          "regular_path_bytes": 789787272
+        },
+        {
+          "repository": "electron/electron",
+          "regular_paths": 2700,
+          "blob_paths": 2700,
+          "symlinks": 0,
+          "gitlinks": 0,
+          "distinct_regular_blobs": 2662,
+          "excluded_symlinks": [],
+          "distinct_regular_blob_bytes": 26311171,
+          "regular_path_bytes": 26420423
+        },
+        {
+          "repository": "brave/brave-core",
+          "regular_paths": 50083,
+          "blob_paths": 50099,
+          "symlinks": 16,
+          "gitlinks": 0,
+          "distinct_regular_blobs": 44584,
+          "excluded_symlinks": [
+            {
+              "path": "build/mac/cross_compile/path/codesign",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/hdiutil",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/lipo",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/notarytool",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/pkgbuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/plutil",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/productbuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/productsign",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/security",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/spctl",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/sw_vers",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/xcodebuild",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "build/mac/cross_compile/path/xcrun",
+              "blob_id": "2942085a4b390c7f6c7aef7d13d2ec80121f5af9"
+            },
+            {
+              "path": "ios/brave-ios/Sources/Brave/Frontend/UserContent/UserScripts/Scripts_Dynamic/Scripts/Sandboxed/DarkReaderScript.js",
+              "blob_id": "90dc571f145f4a0e4d2659eb66c0236a0f290c21"
+            },
+            {
+              "path": "ios/brave-ios/Sources/BraveWidgetsModels/BraveWidgets.intentdefinition",
+              "blob_id": "de23ff59f70f7edc1b628ff14db738129fe366e5"
+            },
+            {
+              "path": "ios/brave-ios/Sources/BrowserIntentsModels/BrowserIntents.intentdefinition",
+              "blob_id": "564b39b55a513419a3f97f38c89c6b8cc031eb1b"
+            }
+          ],
+          "distinct_regular_blob_bytes": 979224260,
+          "regular_path_bytes": 1031524918
+        }
+      ],
+      "method": "SHA-1 checked Git commit, raw trees and all regular blobs; independent escaped-byte pattern; strict complete JSONL comparison",
+      "seconds": {
+        "search": 1.0614503000397235,
+        "git_scan": 10.563321600027848,
+        "git_scan_per_repository": [
+          5.667336400016211,
+          0.27291499997954816,
+          4.623070200032089
+        ],
+        "comparison": 0.022907999984454364
+      },
+      "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\omission-recovery",
+      "publication_seconds": 0.004365700006019324
+    },
+    "stderr": "",
+    "published": true,
+    "resources": {
+      "status": "PROCESS_PASS",
+      "command": [
+        "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+        "-B",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_corpus.py",
+        "_stage",
+        "query-verified",
+        "--manifest",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\verification\\r2-scale-manifest.json",
+        "--manifest-hash",
+        "94043f37f9f4cce9f6516bce94c164f15e576254398a68e33fc4665d5a12a4b9",
+        "--sources",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\sources",
+        "--scratch",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-af977660663a404c927e33e8e3642127",
+        "--index",
+        "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01",
+        "--literal=chrome://"
+      ],
+      "limits": {
+        "timeout_seconds": 240,
+        "tree_memory_bytes": 3221225472,
+        "artifact_bytes": 17179869184,
+        "sample_seconds": 0.02
+      },
+      "artifact_root": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\measure-01\\.r2-corpus-stage-af977660663a404c927e33e8e3642127",
+      "process_control": "Windows Job Object; atomic creation JOB_LIST; suspended resume; kill-on-close; no breakaway",
+      "descendant_exit_policy": "terminate and wait for all remaining job members on root exit",
+      "memory_method": "sampled supervisor + Job Object members RSS/private; shared RSS may be counted twice",
+      "initial_ram_available": 9885310976,
+      "initial_disk_free": 332009635840,
+      "peak_tree_rss": 543121408,
+      "peak_tree_private": 249688064,
+      "peak_artifact_bytes": 4546329,
+      "sample_interval_requested_seconds": 0.02,
+      "exit_code": 0,
+      "members_before_cleanup": 0,
+      "remaining_job_processes": 0,
+      "elapsed_seconds": 11.758139899990056,
+      "max_sample_gap_seconds": 0.024050200008787215,
+      "final_artifact_bytes": 1514452,
+      "final_artifact_limit_exceeded": false
+    }
+  },
+  "recovered_bytes_identical": true
+}

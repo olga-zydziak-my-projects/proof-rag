@@ -1,0 +1,206 @@
+{
+  "configuration": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\config.json",
+  "disconnected_source": {
+    "exit_code": 3,
+    "wall_seconds": 0.17557000002125278,
+    "stdout_json": {
+      "status": "BLOCKED",
+      "reason": "Nie można potwierdzić bieżącej wersji apache/fineract (main): fatal: 'C:/Users/User/Documents/Codex/2026-11-08/nie/outputs/repo-proof-lab/local/qa4/disconnected.git' does not appear to be a git repository\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.",
+      "api_calls": [],
+      "searches": [],
+      "reads": [],
+      "checks": {
+        "citations": "NOT_CHECKED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "resolve_seconds": 0.06872310000471771,
+      "pin_seconds": 0.0911744000040926,
+      "model": "claude-haiku-5-5",
+      "command_seconds": 0.09172430000035092,
+      "model_calls": 0,
+      "api_seconds": 0,
+      "search_seconds": 0
+    },
+    "stderr": ""
+  },
+  "tampered_citation": {
+    "exit_code": 4,
+    "wall_seconds": 0.2593613000353798,
+    "stdout_json": {
+      "status": "ERROR",
+      "reason": "[Errno 13] Permission denied: 'C:\\\\Users\\\\User\\\\Documents\\\\Codex\\\\2026-11-08\\\\nie\\\\outputs\\\\repo-proof-lab\\\\local\\\\qa4\\\\checked\\\\receipt.json'",
+      "api_calls": [],
+      "searches": [],
+      "reads": [],
+      "checks": {
+        "citations": "NOT_CHECKED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "resolve_seconds": 0.07259359996533021,
+      "view": {
+        "corpus": "default",
+        "kind": "pull_request",
+        "repositories": [
+          {
+            "id": "fineract",
+            "repository": "apache/fineract",
+            "branch": "local-approval-after",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322"
+          }
+        ],
+        "number": 1,
+        "repository": "fineract"
+      },
+      "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\2d4e5da151354dfa",
+      "pin_seconds": 0.10853800002951175,
+      "model": "claude-haiku-5-5",
+      "command_seconds": 0.1091207999852486,
+      "model_calls": 0,
+      "api_seconds": 0,
+      "search_seconds": 0
+    },
+    "stderr": ""
+  },
+  "tampered_citation_retry": {
+    "exit_code": 2,
+    "wall_seconds": 3.1524842000217177,
+    "stdout_json": {
+      "status": "MISMATCH",
+      "reason": "Cytat nie występuje w Git: fineract:fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java:2146-2149.",
+      "api_calls": [
+        {
+          "number": 1,
+          "seconds": 1.1000025551766157e-05,
+          "provider_id": "controlled-1",
+          "model": "claude-haiku-5-5",
+          "stop_reason": "tool_use",
+          "usage": {}
+        },
+        {
+          "number": 2,
+          "seconds": 2.829998265951872e-05,
+          "provider_id": "controlled-2",
+          "model": "claude-haiku-5-5",
+          "stop_reason": "tool_use",
+          "usage": {}
+        },
+        {
+          "number": 3,
+          "seconds": 6.370001938194036e-05,
+          "provider_id": "controlled-3",
+          "model": "claude-haiku-5-5",
+          "stop_reason": "tool_use",
+          "usage": {}
+        },
+        {
+          "number": 4,
+          "seconds": 2.3200002033263445e-05,
+          "provider_id": "controlled-4",
+          "model": "claude-haiku-5-5",
+          "stop_reason": "tool_use",
+          "usage": {}
+        },
+        {
+          "number": 5,
+          "seconds": 6.009999196976423e-05,
+          "provider_id": "controlled-5",
+          "model": "claude-haiku-5-5",
+          "stop_reason": "tool_use",
+          "usage": {}
+        }
+      ],
+      "searches": [
+        {
+          "literal": "approvedOnDate != null && ",
+          "path_terms": "LoanApplicationValidator",
+          "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+          "operation": "query-checked",
+          "status": "VERIFIED",
+          "count": 2,
+          "result_sha256": "610e1c5004bcab10d167debc858f557ba2e5e4e451aaa7f47c6ae0e740eda69a",
+          "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\4fca62e421f446d9\\search-01",
+          "r2_seconds": {
+            "search": 0.03147190000163391,
+            "checked_verification": 0.016104399983305484,
+            "comparison": 0.0006128000095486641
+          },
+          "seconds": 0.27614599996013567
+        },
+        {
+          "literal": "loanApplicationValidator.validateApproval(command, loanId);",
+          "path_terms": "",
+          "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+          "operation": "query-checked",
+          "status": "VERIFIED",
+          "count": 1,
+          "result_sha256": "73d943d1d4ee72c42742f3e3b98ebcb0067be076461de544b2ebcb9cfa210b99",
+          "output_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\4fca62e421f446d9\\search-02",
+          "r2_seconds": {
+            "search": 0.032603100000415,
+            "checked_verification": 0.017253700003493577,
+            "comparison": 0.0007161999819800258
+          },
+          "seconds": 0.2769407000159845
+        }
+      ],
+      "reads": [
+        {
+          "repository": "fineract",
+          "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+          "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+          "blob_id": "26cc58f91aee7d104abf3b16e5ce9716d0cabbae",
+          "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+          "start": 2132,
+          "end": 2184
+        },
+        {
+          "repository": "fineract",
+          "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322",
+          "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+          "blob_id": "7d5aae83d3234d3040335ad8d8e58449b5ddcd66",
+          "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+          "start": 575,
+          "end": 627
+        }
+      ],
+      "checks": {
+        "citations": "REJECTED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "resolve_seconds": 0.06459939997876063,
+      "view": {
+        "corpus": "default",
+        "kind": "pull_request",
+        "repositories": [
+          {
+            "id": "fineract",
+            "repository": "apache/fineract",
+            "branch": "local-approval-after",
+            "commit": "1b593887bb0e36a7cb3125d57811b68190fa0322"
+          }
+        ],
+        "number": 1,
+        "repository": "fineract"
+      },
+      "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\qa4\\pr\\p-fde2edc6e84a144fc73e9ef0fd483255\\agent\\qa\\4fca62e421f446d9",
+      "downloads": [
+        {
+          "repository": "apache/fineract",
+          "commit_present_before_fetch": false,
+          "fetches": 1,
+          "fetch_seconds": 2.1495468000066467,
+          "local_preparation_seconds": 0.09258810000028461
+        }
+      ],
+      "manifest_sha256": "c469cd70f81797ab2ac020c2505d39f2fe0199d147d375074d8a80f7b97ea86e",
+      "pin_seconds": 2.3321846000035293,
+      "model": "claude-haiku-5-5",
+      "command_seconds": 2.999407000024803,
+      "model_calls": 5,
+      "api_seconds": 0.00018630002159625292,
+      "search_seconds": 0.5530866999761201
+    },
+    "stderr": ""
+  },
+  "status": "PASS"
+}

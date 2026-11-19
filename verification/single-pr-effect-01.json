@@ -1,0 +1,987 @@
+{
+  "date": "2026-11-19",
+  "question": "Co dzieje się ze statusem faktury po zleceniu płatności i kiedy można ją uznać za opłaconą?",
+  "model": "claude-sonnet-5-5",
+  "study": "Two fresh public CLI processes with the optional conclusion review on one selected, newly authored local PR. Neither question gave a path, symbol or SHA. Search hits, actual source lines returned before the first submit, published citations, output text and executable behavior were assessed separately.",
+  "scope": "One small deterministic billing fixture. Feature paths are first introduced together in one commit. Its base commit establishes that there was no earlier feature version. No second feature implementation, external bank or GitHub-hosted PR was used.",
+  "git_fixture": {
+    "repo_id": "billing",
+    "logical_repository": "fixture/ledger-desk",
+    "repo_kind": "locally authored controlled fixture",
+    "bare": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\single-pr-effect-01\\s\\billing.git",
+    "worktree": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\single-pr-effect-01\\author",
+    "config": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\single-pr-effect-01\\config.json",
+    "corpus": "default",
+    "pr": 1,
+    "base": "main",
+    "head": "feature/invoice-payments",
+    "base_commit": "bc001a92a409e01031f8366a104f0768ae81b3f0",
+    "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+    "tree": "804b2829294167717e958b987570bdd70d50e606",
+    "parent": "bc001a92a409e01031f8366a104f0768ae81b3f0",
+    "base_paths": [
+      "README.md",
+      "pyproject.toml",
+      "reports/labels.py"
+    ],
+    "added_paths": [
+      "billing/__init__.py",
+      "billing/checkout.py",
+      "billing/reconciliation.py",
+      "billing/records.py",
+      "billing/service.py",
+      "billing/transport.py"
+    ],
+    "pr_paths": [
+      "README.md",
+      "billing/__init__.py",
+      "billing/checkout.py",
+      "billing/reconciliation.py",
+      "billing/records.py",
+      "billing/service.py",
+      "billing/transport.py",
+      "pyproject.toml",
+      "reports/labels.py"
+    ],
+    "base_files": 3,
+    "pr_files": 9,
+    "added_files": 6,
+    "blobs": {
+      "README.md": "9df84b40393c7c0caa11805a2be6ab3b92099798",
+      "billing/__init__.py": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "billing/checkout.py": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+      "billing/reconciliation.py": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+      "billing/records.py": "2288331c209f4c375982d8da34726042e9aae21b",
+      "billing/service.py": "34463f324fd2d577028da588249e7f02b0b0faad",
+      "billing/transport.py": "0e814082e9a4fb03f3022b7a2a65b647e725f1c5",
+      "pyproject.toml": "e4a303696678c84f9f618fa3bad3e68e28eec625",
+      "reports/labels.py": "428f0010837a9a1a2d21e840f3a39ec6a8962396"
+    },
+    "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+    "receipt_sha256": "ef7f0500dea4df3723b1d8890bdb8606af424d92581a245e9a93a25891dc9fd5",
+    "index_ready": true,
+    "decision": {
+      "source": "billing/reconciliation.py",
+      "start": 4,
+      "end": 11
+    },
+    "entry": {
+      "source": "billing/checkout.py",
+      "start": 5,
+      "end": 7
+    },
+    "dispatch": {
+      "source": "billing/service.py",
+      "start": 12,
+      "end": 16
+    },
+    "setup_sha256": "165ee289029514a4c42d1e4e6575534dfe066591d34986457c06d9ad847bbbfc"
+  },
+  "added_file_contents": {
+    "billing/__init__.py": {
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "text": ""
+    },
+    "billing/checkout.py": {
+      "blob": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+      "text": "from .records import Invoice, PaymentRequest\nfrom .transport import BankOutbox\n\n\ndef pay_invoice(invoice: Invoice, bank: BankOutbox) -> None:\n    request = PaymentRequest(invoice.invoice_id, invoice.total_minor)\n    bank.send(request)\n"
+    },
+    "billing/reconciliation.py": {
+      "blob": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+      "text": "from .records import BankNotice, Invoice\n\n\ndef apply_bank_notice(invoices: dict[str, Invoice], notice: BankNotice) -> bool:\n    invoice = invoices.get(notice.invoice_id)\n    if invoice is None or notice.outcome != \"settled\":\n        return False\n    if notice.amount_minor != invoice.total_minor:\n        return False\n    invoice.status = \"PAID\"\n    return True\n"
+    },
+    "billing/records.py": {
+      "blob": "2288331c209f4c375982d8da34726042e9aae21b",
+      "text": "from dataclasses import dataclass\n\n\n@dataclass\nclass Invoice:\n    invoice_id: str\n    total_minor: int\n    status: str = \"OPEN\"\n\n\n@dataclass(frozen=True)\nclass PaymentRequest:\n    invoice_id: str\n    amount_minor: int\n\n\n@dataclass(frozen=True)\nclass BankNotice:\n    invoice_id: str\n    amount_minor: int\n    outcome: str\n"
+    },
+    "billing/service.py": {
+      "blob": "34463f324fd2d577028da588249e7f02b0b0faad",
+      "text": "from .checkout import pay_invoice\nfrom .reconciliation import apply_bank_notice\nfrom .records import BankNotice, Invoice\nfrom .transport import BankOutbox\n\n\nclass BillingService:\n    def __init__(self, invoices: dict[str, Invoice], bank: BankOutbox):\n        self.invoices = invoices\n        self.bank = bank\n\n    def pay(self, invoice_id: str) -> None:\n        pay_invoice(self.invoices[invoice_id], self.bank)\n\n    def on_bank_notice(self, notice: BankNotice) -> bool:\n        return apply_bank_notice(self.invoices, notice)\n"
+    },
+    "billing/transport.py": {
+      "blob": "0e814082e9a4fb03f3022b7a2a65b647e725f1c5",
+      "text": "from .records import PaymentRequest\n\n\nclass BankOutbox:\n    def __init__(self):\n        self.requests: list[PaymentRequest] = []\n\n    def send(self, request: PaymentRequest) -> None:\n        self.requests.append(request)\n"
+    }
+  },
+  "git_diff_names": [
+    "A\tbilling/__init__.py",
+    "A\tbilling/checkout.py",
+    "A\tbilling/reconciliation.py",
+    "A\tbilling/records.py",
+    "A\tbilling/service.py",
+    "A\tbilling/transport.py"
+  ],
+  "frozen_question_and_rubric": {
+    "question": "Co dzieje się ze statusem faktury po zleceniu płatności i kiedy można ją uznać za opłaconą?",
+    "protocol": "Freeze the question, oracle and grading criteria before live model responses. Each fresh process receives the same question and selects only the registered PR. No filenames, symbol names, bank response values, expected facts or oracle output are given to the LLM.",
+    "expected_core": [
+      "The initial request forwards the payment request and preserves the invoice's current status (OPEN for the default invoice).",
+      "The status changes to PAID when the application processes a bank notice with the settled outcome, for an existing matching invoice ID and the exact invoice amount.",
+      "Sending a request, a rejection, an unknown invoice ID, or a mismatched amount does not itself mark the target invoice paid."
+    ],
+    "grading": {
+      "full": "Describes both stages and all three predicates for the PAID update, without material false additions. An explicit catalogue of negative cases is optional if the positive predicates and unchanged request behavior are clear.",
+      "partial": "Gets the distinction between request and settlement right but omits a necessary condition, or introduces a material unsupported extra.",
+      "incorrect": "Claims submission marks the invoice PAID, another outcome is sufficient, or reads the principal control flow incorrectly.",
+      "blocked": "No published answer. Do not score as a correct refusal if the pinned feature and local execution actually determine the answer.",
+      "allowed": "Natural Polish equivalents are accepted. A settled notice can be described as a successful final settlement notification. No file names, exact symbol names, OPEN literal, fixed format or test-execution claim required.",
+      "overclaim": "This fixture establishes local invoice state. It does not establish actual bank transfer, asynchronous delivery, authentication, ordinary ordering or idempotence guarantees. Distinguish a normal two-stage description from a claimed enforced prerequisite of a pre-recorded request."
+    },
+    "discovery_evidence": [
+      "Classify search hits, successful model-requested read results, candidate citations, and final citations separately.",
+      "A decision-file read is established only by a successful read tool_use/tool_result pair in discovery, on the registered head, containing real numbered Git lines for every decisive guard and the PAID assignment. Coverage may accumulate across reads. A path in search, automatic citation-window expansion, or a review prompt does not count.",
+      "Record separately whether the actual request path's action was read and whether both paths were represented in the published citations. The decision-file read alone does not establish the full semantic grade.",
+      "Check the file under a pinned Git tree with blob identity and actual text for all evidence, and that the discovering run stayed on this head.",
+      "The head is one new feature commit over a base without the feature. The CLI should not be given source locations or consult a second implementation."
+    ],
+    "independent_behavior_cases": [
+      "Default OPEN invoice plus submission sends a request for its ID and amount, leaves OPEN.",
+      "Submitting an invoice with a nondefault status leaves that value unchanged.",
+      "Submitting then processing a settled notice with exact amount and ID changes only that invoice to PAID.",
+      "Rejected or pending notice after submission does not mark it paid.",
+      "Settled notice for unknown ID or wrong amount preserves local invoice status.",
+      "Matching settled notice on a fresh service can effect PAID without a locally recorded submission (checks unsupported stronger ordering claims)."
+    ]
+  },
+  "independent_behavioral_oracle": {
+    "repo_id": "billing",
+    "base": "bc001a92a409e01031f8366a104f0768ae81b3f0",
+    "head": "4d145debeff7ef49488f877f4d254812346046d3",
+    "parent_count": 1,
+    "base_has_billing": false,
+    "question": "Co dzieje się ze statusem faktury po zleceniu płatności i kiedy można ją uznać za opłaconą?",
+    "rubric_sha256": "4c995cf6c961d4a276837fc934c192250477ad251fab5e16f0b2344ed959ddb6",
+    "oracle_py_sha256": "dd66c30c8d4caca5b640c138427fc3d8d69228b97994a023bc893280f09cf58d",
+    "git_changes": [
+      "A\tbilling/__init__.py",
+      "A\tbilling/checkout.py",
+      "A\tbilling/reconciliation.py",
+      "A\tbilling/records.py",
+      "A\tbilling/service.py",
+      "A\tbilling/transport.py"
+    ],
+    "source_files": {
+      "billing/__init__.py": {
+        "blob_id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "billing/checkout.py": {
+        "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+        "sha256": "ac33a5a995fffdb748fe7243a04f1e68d5289a2e4c5fa1fc42024a3992ae61f2"
+      },
+      "billing/reconciliation.py": {
+        "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+        "sha256": "dff96b10efa5cc9519bf6c4210666fd44896c5ca7d8a3ec23b8b006e6214a2cf"
+      },
+      "billing/records.py": {
+        "blob_id": "2288331c209f4c375982d8da34726042e9aae21b",
+        "sha256": "fb8e8b7b3bb6eddf00c2985ce44c2d7a9290166c3b8bc9a28c651827638a2ebc"
+      },
+      "billing/service.py": {
+        "blob_id": "34463f324fd2d577028da588249e7f02b0b0faad",
+        "sha256": "c0acb7d27a97a9ed817bf744953b327325ec46ab7dd07c55939e2245578f17f6"
+      },
+      "billing/transport.py": {
+        "blob_id": "0e814082e9a4fb03f3022b7a2a65b647e725f1c5",
+        "sha256": "2be4f8b748870101f65b316b53263729642103a22f84f29bd58bc184088abbf7"
+      }
+    },
+    "source_spans": {
+      "request": [
+        {
+          "role": "request_action",
+          "path": "billing/checkout.py",
+          "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+          "sha256": "ac33a5a995fffdb748fe7243a04f1e68d5289a2e4c5fa1fc42024a3992ae61f2",
+          "start": 6,
+          "end": 7,
+          "excerpt": "    request = PaymentRequest(invoice.invoice_id, invoice.total_minor)\n    bank.send(request)"
+        }
+      ],
+      "decision": [
+        {
+          "role": "settlement_conditions_and_status_write",
+          "path": "billing/reconciliation.py",
+          "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+          "sha256": "dff96b10efa5cc9519bf6c4210666fd44896c5ca7d8a3ec23b8b006e6214a2cf",
+          "start": 5,
+          "end": 11,
+          "excerpt": "    invoice = invoices.get(notice.invoice_id)\n    if invoice is None or notice.outcome != \"settled\":\n        return False\n    if notice.amount_minor != invoice.total_minor:\n        return False\n    invoice.status = \"PAID\"\n    return True"
+        }
+      ]
+    },
+    "execution": {
+      "default": "OPEN",
+      "cases": [
+        {
+          "id": "request_only",
+          "initial": "OPEN",
+          "submitted": true,
+          "notice": null,
+          "after_request": "OPEN",
+          "outbound_requests": [
+            {
+              "invoice_id": "INV-A",
+              "amount_minor": 1200
+            }
+          ],
+          "notice_accepted": null,
+          "final": "OPEN",
+          "other_invoice_final": "OPEN"
+        },
+        {
+          "id": "request_preserves_paid_status",
+          "initial": "PAID",
+          "submitted": true,
+          "notice": null,
+          "after_request": "PAID",
+          "outbound_requests": [
+            {
+              "invoice_id": "INV-A",
+              "amount_minor": 1200
+            }
+          ],
+          "notice_accepted": null,
+          "final": "PAID",
+          "other_invoice_final": "OPEN"
+        },
+        {
+          "id": "correct_settlement",
+          "initial": "OPEN",
+          "submitted": true,
+          "notice": [
+            "INV-A",
+            1200,
+            "settled"
+          ],
+          "after_request": "OPEN",
+          "outbound_requests": [
+            {
+              "invoice_id": "INV-A",
+              "amount_minor": 1200
+            }
+          ],
+          "notice_accepted": true,
+          "final": "PAID",
+          "other_invoice_final": "OPEN"
+        },
+        {
+          "id": "pending",
+          "initial": "OPEN",
+          "submitted": true,
+          "notice": [
+            "INV-A",
+            1200,
+            "pending"
+          ],
+          "after_request": "OPEN",
+          "outbound_requests": [
+            {
+              "invoice_id": "INV-A",
+              "amount_minor": 1200
+            }
+          ],
+          "notice_accepted": false,
+          "final": "OPEN",
+          "other_invoice_final": "OPEN"
+        },
+        {
+          "id": "rejected",
+          "initial": "OPEN",
+          "submitted": true,
+          "notice": [
+            "INV-A",
+            1200,
+            "rejected"
+          ],
+          "after_request": "OPEN",
+          "outbound_requests": [
+            {
+              "invoice_id": "INV-A",
+              "amount_minor": 1200
+            }
+          ],
+          "notice_accepted": false,
+          "final": "OPEN",
+          "other_invoice_final": "OPEN"
+        },
+        {
+          "id": "wrong_invoice",
+          "initial": "OPEN",
+          "submitted": true,
+          "notice": [
+            "UNKNOWN",
+            1200,
+            "settled"
+          ],
+          "after_request": "OPEN",
+          "outbound_requests": [
+            {
+              "invoice_id": "INV-A",
+              "amount_minor": 1200
+            }
+          ],
+          "notice_accepted": false,
+          "final": "OPEN",
+          "other_invoice_final": "OPEN"
+        },
+        {
+          "id": "wrong_amount",
+          "initial": "OPEN",
+          "submitted": true,
+          "notice": [
+            "INV-A",
+            1199,
+            "settled"
+          ],
+          "after_request": "OPEN",
+          "outbound_requests": [
+            {
+              "invoice_id": "INV-A",
+              "amount_minor": 1200
+            }
+          ],
+          "notice_accepted": false,
+          "final": "OPEN",
+          "other_invoice_final": "OPEN"
+        },
+        {
+          "id": "settlement_without_prior_request",
+          "initial": "OPEN",
+          "submitted": false,
+          "notice": [
+            "INV-A",
+            1200,
+            "settled"
+          ],
+          "after_request": "OPEN",
+          "outbound_requests": [],
+          "notice_accepted": true,
+          "final": "PAID",
+          "other_invoice_final": "OPEN"
+        }
+      ],
+      "executed_modules": {
+        "billing": {
+          "path": "billing/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "billing.checkout": {
+          "path": "billing/checkout.py",
+          "sha256": "ac33a5a995fffdb748fe7243a04f1e68d5289a2e4c5fa1fc42024a3992ae61f2"
+        },
+        "billing.reconciliation": {
+          "path": "billing/reconciliation.py",
+          "sha256": "dff96b10efa5cc9519bf6c4210666fd44896c5ca7d8a3ec23b8b006e6214a2cf"
+        },
+        "billing.records": {
+          "path": "billing/records.py",
+          "sha256": "fb8e8b7b3bb6eddf00c2985ce44c2d7a9290166c3b8bc9a28c651827638a2ebc"
+        },
+        "billing.service": {
+          "path": "billing/service.py",
+          "sha256": "c0acb7d27a97a9ed817bf744953b327325ec46ab7dd07c55939e2245578f17f6"
+        },
+        "billing.transport": {
+          "path": "billing/transport.py",
+          "sha256": "2be4f8b748870101f65b316b53263729642103a22f84f29bd58bc184088abbf7"
+        }
+      }
+    },
+    "limits": "Eight offline branch scenarios on pinned local-only fixture and no real payment or bank. Results establish these paths, not an unrestricted proof."
+  },
+  "public_cli_plan": {
+    "question": "Co dzieje się ze statusem faktury po zleceniu płatności i kiedy można ją uznać za opłaconą?",
+    "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+    "base": "bc001a92a409e01031f8366a104f0768ae81b3f0",
+    "repo": "billing",
+    "pr": 1,
+    "corpus": "default",
+    "input_hashes": {
+      "oracle-rubric.json": "4c995cf6c961d4a276837fc934c192250477ad251fab5e16f0b2344ed959ddb6",
+      "oracle-result.json": "bd1c55157ff33183feb380317e838ab2b6fdbee77832187e860f933094bda084",
+      "fixture.json": "ce956c53b42466519d04c31df33c8c6e0b32b324f130cd058b7f4ff9f633c20b",
+      "config.json": "42ae151162f6a52510092d457080ad1851b0e99b4e75f10be67903c42b57d39f",
+      "fineract_r2_ask.py": "28e8ff1a71806c9a0ca57dd85dab2d6c986c79a9eed82e02f31bf25b6803983f"
+    },
+    "method": "Two fresh sequential public ask --review-conclusion processes using one unchanged natural-language question, same PR. The literal question is the only experiment content supplied to Claude. Compare public answer and source selections with an independently frozen oracle. Detect the initial read via actual provider tool ID plus lines returned before the first submit. One separately identified retry is allowed after the two first attempts only if Windows prevents local publication or a transient provider error occurs."
+  },
+  "public_cli_trials": {
+    "rows": [
+      {
+        "label": "1",
+        "raw": "live-1.json",
+        "raw_sha256": "4a7cbc2e429e6cdb2d6c632df6de1ad24db9344a3acc56d1d39b9427c780aeaf",
+        "status": "VERIFIED",
+        "reason": null,
+        "code": 0,
+        "wall_seconds": 18.20766780001577,
+        "answer": "Samo zlecenie płatności nie zmienia statusu faktury. Metoda pay_invoice tylko tworzy PaymentRequest (id faktury i kwota całkowita) i wysyła go do banku, a pola status nie dotyka. Status zmienia się dopiero po powiadomieniu z banku. apply_bank_notice ustawia status \"PAID\" tylko wtedy, gdy faktura istnieje, wynik powiadomienia to \"settled\", a kwota z powiadomienia (amount_minor) jest równa total_minor faktury. Przy nieznanej fakturze, innym wyniku albo innej kwocie zwraca False i status zostaje bez zmian.",
+        "verdict": "yes",
+        "checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "MODEL_REVIEWED"
+        },
+        "review_disposition": "accepted",
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "billing",
+              "repository": "fixture/ledger-desk",
+              "branch": "feature/invoice-payments",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3"
+            }
+          ],
+          "number": 1,
+          "repository": "billing"
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\single-pr-effect-01\\p\\p-b92fb94bdb62d710910f3f02095049e0\\agent\\qa\\055ebe209a05414b",
+        "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+        "live_ids": [
+          "msg_011ChCTWgCt1VXLqHHkgx9r1",
+          "msg_011ChCTWsNLqjgqtWecqCnZh",
+          "msg_011ChCTX3jgVTnN8nom4EFbS",
+          "msg_011ChCTX8TwEzHkbZ47nArQg",
+          "msg_011ChCTXRPRSnLhgPfDC4RzG"
+        ],
+        "input_tokens": 11391,
+        "output_tokens": 1519,
+        "estimated_usd": 0.037972,
+        "uncosted_errors": 0,
+        "discovery_actions": [
+          {
+            "turn": 1,
+            "id": "toolu_013XWnfR1hZHjDT5o65M4zTZ",
+            "tool": "search",
+            "arguments": {
+              "literal": "invoice",
+              "path_terms": "invoice payment status paid"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "count": 4,
+              "shown": [
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/records.py",
+                  "line": 6
+                },
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/service.py",
+                  "line": 1
+                },
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/checkout.py",
+                  "line": 5
+                },
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/reconciliation.py",
+                  "line": 4
+                }
+              ]
+            }
+          },
+          {
+            "turn": 2,
+            "id": "toolu_017C45B5ikDa1jwiZrJJTsCc",
+            "tool": "read",
+            "arguments": {
+              "repository": "billing",
+              "path": "billing/service.py"
+            },
+            "error": false,
+            "result": {
+              "repository": "billing",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+              "path": "billing/service.py",
+              "blob_id": "34463f324fd2d577028da588249e7f02b0b0faad",
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "lines": [
+                "1: from .checkout import pay_invoice",
+                "2: from .reconciliation import apply_bank_notice",
+                "3: from .records import BankNotice, Invoice",
+                "4: from .transport import BankOutbox",
+                "5: ",
+                "6: ",
+                "7: class BillingService:",
+                "8:     def __init__(self, invoices: dict[str, Invoice], bank: BankOutbox):",
+                "9:         self.invoices = invoices",
+                "10:         self.bank = bank",
+                "11: ",
+                "12:     def pay(self, invoice_id: str) -> None:",
+                "13:         pay_invoice(self.invoices[invoice_id], self.bank)",
+                "14: ",
+                "15:     def on_bank_notice(self, notice: BankNotice) -> bool:",
+                "16:         return apply_bank_notice(self.invoices, notice)",
+                "17: "
+              ],
+              "occurrences": []
+            }
+          },
+          {
+            "turn": 2,
+            "id": "toolu_015hAoFn2xGa4NPMDP9aAYhS",
+            "tool": "read",
+            "arguments": {
+              "repository": "billing",
+              "path": "billing/reconciliation.py"
+            },
+            "error": false,
+            "result": {
+              "repository": "billing",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+              "path": "billing/reconciliation.py",
+              "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "lines": [
+                "1: from .records import BankNotice, Invoice",
+                "2: ",
+                "3: ",
+                "4: def apply_bank_notice(invoices: dict[str, Invoice], notice: BankNotice) -> bool:",
+                "5:     invoice = invoices.get(notice.invoice_id)",
+                "6:     if invoice is None or notice.outcome != \"settled\":",
+                "7:         return False",
+                "8:     if notice.amount_minor != invoice.total_minor:",
+                "9:         return False",
+                "10:     invoice.status = \"PAID\"",
+                "11:     return True",
+                "12: "
+              ],
+              "occurrences": []
+            }
+          },
+          {
+            "turn": 3,
+            "id": "toolu_01RuD9JnMaEBuW6uKMq51o22",
+            "tool": "read",
+            "arguments": {
+              "repository": "billing",
+              "path": "billing/checkout.py"
+            },
+            "error": false,
+            "result": {
+              "repository": "billing",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+              "path": "billing/checkout.py",
+              "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "lines": [
+                "1: from .records import Invoice, PaymentRequest",
+                "2: from .transport import BankOutbox",
+                "3: ",
+                "4: ",
+                "5: def pay_invoice(invoice: Invoice, bank: BankOutbox) -> None:",
+                "6:     request = PaymentRequest(invoice.invoice_id, invoice.total_minor)",
+                "7:     bank.send(request)",
+                "8: "
+              ],
+              "occurrences": []
+            }
+          }
+        ],
+        "first_submit": {
+          "answer_pl": "Samo zlecenie płatności nie zmienia statusu faktury. Metoda pay_invoice tylko tworzy PaymentRequest (id faktury i kwota całkowita) i wysyła go do banku, a pola status nie dotyka. Status zmienia się dopiero po powiadomieniu z banku. apply_bank_notice ustawia status \"PAID\" tylko wtedy, gdy faktura istnieje, wynik powiadomienia to \"settled\", a kwota z powiadomienia (amount_minor) jest równa total_minor faktury. Przy nieznanej fakturze, innym wyniku albo innej kwocie zwraca False i status zostaje bez zmian.",
+          "verdict": "yes",
+          "citations": [
+            {
+              "repository": "billing",
+              "path": "billing/reconciliation.py",
+              "start": 5,
+              "end": 11,
+              "quote": "invoice.status = \"PAID\""
+            },
+            {
+              "repository": "billing",
+              "path": "billing/checkout.py",
+              "start": 5,
+              "end": 7,
+              "quote": "bank.send(request)"
+            }
+          ]
+        },
+        "citations": [
+          {
+            "repository": "billing",
+            "path": "billing/reconciliation.py",
+            "start": 5,
+            "end": 11,
+            "quote": "invoice.status = \"PAID\"",
+            "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+            "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+            "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+            "excerpt": "    invoice = invoices.get(notice.invoice_id)\n    if invoice is None or notice.outcome != \"settled\":\n        return False\n    if notice.amount_minor != invoice.total_minor:\n        return False\n    invoice.status = \"PAID\"\n    return True"
+          },
+          {
+            "repository": "billing",
+            "path": "billing/checkout.py",
+            "start": 5,
+            "end": 7,
+            "quote": "bank.send(request)",
+            "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+            "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+            "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+            "excerpt": "def pay_invoice(invoice: Invoice, bank: BankOutbox) -> None:\n    request = PaymentRequest(invoice.invoice_id, invoice.total_minor)\n    bank.send(request)"
+          }
+        ],
+        "source_span_coverage": {
+          "request": [
+            {
+              "role": "request_action",
+              "path": "billing/checkout.py",
+              "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+              "sha256": "ac33a5a995fffdb748fe7243a04f1e68d5289a2e4c5fa1fc42024a3992ae61f2",
+              "start": 6,
+              "end": 7,
+              "excerpt": "    request = PaymentRequest(invoice.invoice_id, invoice.total_minor)\n    bank.send(request)",
+              "actually_read": true,
+              "in_published_citations": true,
+              "in_initial_citations": true
+            }
+          ],
+          "decision": [
+            {
+              "role": "settlement_conditions_and_status_write",
+              "path": "billing/reconciliation.py",
+              "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+              "sha256": "dff96b10efa5cc9519bf6c4210666fd44896c5ca7d8a3ec23b8b006e6214a2cf",
+              "start": 5,
+              "end": 11,
+              "excerpt": "    invoice = invoices.get(notice.invoice_id)\n    if invoice is None or notice.outcome != \"settled\":\n        return False\n    if notice.amount_minor != invoice.total_minor:\n        return False\n    invoice.status = \"PAID\"\n    return True",
+              "actually_read": true,
+              "in_published_citations": true,
+              "in_initial_citations": true
+            }
+          ]
+        },
+        "all_required_spans_in_final_citations": {
+          "request": true,
+          "decision": true
+        },
+        "all_required_spans_read_before_submit": {
+          "request": true,
+          "decision": true
+        },
+        "verified_searches": 1
+      },
+      {
+        "label": "2",
+        "raw": "live-2.json",
+        "raw_sha256": "006373f09263ec69b16bbf8b7b8f9dbfaef9062e0e6627c3b5587813388d0e7c",
+        "status": "VERIFIED",
+        "reason": null,
+        "code": 0,
+        "wall_seconds": 16.756787799997255,
+        "answer": "Samo zlecenie płatności nie zmienia statusu faktury. Metoda pay_invoice tylko tworzy PaymentRequest (id faktury i kwota całkowita) i wysyła go do banku przez bank.send. Status pozostaje taki, jaki był. Faktura dostaje status \"PAID\" dopiero po powiadomieniu z banku, obsługiwanym w apply_bank_notice. Warunki: faktura o danym id istnieje, wynik powiadomienia to \"settled\", a kwota z powiadomienia (amount_minor) jest równa total_minor faktury. Gdy któryś warunek nie jest spełniony, funkcja zwraca False i status się nie zmienia. W przeciwnym razie ustawia PAID i zwraca True.",
+        "verdict": "yes",
+        "checks": {
+          "citations": "VERIFIED",
+          "business_conclusion": "MODEL_REVIEWED"
+        },
+        "review_disposition": "accepted",
+        "view": {
+          "corpus": "default",
+          "kind": "pull_request",
+          "repositories": [
+            {
+              "id": "billing",
+              "repository": "fixture/ledger-desk",
+              "branch": "feature/invoice-payments",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3"
+            }
+          ],
+          "number": 1,
+          "repository": "billing"
+        },
+        "run_directory": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\single-pr-effect-01\\p\\p-b92fb94bdb62d710910f3f02095049e0\\agent\\qa\\6180d4b4c4884987",
+        "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+        "live_ids": [
+          "msg_011ChCTY19vzhcfoRkw2dcBF",
+          "msg_011ChCTY75sMURmiRnoVPPWT",
+          "msg_011ChCTYDNdezm9orUby8ELw",
+          "msg_011ChCTYJ1w3gCxPyLkfBpyn",
+          "msg_011ChCTYZTs9R1TdVEvnry9N"
+        ],
+        "input_tokens": 11481,
+        "output_tokens": 1764,
+        "estimated_usd": 0.040602,
+        "uncosted_errors": 0,
+        "discovery_actions": [
+          {
+            "turn": 1,
+            "id": "toolu_01XRwQ78gPEcbTytTHnnq4Qr",
+            "tool": "search",
+            "arguments": {
+              "literal": "invoice",
+              "path_terms": "invoice payment status paid"
+            },
+            "error": false,
+            "result": {
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "count": 4,
+              "shown": [
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/records.py",
+                  "line": 6
+                },
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/service.py",
+                  "line": 1
+                },
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/checkout.py",
+                  "line": 5
+                },
+                {
+                  "repository": "billing",
+                  "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+                  "path": "billing/reconciliation.py",
+                  "line": 4
+                }
+              ]
+            }
+          },
+          {
+            "turn": 2,
+            "id": "toolu_015BRxjb12KL3kpf9W3tbWqx",
+            "tool": "read",
+            "arguments": {
+              "repository": "billing",
+              "path": "billing/service.py"
+            },
+            "error": false,
+            "result": {
+              "repository": "billing",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+              "path": "billing/service.py",
+              "blob_id": "34463f324fd2d577028da588249e7f02b0b0faad",
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "lines": [
+                "1: from .checkout import pay_invoice",
+                "2: from .reconciliation import apply_bank_notice",
+                "3: from .records import BankNotice, Invoice",
+                "4: from .transport import BankOutbox",
+                "5: ",
+                "6: ",
+                "7: class BillingService:",
+                "8:     def __init__(self, invoices: dict[str, Invoice], bank: BankOutbox):",
+                "9:         self.invoices = invoices",
+                "10:         self.bank = bank",
+                "11: ",
+                "12:     def pay(self, invoice_id: str) -> None:",
+                "13:         pay_invoice(self.invoices[invoice_id], self.bank)",
+                "14: ",
+                "15:     def on_bank_notice(self, notice: BankNotice) -> bool:",
+                "16:         return apply_bank_notice(self.invoices, notice)",
+                "17: "
+              ],
+              "occurrences": []
+            }
+          },
+          {
+            "turn": 2,
+            "id": "toolu_01PvUXmKMW1d4kbJVegSe79Y",
+            "tool": "read",
+            "arguments": {
+              "repository": "billing",
+              "path": "billing/reconciliation.py"
+            },
+            "error": false,
+            "result": {
+              "repository": "billing",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+              "path": "billing/reconciliation.py",
+              "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "lines": [
+                "1: from .records import BankNotice, Invoice",
+                "2: ",
+                "3: ",
+                "4: def apply_bank_notice(invoices: dict[str, Invoice], notice: BankNotice) -> bool:",
+                "5:     invoice = invoices.get(notice.invoice_id)",
+                "6:     if invoice is None or notice.outcome != \"settled\":",
+                "7:         return False",
+                "8:     if notice.amount_minor != invoice.total_minor:",
+                "9:         return False",
+                "10:     invoice.status = \"PAID\"",
+                "11:     return True",
+                "12: "
+              ],
+              "occurrences": []
+            }
+          },
+          {
+            "turn": 3,
+            "id": "toolu_01M1tgMVrTt3acXCrGgaTysn",
+            "tool": "read",
+            "arguments": {
+              "repository": "billing",
+              "path": "billing/checkout.py"
+            },
+            "error": false,
+            "result": {
+              "repository": "billing",
+              "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+              "path": "billing/checkout.py",
+              "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+              "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+              "lines": [
+                "1: from .records import Invoice, PaymentRequest",
+                "2: from .transport import BankOutbox",
+                "3: ",
+                "4: ",
+                "5: def pay_invoice(invoice: Invoice, bank: BankOutbox) -> None:",
+                "6:     request = PaymentRequest(invoice.invoice_id, invoice.total_minor)",
+                "7:     bank.send(request)",
+                "8: "
+              ],
+              "occurrences": []
+            }
+          }
+        ],
+        "first_submit": {
+          "answer_pl": "Samo zlecenie płatności nie zmienia statusu faktury. Metoda pay_invoice tylko tworzy PaymentRequest (id faktury i kwota całkowita) i wysyła go do banku przez bank.send. Status pozostaje taki, jaki był. Faktura dostaje status \"PAID\" dopiero po powiadomieniu z banku, obsługiwanym w apply_bank_notice. Warunki: faktura o danym id istnieje, wynik powiadomienia to \"settled\", a kwota z powiadomienia (amount_minor) jest równa total_minor faktury. Gdy któryś warunek nie jest spełniony, funkcja zwraca False i status się nie zmienia. W przeciwnym razie ustawia PAID i zwraca True.",
+          "verdict": "yes",
+          "citations": [
+            {
+              "repository": "billing",
+              "path": "billing/reconciliation.py",
+              "start": 4,
+              "end": 11,
+              "quote": "invoice.status = \"PAID\""
+            },
+            {
+              "repository": "billing",
+              "path": "billing/checkout.py",
+              "start": 5,
+              "end": 7,
+              "quote": "bank.send(request)"
+            }
+          ]
+        },
+        "citations": [
+          {
+            "repository": "billing",
+            "path": "billing/reconciliation.py",
+            "start": 4,
+            "end": 11,
+            "quote": "invoice.status = \"PAID\"",
+            "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+            "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+            "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+            "excerpt": "def apply_bank_notice(invoices: dict[str, Invoice], notice: BankNotice) -> bool:\n    invoice = invoices.get(notice.invoice_id)\n    if invoice is None or notice.outcome != \"settled\":\n        return False\n    if notice.amount_minor != invoice.total_minor:\n        return False\n    invoice.status = \"PAID\"\n    return True"
+          },
+          {
+            "repository": "billing",
+            "path": "billing/checkout.py",
+            "start": 5,
+            "end": 7,
+            "quote": "bank.send(request)",
+            "commit": "4d145debeff7ef49488f877f4d254812346046d3",
+            "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+            "manifest_sha256": "daab92ef151936c9fb1cfcf6b24d65a3f035317f09ca0e654e759ecf4a7e75bf",
+            "excerpt": "def pay_invoice(invoice: Invoice, bank: BankOutbox) -> None:\n    request = PaymentRequest(invoice.invoice_id, invoice.total_minor)\n    bank.send(request)"
+          }
+        ],
+        "source_span_coverage": {
+          "request": [
+            {
+              "role": "request_action",
+              "path": "billing/checkout.py",
+              "blob_id": "5b5bcd9cbbdb3ed44a2cda35ce9cd8c5e691e18e",
+              "sha256": "ac33a5a995fffdb748fe7243a04f1e68d5289a2e4c5fa1fc42024a3992ae61f2",
+              "start": 6,
+              "end": 7,
+              "excerpt": "    request = PaymentRequest(invoice.invoice_id, invoice.total_minor)\n    bank.send(request)",
+              "actually_read": true,
+              "in_published_citations": true,
+              "in_initial_citations": true
+            }
+          ],
+          "decision": [
+            {
+              "role": "settlement_conditions_and_status_write",
+              "path": "billing/reconciliation.py",
+              "blob_id": "753a1cd2d680f565c7a1f1976617e3c0eefddbf2",
+              "sha256": "dff96b10efa5cc9519bf6c4210666fd44896c5ca7d8a3ec23b8b006e6214a2cf",
+              "start": 5,
+              "end": 11,
+              "excerpt": "    invoice = invoices.get(notice.invoice_id)\n    if invoice is None or notice.outcome != \"settled\":\n        return False\n    if notice.amount_minor != invoice.total_minor:\n        return False\n    invoice.status = \"PAID\"\n    return True",
+              "actually_read": true,
+              "in_published_citations": true,
+              "in_initial_citations": true
+            }
+          ]
+        },
+        "all_required_spans_in_final_citations": {
+          "request": true,
+          "decision": true
+        },
+        "all_required_spans_read_before_submit": {
+          "request": true,
+          "decision": true
+        },
+        "verified_searches": 1
+      }
+    ],
+    "plan_sha256": "9d752d40577484b023179c29e92ccb5ff5dd210699587e98b261985b77e1cc45",
+    "total_messages": 10,
+    "total_estimated_usd": 0.078574
+  },
+  "independent_semantic_grades": {
+    "frozen_rubric_sha256": "4c995cf6c961d4a276837fc934c192250477ad251fab5e16f0b2344ed959ddb6",
+    "executed_oracle_sha256": "bd1c55157ff33183feb380317e838ab2b6fdbee77832187e860f933094bda084",
+    "method": "A Codex evaluator compared the published Polish text with the pre-registered rubric and the independently executed eight behavioral cases. The evaluation considered answer text before joining its hash to the trial number. It is separate from reviewing model verdicts, citation coverage and tool traces.",
+    "grades": [
+      {
+        "attempt": "1",
+        "answer_sha256": "19595e57ecbfc30e3bd5302684141ff817c88c52da7e9216d47848ba2bec3b02",
+        "grade": "full",
+        "request_preserves_status": true,
+        "settled_outcome": true,
+        "matching_existing_invoice": true,
+        "exact_amount": true,
+        "material_false_extra": false,
+        "reason_pl": "Rozróżnia zlecenie i zmianę stanu. Wskazuje istniejącą fakturę identyfikowaną przez powiadomienie, wynik settled i zgodność kwoty. Poprawnie opisuje odrzucenie niepasujących powiadomień. Nie twierdzi, że rejestr wcześniejszych zleceń jest warunkiem zmiany."
+      },
+      {
+        "attempt": "2",
+        "answer_sha256": "9c1c7599961ff94111a00a572477d107514fe16563f64e728772de4c422321b7",
+        "grade": "full",
+        "request_preserves_status": true,
+        "settled_outcome": true,
+        "matching_existing_invoice": true,
+        "exact_amount": true,
+        "material_false_extra": false,
+        "reason_pl": "Trafnie opisuje brak modyfikacji przy zleceniu oraz trzy warunki przypisania PAID. Podane wartości zwracane True i False są zgodne z wykonaniem kodu. Nie przypisuje płatności do wcześniej zapisanego zlecenia."
+      }
+    ],
+    "interpretation_pl": "W obu odpowiedziach „wysyła do banku” opisuje przekazanie żądania do lokalnego interfejsu bank.send. Konkretny BankOutbox wyłącznie zapisuje żądanie w pamięci. To sprawdzenie nie potwierdza dostarczenia do prawdziwego banku. W obu wynikach techniczny verdict ma wartość yes przy otwartym pytaniu; ocenę oparto na pełnym wyjaśnieniu po polsku."
+  },
+  "local_artifacts": "local/single-pr-effect-01",
+  "hashes": {
+    "fixture.json": "ce956c53b42466519d04c31df33c8c6e0b32b324f130cd058b7f4ff9f633c20b",
+    "oracle-rubric.json": "4c995cf6c961d4a276837fc934c192250477ad251fab5e16f0b2344ed959ddb6",
+    "oracle-result.json": "bd1c55157ff33183feb380317e838ab2b6fdbee77832187e860f933094bda084",
+    "live-plan.json": "9d752d40577484b023179c29e92ccb5ff5dd210699587e98b261985b77e1cc45",
+    "live-audit.json": "779563d26f4d40567f522399769e17a0143dd673d4ba00675cefddac77bccabe",
+    "semantic-grades.json": "6bbacb72967505e78f2c34be85cee5d4c387839adfdf1a1f72565a2d1ae12466",
+    "live_trial.py": "d6acbd676ad7083abb748b1251186713143bc192ddb5da976307909dcf9c3c54",
+    "setup.py": "165ee289029514a4c42d1e4e6575534dfe066591d34986457c06d9ad847bbbfc"
+  }
+}

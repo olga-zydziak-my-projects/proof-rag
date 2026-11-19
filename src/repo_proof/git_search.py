@@ -51,7 +51,7 @@ def git_read(store, *args):
     return result.stdout
 
 
-def inventory(store, snapshot):
+def inventory(store, snapshot, directories=()):
     commit = snapshot["commit"]
     if (git_read(store, "rev-parse", "--show-object-format").strip() != b"sha1"
             or git_read(store, "rev-parse", "--verify", commit + "^{commit}").strip()
@@ -60,7 +60,7 @@ def inventory(store, snapshot):
             != snapshot["root_tree"].encode("ascii")):
         raise SnapshotError("Git commit, root tree or object format differs from the pin")
     try:
-        entries = parse_tree(git_read(store, "ls-tree", "-rz", "--full-tree", commit))
+        entries = parse_tree(git_read(store, "ls-tree", "-rz", "--full-tree", commit, "--", *directories))
     except ValueError as exc:
         raise SnapshotError(f"cannot enumerate the pinned Git tree: {exc}") from exc
     regular = [entry for entry in entries if entry["category"] == "regular"]
@@ -109,12 +109,12 @@ def trigrams(raw):
 
 
 def unused_part(path):
-    return path.with_name(f".{path.name}.{uuid4().hex}.part")
+    return path.with_name(f".r2-{uuid4().hex[:16]}.part")
 
 
-def build(store, snapshot, index):
+def build(store, snapshot, index, *, directories=()):
     start = perf_counter()
-    regular, symlinks, counts = inventory(store, snapshot)
+    regular, symlinks, counts = inventory(store, snapshot, directories)
     paths = [(e["path"].encode("utf-8", "surrogateescape"), e["mode"], e["object_id"])
              for e in regular]
     object_ids = sorted({oid for _, _, oid in paths})
@@ -152,6 +152,8 @@ def build(store, snapshot, index):
                            "distinct_regular_blobs": len(object_ids), "raw_blob_bytes": raw_bytes,
                            "distinct_trigrams": len(postings), "excluded_symlinks": symlinks,
                            "path_and_blob_sets_reconciled": True}
+                if directories:
+                    receipt["directories"] = list(directories)
                 db.execute("INSERT INTO metadata VALUES (?)", (encoded(receipt),))
         os.replace(part, index)
     finally:
@@ -200,7 +202,7 @@ def candidate_ids(db, needle):
     return candidates
 
 
-def match(db, needle):
+def match(db, needle, *, read_bytes=None):
     ids = candidate_ids(db, needle)
     if ids is None:
         rows = db.execute("SELECT oid, data FROM blobs")
@@ -211,13 +213,15 @@ def match(db, needle):
     candidates = 0
     for oid, raw in rows:
         candidates += 1
+        if read_bytes is not None:
+            read_bytes[0] += len(raw)
         offset = raw.find(needle)
         if offset >= 0:
             matches[oid] = (offset, 1 + raw.count(b"\n", 0, offset))
     return matches, candidates
 
 
-def query(index, snapshot, literal, output, preview_limit):
+def query(index, snapshot, literal, output, preview_limit, *, directories=()):
     if not re.fullmatch(r"[ -~]+", literal):
         raise ValueError("literal must be nonempty printable ASCII on one line")
     if output.resolve() == index.resolve():
@@ -230,14 +234,15 @@ def query(index, snapshot, literal, output, preview_limit):
             raise ValueError("index has no unique completion receipt")
         receipt = json.loads(metadata[0][0])
         if (receipt.get("complete") is not True or receipt.get("schema") != 1
-                or receipt.get("snapshot") != snapshot):
+                or receipt.get("snapshot") != snapshot or receipt.get("directories", []) != list(directories)):
             raise ValueError("index is incomplete or differs from the pinned snapshot")
         if (db.execute("SELECT count(*) FROM paths").fetchone()[0] != snapshot["regular_paths"]
                 or db.execute("SELECT count(*) FROM blobs").fetchone()[0]
                 != receipt["distinct_regular_blobs"]):
             raise ValueError("index inventory differs from its completion receipt")
 
-        matches, candidates = match(db, literal.encode("ascii"))
+        read_bytes = [0]
+        matches, candidates = match(db, literal.encode("ascii"), read_bytes=read_bytes)
         match_seconds = perf_counter() - start
         provenance = {"repository": snapshot["repository"], "commit": snapshot["commit"]}
         header = {"type": "result", "format": RESULT_FORMAT, **provenance,
@@ -268,7 +273,7 @@ def query(index, snapshot, literal, output, preview_limit):
     total = perf_counter() - start
     return {"literal": literal, "count": count, "preview": preview,
             "method": "full_scan" if len(literal) < 3 else "trigram_candidates",
-            "candidate_blobs": candidates, "match_seconds": match_seconds,
+            "candidate_blobs": candidates, "candidate_blob_bytes": read_bytes[0], "match_seconds": match_seconds,
             "output_seconds": total - match_seconds, "total_seconds": total,
             "peak_rss_bytes": peak_rss()}
 

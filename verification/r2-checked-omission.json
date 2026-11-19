@@ -1,0 +1,145 @@
+{
+  "literal": "content::WebContents",
+  "omitted": {
+    "blob_id": "affdc1b88f02a497e976a6d0fe830eb8527c04f1",
+    "byte_offset": 8147,
+    "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+    "line": 167,
+    "path": "patches/chromium/can_create_window.patch",
+    "repository": "electron/electron",
+    "type": "hit"
+  },
+  "replacement_oid": "000dc83d133e11ecba83a349415dd9a5ae0e3fb9",
+  "full_count": 5665,
+  "candidate_count": 5664,
+  "candidate_sha256": "5a08ad1ba9253de8add8b4adf5e6bdb7600920fa63051b7eea4009ba0145df9c",
+  "candidate": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\chx-01\\omission-candidate\\bundle\\answer.jsonl",
+  "control": {
+    "literal": "content::WebContents",
+    "count": 5665,
+    "result_sha256": "d36fd03222f85be3fb81cbe9fc74f61f7bbf6204ae3f30a5d549e5994fc22021",
+    "answer": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\chx-01\\control\\01\\answer\\answer.jsonl",
+    "seconds": 6.242733600025531
+  },
+  "only_difference_is_omitted_hit": true,
+  "physical_copy": true,
+  "hashes_before": {
+    "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01\\electron.sqlite": "1df9f41702f2303c57db753b16b69d30f28a3fd6b5a1111a6d7b2d25c3f6bd37",
+    "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\checked-01\\electron.sqlite": "684319ee9b7592288576b3098a0be46eb39fe9555703571d4929245784104ad2",
+    "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\chx-01\\damaged-candidate\\electron.sqlite": "1df9f41702f2303c57db753b16b69d30f28a3fd6b5a1111a6d7b2d25c3f6bd37"
+  },
+  "hashes_after": {
+    "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\index-01\\electron.sqlite": "1df9f41702f2303c57db753b16b69d30f28a3fd6b5a1111a6d7b2d25c3f6bd37",
+    "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\checked-01\\electron.sqlite": "684319ee9b7592288576b3098a0be46eb39fe9555703571d4929245784104ad2",
+    "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\chx-01\\damaged-candidate\\electron.sqlite": "10051062e8ffd700d264e8499a423d046ff1ecfeb6a8da337b4906a17384eb7f"
+  },
+  "rejection": {
+    "argv": [
+      "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.12-64\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\scripts\\fineract_r2_current.py",
+      "query",
+      "content::WebContents"
+    ],
+    "exit_code": 2,
+    "start_unix_ns": 1795041647157714400,
+    "ended_unix_ns": 1795041648398589900,
+    "wall_seconds": 1.2415899999905378,
+    "stdout": {
+      "status": "MISMATCH",
+      "reason": "electron/electron: result omits 1 Git path(s)",
+      "candidate_sha256": "5a08ad1ba9253de8add8b4adf5e6bdb7600920fa63051b7eea4009ba0145df9c",
+      "candidate_counts": [
+        {
+          "repository": "chromium/chromium",
+          "count": 5042
+        },
+        {
+          "repository": "electron/electron",
+          "count": 109
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 513
+        }
+      ],
+      "git_counts": [
+        {
+          "repository": "chromium/chromium",
+          "count": 5042
+        },
+        {
+          "repository": "electron/electron",
+          "count": 110
+        },
+        {
+          "repository": "brave/brave-core",
+          "count": 513
+        }
+      ],
+      "checked_index_sha256": "0e4d35e67f0180af690929b07becdd61e548a87e4d44f507ef8ddc065a6059d9",
+      "full_git_scans": 0,
+      "verifier_reads": [
+        {
+          "repository": "chromium/chromium",
+          "objects_read": 5353,
+          "blob_bytes": 82017969,
+          "posting_lists_read": 14,
+          "posting_bytes": 1461260,
+          "proof_bytes": 2697235,
+          "path_bytes": 349675
+        },
+        {
+          "repository": "electron/electron",
+          "objects_read": 124,
+          "blob_bytes": 1572358,
+          "posting_lists_read": 14,
+          "posting_bytes": 51208,
+          "proof_bytes": 403915,
+          "path_bytes": 5987
+        },
+        {
+          "repository": "brave/brave-core",
+          "objects_read": 561,
+          "blob_bytes": 5177692,
+          "posting_lists_read": 14,
+          "posting_bytes": 723204,
+          "proof_bytes": 1753075,
+          "path_bytes": 32255
+        }
+      ],
+      "method": "Independently reconciled Git paths and postings; authenticated exact byte verification",
+      "candidate_reads": [
+        {
+          "repository": "chromium/chromium",
+          "objects": 5353,
+          "blob_bytes": 82017969
+        },
+        {
+          "repository": "electron/electron",
+          "objects": 124,
+          "blob_bytes": 1572358
+        },
+        {
+          "repository": "brave/brave-core",
+          "objects": 561,
+          "blob_bytes": 5177692
+        }
+      ]
+    },
+    "stderr": ""
+  },
+  "latest_before_rejection": {
+    "run": "58213a26b96641bc95060dbab9f43c2e",
+    "observation": 1,
+    "manifest_sha256": "cfee5b97fb5f649bc8b83d842d058a8768f94c595b35e1deaaa31719efa5395b",
+    "result_sha256": "d36fd03222f85be3fb81cbe9fc74f61f7bbf6204ae3f30a5d549e5994fc22021"
+  },
+  "latest_unchanged_after_rejection": true,
+  "no_publication_on_rejection": true,
+  "recovery_sha256": "d36fd03222f85be3fb81cbe9fc74f61f7bbf6204ae3f30a5d549e5994fc22021",
+  "recovery_output": "C:\\Users\\User\\Documents\\Codex\\2026-11-08\\nie\\outputs\\repo-proof-lab\\local\\r2-scale\\chx-01\\agents\\omission\\runs\\8e117d1121734aeeab6448ebb622ec01\\answer",
+  "recovery_byte_equal": true
+}

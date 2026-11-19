@@ -1,0 +1,505 @@
+{
+  "model": "claude-haiku-5-5",
+  "provider": "https://api.anthropic.com",
+  "review_pl": "Osobno sprawdzono tekst trzech końcowych odpowiedzi. Wszystkie poprawnie odróżniają odrzucenie operacji od stanu oczekującego wniosku i są zgodne z przytoczonymi liniami przypiętego Git. W pierwszej rundzie tylko B wyjaśniła regułę poprawnie w prozie. W drugiej wszystkie trzy odpowiedzi wskazały właściwe fragmenty, ale zawierały co najmniej jedno pole unknown.",
+  "repo": "apache/fineract",
+  "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+  "regular_git_files": 8635,
+  "method": "Three independent Polish paraphrases of one standard-loan business rule at one pinned commit. Each round ran the three cases concurrently. Claude chose its own retrieval terms and paths without gold answers. Round 1 allowed nine API turns per question. Round 2 used the first exact Java citation actually selected by each Claude run. A local heuristic expanded the source window and looked up callers using the inferred method and class names with two fresh R2 searches per case. One fresh Claude request per case received the original question and these numbered Git excerpts. The benchmark's independent answer key was never sent to Claude. No live Fineract server was exercised.",
+  "final_protocol": "A third round starts again from the original independently chosen paths. It performs fresh R2 searches and uses the same Git excerpts as round 2. It explicitly states that the application is pending before the attempt and defines what each output status means. Claude receives no expected outcome. The grading criteria and Git pin stay identical in all rounds.",
+  "timing": "Per-client elapsed time per phase includes API and tools plus automatic verification. Combined times sum the initial discovery and one indicated recheck. The experimental pauses to implement a variant and the manual assessment are outside these timings.",
+  "local_tools": {
+    "run.py": "8558c3356d758178d426b85841314521249f0091082d3695d9cc5eb888318d98",
+    "retrieval.py": "a382ad0513b982601980e88514019afad094627539ffa1ffc66cf399388df6c6",
+    "expand_run.py": "20b74cff88bcda3126cb97a1a024086271411212a0193184908a6884e48d8c8d",
+    "context.py": "1ebb12d3f8cdf6c8c4f29158b7ea5f3e74f01a6046c6abc108d2a14259493898",
+    "grade.py": "4affad5bba37cb272e750ad7edd31e8f50177246e71a294d25c40f4b6f34326a"
+  },
+  "cases": [
+    {
+      "id": "A",
+      "question": "Co się stanie, jeśli pracownik spróbuje zatwierdzić wniosek o pożyczkę z datą wcześniejszą niż data jego złożenia?",
+      "initial": {
+        "report_path": "local/claude-qa-mini/live-01/A/run.json",
+        "report_sha256": "3421f069a0312ef0cb89373bade03726c8d270eebbfc7eed3cc9dfe356bc53f9",
+        "answer": {
+          "answer_pl": "Nie znalazłem w kodzie reguły, która blokowałaby zatwierdzenie wniosku o pożyczkę z datą wcześniejszą niż data złożenia. Walidator zatwierdzenia sprawdza jedynie, że data zatwierdzenia (approvedOnDate) jest podana (notNull). Nie znalazłem też w przeszukanym kodzie porównania approvedOnDate z datą złożenia wniosku, więc na podstawie tych źródeł nie mogę potwierdzić, że system odrzuca taką datę. Według kodu z walidatora zatwierdzenie z wcześniejszą datą przeszłoby etap walidacji parametrów; ostateczne zachowanie zależy od logiki domeny, której nie udało mi się prześledzić. Stan wniosku po próbie: nieznany.</answer_pl>\n<parameter name=\"earlier_approval\">unknown",
+          "application_state": "unknown",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2117,
+              "end": 2119,
+              "quote": "final LocalDate approvedOnDate = this.fromApiJsonHelper.extractLocalDateNamed(LoanApiConstants.approvedOnDateParameterName,\n                    element);\n            baseDataValidator.reset().parameter(LoanApiConstants.approvedOnDateParameterName).value(approvedOnDate).notNull();"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": false,
+          "rule_supported": false,
+          "order_supported": false,
+          "automated_checks_passed": false,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true
+        ],
+        "time_seconds": {
+          "phase": 25.299889500020072,
+          "anthropic_api": 11.628338600101415,
+          "r2_search_commands": 12.014816100010648,
+          "final_git_check": 0.04056200000923127
+        },
+        "api_calls": 9,
+        "provider_message_ids": [
+          "msg_011ChC1r4r9rYzLPZzPLYNZz",
+          "msg_011ChC1rHJkoqV3Ejaa7yvRE",
+          "msg_011ChC1rUUiGW7ixQK1ENpPv",
+          "msg_011ChC1rfvHEo7fvpopuHftL",
+          "msg_011ChC1rvxANiSX2JsAhYqBE",
+          "msg_011ChC1sCMsTRVWCmoNjjfts",
+          "msg_011ChC1sGVuWMZVqT3bphbmd",
+          "msg_011ChC1sYpvM68xpxkADmBQ4",
+          "msg_011ChC1sckK7W3CsyWYuFSfk"
+        ],
+        "input_tokens": 58274,
+        "output_tokens": 1811,
+        "verified_r2_searches": 15
+      },
+      "expanded": {
+        "report_path": "local/claude-qa-mini/expanded-01/A/run.json",
+        "report_sha256": "5ef57f20e6ae87bd29ff35430f77de0e7815318b0714501d4988f988c0fdd39c",
+        "answer": {
+          "answer_pl": "Walidacja w validateApproval odrzuci wniosek, gdy data zatwierdzenia jest wcześniejsza niż data złożenia, rzucając InvalidLoanStateTransitionException, więc zatwierdzenie nie dochodzi do skutku. Wywołanie approveApplication nie wykona zmiany stanu, ponieważ walidacja przerywa przetwarzanie przed assembleLoanApproval.",
+          "earlier_approval": "unknown",
+          "application_state": "unknown",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2144,
+              "end": 2149,
+              "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {"
+            },
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+              "start": 587,
+              "end": 591,
+              "quote": "loanApplicationValidator.validateApproval(command, loanId);"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": false,
+          "rule_supported": true,
+          "order_supported": true,
+          "automated_checks_passed": false,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true,
+          true
+        ],
+        "time_seconds": {
+          "phase": 6.312057300005108,
+          "anthropic_api": 3.3239636999787763,
+          "r2_search_commands": 1.6820298000238836,
+          "final_git_check": 0.055651100003160536
+        },
+        "api_calls": 1,
+        "provider_message_ids": [
+          "msg_011ChC23Mt9NvXyptpbwvJTE"
+        ],
+        "input_tokens": 3992,
+        "output_tokens": 413,
+        "verified_r2_searches": 2
+      },
+      "defined_status": {
+        "report_path": "local/claude-qa-mini/defined-01/A/run.json",
+        "report_sha256": "92682b87f77b828907fb260a3938020943d7fdf49f3609700cd123d41e362bc3",
+        "answer": {
+          "answer_pl": "Walidacja w validateApproval odrzuca zatwierdzenie, gdy data zatwierdzenia jest wcześniejsza niż data złożenia wniosku, rzucając InvalidLoanStateTransitionException, więc wniosek pozostaje oczekujący. Operacja zatwierdzenia (assembleLoanApproval) nie zostaje wykonana.",
+          "earlier_approval": "rejected",
+          "application_state": "pending",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2144,
+              "end": 2149,
+              "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {"
+            },
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+              "start": 589,
+              "end": 591,
+              "quote": "loanApplicationValidator.validateApproval(command, loanId);"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": true,
+          "rule_supported": true,
+          "order_supported": true,
+          "automated_checks_passed": true,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true,
+          true
+        ],
+        "time_seconds": {
+          "phase": 5.561513399996329,
+          "anthropic_api": 2.4771984000108205,
+          "r2_search_commands": 1.7491174000315368,
+          "final_git_check": 0.05621940002311021
+        },
+        "api_calls": 1,
+        "provider_message_ids": [
+          "msg_011ChC281q2KUkRGsZ2qyVL4"
+        ],
+        "input_tokens": 4161,
+        "output_tokens": 393,
+        "verified_r2_searches": 2
+      },
+      "expanded_source_sha256": "871569a866b8b0ae56c5ac9bdeb0a15130bac488ea5d537c0be1c9e348313698",
+      "combined_measured_seconds": 30.8614029000164
+    },
+    {
+      "id": "B",
+      "question": "Klient złożył wniosek o pożyczkę 12 maja. Wpisuję 11 maja jako dzień zatwierdzenia tego wniosku. Czy mogę go tak zatwierdzić i co zrobi system?",
+      "initial": {
+        "report_path": "local/claude-qa-mini/live-01/B/run.json",
+        "report_sha256": "8eb5fb6ae06f7a5442baccc04fc3dd3598ba765f734f2d1f7c93b1a2609e98c5",
+        "answer": {
+          "answer_pl": "Nie, nie możesz zatwierdzić wniosku z datą 11 maja, bo jest wcześniejsza niż data złożenia wniosku (12 maja). System odrzuci operację wyjątkiem i wniosek nie zostanie zatwierdzony. Sprawdzenie jest wykonywane w walidatorze przed zapisem zmiany stanu: jeśli data zatwierdzenia jest przed datą złożenia wniosku, rzucany jest InvalidLoanStateTransitionException z kodem \"cannot.be.before.submittal.date\". Wniosek pozostaje więc w dotychczasowym stanie (oczekujący), a do zatwierdzenia potrzebna jest data 12 maja lub późniejsza.</answer_pl>\n<parameter name=\"earlier_approval\">unknown",
+          "application_state": "pending",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2144,
+              "end": 2149,
+              "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {\n                final String errorMessage = \"Loan approval date \" + approvedOnDate + \" can not be before its submittal date: \"\n                        + loan.getSubmittedOnDate();\n                throw new InvalidLoanStateTransitionException(\"approval\", \"cannot.be.before.submittal.date\", errorMessage, approvedOnDate,\n                        loan.getSubmittedOnDate());"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": false,
+          "rule_supported": true,
+          "order_supported": false,
+          "automated_checks_passed": false,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true
+        ],
+        "time_seconds": {
+          "phase": 19.80804780003382,
+          "anthropic_api": 10.87441960000433,
+          "r2_search_commands": 7.31677779997699,
+          "final_git_check": 0.026627000013832003
+        },
+        "api_calls": 9,
+        "provider_message_ids": [
+          "msg_011ChC1r4mh8Xnk4AymBkXgY",
+          "msg_011ChC1rHA51TDxcxCc2kaDs",
+          "msg_011ChC1rUKn6wGzeRh1UppLm",
+          "msg_011ChC1rfw2eCfWikrwTbeJd",
+          "msg_011ChC1rpQXS4akPYZzFzskA",
+          "msg_011ChC1rxUwDyJsWdvmbXvkq",
+          "msg_011ChC1s29hzvGeAWdcfYSSq",
+          "msg_011ChC1s5eZB2ZyCue19LHVy",
+          "msg_011ChC1sDekupxBFypRtQH2i"
+        ],
+        "input_tokens": 53143,
+        "output_tokens": 1746,
+        "verified_r2_searches": 9
+      },
+      "expanded": {
+        "report_path": "local/claude-qa-mini/expanded-01/B/run.json",
+        "report_sha256": "3790f6cb313ccea5cb88c06b990d8df164e442bb2f55b35f037fb3a48b579170",
+        "answer": {
+          "answer_pl": "Nie, zatwierdzenie z datą 11 maja jest niedozwolone, ponieważ data zatwierdzenia nie może być wcześniejsza niż data złożenia wniosku (12 maja); system zgłosi błąd walidacji i nie zmieni stanu wniosku. Walidacja i późniejsze wywołanie zmieniające stan znajdują się w tym samym przebiegu, więc przy błędzie żadna zmiana nie zostanie zapisana.",
+          "earlier_approval": "unknown",
+          "application_state": "unknown",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2144,
+              "end": 2149,
+              "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {"
+            },
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+              "start": 587,
+              "end": 591,
+              "quote": "loanApplicationValidator.validateApproval(command, loanId);"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": false,
+          "rule_supported": true,
+          "order_supported": true,
+          "automated_checks_passed": false,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true,
+          true
+        ],
+        "time_seconds": {
+          "phase": 6.338957800006028,
+          "anthropic_api": 3.354130099993199,
+          "r2_search_commands": 1.6849313999409787,
+          "final_git_check": 0.053040600032545626
+        },
+        "api_calls": 1,
+        "provider_message_ids": [
+          "msg_011ChC23MrPzgsi8JnpjoeWb"
+        ],
+        "input_tokens": 4204,
+        "output_tokens": 430,
+        "verified_r2_searches": 2
+      },
+      "defined_status": {
+        "report_path": "local/claude-qa-mini/defined-01/B/run.json",
+        "report_sha256": "3a4bb99d327b201ea43b5787d7397e2a910bbf57ad3207cc45f0c612889b5270",
+        "answer": {
+          "answer_pl": "Nie, zatwierdzenie z datą 11 maja jest niedozwolone, ponieważ data zatwierdzenia nie może być wcześniejsza niż data złożenia wniosku (12 maja), więc walidacja zwróci błąd i wniosek pozostanie oczekujący. System nie wykona zmiany stanu, a wniosek pozostanie w statusie oczekującym na decyzję.",
+          "earlier_approval": "rejected",
+          "application_state": "pending",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2144,
+              "end": 2149,
+              "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {"
+            },
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+              "start": 587,
+              "end": 591,
+              "quote": "loanApplicationValidator.validateApproval(command, loanId);"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": true,
+          "rule_supported": true,
+          "order_supported": true,
+          "automated_checks_passed": true,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true,
+          true
+        ],
+        "time_seconds": {
+          "phase": 5.7176121000084095,
+          "anthropic_api": 2.6386622000136413,
+          "r2_search_commands": 1.7512093000113964,
+          "final_git_check": 0.05268399999476969
+        },
+        "api_calls": 1,
+        "provider_message_ids": [
+          "msg_011ChC281sG8LLJUfKp6y2Ty"
+        ],
+        "input_tokens": 4373,
+        "output_tokens": 404,
+        "verified_r2_searches": 2
+      },
+      "expanded_source_sha256": "bc92e763376755f910766a071b60e19280533dec23305047fd8bdf03b6b8264a",
+      "combined_measured_seconds": 25.52565990004223
+    },
+    {
+      "id": "C",
+      "question": "Czy w Finerakcie zaakceptuję pożyczkę wstecz, jeżeli dzień decyzji wypada jeszcze przed wpłynięciem wniosku? Co stanie się z wnioskiem po takiej próbie?",
+      "initial": {
+        "report_path": "local/claude-qa-mini/live-01/C/run.json",
+        "report_sha256": "fac3dceb60563fd19518ba60d61612fc5d716c0fa02738766bdb66089e48f7a3",
+        "answer": {
+          "answer_pl": "Nie udało mi się w pinowanym kodzie potwierdzić, że Fineract blokuje zatwierdzenie pożyczki z datą wsteczną względem daty złożenia wniosku. Mogę jedynie potwierdzić, że walidator zatwierdzenia wymaga obecności daty `approvedOnDate` (notNull), ale nie znalazłem warunku porównującego ją z `submittedOnDate`. Jedyny znaleziony komunikat o dacie nie-wcześniejszej niż data złożenia dotyczy transakcji opłat w module progressive loan, a nie zatwierdzenia wniosku. Nie znalazłem też kodu, który zmieniałby status wniosku po takiej próbie. Wniosek o stanie aplikacji: nieznany (brak wystarczających dowodów). Zalecam sprawdzenie zachowania na środowisku testowym lub w testach integracyjnych.",
+          "earlier_approval": "unknown",
+          "application_state": "unknown",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2117,
+              "end": 2119,
+              "quote": "final LocalDate approvedOnDate = this.fromApiJsonHelper.extractLocalDateNamed(LoanApiConstants.approvedOnDateParameterName,\n                    element);\n            baseDataValidator.reset().parameter(LoanApiConstants.approvedOnDateParameterName).value(approvedOnDate).notNull();"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": false,
+          "rule_supported": false,
+          "order_supported": false,
+          "automated_checks_passed": false,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true
+        ],
+        "time_seconds": {
+          "phase": 25.038113599992357,
+          "anthropic_api": 11.207778999989387,
+          "r2_search_commands": 12.131078300066292,
+          "final_git_check": 0.029823800025042146
+        },
+        "api_calls": 9,
+        "provider_message_ids": [
+          "msg_011ChC1r4s96CMKzM1tZ6wdE",
+          "msg_011ChC1rHGku4TnXCvZv24B6",
+          "msg_011ChC1rTxhFSU9wpZKyxkJk",
+          "msg_011ChC1reopNf11EjEE3K8WA",
+          "msg_011ChC1rqXz61m15KJUd67hZ",
+          "msg_011ChC1s4HST5DtYeFmrHd8D",
+          "msg_011ChC1sCQquLQeGkhSZCzsw",
+          "msg_011ChC1sP25GE2LcoD1o2gjV",
+          "msg_011ChC1sbDnqS4aDg7q6jDUr"
+        ],
+        "input_tokens": 56971,
+        "output_tokens": 1660,
+        "verified_r2_searches": 15
+      },
+      "expanded": {
+        "report_path": "local/claude-qa-mini/expanded-01/C/run.json",
+        "report_sha256": "096ec20c67e51e13d6e87d0003963112a4bec9d0d5341d33d3b260eae43cdd1b",
+        "answer": {
+          "answer_pl": "Walidacja w validateApproval sprawdza, czy data zatwierdzenia nie jest wcześniejsza niż data złożenia wniosku, a w przypadku takiej sytuacji zgłasza InvalidLoanStateTransitionException, więc zatwierdzenie wstecz zostaje odrzucone. Ponieważ wyjątek jest rzucany przed wywołaniem assembleLoanApproval, wniosek nie zmienia stanu i pozostaje w obecnym statusie.",
+          "earlier_approval": "rejected",
+          "application_state": "unknown",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2144,
+              "end": 2149,
+              "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {"
+            },
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+              "start": 589,
+              "end": 591,
+              "quote": "loanApplicationValidator.validateApproval(command, loanId);"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": false,
+          "rule_supported": true,
+          "order_supported": true,
+          "automated_checks_passed": false,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true,
+          true
+        ],
+        "time_seconds": {
+          "phase": 6.464035600016359,
+          "anthropic_api": 3.471366300014779,
+          "r2_search_commands": 1.6847790000028908,
+          "final_git_check": 0.06195880001178011
+        },
+        "api_calls": 1,
+        "provider_message_ids": [
+          "msg_011ChC23MseSNvAirWJvBb4j"
+        ],
+        "input_tokens": 4017,
+        "output_tokens": 438,
+        "verified_r2_searches": 2
+      },
+      "defined_status": {
+        "report_path": "local/claude-qa-mini/defined-01/C/run.json",
+        "report_sha256": "0536da4a146bc240070cd07d12c30516a35fe0ba50d3a87387d4c23d25139746",
+        "answer": {
+          "answer_pl": "Na podstawie dostarczonego kodu walidacja zatwierdzenia sprawdza, czy data zatwierdzenia nie jest wcześniejsza niż data złożenia wniosku, i w takim przypadku zgłasza wyjątek, więc zatwierdzenie wstecz przed wpłynięciem wniosku zostaje odrzucone. Po nieudanej próbie wniosek pozostaje w stanie oczekującym, ponieważ kod nie pokazuje żadnej zmiany statusu wniosku w tym przypadku.",
+          "earlier_approval": "rejected",
+          "application_state": "pending",
+          "citations": [
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/serialization/LoanApplicationValidator.java",
+              "start": 2144,
+              "end": 2149,
+              "quote": "if (approvedOnDate != null && DateUtils.isBefore(approvedOnDate, loan.getSubmittedOnDate())) {"
+            },
+            {
+              "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/loanaccount/service/LoanApplicationWritePlatformServiceJpaRepositoryImpl.java",
+              "start": 587,
+              "end": 593,
+              "quote": "loanApplicationValidator.validateApproval(command, loanId);"
+            }
+          ]
+        },
+        "verification": {
+          "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+          "all_citations_valid": true,
+          "structured_claims_correct": true,
+          "rule_supported": true,
+          "order_supported": true,
+          "automated_checks_passed": true,
+          "manual_review_required": true
+        },
+        "each_citation_valid": [
+          true,
+          true
+        ],
+        "time_seconds": {
+          "phase": 5.819900399947073,
+          "anthropic_api": 2.739445200015325,
+          "r2_search_commands": 1.7494436000124551,
+          "final_git_check": 0.052502800012007356
+        },
+        "api_calls": 1,
+        "provider_message_ids": [
+          "msg_011ChC281vVJzZ2fiv7KohKs"
+        ],
+        "input_tokens": 4186,
+        "output_tokens": 454,
+        "verified_r2_searches": 2
+      },
+      "expanded_source_sha256": "871569a866b8b0ae56c5ac9bdeb0a15130bac488ea5d537c0be1c9e348313698",
+      "combined_measured_seconds": 30.85801399993943
+    }
+  ],
+  "negative_control": "Replacing an actual quotation in case A with an invented one failed the source check.",
+  "summary": {
+    "initial": {
+      "fully_verified": 0,
+      "api_calls": 27,
+      "verified_r2_searches": 39,
+      "median_phase_seconds": 25.038113599992357,
+      "median_api_seconds": 11.207778999989387
+    },
+    "expanded": {
+      "fully_verified": 0,
+      "api_calls": 3,
+      "verified_r2_searches": 6,
+      "median_phase_seconds": 6.338957800006028,
+      "median_api_seconds": 3.354130099993199
+    },
+    "defined_status": {
+      "fully_verified": 3,
+      "api_calls": 3,
+      "verified_r2_searches": 6,
+      "median_phase_seconds": 5.7176121000084095,
+      "median_api_seconds": 2.6386622000136413
+    },
+    "median_combined_measured_seconds": 30.85801399993943
+  }
+}

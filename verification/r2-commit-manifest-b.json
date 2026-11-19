@@ -1,0 +1,68 @@
+{
+  "format": "git-literal-corpus-manifest-v1",
+  "scope_sha256": "d69a8686cfaa8a102771785114443976c323bf149fe98605ff8f409859572865",
+  "repositories": [
+    {
+      "id": "chromium",
+      "directories": [
+        "chrome"
+      ],
+      "snapshot": {
+        "repository": "chromium/chromium",
+        "url": "https://github.com/chromium/chromium.git",
+        "commit": "3927f129b801f969d4abdb1458d55174cc062723",
+        "root_tree": "9126a9192eb20fda7cc2e0f5a6b5163dfae53b4b",
+        "object_format": "sha1",
+        "regular_paths": 80782,
+        "blob_paths": 80785,
+        "symlinks": 3,
+        "gitlinks": 35
+      },
+      "distinct_regular_blobs": 74089,
+      "distinct_regular_blob_bytes": 781713802,
+      "regular_path_bytes": 789787272
+    },
+    {
+      "id": "electron",
+      "directories": [],
+      "snapshot": {
+        "repository": "electron/electron",
+        "url": "https://github.com/electron/electron.git",
+        "commit": "a02e699e313706bceb6ed97219d30d825d73597d",
+        "root_tree": "ecf75fcf93ce54516b0929965facccae5fc2d0e4",
+        "object_format": "sha1",
+        "regular_paths": 2700,
+        "blob_paths": 2700,
+        "symlinks": 0,
+        "gitlinks": 0
+      },
+      "distinct_regular_blobs": 2662,
+      "distinct_regular_blob_bytes": 26311211,
+      "regular_path_bytes": 26420463
+    },
+    {
+      "id": "brave-core",
+      "directories": [],
+      "snapshot": {
+        "repository": "brave/brave-core",
+        "url": "https://github.com/brave/brave-core.git",
+        "commit": "38bf45887ca5336841cddb4200e6deee32ce45a8",
+        "root_tree": "21f15cb35a06c819d080872a0c404a771a76efc1",
+        "object_format": "sha1",
+        "regular_paths": 50083,
+        "blob_paths": 50099,
+        "symlinks": 16,
+        "gitlinks": 0
+      },
+      "distinct_regular_blobs": 44584,
+      "distinct_regular_blob_bytes": 979224260,
+      "regular_path_bytes": 1031524918
+    }
+  ],
+  "totals": {
+    "regular_paths": 133565,
+    "regular_path_bytes": 1847732653,
+    "distinct_regular_blobs": 121309,
+    "distinct_regular_blob_bytes": 1787212268
+  }
+}

@@ -1,0 +1,673 @@
+{
+  "date": "2026-11-19",
+  "model": "claude-sonnet-5-5",
+  "previous_model": "claude-haiku-5-5",
+  "previous_report": "verification/qa-transfer-02.json",
+  "windows_offline_regressions": {"passed": 67, "failed": 0, "skipped": 0, "seconds": 112.434},
+  "method": "The six questions, reference answers, public repositories, commits, R2 checked indices and ordering match the previous run. One fresh public ask CLI process per case, with a fresh per-case workspace. Publication status and substantive correctness were assessed separately, using pinned Git. Both series consist of a single observation per question. Wall times include process startup and verification; this run overlapped an independent local regression suite.",
+  "model_configuration": {
+    "sonnet": {
+      "sdk_model": "claude-sonnet-5-5",
+      "tool_choice": "auto",
+      "strict_tools": true,
+      "thinking": "adaptive",
+      "effort": "medium",
+      "max_output_per_request": 4096
+    },
+    "haiku": {
+      "sdk_model": "claude-haiku-5-5",
+      "tool_choice": "any or required submit",
+      "thinking": "disabled",
+      "max_output_per_request": 1500
+    },
+    "migration_reference": "https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide"
+  },
+  "frozen_inputs": {
+    "fineract-plan.json": "385c7d9db278d79e1ba6423fc7b3964a606305fa0dbb1dfd46e1ca21d0376c75",
+    "electron-plan.json": "a5442a3a26556c74d0a6fd2a8142aa2439c749b2c44c6709bb8dd5d12e956c4e",
+    "fineract_r2_ask.py": "6219ba7bd41b4c47b79259097f90c99d63bf164c6d7d5272a28dda00314e3a62"
+  },
+  "summary": {
+    "answered_after": 6,
+    "answered_before": 4,
+    "fully_correct_after": 5,
+    "fully_correct_before": 3,
+    "correct_core_with_extra_error_after": 1,
+    "common_answered_cases": [
+      "F-default",
+      "E-rule",
+      "E-default",
+      "E-usage"
+    ],
+    "median_common_seconds_after": 11.859,
+    "median_common_seconds_before": 6.403,
+    "median_all_delivered_after_seconds": 12.234,
+    "api_calls_after": 21,
+    "model_cost_usd_after": "0.177274",
+    "model_cost_usd_before": "0.0137543",
+    "verified_r2_searches_after": 15,
+    "verified_citations_after": 10
+  },
+  "usage_based_list_price_comparison": {
+    "rates_source": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "currency": "USD",
+    "basis": "Global/standard direct Anthropic Messages API, list-price estimate for every recorded request; excludes negotiated discounts, credits, taxes and any failed call with missing usage. Inputs charged per individual prompt, including cached tokens for threshold purpose.",
+    "vendors": {
+      "claude-haiku-5-5": {
+        "sum_usd": "0.0137543",
+        "calls": 27,
+        "calls_without_usage": 0,
+        "max_single_prompt_tokens": 8730,
+        "tokens": {
+          "input": 108863,
+          "output": 5736,
+          "cache_read": 0,
+          "cache_5m_write": 0,
+          "cache_1h_write": 0
+        },
+        "cases": [
+          {
+            "id": "E-rule",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 8869,
+              "output": 729,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.0012514"
+          },
+          {
+            "id": "E-default",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 7819,
+              "output": 629,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.0010964"
+          },
+          {
+            "id": "E-usage",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 12021,
+              "output": 912,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.0016581"
+          },
+          {
+            "id": "F-rule",
+            "calls": 10,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 48899,
+              "output": 1274,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.0055269"
+          },
+          {
+            "id": "F-default",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 7472,
+              "output": 525,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.0010097"
+          },
+          {
+            "id": "F-usage",
+            "calls": 5,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 23783,
+              "output": 1667,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.0032118"
+          }
+        ]
+      },
+      "claude-sonnet-5-5": {
+        "sum_usd": "0.177274",
+        "calls": 21,
+        "calls_without_usage": 0,
+        "max_single_prompt_tokens": 7650,
+        "tokens": {
+          "input": 65062,
+          "output": 4715,
+          "cache_read": 0,
+          "cache_5m_write": 0,
+          "cache_1h_write": 0
+        },
+        "cases": [
+          {
+            "id": "E-rule",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 7652,
+              "output": 743,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.022734"
+          },
+          {
+            "id": "E-default",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 6279,
+              "output": 386,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.016418"
+          },
+          {
+            "id": "E-usage",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 7779,
+              "output": 577,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.021328"
+          },
+          {
+            "id": "F-rule",
+            "calls": 5,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 16687,
+              "output": 1328,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.046654"
+          },
+          {
+            "id": "F-default",
+            "calls": 3,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 10226,
+              "output": 503,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.025482"
+          },
+          {
+            "id": "F-usage",
+            "calls": 4,
+            "calls_without_usage": 0,
+            "tokens": {
+              "input": 16439,
+              "output": 1178,
+              "cache_read": 0,
+              "cache_5m_write": 0,
+              "cache_1h_write": 0
+            },
+            "cost_usd": "0.044658"
+          }
+        ]
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "F-rule",
+      "question": "Czy Fineract pozwoli zamknąć rachunek oszczędnościowy, jeśli podczas zamykania wykryje jego powiązanie z aktywnym rachunkiem? Co stanie się z próbą zamknięcia?",
+      "question_type": "rule",
+      "repository": "apache/fineract",
+      "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+      "regular_files": 8635,
+      "expected": "Nie. Zamknięcie jest przerywane wyjątkiem SavingsAccountClosingNotAllowedException; do zamknięcia nie dochodzi. Wystarcza poprawny opis odmowy bez nazwy wyjątku.",
+      "reference_sources": [
+        {
+          "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/savings/service/SavingsAccountWritePlatformServiceJpaRepositoryImpl.java",
+          "start": 1051,
+          "end": 1057,
+          "reason": "Wywołanie kontroli powiązań, warunek i wyjątek odrzucający zamknięcie.",
+          "source": "        final boolean isLinkedWithAnyActiveLoan = this.accountAssociationsReadPlatformService.isLinkedWithAnyActiveAccount(savingsId);\n\n        if (isLinkedWithAnyActiveLoan) {\n            final String defaultUserMessage = \"Closing savings account with id:\" + savingsId\n                    + \" is not allowed, since it is linked with one of the active accounts\";\n            throw new SavingsAccountClosingNotAllowedException(\"linked\", defaultUserMessage, savingsId);\n        }"
+        },
+        {
+          "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/savings/handler/CloseSavingsAccountCommandHandler.java",
+          "start": 39,
+          "end": 40,
+          "reason": "Obsługa żądania uruchamia close; dodatkowe potwierdzenie ścieżki.",
+          "source": "    public CommandProcessingResult processCommand(final JsonCommand command) {\n        return this.writePlatformService.close(command.getSavingsId(), command);"
+        }
+      ],
+      "status": "VERIFIED",
+      "cli_exit": 0,
+      "reason": null,
+      "answer": "Nie. Jeśli rachunek jest powiązany z którymś aktywnym rachunkiem, metoda close rzuca SavingsAccountClosingNotAllowedException z komunikatem, że zamknięcie jest niedozwolone. Próba zostaje przerwana przed wypłatą salda i przed wywołaniem account.close(...), więc rachunek nie zostaje zamknięty. Dopiero gdy ten warunek nie zachodzi, kod przechodzi do account.close.",
+      "verdict": "no",
+      "reported_checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "citations_checked_against_git": [
+        {
+          "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/savings/service/SavingsAccountWritePlatformServiceJpaRepositoryImpl.java",
+          "start": 1053,
+          "end": 1056,
+          "quote": "throw new SavingsAccountClosingNotAllowedException(\"linked\", defaultUserMessage, savingsId);",
+          "blob_id": "dbc1df654c664d377147ff04712d158a967045d5"
+        },
+        {
+          "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/savings/service/SavingsAccountWritePlatformServiceJpaRepositoryImpl.java",
+          "start": 1104,
+          "end": 1105,
+          "quote": "final Map<String, Object> accountChanges = account.close(user, command);",
+          "blob_id": "dbc1df654c664d377147ff04712d158a967045d5"
+        }
+      ],
+      "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "measurements": {
+        "wall_seconds": 25.92745419999119,
+        "api_seconds": 21.58150670013856,
+        "r2_search_seconds": 1.5505937999114394,
+        "api_calls": 5,
+        "verified_r2_searches": 6,
+        "input_tokens": 16687,
+        "output_tokens": 1328
+      },
+      "raw": "local/qa-transfer-03/fw/qa/cedfe9b5be164e56",
+      "prior_model_outcome": {
+        "cli_status": "BLOCKED",
+        "grade": "NO_ANSWER",
+        "wall_seconds": 17.42342100001406
+      },
+      "fresh_grade": "CORRECT",
+      "review": "The independent Git read covers the active association check, exception and ordering before withdrawal and close. The second citation is downstream account.close, not a caller of the surrounding service method.",
+      "provider_message_ids": [
+        "msg_011ChCGkwrpDnNvtcy1MLU4W",
+        "msg_011ChCGmXD1wWQVX8XEuu4mH",
+        "msg_011ChCGmjxETKrs6dsxGaKie",
+        "msg_011ChCGmsFHDKJvSE6PuQfbw",
+        "msg_011ChCGnAbZRCxNhYyp9jiZC"
+      ]
+    },
+    {
+      "id": "F-default",
+      "question": "Jaki jest domyślny limit rozmiaru pojedynczego pliku wysyłanego do Fineracta przez multipart, gdy administrator nie zmienił konfiguracji?",
+      "question_type": "default",
+      "repository": "apache/fineract",
+      "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+      "regular_files": 8635,
+      "expected": "5 MB (5MB w konfiguracji pojedynczego pliku). Limit 10MB dla całego żądania nie jest odpowiedzią na pytanie.",
+      "reference_sources": [
+        {
+          "path": "fineract-provider/src/main/resources/application.properties",
+          "start": 247,
+          "end": 247,
+          "reason": "Właściwość spring.servlet.multipart.max-file-size ma rezerwową wartość 5MB przy braku nadpisania zmienną środowiskową.",
+          "source": "spring.servlet.multipart.max-file-size=${FINERACT_MULTIPART_FILE_SIZE:5MB}"
+        }
+      ],
+      "status": "VERIFIED",
+      "cli_exit": 0,
+      "reason": null,
+      "answer": "Domyślnie 5 MB na pojedynczy plik (spring.servlet.multipart.max-file-size, zmienna FINERACT_MULTIPART_FILE_SIZE). Limit całego żądania wynosi domyślnie 10 MB.",
+      "verdict": "yes",
+      "reported_checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "citations_checked_against_git": [
+        {
+          "path": "fineract-provider/src/main/resources/application.properties",
+          "start": 247,
+          "end": 248,
+          "quote": "spring.servlet.multipart.max-file-size=${FINERACT_MULTIPART_FILE_SIZE:5MB}",
+          "blob_id": "34af4b40fe495764ffb8952a4cc9352a34525d72"
+        }
+      ],
+      "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "measurements": {
+        "wall_seconds": 12.149985199910589,
+        "api_seconds": 7.382885599974543,
+        "r2_search_seconds": 0.5426403000019491,
+        "api_calls": 3,
+        "verified_r2_searches": 2,
+        "input_tokens": 10226,
+        "output_tokens": 503
+      },
+      "raw": "local/qa-transfer-03/fw/qa/74dbbef8cb1f4de7",
+      "prior_model_outcome": {
+        "cli_status": "VERIFIED",
+        "grade": "CORRECT",
+        "wall_seconds": 5.972990800044499
+      },
+      "fresh_grade": "CORRECT",
+      "review": "Both the single-file and total request size limits match application.properties lines 247–248.",
+      "provider_message_ids": [
+        "msg_011ChCGosWTX6xyZgS7iJiTH",
+        "msg_011ChCGp4Tmy8oi3kRPRHpAz",
+        "msg_011ChCGpE9gbP42JndwvAhTv"
+      ]
+    },
+    {
+      "id": "F-usage",
+      "question": "Podaj jeden przykład, gdzie przy obsłudze dokumentów Fineract faktycznie wywołuje notifyPostBusinessEvent. Przy jakiej operacji to robi i jakie zdarzenie przekazuje?",
+      "question_type": "usage",
+      "repository": "apache/fineract",
+      "commit": "d63beed7ccfeadaffa0c7842b1011bc88451376f",
+      "regular_files": 8635,
+      "expected": "Tworzenie dokumentu w createDocument publikuje DocumentCreatedBusinessEvent lub usuwanie w deleteDocument publikuje DocumentDeletedBusinessEvent. Wystarcza jeden poprawny przykład i rzeczywista linia wywołania.",
+      "reference_sources": [
+        {
+          "path": "fineract-document/src/main/java/org/apache/fineract/infrastructure/documentmanagement/service/DocumentWritePlatformServiceImpl.java",
+          "start": 84,
+          "end": 88,
+          "reason": "Pierwsza dopuszczalna odpowiedź. W createDocument (deklaracja w 66) po zapisie dokumentu wywoływana jest metoda z DocumentCreatedBusinessEvent.",
+          "source": "            documentRepository.save(doc);\n\n            businessEventNotifierService.notifyPostBusinessEvent(new DocumentCreatedBusinessEvent(documentMapper.map(doc)));\n\n            return DocumentCreateResponse.builder().resourceId(doc.getId()).resourceIdentifier(request.getEntityType()).build();"
+        },
+        {
+          "path": "fineract-document/src/main/java/org/apache/fineract/infrastructure/documentmanagement/service/DocumentWritePlatformServiceImpl.java",
+          "start": 161,
+          "end": 167,
+          "reason": "Druga dopuszczalna odpowiedź. W deleteDocument (deklaracja w 156) wywołanie przekazuje DocumentDeletedBusinessEvent.",
+          "source": "            storeService.delete(doc.getLocation());\n\n            documentRepository.deleteById(request.getId());\n\n            businessEventNotifierService.notifyPostBusinessEvent(new DocumentDeletedBusinessEvent(documentMapper.map(doc)));\n\n            return DocumentDeleteResponse.builder().resourceId(doc.getId()).resourceIdentifier(request.getEntityType()).build();"
+        }
+      ],
+      "status": "VERIFIED",
+      "cli_exit": 0,
+      "reason": null,
+      "answer": "Przykład: przy tworzeniu dokumentu, w metodzie createDocument w DocumentWritePlatformServiceImpl. Po zapisaniu encji Document w repozytorium (documentRepository.save(doc)) kod wywołuje businessEventNotifierService.notifyPostBusinessEvent i przekazuje zdarzenie DocumentCreatedBusinessEvent. Zdarzenie jest zbudowane z zamapowanego dokumentu: documentMapper.map(doc). Metodę createDocument wywołuje DocumentCreateCommandHandler.handle.",
+      "verdict": "yes",
+      "reported_checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "citations_checked_against_git": [
+        {
+          "path": "fineract-document/src/main/java/org/apache/fineract/infrastructure/documentmanagement/service/DocumentWritePlatformServiceImpl.java",
+          "start": 84,
+          "end": 86,
+          "quote": "businessEventNotifierService.notifyPostBusinessEvent(new DocumentCreatedBusinessEvent(documentMapper.map(doc)));",
+          "blob_id": "116601a3b3688e741204dcc6fabe42d38f6e9b9f"
+        },
+        {
+          "path": "fineract-document/src/main/java/org/apache/fineract/infrastructure/documentmanagement/handler/DocumentCreateCommandHandler.java",
+          "start": 43,
+          "end": 44,
+          "quote": "return writePlatformService.createDocument(command.getPayload());",
+          "blob_id": "3250e214d8678fac489d7cc5f85c5142aa1caf08"
+        }
+      ],
+      "manifest_sha256": "cd8139c9a1540c5eb271aecf7b228962c8d92da21ae12142b7d35d3fcf9c1425",
+      "measurements": {
+        "wall_seconds": 14.8571206999477,
+        "api_seconds": 11.914743299828842,
+        "r2_search_seconds": 0.7509005999891087,
+        "api_calls": 4,
+        "verified_r2_searches": 3,
+        "input_tokens": 16439,
+        "output_tokens": 1178
+      },
+      "raw": "local/qa-transfer-03/fw/qa/27c0e62ab268471f",
+      "prior_model_outcome": {
+        "cli_status": "BLOCKED",
+        "grade": "NO_ANSWER",
+        "wall_seconds": 12.087918599951081
+      },
+      "fresh_grade": "CORRECT",
+      "review": "The code saves the document, invokes notifyPostBusinessEvent with DocumentCreatedBusinessEvent, and the additional named command handler calls createDocument.",
+      "provider_message_ids": [
+        "msg_011ChCGqJ57GKHPhdFCnRtSS",
+        "msg_011ChCGqVrXM8HEUbaJncKtJ",
+        "msg_011ChCGqdf5czd77Un7WFP3s",
+        "msg_011ChCGquLeWrtYFZgFmLa1G"
+      ]
+    },
+    {
+      "id": "E-rule",
+      "question": "W Electron dwa moduły równocześnie proszą o blokady oszczędzania energii: jeden chce utrzymać aplikację aktywną, a drugi chce utrzymać włączony ekran. Która blokada ma pierwszeństwo i co to oznacza dla ekranu?",
+      "question_type": "rule",
+      "repository": "electron/electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "regular_files": 2700,
+      "expected": "Pierwszeństwo ma prevent-display-sleep. Gdy oba żądania są aktywne, system i ekran są utrzymywane aktywne.",
+      "reference_sources": [
+        {
+          "path": "shell/browser/api/electron_api_power_save_blocker.cc",
+          "start": 61,
+          "end": 73,
+          "reason": "Blok utrzymuje system i ekran aktywne; kod początkowo wybiera kPreventAppSuspension, ale dowolny kPreventDisplaySleep zmienia wynik i kończy pętlę.",
+          "source": "  // |WakeLockType::kPreventAppSuspension| keeps system active, but allows\n  // screen to be turned off.\n  // |WakeLockType::kPreventDisplaySleep| keeps system and screen active, has a\n  // higher precedence level than |WakeLockType::kPreventAppSuspension|.\n  //\n  // Only the highest-precedence blocker type takes effect.\n  device::mojom::WakeLockType new_lock_type =\n      device::mojom::WakeLockType::kPreventAppSuspension;\n  for (const auto& element : wake_lock_types_) {\n    if (element.second == device::mojom::WakeLockType::kPreventDisplaySleep) {\n      new_lock_type = device::mojom::WakeLockType::kPreventDisplaySleep;\n      break;\n    }"
+        },
+        {
+          "path": "docs/api/power-save-blocker.md",
+          "start": 28,
+          "end": 39,
+          "reason": "Dokumentacja publicznego API na tej wersji jawnie podaje zachowanie i pierwszeństwo. Stanowi alternatywne bezpośrednie potwierdzenie.",
+          "source": "  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps\n    system and screen active. Example use case: playing video.\n\nReturns `Integer` - The blocker ID that is assigned to this power blocker.\n\nStarts preventing the system from entering lower-power mode. Returns an integer\nidentifying the power save blocker.\n\n> [!NOTE]\n> `prevent-display-sleep` has higher precedence over\n> `prevent-app-suspension`. Only the highest precedence type takes effect. In\n> other words, `prevent-display-sleep` always takes precedence over"
+        }
+      ],
+      "status": "VERIFIED",
+      "cli_exit": 0,
+      "reason": null,
+      "answer": "Pierwszeństwo ma blokada „prevent-display-sleep” (utrzymanie włączonego ekranu). Gdy aktywne są obie, obowiązuje tylko ta o najwyższym priorytecie. Ekran pozostaje więc włączony, razem z systemem. Blokada „prevent-app-suspension” sama utrzymuje system aktywny, ale pozwala wyłączyć ekran. Po zatrzymaniu blokady ekranu zaczyna obowiązywać „prevent-app-suspension”, więc ekran może się już wyłączyć.",
+      "verdict": "yes",
+      "reported_checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "citations_checked_against_git": [
+        {
+          "path": "shell/browser/api/electron_api_power_save_blocker.cc",
+          "start": 61,
+          "end": 71,
+          "quote": "Only the highest-precedence blocker type takes effect.",
+          "blob_id": "57995578704f9c568e2a14390f8945e31cbb7bd1"
+        },
+        {
+          "path": "docs/api/power-save-blocker.md",
+          "start": 42,
+          "end": 45,
+          "quote": "will be used until B stops its request.",
+          "blob_id": "348a6b78907a603e65333bc4e035440ccd13f8ba"
+        }
+      ],
+      "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "measurements": {
+        "wall_seconds": 12.31802680005785,
+        "api_seconds": 9.903787599876523,
+        "r2_search_seconds": 0.4608297999948263,
+        "api_calls": 3,
+        "verified_r2_searches": 2,
+        "input_tokens": 7652,
+        "output_tokens": 743
+      },
+      "raw": "local/qa-transfer-03/ew/qa/ac3cdcf36b024756",
+      "prior_model_outcome": {
+        "cli_status": "VERIFIED",
+        "grade": "CORRECT",
+        "wall_seconds": 6.7930073000025
+      },
+      "fresh_grade": "CORRECT",
+      "review": "Implementation and public documentation support display blocker priority, keeping the screen active, and the transition when the display blocker is released.",
+      "provider_message_ids": [
+        "msg_011ChCGno538hgtXzTTQeV1x",
+        "msg_011ChCGnzbqAZRCcdM7Yyub5",
+        "msg_011ChCGoFme7qbZbozmX4L6N"
+      ]
+    },
+    {
+      "id": "E-default",
+      "question": "Jakie domyślne wymiary miniatur źródeł przechwytywania pulpitu ustawia Electron, kiedy aplikacja nie poda rozmiaru?",
+      "question_type": "default",
+      "repository": "electron/electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "regular_files": 2700,
+      "expected": "150 pikseli szerokości i 150 pikseli wysokości.",
+      "reference_sources": [
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 35,
+          "end": 35,
+          "reason": "getSources podstawia 150 dla width i height przy braku thumbnailSize.",
+          "source": "  const { thumbnailSize = { width: 150, height: 150 } } = args;"
+        },
+        {
+          "path": "docs/api/desktop-capturer.md",
+          "start": 86,
+          "end": 87,
+          "reason": "Alternatywne, bezpośrednie potwierdzenie wartości domyślnej w dokumentacji API. Implementacja pokazuje tę samą wartość.",
+          "source": "  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail\n    should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need"
+        }
+      ],
+      "status": "VERIFIED",
+      "cli_exit": 0,
+      "reason": null,
+      "answer": "Gdy aplikacja nie poda `thumbnailSize`, Electron używa miniatur o wymiarach 150×150 px (szerokość 150, wysokość 150).",
+      "verdict": "yes",
+      "reported_checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "citations_checked_against_git": [
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 35,
+          "end": 35,
+          "quote": "const { thumbnailSize = { width: 150, height: 150 } } = args;",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+        }
+      ],
+      "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "measurements": {
+        "wall_seconds": 9.38235990004614,
+        "api_seconds": 7.306253400049172,
+        "r2_search_seconds": 0.23047200008295476,
+        "api_calls": 3,
+        "verified_r2_searches": 1,
+        "input_tokens": 6279,
+        "output_tokens": 386
+      },
+      "raw": "local/qa-transfer-03/ew/qa/b6c2174a834f40b1",
+      "prior_model_outcome": {
+        "cli_status": "VERIFIED",
+        "grade": "CORRECT",
+        "wall_seconds": 6.012118399958126
+      },
+      "fresh_grade": "CORRECT",
+      "review": "The default initialization in desktop-capturer.ts supplies width and height 150 pixels.",
+      "provider_message_ids": [
+        "msg_011ChCGpbNP8C4hsfJ9S6pfJ",
+        "msg_011ChCGpoHFMyLvaZ1Edw672",
+        "msg_011ChCGpwtAQKiXifDSJygMA"
+      ]
+    },
+    {
+      "id": "E-usage",
+      "question": "Podaj jeden przykład z działającego kodu samego Electrona, w którym wywoływana jest metoda BrowserWindow.getAllWindows(). Do czego w tym miejscu służy lista okien?",
+      "question_type": "usage",
+      "repository": "electron/electron",
+      "commit": "d60ae179985685d75d238ee33e17c15a7b53d703",
+      "regular_files": 2700,
+      "expected": "Np. BrowserWindow.getFocusedWindow() przechodzi przez listę okien, aby znaleźć okno z fokusem (również z aktywnymi DevTools). Alternatywnie desktopCapturer.getSources na macOS iteruje po oknach, by zapamiętać stan resizable. Inne rzeczywiste, wykonywane wywołania tej dokładnej metody w implementacji są dopuszczalne, jeśli opis celu odpowiada kodowi.",
+      "reference_sources": [
+        {
+          "path": "lib/browser/api/browser-window.ts",
+          "start": 114,
+          "end": 120,
+          "reason": "Wykonywane wywołanie z pętli getFocusedWindow, filtr i konkretny warunek wyboru.",
+          "source": "BrowserWindow.getFocusedWindow = () => {\n  for (const window of BrowserWindow.getAllWindows()) {\n    if (!window.isDestroyed() && window.webContents && !window.webContents.isDestroyed()) {\n      if (window.isFocused() || window.webContents.isDevToolsFocused()) return window;\n    }\n  }\n  return null;"
+        },
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 22,
+          "end": 29,
+          "reason": "Alternatywny rzeczywisty caller dla macOS; lista służy do zapisania stanu resizable okien.",
+          "source": "  const resizableValues = new Map();\n  if (process.platform === 'darwin') {\n    // Fix for bug in ScreenCaptureKit that modifies a window's styleMask the first time\n    // it captures a non-resizable window. We record each non-resizable window's styleMask,\n    // and we restore modified styleMasks later, after the screen capture.\n    for (const win of BrowserWindow.getAllWindows()) {\n      resizableValues.set([win.id], win.resizable);\n    }"
+        },
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 62,
+          "end": 66,
+          "reason": "Drugi caller w module macOS: próba przywrócenia resizable na podstawie mapy. Dla tej alternatywy ważne odróżnienie intencji przywrócenia od gwarancji skuteczności.",
+          "source": "        if (process.platform === 'darwin') {\n          for (const win of BrowserWindow.getAllWindows()) {\n            if (resizableValues.has(win.id)) {\n              win.resizable = resizableValues.get(win.id);\n            }"
+        }
+      ],
+      "status": "VERIFIED",
+      "cli_exit": 0,
+      "reason": null,
+      "answer": "Przykład: lib/browser/api/desktop-capturer.ts, funkcja getSources. Na macOS lista okien służy do obejścia błędu ScreenCaptureKit, który przy pierwszym przechwyceniu nieresizowalnego okna zmienia jego styleMask. Przed przechwyceniem kod zapisuje właściwość `resizable` każdego okna, a po zakończeniu przechwytywania (w stopRunning) znów iteruje po getAllWindows() i przywraca zapamiętane wartości.",
+      "verdict": "yes",
+      "reported_checks": {
+        "citations": "VERIFIED",
+        "business_conclusion": "NOT_CHECKED"
+      },
+      "citations_checked_against_git": [
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 23,
+          "end": 30,
+          "quote": "for (const win of BrowserWindow.getAllWindows()) {",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+        },
+        {
+          "path": "lib/browser/api/desktop-capturer.ts",
+          "start": 62,
+          "end": 67,
+          "quote": "win.resizable = resizableValues.get(win.id);",
+          "blob_id": "42a8fd8ab96b720b16c43bb390b1b9a43acc9ab2"
+        }
+      ],
+      "manifest_sha256": "ad07d8ec7169e0120084bad9c42d13c0aed60ec2e94e5b682b87bf3bc82869fc",
+      "measurements": {
+        "wall_seconds": 11.568957899929956,
+        "api_seconds": 7.87984239985235,
+        "r2_search_seconds": 0.2288623999338597,
+        "api_calls": 3,
+        "verified_r2_searches": 1,
+        "input_tokens": 7779,
+        "output_tokens": 577
+      },
+      "raw": "local/qa-transfer-03/ew/qa/19a8891ef266407d",
+      "prior_model_outcome": {
+        "cli_status": "VERIFIED",
+        "grade": "CORE_CORRECT_EXTRA_INCORRECT",
+        "wall_seconds": 7.576239100075327
+      },
+      "fresh_grade": "CORE_CORRECT_EXTRA_INCORRECT",
+      "review": "Found the actual macOS getAllWindows calls and their intended purpose. The answer claims successful restoration, but line 28 sets an array key [win.id]; lines 64–65 use the number win.id for has/get. The pinned implementation does not support that conclusion.",
+      "provider_message_ids": [
+        "msg_011ChCGrVqJzjjouR4V1biYi",
+        "msg_011ChCGrhUoLTnMGp3WrpSJR",
+        "msg_011ChCGrqJqL55TvGmrXvyQk"
+      ]
+    }
+  ]
+}
